@@ -10,7 +10,9 @@ import '../../Core/app_color.dart';
 class RefactorTextFormField extends StatelessWidget {
   RefactorTextFormField({
     super.key,
+    this.changeHeight = false,
   });
+  final bool changeHeight;
   @override
   Widget build(BuildContext context) {
     return Padding(
