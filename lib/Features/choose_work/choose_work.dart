@@ -11,6 +11,7 @@ class ChooseWork extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.white,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: AppColor.white,

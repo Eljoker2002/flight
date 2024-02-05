@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         return child!;
       },
       debugShowCheckedModeBanner: false,
-      home:LoginScreen(),
+      home:ChooseWork(),
     );
   }
 }
