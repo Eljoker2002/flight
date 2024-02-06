@@ -91,49 +91,61 @@ class FormScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-             Table(
-               border: TableBorder.all(width: 1.w),
-               children: <TableRow>[
-                 _tableRow,
-               ],
-             ),
-              Table(
-                border: TableBorder.all(width: 1.w),
-                children: <TableRow>[
-                 _tableColumn1,
-                ],
-              ),Table(
-                border: TableBorder.all(width: 1.w),
-                children: <TableRow>[
-                 _tableRow,
-                ],
-              ),Table(
-        border: TableBorder.all(width: 1.w),
-        children: <TableRow>[
-          _tableColumn2]),
-              Table(
-                border: TableBorder.all(width: 1.w),
-                children: <TableRow>[
-                 _tableColumn3,
-                  _tableColumn3,
-                  _tableColumn3,
-                  _tableColumn3,
-                  _tableColumn3,
-                  _tableColumn3,
-                  _tableColumn3,
-                  _tableColumn3,
-                  _tableColumn3,
-                  _tableColumn3,
-                  _tableColumn3,
-                  _tableColumn3,
-                  _tableColumn3,
-                  _tableColumn3,
-                  _tableColumn3,
-                  _tableColumn3,
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Column(
+                  children: [
+                          Table(
+                            defaultColumnWidth: FixedColumnWidth(500.0),
+                          border: TableBorder.all(width: 1.w),
+                          children: <TableRow>[
+                            _tableRow,
+                          ],
+                        ),
+                        Table(
+                          defaultColumnWidth: FixedColumnWidth(400.0),
+                          border: TableBorder.all(width: 1.w),
+                          children: <TableRow>[
+                            _tableColumn1,
+                          ],
+                        ),Table(
+                      defaultColumnWidth: FixedColumnWidth(400.0),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          _tableRow,
+                        ],
+                      ),Table(
+                        defaultColumnWidth: FixedColumnWidth(200.0),
+                          border: TableBorder.all(width: 1.w),
+                          children: <TableRow>[
+                            _tableColumn2]),
+                        Table(
+                          defaultColumnWidth: FixedColumnWidth(200.0),
+                          border: TableBorder.all(width: 1.w),
+                          children: <TableRow>[
+                                        _tableColumn3,
+                                        _tableColumn3,
+                                        _tableColumn3,
+                                        _tableColumn3,
+                                        _tableColumn3,
+                                        _tableColumn3,
+                                        _tableColumn3,
+                                        _tableColumn3,
+                                        _tableColumn3,
+                                        _tableColumn3,
+                                        _tableColumn3,
+                                        _tableColumn3,
+                                        _tableColumn3,
+                                        _tableColumn3,
+                                        _tableColumn3,
+                                        _tableColumn3,
 
 
 
-                ],
+                          ],
+                        )
+                  ],
+                ),
               )
             ],
           ),
