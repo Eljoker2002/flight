@@ -99,13 +99,18 @@ class LoginScreen extends StatelessWidget {
                       SizedBox(
                         height: 15.h,
                       ),
-                      Text(
-                        "I’am an admin",
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            color: AppColor.blue29,
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w400,
+                      InkWell(
+                        onTap: (){
+                      //    Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewScreen()));
+                        },
+                        child: Text(
+                          "I’am an admin",
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                              color: AppColor.blue29,
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.w400,
+                            ),
                           ),
                         ),
                       ),

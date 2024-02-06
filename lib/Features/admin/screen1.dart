@@ -8,6 +8,8 @@ import 'package:printing/printing.dart';
 import 'dart:typed_data';
 import 'dart:io';
 
+import '../../Core/app_color.dart';
+
 class MyHomePage extends StatelessWidget {
   // pw.Widget _buildPdfContent() {
   //   return pw.Container(
@@ -258,82 +260,130 @@ class MyHomePage extends StatelessWidget {
     ]);
 
     return Scaffold(
+        appBar: AppBar(
+        elevation: 0,),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
             children: [
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                child: Column(
-                  children: [
-                    Table(
-                      defaultColumnWidth: FixedColumnWidth(1284.w),
-                      border: TableBorder.all(width: 1.w),
-                      children: <TableRow>[
-                        TableRow(children: [
-                          Container(
-                            width: double.infinity,
-                            height: 50.h,
-                            child: Center(
+                child: Container(
+                  width: 1285.5.w,
+                  child: Column(
+                    children: [
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(1285.5.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          TableRow(children: [
+                            Container(
+                              color: Colors.cyan,
+                              width: 1285.5.w,
+                              height: 40.h,
+                              child: Center(
+                                child: Text(
+                                  "CABIN CREW INFLIGHT COMPETENCY CHECK",
+                                  style: TextStyle(
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ]),
+                        ],
+                      ),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(643.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          TableRow(children: [
+                            Container(
+                             // color: Colors.cyanAccent,
+                              width: 321.5.w,
+                              height: 50.h,
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: Row(
+                                  children: [
+                                    Text("Trainee Name"),
+                                    TextFormField(
+                                      decoration: InputDecoration(
+                                         // hintText: "",
+                                          border: OutlineInputBorder(
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(color: Colors.transparent)
+                                          ),enabledBorder:OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: Colors.transparent,
+
+                                          )
+                                      )
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ),
+                            Container(
+                              color: Colors.cyanAccent,
+                              width: 321.5.w,
+                              height: 50.h,
                               child: Text(
-                                "CABIN CREW INFLIGHT COMPETENCY CHECK",
+                                "Trainee",
                                 style: TextStyle(
-                                  fontSize: 16.sp,
+                                  fontSize: 8.sp,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
-                          ),
-                        ]),
-                      ],
-                    ),
-                    Table(
-                      defaultColumnWidth: FixedColumnWidth(642.w),
-                      border: TableBorder.all(width: 1.w),
-                      children: <TableRow>[
-                        _tableColumn1,
-                      ],
-                    ),
-                    Table(
-                      defaultColumnWidth: FixedColumnWidth(1284.w),
-                      border: TableBorder.all(width: 1.w),
-                      children: <TableRow>[
-                        _tableRow,
-                      ],
-                    ),
-                    Table(
-                        defaultColumnWidth: FixedColumnWidth(200.0),
+                          ]),
+                        //  _tableColumn1,
+                        ],
+                      ),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(1285.5.w),
                         border: TableBorder.all(width: 1.w),
-                        children: <TableRow>[_tableColumn2]),
-                    Table(
-                      defaultColumnWidth: FixedColumnWidth(200.0),
-                      border: TableBorder.all(width: 1.w),
-                      children: <TableRow>[
-                        _tableColumn3,
-                        _tableColumn3,
-                        _tableColumn3,
-                        _tableColumn3,
-                        _tableColumn3,
-                        _tableColumn3,
-                        _tableColumn3,
-                        _tableColumn3,
-                        _tableColumn3,
-                        _tableColumn3,
-                        _tableColumn3,
-                        _tableColumn3,
-                        _tableColumn3,
-                        _tableColumn3,
-                        _tableColumn3,
-                        _tableColumn3,
-                      ],
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        _saveAndPrintPdf();
-                      },
-                      child: Text('Save and Print PDF'),
-                    ),
-                  ],
+                        children: <TableRow>[
+                          _tableRow,
+                        ],
+                      ),
+                      Table(
+                          defaultColumnWidth: FixedColumnWidth(210.0),
+                          border: TableBorder.all(width: 1.w),
+                          children: <TableRow>[_tableColumn2]),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(210.0),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                        ],
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          _saveAndPrintPdf();
+                        },
+                        child: Text('Save and Print PDF'),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
