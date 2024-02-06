@@ -180,21 +180,167 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TableRow _tableRow = const TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Content1"),
+      ),
+    ]);
+    TableRow _tableColumn1 = const TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Content2"),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Content2"),
+      ),
+    ]);
+    TableRow _tableColumn2 = const TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Sectors"),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Content2"),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Content2"),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Content2"),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Content2"),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Content2"),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Content2"),
+      ),
+    ]);
+    TableRow _tableColumn3 = const TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Content2"),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Content2"),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Content2"),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Content2"),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Content2"),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Content2"),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Content2"),
+      ),
+    ]);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Save and Print Example'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Welcome to Flutter PDF Example'),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _saveAndPrintPdf,
-              child: Text('Save and Print PDF'),
-            ),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Column(
+                  children: [
+                    Table(
+                      defaultColumnWidth: FixedColumnWidth(1284.w),
+                      border: TableBorder.all(width: 1.w),
+                      children: <TableRow>[
+                        TableRow(children: [
+                          Container(
+                            width: double.infinity,
+                            height: 50.h,
+                            child: Center(
+                              child: Text(
+                                "CABIN CREW INFLIGHT COMPETENCY CHECK",
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ]),
+                      ],
+                    ),
+                    Table(
+                      defaultColumnWidth: FixedColumnWidth(642.w),
+                      border: TableBorder.all(width: 1.w),
+                      children: <TableRow>[
+                        _tableColumn1,
+                      ],
+                    ),
+                    Table(
+                      defaultColumnWidth: FixedColumnWidth(1284.w),
+                      border: TableBorder.all(width: 1.w),
+                      children: <TableRow>[
+                        _tableRow,
+                      ],
+                    ),
+                    Table(
+                        defaultColumnWidth: FixedColumnWidth(200.0),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[_tableColumn2]),
+                    Table(
+                      defaultColumnWidth: FixedColumnWidth(200.0),
+                      border: TableBorder.all(width: 1.w),
+                      children: <TableRow>[
+                        _tableColumn3,
+                        _tableColumn3,
+                        _tableColumn3,
+                        _tableColumn3,
+                        _tableColumn3,
+                        _tableColumn3,
+                        _tableColumn3,
+                        _tableColumn3,
+                        _tableColumn3,
+                        _tableColumn3,
+                        _tableColumn3,
+                        _tableColumn3,
+                        _tableColumn3,
+                        _tableColumn3,
+                        _tableColumn3,
+                        _tableColumn3,
+                      ],
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        _saveAndPrintPdf();
+                      },
+                      child: Text('Save and Print PDF'),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
