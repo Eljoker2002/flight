@@ -6,6 +6,7 @@ import 'package:flight/Features/log_in_screen/login_in.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'Features/admin/screen1.dart';
+import 'Features/instructor/screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         return child!;
       },
       debugShowCheckedModeBanner: false,
-      home: FormScreen(),
+      home: LoginScreen(),
     );
   }
 }
