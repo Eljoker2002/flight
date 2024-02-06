@@ -258,9 +258,6 @@ class MyHomePage extends StatelessWidget {
     ]);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Save and Print Example'),
-      ),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
