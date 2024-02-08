@@ -752,248 +752,243 @@ class _MyHomePageState extends State<MyHomePage> {
     );
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: EdgeInsets.symmetric(vertical: 40.h),
-        child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Container(
-                    height: 1543.sp,
-                    width: 1285.w,
-                    child: Expanded(
-                      child: Column(
-                        children: [
-                          Table(
-                            defaultColumnWidth: FixedColumnWidth(1285.w),
-                            border: TableBorder.all(width: 1.w),
-                            children: <TableRow>[
-                              TableRow(children: [
-                                Container(
-                                  width: 1285.w,
-                                  height: 40.h,
-                                  child: Center(
-                                    child: CustomText(
-                                      text:
-                                          "CABIN CREW INFLIGHT COMPETENCY CHECK",
-                                      fontSize: 16.sp,
-                                    ),
-                                  ),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Container(
+                  height: 1500.h,
+                  width: 1285.w,
+                  child: Column(
+                    children: [
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(1285.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          TableRow(children: [
+                            Container(
+                              width: 1285.w,
+                              height: 40.h,
+                              child: Center(
+                                child: CustomText(
+                                  text:
+                                      "CABIN CREW INFLIGHT COMPETENCY CHECK",
+                                  fontSize: 16.sp,
                                 ),
-                              ]),
-                            ],
-                          ),
-                          Table(
-                            defaultColumnWidth: FixedColumnWidth(643.w),
-                            border: TableBorder.all(width: 1.w),
-                            children: <TableRow>[
-                              TableRow(
-                                children: [
-                                  Container(
-                                    // color: Colors.cyanAccent,
-                                    width: 321.5.w,
-                                    height: 50.h,
-                                    child: Row(
-                                      children: [
-                                        SizedBox(width: 2.w),
-                                        CustomText(
-                                          text: "Trainee Name:",
-                                          fontSize: 14.sp,
-                                        ),
-                                        CustomFormField(),
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    // color: Colors.cyanAccent,
-                                    width: 321.5.w,
-                                    height: 50.h,
-                                    child: Row(
-                                      children: [
-                                        SizedBox(width: 2.w),
-                                        CustomText(
-                                          text: "Code Num:",
-                                          fontSize: 14.sp,
-                                        ),
-                                        CustomFormField(),
-                                      ],
-                                    ),
-                                  ),
-                                ],
                               ),
-                            ],
-                          ),
-                          Table(
-                            columnWidths: {
-                              0: FlexColumnWidth(4),
-                              1: FlexColumnWidth(1),
-                            },
-                            defaultColumnWidth: FixedColumnWidth(1285.w),
-                            border: TableBorder.all(width: 1.w),
-                            children: <TableRow>[
-                              TableRow(
-                                children: [
-                                  Container(
-                                    // color: Colors.cyanAccent,
-                                    width: 500.w,
-                                    height: 30.h,
-                                    child: Row(
-                                      children: [
-                                        SizedBox(width: 2.w),
-                                        CustomText(
-                                          text: "Training Categories:",
-                                          fontSize: 14.sp,
-                                        ),
-                                        Checkbox(value: false, onChanged: (v) {}),
-                                        CustomText(
-                                          text: "Initial",
-                                          fontSize: 14.sp,
-                                        ),
-                                        Checkbox(value: false, onChanged: (v) {}),
-                                        CustomText(
-                                          text: "Transition",
-                                          fontSize: 14.sp,
-                                        ),
-                                        Checkbox(value: false, onChanged: (v) {}),
-                                        CustomText(
-                                          text: "Requalification Recurrent",
-                                          fontSize: 14.sp,
-                                        ),
-                                        Checkbox(value: false, onChanged: (v) {}),
-                                        CustomText(
-                                          text: "SEP1",
-                                          fontSize: 14.sp,
-                                        ),
-                                        Checkbox(value: false, onChanged: (v) {}),
-                                        CustomText(
-                                          text: "SEP2",
-                                          fontSize: 14.sp,
-                                        ),
-                                      ],
+                            ),
+                          ]),
+                        ],
+                      ),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(643.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          TableRow(
+                            children: [
+                              Container(
+                                // color: Colors.cyanAccent,
+                                width: 321.5.w,
+                                height: 50.h,
+                                child: Row(
+                                  children: [
+                                    SizedBox(width: 2.w),
+                                    CustomText(
+                                      text: "Trainee Name:",
+                                      fontSize: 14.sp,
                                     ),
-                                  ),
-                                  Container(
-                                    // color: Colors.cyanAccent,
-                                    width: 50.w,
-                                    height: 30.h,
-                                    child: Row(
-                                      children: [
-                                        SizedBox(width: 2.w),
-                                        CustomText(
-                                          text: "Date:",
-                                          fontSize: 14.sp,
-                                        ),
-                                        SizedBox(width: 4.w),
-                                        CustomDate(),
-                                      ],
-                                    ),
-                                  ),
-                                ],
+                                    CustomFormField(),
+                                  ],
+                                ),
                               ),
-                            ],
-                          ),
-                          Table(
-                              defaultColumnWidth: FixedColumnWidth(184.w),
-                              border: TableBorder.all(width: 1.w),
-                              children: <TableRow>[_tableColumn2]),
-                          Table(
-                            defaultColumnWidth: FixedColumnWidth(184.w),
-                            border: TableBorder.all(width: 1.w),
-                            children: <TableRow>[
-                              _tableColumn3,
-                              _tableColumn3,
-                              _tableColumn3,
-                              _tableColumn3,
-                              _tableColumn3,
-                              _tableColumn3,
-                              _tableColumn3,
-                              _tableColumn3,
-                              _tableColumn3,
-                              _tableColumn3,
-                              _tableColumn3,
-                              _tableColumn3,
-                              _tableColumn3,
-                              _tableColumn3,
-                              _tableColumn3,
-                              _tableColumn3,
-                            ],
-                          ),
-                          Table(
-                            columnWidths: {
-                              0: FlexColumnWidth(15),
-                              1: FlexColumnWidth(1),
-                              2: FlexColumnWidth(1),
-                              3: FlexColumnWidth(1),
-                              4: FlexColumnWidth(1),
-                            },
-                            defaultColumnWidth: FixedColumnWidth(300.w),
-                            border: TableBorder.all(width: 1.w),
-                            children: <TableRow>[
-                              _tableColumn1,
-                              _tableColumn4,
-                              _tableColumn5,
-                              _tableColumn6,
-                              _tableColumn7,
-                              _tableColumn8,
-                              _tableColumn9,
-                              _tableColumn10,
-                              _tableColumn11,
-                              _tableColumn12,
-                              _tableColumn13,
-                              _tableColumn14,
-                            ],
-                          ),
-                          Table(
-                            defaultColumnWidth: FixedColumnWidth(214.5.w),
-                            border: TableBorder.all(width: 1.w),
-                            children: <TableRow>[
-                              _tableColumn15,
-                            ],
-                          ),
-                          Table(
-                            defaultColumnWidth: FixedColumnWidth(214.5.w),
-                            border: TableBorder.all(width: 1.w),
-                            children: <TableRow>[
-                              _tableColumn16,
-                            ],
-                          ),
-                          Table(
-                            defaultColumnWidth: FixedColumnWidth(214.5.w),
-                            border: TableBorder.all(width: 1.w),
-                            children: <TableRow>[
-                              _tableColumn17,
-                            ],
-                          ),
-                          Table(
-                            defaultColumnWidth: FixedColumnWidth(214.5.w),
-                            border: TableBorder.all(width: 1.w),
-                            children: <TableRow>[
-                              _tableColumn18,
-                            ],
-                          ),
-                          Table(
-                            defaultColumnWidth: FixedColumnWidth(643.w),
-                            border: TableBorder.all(width: 1.w),
-                            children: <TableRow>[
-                              _tableColumn19,
-                            ],
-                          ),
-                          Table(
-                            defaultColumnWidth: FixedColumnWidth(643.w),
-                            border: TableBorder.all(width: 1.w),
-                            children: <TableRow>[
-                              _tableColumn20,
+                              Container(
+                                // color: Colors.cyanAccent,
+                                width: 321.5.w,
+                                height: 50.h,
+                                child: Row(
+                                  children: [
+                                    SizedBox(width: 2.w),
+                                    CustomText(
+                                      text: "Code Num:",
+                                      fontSize: 14.sp,
+                                    ),
+                                    CustomFormField(),
+                                  ],
+                                ),
+                              ),
                             ],
                           ),
                         ],
                       ),
-                    ),
+                      Table(
+                        columnWidths: {
+                          0: FlexColumnWidth(4),
+                          1: FlexColumnWidth(1),
+                        },
+                        defaultColumnWidth: FixedColumnWidth(1285.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          TableRow(
+                            children: [
+                              Container(
+                                // color: Colors.cyanAccent,
+                                width: 500.w,
+                                height: 30.h,
+                                child: Row(
+                                  children: [
+                                    SizedBox(width: 2.w),
+                                    CustomText(
+                                      text: "Training Categories:",
+                                      fontSize: 14.sp,
+                                    ),
+                                    Checkbox(value: false, onChanged: (v) {}),
+                                    CustomText(
+                                      text: "Initial",
+                                      fontSize: 14.sp,
+                                    ),
+                                    Checkbox(value: false, onChanged: (v) {}),
+                                    CustomText(
+                                      text: "Transition",
+                                      fontSize: 14.sp,
+                                    ),
+                                    Checkbox(value: false, onChanged: (v) {}),
+                                    CustomText(
+                                      text: "Requalification Recurrent",
+                                      fontSize: 14.sp,
+                                    ),
+                                    Checkbox(value: false, onChanged: (v) {}),
+                                    CustomText(
+                                      text: "SEP1",
+                                      fontSize: 14.sp,
+                                    ),
+                                    Checkbox(value: false, onChanged: (v) {}),
+                                    CustomText(
+                                      text: "SEP2",
+                                      fontSize: 14.sp,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                // color: Colors.cyanAccent,
+                                width: 50.w,
+                                height: 30.h,
+                                child: Row(
+                                  children: [
+                                    SizedBox(width: 2.w),
+                                    CustomText(
+                                      text: "Date:",
+                                      fontSize: 14.sp,
+                                    ),
+                                    SizedBox(width: 4.w),
+                                    CustomDate(),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Table(
+                          defaultColumnWidth: FixedColumnWidth(184.w),
+                          border: TableBorder.all(width: 1.w),
+                          children: <TableRow>[_tableColumn2]),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(184.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                          _tableColumn3,
+                        ],
+                      ),
+                      Table(
+                        columnWidths: {
+                          0: FlexColumnWidth(15),
+                          1: FlexColumnWidth(1),
+                          2: FlexColumnWidth(1),
+                          3: FlexColumnWidth(1),
+                          4: FlexColumnWidth(1),
+                        },
+                        defaultColumnWidth: FixedColumnWidth(300.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          _tableColumn1,
+                          _tableColumn4,
+                          _tableColumn5,
+                          _tableColumn6,
+                          _tableColumn7,
+                          _tableColumn8,
+                          _tableColumn9,
+                          _tableColumn10,
+                          _tableColumn11,
+                          _tableColumn12,
+                          _tableColumn13,
+                          _tableColumn14,
+                        ],
+                      ),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(214.5.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          _tableColumn15,
+                        ],
+                      ),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(214.5.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          _tableColumn16,
+                        ],
+                      ),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(214.5.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          _tableColumn17,
+                        ],
+                      ),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(214.5.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          _tableColumn18,
+                        ],
+                      ),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(643.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          _tableColumn19,
+                        ],
+                      ),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(643.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          _tableColumn20,
+                        ],
+                      ),
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
@@ -1007,20 +1002,20 @@ class CustomFormField extends StatelessWidget {
   CustomFormField({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        height: 10.h,
-        child: TextFormField(
-          cursorHeight: 20.h,
-          style: TextStyle(fontSize: 15.sp),
-          onSaved: onSaved,
-          decoration: InputDecoration(
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.transparent),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.transparent),
-            ),
+    return Container(
+      width: 500.w,
+      height: 10.h,
+      child: TextFormField(
+        maxLines: 1,
+        cursorHeight: 20.h,
+        style: TextStyle(fontSize: 15.sp),
+        onSaved: onSaved,
+        decoration: InputDecoration(
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.transparent),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.transparent),
           ),
         ),
       ),
