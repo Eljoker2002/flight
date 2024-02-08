@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomDate extends StatefulWidget {
   const CustomDate({Key? key}) : super(key: key);
@@ -30,6 +31,9 @@ class _CustomDateState extends State<CustomDate> {
         child: Center(
           child: Text(
             "${selectedDate.day}    /    ${selectedDate.month}    /    ${selectedDate.year}",
+            style: TextStyle(
+              fontSize: 13.sp
+            ),
           ),
         ),
       ),

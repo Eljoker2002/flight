@@ -19,136 +19,155 @@ class _MyHomePageState extends State<MyHomePage> {
     TableRow _tableColumn2 = TableRow(children: <Widget>[
       Center(
         child: Padding(
-          padding: EdgeInsets.all(10.0),
-          child: Text("Sectors"),
+          padding: EdgeInsets.all(8.sp),
+          child: CustomText(
+            text: "Sectors",
+            fontSize: 14.sp,
+          ),
         ),
       ),
       Center(
         child: Padding(
-          padding: EdgeInsets.all(10.0),
-          child: Text("Flight No"),
+          padding: EdgeInsets.all(8.sp),
+          child: CustomText(
+            text: "Flight No",
+            fontSize: 14.sp,
+          ),
         ),
       ),
       Center(
         child: Padding(
-          padding: EdgeInsets.all(10.0),
-          child: Text("A/C Type"),
+          padding: EdgeInsets.all(8.sp),
+          child: CustomText(
+            text: "A/C Type",
+            fontSize: 14.sp,
+          ),
         ),
       ),
       Center(
         child: Padding(
-          padding: EdgeInsets.all(10.0),
-          child: Text("Position"),
+          padding: EdgeInsets.all(8.sp),
+          child: CustomText(
+            text: "Position",
+            fontSize: 14.sp,
+          ),
         ),
       ),
       Center(
         child: Padding(
-          padding: EdgeInsets.all(10.0),
-          child: Text("Date"),
+          padding: EdgeInsets.all(8.sp),
+          child: CustomText(
+            text: "Date",
+            fontSize: 14.sp,
+          ),
         ),
       ),
       Center(
         child: Padding(
-          padding: EdgeInsets.all(10.0),
-          child: Text("Instructor Name"),
+          padding: EdgeInsets.all(8.sp),
+          child: CustomText(
+            text: "Instructor Name",
+            fontSize: 14.sp,
+          ),
         ),
       ),
       Center(
         child: Padding(
-          padding: EdgeInsets.all(10.0),
-          child: Text("Code No"),
+          padding: EdgeInsets.all(8.sp),
+          child: CustomText(
+            text: "Code No",
+            fontSize: 14.sp,
+          ),
         ),
       ),
     ]);
     TableRow _tableColumn3 = TableRow(children: <Widget>[
       Padding(
-        padding: EdgeInsets.all(10.0),
+        padding: EdgeInsets.all(10.sp),
         child: CustomFormField(),
       ),
       Align(
         alignment: Alignment.centerLeft,
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 3),
-          child: Text("MS"),
+          padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: CustomText(
+            text: "MS",
+            fontSize: 12.sp,
+          ),
         ),
       ),
       Padding(
-        padding: EdgeInsets.all(9.sp),
+        padding: EdgeInsets.all(10.sp),
         child: CustomFormField(),
       ),
       Padding(
-        padding: EdgeInsets.all(9.sp),
+        padding: EdgeInsets.all(10.sp),
         child: CustomFormField(),
       ),
       Padding(
-        padding: EdgeInsets.all(9.sp),
+        padding: EdgeInsets.all(10.sp),
         child: CustomDate(),
       ),
       Padding(
-        padding: EdgeInsets.all(9.sp),
+        padding: EdgeInsets.all(10.sp),
         child: CustomFormField(),
       ),
       Padding(
-        padding: EdgeInsets.all(9.sp),
+        padding: EdgeInsets.all(10.sp),
         child: CustomFormField(),
       ),
     ]);
     TableRow _tableColumn1 = TableRow(children: <Widget>[
       Padding(
-        padding: EdgeInsets.all(10.0),
+        padding: EdgeInsets.all(9.sp),
         child: Center(
-          child: Text(
-            "INFLIGHT COMPETENCY CHECK ITEMS" "INFLIGHT COMPETENCY CHECK ITEMS",
-            style: TextStyle(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.bold,
-            ),
+          child: CustomText(
+            text: "INFLIGHT COMPETENCY CHECK ITEMS"
+                "INFLIGHT COMPETENCY CHECK ITEMS",
+            fontSize: 16.sp,
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),
       Padding(
         padding: EdgeInsets.all(9.sp),
         child: Center(
-            child: Text(
-          "US",
-          style: TextStyle(
+          child: CustomText(
+            text: "US",
             fontSize: 16.sp,
             fontWeight: FontWeight.bold,
           ),
-        )),
+        ),
       ),
       Padding(
         padding: EdgeInsets.all(9.sp),
         child: Center(
-            child: Text(
-          "S1",
-          style: TextStyle(
+          child: CustomText(
+            text: "S1",
             fontSize: 16.sp,
             fontWeight: FontWeight.bold,
           ),
-        )),
+        ),
       ),
       Padding(
         padding: EdgeInsets.all(9.sp),
         child: Center(
-            child: Text(
-          "S2",
-          style: TextStyle(
+          child: CustomText(
+            text: "S2",
             fontSize: 16.sp,
             fontWeight: FontWeight.bold,
           ),
-        )),
+        ),
       ),
       Padding(
         padding: EdgeInsets.all(9.sp),
         child: Center(
-            child: Text(
-          "S3",
-          style: TextStyle(
+          child: CustomText(
+            text: "S3",
             fontSize: 16.sp,
             fontWeight: FontWeight.bold,
           ),
-        )),
+        ),
       ),
     ]);
     TableRow _tableColumn4 = TableRow(children: <Widget>[
@@ -156,7 +175,10 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: EdgeInsets.all(7.sp),
         child: Row(
           children: [
-            Text("1-"),
+            CustomText(
+              text: "1-",
+              fontSize: 13.sp,
+            ),
             SizedBox(width: 4.w),
             CustomFormField(),
           ],
@@ -184,7 +206,10 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: EdgeInsets.all(7.sp),
         child: Row(
           children: [
-            Text("2-"),
+            CustomText(
+              text: "2-",
+              fontSize: 13.sp,
+            ),
             SizedBox(width: 4.w),
             CustomFormField(),
           ],
@@ -212,7 +237,10 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: EdgeInsets.all(7.sp),
         child: Row(
           children: [
-            Text("3-"),
+            CustomText(
+              text: "3-",
+              fontSize: 13.sp,
+            ),
             SizedBox(width: 4.w),
             CustomFormField(),
           ],
@@ -237,10 +265,13 @@ class _MyHomePageState extends State<MyHomePage> {
     ]);
     TableRow _tableColumn7 = TableRow(children: <Widget>[
       Padding(
-        padding: EdgeInsets.all(7.0),
+        padding: EdgeInsets.all(7.sp),
         child: Row(
           children: [
-            Text("4-"),
+            CustomText(
+              text: "4-",
+              fontSize: 13.sp,
+            ),
             SizedBox(width: 4.w),
             CustomFormField(),
           ],
@@ -268,7 +299,10 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: EdgeInsets.all(7.0.sp),
         child: Row(
           children: [
-            Text("5-"),
+            CustomText(
+              text: "5-",
+              fontSize: 13.sp,
+            ),
             SizedBox(width: 4.w),
             CustomFormField(),
           ],
@@ -296,7 +330,10 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: EdgeInsets.all(7.0.sp),
         child: Row(
           children: [
-            Text("6-"),
+            CustomText(
+              text: "6-",
+              fontSize: 13.sp,
+            ),
             SizedBox(width: 4.w),
             CustomFormField(),
           ],
@@ -324,7 +361,10 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: EdgeInsets.all(7.0.sp),
         child: Row(
           children: [
-            Text("7-"),
+            CustomText(
+              text: "7-",
+              fontSize: 13.sp,
+            ),
             SizedBox(width: 4.w),
             CustomFormField(),
           ],
@@ -352,7 +392,10 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: EdgeInsets.all(7.0.sp),
         child: Row(
           children: [
-            Text("8-"),
+            CustomText(
+              text: "8-",
+              fontSize: 13.sp,
+            ),
             SizedBox(width: 4.w),
             CustomFormField(),
           ],
@@ -380,7 +423,10 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: EdgeInsets.all(7.0.sp),
         child: Row(
           children: [
-            Text("9-"),
+            CustomText(
+              text: "9-",
+              fontSize: 13.sp,
+            ),
             SizedBox(width: 4.w),
             CustomFormField(),
           ],
@@ -408,7 +454,10 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: EdgeInsets.all(7.0.sp),
         child: Row(
           children: [
-            Text("10-"),
+            CustomText(
+              text: "10-",
+              fontSize: 13.sp,
+            ),
             SizedBox(width: 4.w),
             CustomFormField(),
           ],
@@ -436,7 +485,10 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: EdgeInsets.all(7.0.sp),
         child: Row(
           children: [
-            Text("11-"),
+            CustomText(
+              text: "11-",
+              fontSize: 13.sp,
+            ),
             SizedBox(width: 4.w),
             CustomFormField(),
           ],
@@ -462,41 +514,61 @@ class _MyHomePageState extends State<MyHomePage> {
     TableRow _tableColumn15 = TableRow(children: <Widget>[
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 25.h),
-        child: Center(child: Text("First Result")),
-      ),
-      Padding(
-        padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
         child: Center(
-          child: Text('''  Completion 
-        date'''),
+          child: CustomText(
+            text: "First Result",
+            fontSize: 14.sp,
+          ),
         ),
       ),
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
         child: Center(
-          child: Text('''     Instructor 
-        Name'''),
+          child: CustomText(
+            text: '''  Completion 
+        date''',
+            fontSize: 14.sp,
+          ),
         ),
       ),
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
         child: Center(
-          child: Text('''       Istructor      
-      signature'''),
+          child: CustomText(
+            text: '''   Instructor 
+      Name''',
+            fontSize: 14.sp,
+          ),
         ),
       ),
       Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
         child: Center(
-          child: Text('''        Instructor   
-         Code No'''),
+          child: CustomText(
+            text: '''    Instructor      
+    signature''',
+            fontSize: 14.sp,
+          ),
         ),
       ),
       Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
         child: Center(
-          child: Text('''   Instructor 
-     license'''),
+          child: CustomText(
+            text: '''    Instructor   
+     Code No''',
+            fontSize: 14.sp,
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
+        child: Center(
+          child: CustomText(
+            text: '''   Instructor 
+     license''',
+            fontSize: 14.sp,
+          ),
         ),
       ),
     ]);
@@ -505,29 +577,28 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 15.h),
         child: Row(
           children: [
+            Spacer(),
             Checkbox(
               value: false,
               onChanged: (bool? value) {},
             ),
-            Text(
-              "S",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20.sp,
-              ),
+
+            CustomText(
+              text: "S",
+              fontWeight: FontWeight.bold,
+              fontSize: 20.sp,
             ),
             Spacer(),
             Checkbox(
               value: false,
               onChanged: (bool? value) {},
             ),
-            Text(
-              "US",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20.sp,
-              ),
+            CustomText(
+              text: "US",
+              fontWeight: FontWeight.bold,
+              fontSize: 20.sp,
             ),
+            Spacer(),
           ],
         ),
       ),
@@ -557,8 +628,11 @@ class _MyHomePageState extends State<MyHomePage> {
         Padding(
           padding: EdgeInsets.all(16.sp),
           child: Center(
-            child: CustomText(text: '''     Trainee
-    Signature'''),
+            child: CustomText(
+              text: '''     Trainee
+    Signature''',
+              fontSize: 14.sp,
+            ),
           ),
         ),
         Padding(
@@ -566,35 +640,48 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Center(
             child: CustomText(
               text: "Date",
+              fontSize: 14.sp,
             ),
           ),
         ),
         Padding(
           padding: EdgeInsets.all(16.sp),
           child: Center(
-            child: CustomText(text: '''  Examiner
-    Name'''),
+            child: CustomText(
+              text: '''  Examiner
+    Name''',
+              fontSize: 14.sp,
+            ),
           ),
         ),
         Padding(
           padding: EdgeInsets.all(16.sp),
           child: Center(
-            child: CustomText(text: '''  Examiner
-  Signature'''),
+            child: CustomText(
+              text: '''  Examiner
+  Signature''',
+              fontSize: 14.sp,
+            ),
           ),
         ),
         Padding(
           padding: EdgeInsets.all(16.sp),
           child: Center(
-            child: CustomText(text: '''  Examiner
-   Code No'''),
+            child: CustomText(
+              text: '''  Examiner
+   Code No''',
+              fontSize: 14.sp,
+            ),
           ),
         ),
         Padding(
           padding: EdgeInsets.all(16.sp),
           child: Center(
-            child: CustomText(text: '''   Examiner
-    License'''),
+            child: CustomText(
+              text: '''   Examiner
+    License''',
+              fontSize: 14.sp,
+            ),
           ),
         ),
       ],
@@ -632,6 +719,7 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: EdgeInsets.all(15.sp),
             child: CustomText(
               text: "G.M.F.T       Signature",
+              fontSize: 14.sp,
             ),
           ),
         ),
@@ -640,6 +728,7 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: EdgeInsets.all(15.sp),
             child: CustomText(
               text: "Date",
+              fontSize: 14.sp,
             ),
           ),
         ),
@@ -649,7 +738,7 @@ class _MyHomePageState extends State<MyHomePage> {
       children: <Widget>[
         Center(
           child: Padding(
-            padding: EdgeInsets.all(15.sp),
+            padding: EdgeInsets.all(10.sp),
             child: CustomFormField(),
           ),
         ),
@@ -664,7 +753,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: EdgeInsets.only(top: 40.h),
+        padding: EdgeInsets.symmetric(vertical: 40.h),
         child: Center(
           child: SingleChildScrollView(
             child: Column(
@@ -672,266 +761,234 @@ class _MyHomePageState extends State<MyHomePage> {
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Container(
-                    height: 1363.h,
+                    height: 1543.sp,
                     width: 1285.w,
-                    child: Column(
-                      children: [
-                        Table(
-                          defaultColumnWidth: FixedColumnWidth(1285.w),
-                          border: TableBorder.all(width: 1.w),
-                          children: <TableRow>[
-                            TableRow(children: [
-                              Container(
-                                width: 1285.w,
-                                height: 40.h,
-                                child: Center(
-                                  child: Text(
-                                    "CABIN CREW INFLIGHT COMPETENCY CHECK",
-                                    style: TextStyle(
+                    child: Expanded(
+                      child: Column(
+                        children: [
+                          Table(
+                            defaultColumnWidth: FixedColumnWidth(1285.w),
+                            border: TableBorder.all(width: 1.w),
+                            children: <TableRow>[
+                              TableRow(children: [
+                                Container(
+                                  width: 1285.w,
+                                  height: 40.h,
+                                  child: Center(
+                                    child: CustomText(
+                                      text:
+                                          "CABIN CREW INFLIGHT COMPETENCY CHECK",
                                       fontSize: 16.sp,
-                                      fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                 ),
+                              ]),
+                            ],
+                          ),
+                          Table(
+                            defaultColumnWidth: FixedColumnWidth(643.w),
+                            border: TableBorder.all(width: 1.w),
+                            children: <TableRow>[
+                              TableRow(
+                                children: [
+                                  Container(
+                                    // color: Colors.cyanAccent,
+                                    width: 321.5.w,
+                                    height: 50.h,
+                                    child: Row(
+                                      children: [
+                                        SizedBox(width: 2.w),
+                                        CustomText(
+                                          text: "Trainee Name:",
+                                          fontSize: 14.sp,
+                                        ),
+                                        CustomFormField(),
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    // color: Colors.cyanAccent,
+                                    width: 321.5.w,
+                                    height: 50.h,
+                                    child: Row(
+                                      children: [
+                                        SizedBox(width: 2.w),
+                                        CustomText(
+                                          text: "Code Num:",
+                                          fontSize: 14.sp,
+                                        ),
+                                        CustomFormField(),
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ]),
-                          ],
-                        ),
-                        Table(
-                          defaultColumnWidth: FixedColumnWidth(643.w),
-                          border: TableBorder.all(width: 1.w),
-                          children: <TableRow>[
-                            TableRow(
-                              children: [
-                                Container(
-                                  // color: Colors.cyanAccent,
-                                  width: 321.5.w,
-                                  height: 50.h,
-                                  child: Row(
-                                    children: [
-                                      SizedBox(width: 2.w),
-                                      Text(
-                                        "Trainee Name:",
-                                        style: TextStyle(
-                                          fontSize: 15.sp,
+                            ],
+                          ),
+                          Table(
+                            columnWidths: {
+                              0: FlexColumnWidth(4),
+                              1: FlexColumnWidth(1),
+                            },
+                            defaultColumnWidth: FixedColumnWidth(1285.w),
+                            border: TableBorder.all(width: 1.w),
+                            children: <TableRow>[
+                              TableRow(
+                                children: [
+                                  Container(
+                                    // color: Colors.cyanAccent,
+                                    width: 500.w,
+                                    height: 30.h,
+                                    child: Row(
+                                      children: [
+                                        SizedBox(width: 2.w),
+                                        CustomText(
+                                          text: "Training Categories:",
+                                          fontSize: 14.sp,
                                         ),
-                                      ),
-                                      Expanded(
-                                        child: TextFormField(
-                                          // onSaved: (v) {
-                                          //   name = v!;
-                                          // },
-                                          decoration: InputDecoration(
-                                            enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                    color: Colors.transparent)),
-                                            focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                    color: Colors.transparent)),
-                                          ),
+                                        Checkbox(value: false, onChanged: (v) {}),
+                                        CustomText(
+                                          text: "Initial",
+                                          fontSize: 14.sp,
                                         ),
-                                      ),
-                                    ],
+                                        Checkbox(value: false, onChanged: (v) {}),
+                                        CustomText(
+                                          text: "Transition",
+                                          fontSize: 14.sp,
+                                        ),
+                                        Checkbox(value: false, onChanged: (v) {}),
+                                        CustomText(
+                                          text: "Requalification Recurrent",
+                                          fontSize: 14.sp,
+                                        ),
+                                        Checkbox(value: false, onChanged: (v) {}),
+                                        CustomText(
+                                          text: "SEP1",
+                                          fontSize: 14.sp,
+                                        ),
+                                        Checkbox(value: false, onChanged: (v) {}),
+                                        CustomText(
+                                          text: "SEP2",
+                                          fontSize: 14.sp,
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                ),
-                                Container(
-                                  // color: Colors.cyanAccent,
-                                  width: 321.5.w,
-                                  height: 50.h,
-                                  child: Row(
-                                    children: [
-                                      SizedBox(width: 2.w),
-                                      Text(
-                                        "Code Num:",
-                                        style: TextStyle(
-                                          fontSize: 15.sp,
+                                  Container(
+                                    // color: Colors.cyanAccent,
+                                    width: 50.w,
+                                    height: 30.h,
+                                    child: Row(
+                                      children: [
+                                        SizedBox(width: 2.w),
+                                        CustomText(
+                                          text: "Date:",
+                                          fontSize: 14.sp,
                                         ),
-                                      ),
-                                      CustomFormField(),
-                                    ],
+                                        SizedBox(width: 4.w),
+                                        CustomDate(),
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        Table(
-                          columnWidths: {
-                            0: FlexColumnWidth(4),
-                            1: FlexColumnWidth(1),
-                          },
-                          defaultColumnWidth: FixedColumnWidth(1285.w),
-                          border: TableBorder.all(width: 1.w),
-                          children: <TableRow>[
-                            TableRow(
-                              children: [
-                                Container(
-                                  // color: Colors.cyanAccent,
-                                  width: 500.w,
-                                  height: 30.h,
-                                  child: Row(
-                                    children: [
-                                      SizedBox(width: 2.w),
-                                      Text(
-                                        "Training Categories:",
-                                        style: TextStyle(
-                                          fontSize: 15.sp,
-                                        ),
-                                      ),
-                                      Checkbox(value: false, onChanged: (v) {}),
-                                      Text(
-                                        "Initial",
-                                        style: TextStyle(
-                                          fontSize: 15.sp,
-                                        ),
-                                      ),
-                                      Checkbox(value: false, onChanged: (v) {}),
-                                      Text(
-                                        "Transition",
-                                        style: TextStyle(
-                                          fontSize: 15.sp,
-                                        ),
-                                      ),
-                                      Checkbox(value: false, onChanged: (v) {}),
-                                      Text(
-                                        "Requalification Recurrent",
-                                        style: TextStyle(
-                                          fontSize: 15.sp,
-                                        ),
-                                      ),
-                                      Checkbox(value: false, onChanged: (v) {}),
-                                      Text(
-                                        "SEP1",
-                                        style: TextStyle(
-                                          fontSize: 15.sp,
-                                        ),
-                                      ),
-                                      Checkbox(value: false, onChanged: (v) {}),
-                                      Text(
-                                        "SEP2",
-                                        style: TextStyle(
-                                          fontSize: 15.sp,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  // color: Colors.cyanAccent,
-                                  width: 50.w,
-                                  height: 30.h,
-                                  child: Row(
-                                    children: [
-                                      SizedBox(width: 2.w),
-                                      Text(
-                                        "Date:",
-                                        style: TextStyle(
-                                          fontSize: 15.sp,
-                                        ),
-                                      ),
-                                      SizedBox(width: 4.w),
-                                      CustomFormField(),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        Table(
+                                ],
+                              ),
+                            ],
+                          ),
+                          Table(
+                              defaultColumnWidth: FixedColumnWidth(184.w),
+                              border: TableBorder.all(width: 1.w),
+                              children: <TableRow>[_tableColumn2]),
+                          Table(
                             defaultColumnWidth: FixedColumnWidth(184.w),
                             border: TableBorder.all(width: 1.w),
-                            children: <TableRow>[_tableColumn2]),
-                        Table(
-                          defaultColumnWidth: FixedColumnWidth(184.w),
-                          border: TableBorder.all(width: 1.w),
-                          children: <TableRow>[
-                            _tableColumn3,
-                            _tableColumn3,
-                            _tableColumn3,
-                            _tableColumn3,
-                            _tableColumn3,
-                            _tableColumn3,
-                            _tableColumn3,
-                            _tableColumn3,
-                            _tableColumn3,
-                            _tableColumn3,
-                            _tableColumn3,
-                            _tableColumn3,
-                            _tableColumn3,
-                            _tableColumn3,
-                            _tableColumn3,
-                            _tableColumn3,
-                          ],
-                        ),
-                        Table(
-                          columnWidths: {
-                            0: FlexColumnWidth(15),
-                            1: FlexColumnWidth(1),
-                            2: FlexColumnWidth(1),
-                            3: FlexColumnWidth(1),
-                            4: FlexColumnWidth(1),
-                          },
-                          defaultColumnWidth: FixedColumnWidth(300.w),
-                          border: TableBorder.all(width: 1.w),
-                          children: <TableRow>[
-                            _tableColumn1,
-                            _tableColumn4,
-                            _tableColumn5,
-                            _tableColumn6,
-                            _tableColumn7,
-                            _tableColumn8,
-                            _tableColumn9,
-                            _tableColumn10,
-                            _tableColumn11,
-                            _tableColumn12,
-                            _tableColumn13,
-                            _tableColumn14,
-                          ],
-                        ),
-                        Table(
-                          defaultColumnWidth: FixedColumnWidth(214.5.w),
-                          border: TableBorder.all(width: 1.w),
-                          children: <TableRow>[
-                            _tableColumn15,
-                          ],
-                        ),
-                        Table(
-                          defaultColumnWidth: FixedColumnWidth(214.5.w),
-                          border: TableBorder.all(width: 1.w),
-                          children: <TableRow>[
-                            _tableColumn16,
-                          ],
-                        ),
-                        Table(
-                          defaultColumnWidth: FixedColumnWidth(214.5.w),
-                          border: TableBorder.all(width: 1.w),
-                          children: <TableRow>[
-                            _tableColumn17,
-                          ],
-                        ),
-                        Table(
-                          defaultColumnWidth: FixedColumnWidth(214.5.w),
-                          border: TableBorder.all(width: 1.w),
-                          children: <TableRow>[
-                            _tableColumn18,
-                          ],
-                        ),
-                        Table(
-                          defaultColumnWidth: FixedColumnWidth(643.w),
-                          border: TableBorder.all(width: 1.w),
-                          children: <TableRow>[
-                            _tableColumn19,
-                          ],
-                        ),
-                        Table(
-                          defaultColumnWidth: FixedColumnWidth(643.w),
-                          border: TableBorder.all(width: 1.w),
-                          children: <TableRow>[
-                            _tableColumn20,
-                          ],
-                        ),
-                      ],
+                            children: <TableRow>[
+                              _tableColumn3,
+                              _tableColumn3,
+                              _tableColumn3,
+                              _tableColumn3,
+                              _tableColumn3,
+                              _tableColumn3,
+                              _tableColumn3,
+                              _tableColumn3,
+                              _tableColumn3,
+                              _tableColumn3,
+                              _tableColumn3,
+                              _tableColumn3,
+                              _tableColumn3,
+                              _tableColumn3,
+                              _tableColumn3,
+                              _tableColumn3,
+                            ],
+                          ),
+                          Table(
+                            columnWidths: {
+                              0: FlexColumnWidth(15),
+                              1: FlexColumnWidth(1),
+                              2: FlexColumnWidth(1),
+                              3: FlexColumnWidth(1),
+                              4: FlexColumnWidth(1),
+                            },
+                            defaultColumnWidth: FixedColumnWidth(300.w),
+                            border: TableBorder.all(width: 1.w),
+                            children: <TableRow>[
+                              _tableColumn1,
+                              _tableColumn4,
+                              _tableColumn5,
+                              _tableColumn6,
+                              _tableColumn7,
+                              _tableColumn8,
+                              _tableColumn9,
+                              _tableColumn10,
+                              _tableColumn11,
+                              _tableColumn12,
+                              _tableColumn13,
+                              _tableColumn14,
+                            ],
+                          ),
+                          Table(
+                            defaultColumnWidth: FixedColumnWidth(214.5.w),
+                            border: TableBorder.all(width: 1.w),
+                            children: <TableRow>[
+                              _tableColumn15,
+                            ],
+                          ),
+                          Table(
+                            defaultColumnWidth: FixedColumnWidth(214.5.w),
+                            border: TableBorder.all(width: 1.w),
+                            children: <TableRow>[
+                              _tableColumn16,
+                            ],
+                          ),
+                          Table(
+                            defaultColumnWidth: FixedColumnWidth(214.5.w),
+                            border: TableBorder.all(width: 1.w),
+                            children: <TableRow>[
+                              _tableColumn17,
+                            ],
+                          ),
+                          Table(
+                            defaultColumnWidth: FixedColumnWidth(214.5.w),
+                            border: TableBorder.all(width: 1.w),
+                            children: <TableRow>[
+                              _tableColumn18,
+                            ],
+                          ),
+                          Table(
+                            defaultColumnWidth: FixedColumnWidth(643.w),
+                            border: TableBorder.all(width: 1.w),
+                            children: <TableRow>[
+                              _tableColumn19,
+                            ],
+                          ),
+                          Table(
+                            defaultColumnWidth: FixedColumnWidth(643.w),
+                            border: TableBorder.all(width: 1.w),
+                            children: <TableRow>[
+                              _tableColumn20,
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -954,6 +1011,8 @@ class CustomFormField extends StatelessWidget {
       child: Container(
         height: 10.h,
         child: TextFormField(
+          cursorHeight: 20.h,
+          style: TextStyle(fontSize: 15.sp),
           onSaved: onSaved,
           decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(
