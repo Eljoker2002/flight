@@ -1,4 +1,6 @@
 import 'dart:typed_data';
+import 'package:flight/widgets/date_widget.dart';
+import 'package:flight/widgets/text_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pdf/widgets.dart' as pw;
@@ -12,7 +14,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  DateTime selectedDate = DateTime.now();
   @override
   Widget build(BuildContext context) {
     TableRow _tableColumn2 = TableRow(children: <Widget>[
@@ -79,27 +80,9 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: EdgeInsets.all(10.0),
         child: CustomFormField(),
       ),
-      Center(
-        child: InkWell(
-          onTap: () async {
-            final DateTime? dateTime = await showDatePicker(
-              context: context,
-              initialDate: selectedDate,
-              firstDate: DateTime(2000),
-              lastDate: DateTime(3000),
-            );
-            if (dateTime != null) {
-              setState(() {
-                selectedDate = dateTime;
-              });
-            }
-          },
-          child: Center(
-            child: Text(
-              "${selectedDate.day}    /    ${selectedDate.month}    /    ${selectedDate.year}",
-            ),
-          ),
-        ),
+      Padding(
+        padding: EdgeInsets.all(9.sp),
+        child: CustomDate(),
       ),
       Padding(
         padding: EdgeInsets.all(10.0),
@@ -517,7 +500,167 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     ]);
-
+    TableRow _tableColumn16 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 15.h),
+        child: Row(
+          children: [
+            Checkbox(
+              value: false,
+              onChanged: (bool? value) {},
+            ),
+            Text(
+              "S",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20.sp,
+              ),
+            ),
+            Spacer(),
+            Checkbox(
+              value: false,
+              onChanged: (bool? value) {},
+            ),
+            Text(
+              "US",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20.sp,
+              ),
+            ),
+          ],
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(28.sp),
+        child: CustomDate(),
+      ),
+      Padding(
+        padding: EdgeInsets.only(top: 30.h),
+        child: CustomFormField(),
+      ),
+      Padding(
+        padding: EdgeInsets.only(top: 30.h),
+        child: CustomFormField(),
+      ),
+      Padding(
+        padding: EdgeInsets.only(top: 30.h),
+        child: CustomFormField(),
+      ),
+      Padding(
+        padding: EdgeInsets.only(top: 30.h),
+        child: CustomFormField(),
+      ),
+    ]);
+    TableRow _tableColumn17 = TableRow(
+      children: <Widget>[
+        Padding(
+          padding: EdgeInsets.all(16.sp),
+          child: Center(
+            child: CustomText(text: '''     Trainee
+    Signature'''),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(28.sp),
+          child: Center(
+            child: CustomText(
+              text: "Date",
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(16.sp),
+          child: Center(
+            child: CustomText(text: '''  Examiner
+    Name'''),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(16.sp),
+          child: Center(
+            child: CustomText(text: '''  Examiner
+  Signature'''),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(16.sp),
+          child: Center(
+            child: CustomText(text: '''  Examiner
+   Code No'''),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(16.sp),
+          child: Center(
+            child: CustomText(text: '''   Examiner
+    License'''),
+          ),
+        ),
+      ],
+    );
+    TableRow _tableColumn18 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.only(top: 30.h),
+        child: CustomFormField(),
+      ),
+      Padding(
+        padding: EdgeInsets.all(28.sp),
+        child: CustomDate(),
+      ),
+      Padding(
+        padding: EdgeInsets.only(top: 30.h),
+        child: CustomFormField(),
+      ),
+      Padding(
+        padding: EdgeInsets.only(top: 30.h),
+        child: CustomFormField(),
+      ),
+      Padding(
+        padding: EdgeInsets.only(top: 30.h),
+        child: CustomFormField(),
+      ),
+      Padding(
+        padding: EdgeInsets.only(top: 30.h),
+        child: CustomFormField(),
+      ),
+    ]);
+    TableRow _tableColumn19 = TableRow(
+      children: <Widget>[
+        Center(
+          child: Padding(
+            padding: EdgeInsets.all(15.sp),
+            child: CustomText(
+              text: "G.M.F.T       Signature",
+            ),
+          ),
+        ),
+        Center(
+          child: Padding(
+            padding: EdgeInsets.all(15.sp),
+            child: CustomText(
+              text: "Date",
+            ),
+          ),
+        ),
+      ],
+    );
+    TableRow _tableColumn20 = TableRow(
+      children: <Widget>[
+        Center(
+          child: Padding(
+            padding: EdgeInsets.all(15.sp),
+            child: CustomFormField(),
+          ),
+        ),
+        Center(
+          child: Padding(
+            padding: EdgeInsets.all(15.sp),
+            child: CustomDate(),
+          ),
+        ),
+      ],
+    );
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -753,13 +896,41 @@ class _MyHomePageState extends State<MyHomePage> {
                           _tableColumn15,
                         ],
                       ),
-
-                      // ElevatedButton(
-                      //   onPressed: () {
-                      //     _saveAndPrintPdf();
-                      //   },
-                      //   child: Text('Save and Print PDF'),
-                      // ),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(214.5.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          _tableColumn16,
+                        ],
+                      ),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(214.5.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          _tableColumn17,
+                        ],
+                      ),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(214.5.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          _tableColumn18,
+                        ],
+                      ),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(643.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          _tableColumn19,
+                        ],
+                      ),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(643.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          _tableColumn20,
+                        ],
+                      ),
                     ],
                   ),
                 ),
