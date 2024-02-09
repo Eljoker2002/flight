@@ -15,17 +15,29 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  List data = [];
-
-  getData() async {
-    QuerySnapshot querySnapshot =
-        await FirebaseFirestore.instance.collection('Users').get();
-    data.addAll(querySnapshot.docs);
+  // List<QueryDocumentSnapshot> data = [];
+  //
+  // getData() async {
+  //   QuerySnapshot querySnapshot =
+  //       await FirebaseFirestore.instance.collection('Users').get();
+  //   data.addAll(querySnapshot.docs);
+  //   setState(() {});
+  // }
+  final CollectionReference usersCollection =
+      FirebaseFirestore.instance.collection('Users');
+  Future<void> fetchData() async {
+    QuerySnapshot querySnapshot = await usersCollection.get();
+    List<DocumentSnapshot> documents = querySnapshot.docs;
+    // Process the retrieved documents
+    for (var document in documents) {
+      print(document.data());
+    }
+    setState(() {});
   }
 
   @override
   void initState() {
-    getData();
+    fetchData();
     super.initState();
   }
 
@@ -117,14 +129,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       AppButton(
                         title: "Login",
-                        onTap: () {
-                          // CollectionReference collection =
-                          //     FirebaseFirestore.instance.collection('Users');
-                          // collection.add({
-                          //   "Email": emailController.text,
-                          //   "Password": passwordController.text
-                          // });
-                        },
+                        onTap: () {},
                         width: 120,
                         height: 43,
                       ),

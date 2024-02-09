@@ -12,8 +12,10 @@ class RefactorTextFormField extends StatelessWidget {
     this.obscureText = false,
     this.validator,
     this.onSaved,
+    this.controller,
   });
   final bool changeHeight;
+  TextEditingController? controller;
   final bool isPassword;
   Widget? suffixIcon;
   bool obscureText;
@@ -24,6 +26,7 @@ class RefactorTextFormField extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(right: 45.w, left: 53.w),
       child: TextFormField(
+        controller: controller,
         validator: validator,
         onSaved: onSaved,
         obscureText: obscureText,
