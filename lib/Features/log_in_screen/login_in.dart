@@ -28,12 +28,21 @@ class _LoginScreenState extends State<LoginScreen> {
   Future<void> fetchData() async {
     QuerySnapshot querySnapshot = await usersCollection.get();
     List<DocumentSnapshot> documents = querySnapshot.docs;
-    // Process the retrieved documents
+    //Process the retrieved documents
     for (var document in documents) {
       print(document.data());
     }
     setState(() {});
-  }
+  //   if (querySnapshot.docs.isNotEmpty) {
+  //     // Match found
+  //     for (var doc in querySnapshot.docs) {
+  //       // Access the matched document data
+  //       var data = doc.data();
+  //     }
+  //   } else {
+  //     print("No match found");
+  //   }
+   }
 
   @override
   void initState() {
@@ -106,7 +115,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       RefactorTextFormField(
-                        onSaved: (p0) {},
+                        onSaved: (p0) {
+
+                        },
                       ),
                       SizedBox(
                         height: 2.h,
