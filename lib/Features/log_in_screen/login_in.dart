@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flight/Core/app_color.dart';
 import 'package:flight/Features/log_in_screen/refactor_text_form.dart';
 import 'package:flight/widgets/App_button.dart';
@@ -6,7 +7,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  LoginScreen({super.key});
+
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +23,12 @@ class LoginScreen extends StatelessWidget {
             width: double.infinity,
             fit: BoxFit.cover,
           ),
-          Align(
-            alignment: Alignment.center,
-            child: Padding(
-              padding: EdgeInsets.only(top: 250.h),
-              child: Container(
-                child: Center(
+          SingleChildScrollView(
+            child: Align(
+              alignment: Alignment.center,
+              child: Padding(
+                padding: EdgeInsets.only(top: 270.h),
+                child: Container(
                   child: Column(
                     children: [
                       Padding(
@@ -41,9 +45,9 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(right: 240.w),
+                        padding: EdgeInsets.only(right: 210.w),
                         child: Text(
-                          "ID:",
+                          "Email:",
                           style: GoogleFonts.inter(
                             textStyle: TextStyle(
                               color: AppColor.blue29,
@@ -53,14 +57,16 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                     RefactorTextFormField(),
+                      RefactorTextFormField(
+                        controller: emailController,
+                      ),
                       SizedBox(
                         height: 20.h,
                       ),
                       Padding(
                         padding: EdgeInsets.only(right: 172.w),
                         child: Text(
-                          "Passward:",
+                          "Password:",
                           style: GoogleFonts.inter(
                             textStyle: TextStyle(
                               color: AppColor.blue29,
@@ -70,7 +76,9 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      RefactorTextFormField(),
+                      RefactorTextFormField(
+                        controller: passwordController,
+                      ),
                       SizedBox(
                         height: 2.h,
                       ),
@@ -92,7 +100,14 @@ class LoginScreen extends StatelessWidget {
                       ),
                       AppButton(
                         title: "Login",
-                        onTap: () {},
+                        onTap: () {
+                          CollectionReference collection =
+                              FirebaseFirestore.instance.collection('Users');
+                          collection.add({
+                            "Email": emailController.text,
+                            "Password": passwordController.text
+                          });
+                        },
                         width: 120,
                         height: 43,
                       ),
@@ -100,8 +115,8 @@ class LoginScreen extends StatelessWidget {
                         height: 15.h,
                       ),
                       InkWell(
-                        onTap: (){
-                      //    Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewScreen()));
+                        onTap: () {
+                          //    Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewScreen()));
                         },
                         child: Text(
                           "I’am an admin",
@@ -116,22 +131,22 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+                  width: 340.w,
+                  height: 350.h,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(40),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                            color: AppColor.blue29,
+                            offset: Offset(0, 3),
+                            blurRadius: 10,
+                            spreadRadius: 3),
+                      ]),
                 ),
-                width: 340.w,
-                height: 350.h,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(40),
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                          color: AppColor.blue29,
-                          offset: Offset(0, 3),
-                          blurRadius: 10,
-                          spreadRadius: 3),
-                    ]),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

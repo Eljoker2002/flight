@@ -1,4 +1,6 @@
 import 'dart:typed_data';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flight/widgets/App_button.dart';
 import 'package:flight/widgets/date_widget.dart';
 import 'package:flight/widgets/text_form.dart';
 import 'package:flutter/material.dart';
@@ -14,285 +16,297 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late pw.TableRow _tableColumn2;
-  late pw.TableRow _tableColumn3;
-  late String name;
-  TextEditingController lastNameController = TextEditingController();
-  TextEditingController firstNameController = TextEditingController();
+  // late pw.TableRow _tableColumn2;
+  // late pw.TableRow _tableColumn3;
+  TextEditingController traineeName = TextEditingController();
+  TextEditingController codeNum = TextEditingController();
+  TextEditingController date = TextEditingController();
+  TextEditingController question1 = TextEditingController();
+  TextEditingController question2 = TextEditingController();
+  TextEditingController question3 = TextEditingController();
+  TextEditingController question4 = TextEditingController();
+  TextEditingController question5 = TextEditingController();
+  TextEditingController question6 = TextEditingController();
+  TextEditingController question7 = TextEditingController();
+  TextEditingController question8 = TextEditingController();
+  TextEditingController question9 = TextEditingController();
+  TextEditingController question10 = TextEditingController();
+  TextEditingController question11 = TextEditingController();
 
   @override
-  void initState() {
-    _tableColumn2 = pw.TableRow(children: <pw.Widget>[
-      pw.Center(
-        child: pw.Padding(
-          padding: pw.EdgeInsets.all(5.0),
-          child: pw.Text("Sectors"),
-        ),
-      ),
-      pw.Center(
-        child: pw.Padding(
-          padding: pw.EdgeInsets.all(5.0),
-          child: pw.Text("Flight No"),
-        ),
-      ),
-      pw.Center(
-        child: pw.Padding(
-          padding: pw.EdgeInsets.all(5.0),
-          child: pw.Text("A/C Type"),
-        ),
-      ),
-      pw.Center(
-        child: pw.Padding(
-          padding: pw.EdgeInsets.all(5.0),
-          child: pw.Text("Position"),
-        ),
-      ),
-      pw.Center(
-        child: pw.Padding(
-          padding: pw.EdgeInsets.all(5.0),
-          child: pw.Text("Date"),
-        ),
-      ),
-      pw.Center(
-        child: pw.Padding(
-          padding: pw.EdgeInsets.all(5.0),
-          child: pw.Text("Instructor Name"),
-        ),
-      ),
-      pw.Center(
-        child: pw.Padding(
-          padding: pw.EdgeInsets.all(5.0),
-          child: pw.Text("Code No"),
-        ),
-      ),
-    ]);
+  // void initState() {
+  //   _tableColumn2 = pw.TableRow(children: <pw.Widget>[
+  //     pw.Center(
+  //       child: pw.Padding(
+  //         padding: pw.EdgeInsets.all(5.0),
+  //         child: pw.Text("Sectors"),
+  //       ),
+  //     ),
+  //     pw.Center(
+  //       child: pw.Padding(
+  //         padding: pw.EdgeInsets.all(5.0),
+  //         child: pw.Text("Flight No"),
+  //       ),
+  //     ),
+  //     pw.Center(
+  //       child: pw.Padding(
+  //         padding: pw.EdgeInsets.all(5.0),
+  //         child: pw.Text("A/C Type"),
+  //       ),
+  //     ),
+  //     pw.Center(
+  //       child: pw.Padding(
+  //         padding: pw.EdgeInsets.all(5.0),
+  //         child: pw.Text("Position"),
+  //       ),
+  //     ),
+  //     pw.Center(
+  //       child: pw.Padding(
+  //         padding: pw.EdgeInsets.all(5.0),
+  //         child: pw.Text("Date"),
+  //       ),
+  //     ),
+  //     pw.Center(
+  //       child: pw.Padding(
+  //         padding: pw.EdgeInsets.all(5.0),
+  //         child: pw.Text("Instructor Name"),
+  //       ),
+  //     ),
+  //     pw.Center(
+  //       child: pw.Padding(
+  //         padding: pw.EdgeInsets.all(5.0),
+  //         child: pw.Text("Code No"),
+  //       ),
+  //     ),
+  //   ]);
+  //
+  //   _tableColumn3 = pw.TableRow(children: <pw.Widget>[
+  //     pw.Padding(
+  //       padding: pw.EdgeInsets.all(5.0),
+  //       child: pw.Text("1"),
+  //     ),
+  //     pw.Align(
+  //       alignment: pw.Alignment.centerLeft,
+  //       child: pw.Padding(
+  //         padding: pw.EdgeInsets.symmetric(vertical: 5, horizontal: 3),
+  //         child: pw.Text("MS"),
+  //       ),
+  //     ),
+  //     pw.Padding(
+  //       padding: pw.EdgeInsets.all(5.0),
+  //       child: pw.Text("1"),
+  //     ),
+  //     pw.Padding(
+  //       padding: pw.EdgeInsets.all(5.0),
+  //       child: pw.Text("1"),
+  //     ),
+  //     pw.Center(
+  //       child: pw.Padding(
+  //         padding: pw.EdgeInsets.all(5.0),
+  //         child: pw.Text("1"),
+  //       ),
+  //     ),
+  //     pw.Padding(
+  //       padding: pw.EdgeInsets.all(5.0),
+  //       child: pw.Text("1"),
+  //     ),
+  //     pw.Padding(
+  //       padding: pw.EdgeInsets.all(5.0),
+  //       child: pw.Text("1"),
+  //     ),
+  //   ]);
+  //   super.initState();
+  // }
 
-    _tableColumn3 = pw.TableRow(children: <pw.Widget>[
-      pw.Padding(
-        padding: pw.EdgeInsets.all(5.0),
-        child: pw.Text("1"),
-      ),
-      pw.Align(
-        alignment: pw.Alignment.centerLeft,
-        child: pw.Padding(
-          padding: pw.EdgeInsets.symmetric(vertical: 5, horizontal: 3),
-          child: pw.Text("MS"),
-        ),
-      ),
-      pw.Padding(
-        padding: pw.EdgeInsets.all(5.0),
-        child: pw.Text("1"),
-      ),
-      pw.Padding(
-        padding: pw.EdgeInsets.all(5.0),
-        child: pw.Text("1"),
-      ),
-      pw.Center(
-        child: pw.Padding(
-          padding: pw.EdgeInsets.all(5.0),
-          child: pw.Text("1"),
-        ),
-      ),
-      pw.Padding(
-        padding: pw.EdgeInsets.all(5.0),
-        child: pw.Text("1"),
-      ),
-      pw.Padding(
-        padding: pw.EdgeInsets.all(5.0),
-        child: pw.Text("1"),
-      ),
-    ]);
-    super.initState();
-  }
+  // Future<void> _saveAndPrintPdf() async {
+  //   final pdf = pw.Document();
+  //   pdf.addPage(
+  //     pw.Page(
+  //       build: (context) {
+  //         return pw.Column(
+  //           children: [
+  //             pw.Table(
+  //               defaultColumnWidth: pw.FixedColumnWidth(1285.w),
+  //               border: pw.TableBorder.all(width: 1.w),
+  //               children: <pw.TableRow>[
+  //                 pw.TableRow(children: [
+  //                   pw.Container(
+  //                     width: 1285.w,
+  //                     height: 30.h,
+  //                     child: pw.Center(
+  //                       child: pw.Text(
+  //                         "CABIN CREW INFLIGHT COMPETENCY CHECK",
+  //                         style: pw.TextStyle(
+  //                           fontSize: 16.sp,
+  //                         ),
+  //                       ),
+  //                     ),
+  //                   ),
+  //                 ]),
+  //               ],
+  //             ),
+  //             pw.Table(
+  //               defaultColumnWidth: pw.FixedColumnWidth(643.w),
+  //               border: pw.TableBorder.all(width: 1.w),
+  //               children: <pw.TableRow>[
+  //                 pw.TableRow(
+  //                   children: [
+  //                     pw.Container(
+  //                       // color: Colors.cyanAccent,
+  //                       width: 321.5.w,
+  //                       height: 30.h,
+  //                       child: pw.Row(
+  //                         children: [
+  //                           pw.SizedBox(width: 2.w),
+  //                           pw.Text(
+  //                             "Trainee Name:",
+  //                             style: pw.TextStyle(
+  //                               fontSize: 15.sp,
+  //                             ),
+  //                           ),
+  //                           pw.Text(firstNameController.text),
+  //                         ],
+  //                       ),
+  //                     ),
+  //                     pw.Container(
+  //                       // color: Colors.cyanAccent,
+  //                       width: 321.5.w,
+  //                       height: 30.h,
+  //                       child: pw.Row(
+  //                         children: [
+  //                           pw.SizedBox(width: 2.w),
+  //                           pw.Text(
+  //                             "Code Num:",
+  //                             style: pw.TextStyle(
+  //                               fontSize: 15.sp,
+  //                             ),
+  //                           ),
+  //                           // pw.CustomFormField(),
+  //                         ],
+  //                       ),
+  //                     ),
+  //                   ],
+  //                 ),
+  //               ],
+  //             ),
+  //             pw.Table(
+  //               columnWidths: {
+  //                 0: pw.FlexColumnWidth(4),
+  //                 1: pw.FlexColumnWidth(1),
+  //               },
+  //               defaultColumnWidth: pw.FixedColumnWidth(1285.w),
+  //               border: pw.TableBorder.all(width: 1.w),
+  //               children: <pw.TableRow>[
+  //                 pw.TableRow(
+  //                   children: [
+  //                     pw.Container(
+  //                       // color: Colors.cyanAccent,
+  //                       width: 500.w,
+  //                       height: 20.h,
+  //                       child: pw.Row(
+  //                         children: [
+  //                           pw.SizedBox(width: 2.w),
+  //                           pw.Text(
+  //                             "Training Categories:",
+  //                             style: pw.TextStyle(
+  //                               fontSize: 15.sp,
+  //                             ),
+  //                           ),
+  //                           pw.Checkbox(value: false, name: ''),
+  //                           pw.Text(
+  //                             "Initial",
+  //                             style: pw.TextStyle(
+  //                               fontSize: 15.sp,
+  //                             ),
+  //                           ),
+  //                           pw.Checkbox(value: false, name: ''),
+  //                           pw.Text(
+  //                             "Transition",
+  //                             style: pw.TextStyle(
+  //                               fontSize: 15.sp,
+  //                             ),
+  //                           ),
+  //                           pw.Checkbox(value: false, name: ''),
+  //                           pw.Text(
+  //                             "Requalification Recurrent",
+  //                             style: pw.TextStyle(
+  //                               fontSize: 15.sp,
+  //                             ),
+  //                           ),
+  //                           pw.Checkbox(value: false, name: ''),
+  //                           pw.Text(
+  //                             "SEP1",
+  //                             style: pw.TextStyle(
+  //                               fontSize: 15.sp,
+  //                             ),
+  //                           ),
+  //                           pw.Checkbox(value: false, name: ''),
+  //                           pw.Text(
+  //                             "SEP2",
+  //                             style: pw.TextStyle(
+  //                               fontSize: 15.sp,
+  //                             ),
+  //                           ),
+  //                         ],
+  //                       ),
+  //                     ),
+  //                     pw.Container(
+  //                       // color: Colors.cyanAccent,
+  //                       width: 50.w,
+  //                       height: 20.h,
+  //                       child: pw.Row(
+  //                         children: [
+  //                           pw.SizedBox(width: 2.w),
+  //                           pw.Text(
+  //                             "Date:",
+  //                             style: pw.TextStyle(
+  //                               fontSize: 15.sp,
+  //                             ),
+  //                           ),
+  //                           pw.SizedBox(width: 4.w),
+  //                           pw.Text(""),
+  //                         ],
+  //                       ),
+  //                     ),
+  //                   ],
+  //                 ),
+  //               ],
+  //             ),
+  //             pw.Table(
+  //                 defaultColumnWidth: pw.FixedColumnWidth(184.w),
+  //                 border: pw.TableBorder.all(width: 1.w),
+  //                 children: <pw.TableRow>[_tableColumn2]),
+  //             pw.Table(
+  //                 defaultColumnWidth: pw.FixedColumnWidth(184.w),
+  //                 border: pw.TableBorder.all(width: 1.w),
+  //                 children: <pw.TableRow>[
+  //                   _tableColumn3,
+  //                   _tableColumn3,
+  //                   _tableColumn3,
+  //                   _tableColumn3,
+  //                   _tableColumn3,
+  //                   _tableColumn3,
+  //                   _tableColumn3,
+  //                   _tableColumn3,
+  //                 ]),
+  //           ],
+  //         );
+  //       },
+  //     ),
+  //   );
+  //   final Uint8List bytes = await pdf.save();
+  //   // Save the PDF to a file
+  //   final appDocDir = await getApplicationDocumentsDirectory();
+  //   final appDocPath = appDocDir.path;
+  //   final file = File('$appDocPath/example.pdf');
+  //   await file.writeAsBytes(bytes);
+  //   // Print the PDF using the printing package
+  //   await Printing.layoutPdf(
+  //     onLayout: (format) async => bytes,
+  //     name: 'example.pdf',
+  //   );
+  // }
 
-  Future<void> _saveAndPrintPdf() async {
-    final pdf = pw.Document();
-    pdf.addPage(
-      pw.Page(
-        build: (context) {
-          return pw.Column(
-            children: [
-              pw.Table(
-                defaultColumnWidth: pw.FixedColumnWidth(1285.w),
-                border: pw.TableBorder.all(width: 1.w),
-                children: <pw.TableRow>[
-                  pw.TableRow(children: [
-                    pw.Container(
-                      width: 1285.w,
-                      height: 30.h,
-                      child: pw.Center(
-                        child: pw.Text(
-                          "CABIN CREW INFLIGHT COMPETENCY CHECK",
-                          style: pw.TextStyle(
-                            fontSize: 16.sp,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ]),
-                ],
-              ),
-              pw.Table(
-                defaultColumnWidth: pw.FixedColumnWidth(643.w),
-                border: pw.TableBorder.all(width: 1.w),
-                children: <pw.TableRow>[
-                  pw.TableRow(
-                    children: [
-                      pw.Container(
-                        // color: Colors.cyanAccent,
-                        width: 321.5.w,
-                        height: 30.h,
-                        child: pw.Row(
-                          children: [
-                            pw.SizedBox(width: 2.w),
-                            pw.Text(
-                              "Trainee Name:",
-                              style: pw.TextStyle(
-                                fontSize: 15.sp,
-                              ),
-                            ),
-                            pw.Text(firstNameController.text),
-                          ],
-                        ),
-                      ),
-                      pw.Container(
-                        // color: Colors.cyanAccent,
-                        width: 321.5.w,
-                        height: 30.h,
-                        child: pw.Row(
-                          children: [
-                            pw.SizedBox(width: 2.w),
-                            pw.Text(
-                              "Code Num:",
-                              style: pw.TextStyle(
-                                fontSize: 15.sp,
-                              ),
-                            ),
-                            // pw.CustomFormField(),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              pw.Table(
-                columnWidths: {
-                  0: pw.FlexColumnWidth(4),
-                  1: pw.FlexColumnWidth(1),
-                },
-                defaultColumnWidth: pw.FixedColumnWidth(1285.w),
-                border: pw.TableBorder.all(width: 1.w),
-                children: <pw.TableRow>[
-                  pw.TableRow(
-                    children: [
-                      pw.Container(
-                        // color: Colors.cyanAccent,
-                        width: 500.w,
-                        height: 20.h,
-                        child: pw.Row(
-                          children: [
-                            pw.SizedBox(width: 2.w),
-                            pw.Text(
-                              "Training Categories:",
-                              style: pw.TextStyle(
-                                fontSize: 15.sp,
-                              ),
-                            ),
-                            pw.Checkbox(value: false, name: ''),
-                            pw.Text(
-                              "Initial",
-                              style: pw.TextStyle(
-                                fontSize: 15.sp,
-                              ),
-                            ),
-                            pw.Checkbox(value: false, name: ''),
-                            pw.Text(
-                              "Transition",
-                              style: pw.TextStyle(
-                                fontSize: 15.sp,
-                              ),
-                            ),
-                            pw.Checkbox(value: false, name: ''),
-                            pw.Text(
-                              "Requalification Recurrent",
-                              style: pw.TextStyle(
-                                fontSize: 15.sp,
-                              ),
-                            ),
-                            pw.Checkbox(value: false, name: ''),
-                            pw.Text(
-                              "SEP1",
-                              style: pw.TextStyle(
-                                fontSize: 15.sp,
-                              ),
-                            ),
-                            pw.Checkbox(value: false, name: ''),
-                            pw.Text(
-                              "SEP2",
-                              style: pw.TextStyle(
-                                fontSize: 15.sp,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      pw.Container(
-                        // color: Colors.cyanAccent,
-                        width: 50.w,
-                        height: 20.h,
-                        child: pw.Row(
-                          children: [
-                            pw.SizedBox(width: 2.w),
-                            pw.Text(
-                              "Date:",
-                              style: pw.TextStyle(
-                                fontSize: 15.sp,
-                              ),
-                            ),
-                            pw.SizedBox(width: 4.w),
-                            pw.Text(""),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              pw.Table(
-                  defaultColumnWidth: pw.FixedColumnWidth(184.w),
-                  border: pw.TableBorder.all(width: 1.w),
-                  children: <pw.TableRow>[_tableColumn2]),
-              pw.Table(
-                  defaultColumnWidth: pw.FixedColumnWidth(184.w),
-                  border: pw.TableBorder.all(width: 1.w),
-                  children: <pw.TableRow>[
-                    _tableColumn3,
-                    _tableColumn3,
-                    _tableColumn3,
-                    _tableColumn3,
-                    _tableColumn3,
-                    _tableColumn3,
-                    _tableColumn3,
-                    _tableColumn3,
-                  ]),
-            ],
-          );
-        },
-      ),
-    );
-    final Uint8List bytes = await pdf.save();
-    // Save the PDF to a file
-    final appDocDir = await getApplicationDocumentsDirectory();
-    final appDocPath = appDocDir.path;
-    final file = File('$appDocPath/example.pdf');
-    await file.writeAsBytes(bytes);
-    // Print the PDF using the printing package
-    await Printing.layoutPdf(
-      onLayout: (format) async => bytes,
-      name: 'example.pdf',
-    );
-  }
   @override
   Widget build(BuildContext context) {
     TableRow _tableColumn2 = TableRow(children: <Widget>[
@@ -360,19 +374,17 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     ]);
-    TableRow _tableColumn3 =  TableRow(children: <Widget>[
+    TableRow _tableColumn3 = TableRow(children: <Widget>[
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child:Row(
+        child: Row(
           children: [
             CustomText(
               text: "1-",
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            SizedBox(
-              width: 130.w,
-                child: CustomFormField()),
+            SizedBox(width: 130.w, child: CustomFormField()),
           ],
         ),
       ),
@@ -387,9 +399,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontSize: 12.sp,
               ),
               SizedBox(width: 4.w),
-              SizedBox(
-                  width: 130.w,
-                  child: CustomFormField()),
+              SizedBox(width: 130.w, child: CustomFormField()),
             ],
           ),
         ),
@@ -418,16 +428,14 @@ class _MyHomePageState extends State<MyHomePage> {
     TableRow _tableColumn31 = TableRow(children: <Widget>[
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child:Row(
+        child: Row(
           children: [
             CustomText(
               text: "2-",
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            SizedBox(
-                width: 130.w,
-                child: CustomFormField()),
+            SizedBox(width: 130.w, child: CustomFormField()),
           ],
         ),
       ),
@@ -442,9 +450,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontSize: 12.sp,
               ),
               SizedBox(width: 4.w),
-              SizedBox(
-                  width: 130.w,
-                  child: CustomFormField()),
+              SizedBox(width: 130.w, child: CustomFormField()),
             ],
           ),
         ),
@@ -470,19 +476,17 @@ class _MyHomePageState extends State<MyHomePage> {
         child: CustomFormField(),
       ),
     ]);
-    TableRow _tableColumn32 =  TableRow(children: <Widget>[
+    TableRow _tableColumn32 = TableRow(children: <Widget>[
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child:Row(
+        child: Row(
           children: [
             CustomText(
               text: "3-",
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            SizedBox(
-                width: 130.w,
-                child: CustomFormField()),
+            SizedBox(width: 130.w, child: CustomFormField()),
           ],
         ),
       ),
@@ -497,9 +501,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontSize: 12.sp,
               ),
               SizedBox(width: 4.w),
-              SizedBox(
-                  width: 130.w,
-                  child: CustomFormField()),
+              SizedBox(width: 130.w, child: CustomFormField()),
             ],
           ),
         ),
@@ -525,19 +527,17 @@ class _MyHomePageState extends State<MyHomePage> {
         child: CustomFormField(),
       ),
     ]);
-    TableRow _tableColumn33 =  TableRow(children: <Widget>[
+    TableRow _tableColumn33 = TableRow(children: <Widget>[
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child:Row(
+        child: Row(
           children: [
             CustomText(
               text: "4-",
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            SizedBox(
-                width: 130.w,
-                child: CustomFormField()),
+            SizedBox(width: 130.w, child: CustomFormField()),
           ],
         ),
       ),
@@ -552,9 +552,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontSize: 12.sp,
               ),
               SizedBox(width: 4.w),
-              SizedBox(
-                  width: 130.w,
-                  child: CustomFormField()),
+              SizedBox(width: 130.w, child: CustomFormField()),
             ],
           ),
         ),
@@ -580,19 +578,17 @@ class _MyHomePageState extends State<MyHomePage> {
         child: CustomFormField(),
       ),
     ]);
-    TableRow _tableColumn34 =  TableRow(children: <Widget>[
+    TableRow _tableColumn34 = TableRow(children: <Widget>[
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child:Row(
+        child: Row(
           children: [
             CustomText(
               text: "5-",
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            SizedBox(
-                width: 130.w,
-                child: CustomFormField()),
+            SizedBox(width: 130.w, child: CustomFormField()),
           ],
         ),
       ),
@@ -607,9 +603,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontSize: 12.sp,
               ),
               SizedBox(width: 4.w),
-              SizedBox(
-                  width: 130.w,
-                  child: CustomFormField()),
+              SizedBox(width: 130.w, child: CustomFormField()),
             ],
           ),
         ),
@@ -635,19 +629,17 @@ class _MyHomePageState extends State<MyHomePage> {
         child: CustomFormField(),
       ),
     ]);
-    TableRow _tableColumn35 =  TableRow(children: <Widget>[
+    TableRow _tableColumn35 = TableRow(children: <Widget>[
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child:Row(
+        child: Row(
           children: [
             CustomText(
               text: "6-",
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            SizedBox(
-                width: 130.w,
-                child: CustomFormField()),
+            SizedBox(width: 130.w, child: CustomFormField()),
           ],
         ),
       ),
@@ -662,9 +654,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontSize: 12.sp,
               ),
               SizedBox(width: 4.w),
-              SizedBox(
-                  width: 130.w,
-                  child: CustomFormField()),
+              SizedBox(width: 130.w, child: CustomFormField()),
             ],
           ),
         ),
@@ -690,19 +680,17 @@ class _MyHomePageState extends State<MyHomePage> {
         child: CustomFormField(),
       ),
     ]);
-    TableRow _tableColumn36 =  TableRow(children: <Widget>[
+    TableRow _tableColumn36 = TableRow(children: <Widget>[
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child:Row(
+        child: Row(
           children: [
             CustomText(
               text: "7-",
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            SizedBox(
-                width: 130.w,
-                child: CustomFormField()),
+            SizedBox(width: 130.w, child: CustomFormField()),
           ],
         ),
       ),
@@ -717,9 +705,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontSize: 12.sp,
               ),
               SizedBox(width: 4.w),
-              SizedBox(
-                  width: 130.w,
-                  child: CustomFormField()),
+              SizedBox(width: 130.w, child: CustomFormField()),
             ],
           ),
         ),
@@ -745,19 +731,17 @@ class _MyHomePageState extends State<MyHomePage> {
         child: CustomFormField(),
       ),
     ]);
-    TableRow _tableColumn37 =  TableRow(children: <Widget>[
+    TableRow _tableColumn37 = TableRow(children: <Widget>[
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child:Row(
+        child: Row(
           children: [
             CustomText(
               text: "8-",
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            SizedBox(
-                width: 130.w,
-                child: CustomFormField()),
+            SizedBox(width: 130.w, child: CustomFormField()),
           ],
         ),
       ),
@@ -772,9 +756,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontSize: 12.sp,
               ),
               SizedBox(width: 4.w),
-              SizedBox(
-                  width: 130.w,
-                  child: CustomFormField()),
+              SizedBox(width: 130.w, child: CustomFormField()),
             ],
           ),
         ),
@@ -803,16 +785,14 @@ class _MyHomePageState extends State<MyHomePage> {
     TableRow _tableColumn38 = TableRow(children: <Widget>[
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child:Row(
+        child: Row(
           children: [
             CustomText(
               text: "9-",
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            SizedBox(
-                width: 130.w,
-                child: CustomFormField()),
+            SizedBox(width: 130.w, child: CustomFormField()),
           ],
         ),
       ),
@@ -827,9 +807,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontSize: 12.sp,
               ),
               SizedBox(width: 4.w),
-              SizedBox(
-                  width: 130.w,
-                  child: CustomFormField()),
+              SizedBox(width: 130.w, child: CustomFormField()),
             ],
           ),
         ),
@@ -855,19 +833,17 @@ class _MyHomePageState extends State<MyHomePage> {
         child: CustomFormField(),
       ),
     ]);
-    TableRow _tableColumn39 =  TableRow(children: <Widget>[
+    TableRow _tableColumn39 = TableRow(children: <Widget>[
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child:Row(
+        child: Row(
           children: [
             CustomText(
               text: "10-",
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            SizedBox(
-                width: 130.w,
-                child: CustomFormField()),
+            SizedBox(width: 130.w, child: CustomFormField()),
           ],
         ),
       ),
@@ -882,9 +858,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontSize: 12.sp,
               ),
               SizedBox(width: 4.w),
-              SizedBox(
-                  width: 130.w,
-                  child: CustomFormField()),
+              SizedBox(width: 130.w, child: CustomFormField()),
             ],
           ),
         ),
@@ -910,19 +884,17 @@ class _MyHomePageState extends State<MyHomePage> {
         child: CustomFormField(),
       ),
     ]);
-    TableRow _tableColumn310 =  TableRow(children: <Widget>[
+    TableRow _tableColumn310 = TableRow(children: <Widget>[
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child:Row(
+        child: Row(
           children: [
             CustomText(
               text: "11-",
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            SizedBox(
-                width: 130.w,
-                child: CustomFormField()),
+            SizedBox(width: 130.w, child: CustomFormField()),
           ],
         ),
       ),
@@ -937,9 +909,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontSize: 12.sp,
               ),
               SizedBox(width: 4.w),
-              SizedBox(
-                  width: 130.w,
-                  child: CustomFormField()),
+              SizedBox(width: 130.w, child: CustomFormField()),
             ],
           ),
         ),
@@ -965,19 +935,17 @@ class _MyHomePageState extends State<MyHomePage> {
         child: CustomFormField(),
       ),
     ]);
-    TableRow _tableColumn311 =  TableRow(children: <Widget>[
+    TableRow _tableColumn311 = TableRow(children: <Widget>[
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child:Row(
+        child: Row(
           children: [
             CustomText(
               text: "12-",
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            SizedBox(
-                width: 130.w,
-                child: CustomFormField()),
+            SizedBox(width: 130.w, child: CustomFormField()),
           ],
         ),
       ),
@@ -992,9 +960,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontSize: 12.sp,
               ),
               SizedBox(width: 4.w),
-              SizedBox(
-                  width: 130.w,
-                  child: CustomFormField()),
+              SizedBox(width: 130.w, child: CustomFormField()),
             ],
           ),
         ),
@@ -1020,19 +986,17 @@ class _MyHomePageState extends State<MyHomePage> {
         child: CustomFormField(),
       ),
     ]);
-    TableRow _tableColumn312 =  TableRow(children: <Widget>[
+    TableRow _tableColumn312 = TableRow(children: <Widget>[
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child:Row(
+        child: Row(
           children: [
             CustomText(
               text: "13-",
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            SizedBox(
-                width: 130.w,
-                child: CustomFormField()),
+            SizedBox(width: 130.w, child: CustomFormField()),
           ],
         ),
       ),
@@ -1047,9 +1011,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontSize: 12.sp,
               ),
               SizedBox(width: 4.w),
-              SizedBox(
-                  width: 130.w,
-                  child: CustomFormField()),
+              SizedBox(width: 130.w, child: CustomFormField()),
             ],
           ),
         ),
@@ -1075,19 +1037,17 @@ class _MyHomePageState extends State<MyHomePage> {
         child: CustomFormField(),
       ),
     ]);
-    TableRow _tableColumn313 =  TableRow(children: <Widget>[
+    TableRow _tableColumn313 = TableRow(children: <Widget>[
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child:Row(
+        child: Row(
           children: [
             CustomText(
               text: "14-",
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            SizedBox(
-                width: 130.w,
-                child: CustomFormField()),
+            SizedBox(width: 130.w, child: CustomFormField()),
           ],
         ),
       ),
@@ -1102,9 +1062,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontSize: 12.sp,
               ),
               SizedBox(width: 4.w),
-              SizedBox(
-                  width: 130.w,
-                  child: CustomFormField()),
+              SizedBox(width: 130.w, child: CustomFormField()),
             ],
           ),
         ),
@@ -1130,19 +1088,17 @@ class _MyHomePageState extends State<MyHomePage> {
         child: CustomFormField(),
       ),
     ]);
-    TableRow _tableColumn314 =  TableRow(children: <Widget>[
+    TableRow _tableColumn314 = TableRow(children: <Widget>[
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child:Row(
+        child: Row(
           children: [
             CustomText(
               text: "15-",
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            SizedBox(
-                width: 130.w,
-                child: CustomFormField()),
+            SizedBox(width: 130.w, child: CustomFormField()),
           ],
         ),
       ),
@@ -1157,9 +1113,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontSize: 12.sp,
               ),
               SizedBox(width: 4.w),
-              SizedBox(
-                  width: 130.w,
-                  child: CustomFormField()),
+              SizedBox(width: 130.w, child: CustomFormField()),
             ],
           ),
         ),
@@ -1185,19 +1139,17 @@ class _MyHomePageState extends State<MyHomePage> {
         child: CustomFormField(),
       ),
     ]);
-    TableRow _tableColumn315 =  TableRow(children: <Widget>[
+    TableRow _tableColumn315 = TableRow(children: <Widget>[
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child:Row(
+        child: Row(
           children: [
             CustomText(
               text: "16-",
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            SizedBox(
-                width: 130.w,
-                child: CustomFormField()),
+            SizedBox(width: 130.w, child: CustomFormField()),
           ],
         ),
       ),
@@ -1212,9 +1164,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontSize: 12.sp,
               ),
               SizedBox(width: 4.w),
-              SizedBox(
-                  width: 130.w,
-                  child: CustomFormField()),
+              SizedBox(width: 130.w, child: CustomFormField()),
             ],
           ),
         ),
@@ -1303,7 +1253,9 @@ class _MyHomePageState extends State<MyHomePage> {
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            CustomFormField(),
+            QuestionsFormField(
+              controller: question1,
+            ),
           ],
         ),
       ),
@@ -1334,7 +1286,9 @@ class _MyHomePageState extends State<MyHomePage> {
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            CustomFormField(),
+            QuestionsFormField(
+              controller: question2,
+            ),
           ],
         ),
       ),
@@ -1365,7 +1319,9 @@ class _MyHomePageState extends State<MyHomePage> {
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            CustomFormField(),
+            QuestionsFormField(
+              controller: question3,
+            ),
           ],
         ),
       ),
@@ -1396,7 +1352,9 @@ class _MyHomePageState extends State<MyHomePage> {
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            CustomFormField(),
+            QuestionsFormField(
+              controller: question4,
+            ),
           ],
         ),
       ),
@@ -1427,7 +1385,9 @@ class _MyHomePageState extends State<MyHomePage> {
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            CustomFormField(),
+            QuestionsFormField(
+              controller: question5,
+            ),
           ],
         ),
       ),
@@ -1458,7 +1418,9 @@ class _MyHomePageState extends State<MyHomePage> {
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            CustomFormField(),
+            QuestionsFormField(
+              controller: question6,
+            ),
           ],
         ),
       ),
@@ -1489,7 +1451,9 @@ class _MyHomePageState extends State<MyHomePage> {
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            CustomFormField(),
+            QuestionsFormField(
+              controller: question7,
+            ),
           ],
         ),
       ),
@@ -1520,7 +1484,9 @@ class _MyHomePageState extends State<MyHomePage> {
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            CustomFormField(),
+            QuestionsFormField(
+              controller: question8,
+            ),
           ],
         ),
       ),
@@ -1551,7 +1517,9 @@ class _MyHomePageState extends State<MyHomePage> {
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            CustomFormField(),
+            QuestionsFormField(
+              controller: question9,
+            ),
           ],
         ),
       ),
@@ -1574,15 +1542,16 @@ class _MyHomePageState extends State<MyHomePage> {
     ]);
     TableRow _tableColumn13 = TableRow(children: <Widget>[
       Padding(
-        padding: EdgeInsets.all(7.0.sp),
+        padding: EdgeInsets.all(5.0.sp),
         child: Row(
           children: [
             CustomText(
               text: "10-",
               fontSize: 13.sp,
             ),
-            SizedBox(width: 4.w),
-            CustomFormField(),
+            QuestionsFormField(
+              controller: question10,
+            ),
           ],
         ),
       ),
@@ -1605,15 +1574,16 @@ class _MyHomePageState extends State<MyHomePage> {
     ]);
     TableRow _tableColumn14 = TableRow(children: <Widget>[
       Padding(
-        padding: EdgeInsets.all(7.0.sp),
+        padding: EdgeInsets.all(5.0.sp),
         child: Row(
           children: [
             CustomText(
               text: "11-",
               fontSize: 13.sp,
             ),
-            SizedBox(width: 4.w),
-            CustomFormField(),
+            QuestionsFormField(
+              controller: question11,
+            ),
           ],
         ),
       ),
@@ -1705,7 +1675,6 @@ class _MyHomePageState extends State<MyHomePage> {
               value: false,
               onChanged: (bool? value) {},
             ),
-
             CustomText(
               text: "S",
               fontWeight: FontWeight.bold,
@@ -1873,10 +1842,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ],
     );
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: EdgeInsets.symmetric(vertical: 40.h),
+        padding: EdgeInsets.only(top: 40.h, bottom: 10.h),
         child: Center(
           child: SingleChildScrollView(
             child: Column(
@@ -1884,7 +1854,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Container(
-                    height: 1700.sp,
+                    height: 1452.h,
                     width: 1285.w,
                     child: Column(
                       children: [
@@ -1924,22 +1894,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                         text: "Trainee Name:",
                                         fontSize: 14.sp,
                                       ),
-                                      Container(
-                                        width: 50.w,
-                                        child: TextFormField(
-                                          cursorHeight: 20.h,
-                                          style: TextStyle(fontSize: 15.sp),
-                                          //onSaved:(p0) => name=p0!,
-                                          controller: firstNameController,
-                                          decoration: InputDecoration(
-                                            enabledBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(color: Colors.transparent),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(color: Colors.transparent),
-                                            ),
-                                          ),
-                                        ),
+                                      CustomFormField(
+                                        controller: traineeName,
                                       ),
                                     ],
                                   ),
@@ -1955,7 +1911,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                         text: "Code Num:",
                                         fontSize: 14.sp,
                                       ),
-                                      CustomFormField(),
+                                      CustomFormField(
+                                        controller: codeNum,
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -2024,7 +1982,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                         fontSize: 14.sp,
                                       ),
                                       SizedBox(width: 4.w),
-                                      CustomDate(),
+                                      Container(
+                                        height: 30.h,
+                                        child: Padding(
+                                          padding: EdgeInsets.only(top: 10.h),
+                                          child: CustomFormField(
+                                            controller: date,
+                                            text: "   /    /  20",
+                                          ),
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -2125,7 +2092,33 @@ class _MyHomePageState extends State<MyHomePage> {
                             _tableColumn20,
                           ],
                         ),
-                        ElevatedButton(onPressed: (){_saveAndPrintPdf();}, child:Text("data"))
+                        SizedBox(height: 24.h),
+                        AppButton(
+                          title: 'Send',
+                          width: 120,
+                          height: 43,
+                          onTap: () {
+                            CollectionReference form = FirebaseFirestore
+                                .instance
+                                .collection('Form(Data)');
+                            form.add({
+                              "Trainee Name": traineeName.text,
+                              "Code Num": codeNum.text,
+                              "Date": date.text,
+                              "Question1": question1.text,
+                              "Question2": question2.text,
+                              "Question3": question3.text,
+                              "Question4": question4.text,
+                              "Question5": question5.text,
+                              "Question6": question6.text,
+                              "Question7": question7.text,
+                              "Question8": question8.text,
+                              "Question9": question9.text,
+                              "Question10": question10.text,
+                              "Question11": question11.text,
+                            });
+                          },
+                        ),
                       ],
                     ),
                   ),
@@ -2138,37 +2131,70 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-class ChatsController {
-  late Chats selectedChats;
 
-  final List<Chats> chats = [
-    Chats(text: "Chats"),
-    Chats(text: "Community"),
-    Chats(text: "Calls"),
-  ];
-}
-
-class Chats {
-  final String text;
-
-  Chats({
-    required this.text,
-  });
-}
 ///////////////////// Refactor
 class CustomFormField extends StatelessWidget {
   void Function(String?)? onSaved;
-  CustomFormField({Key? key,this.onSaved}) : super(key: key);
+  TextEditingController? controller;
+  final String? text;
+  CustomFormField({
+    Key? key,
+    this.onSaved,
+    this.controller,
+    this.text,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 10.h,
-      width: 500.w,
+      width: 210.w,
       child: TextFormField(
+        controller: controller,
         cursorHeight: 20.h,
         style: TextStyle(fontSize: 15.sp),
         onSaved: onSaved,
         decoration: InputDecoration(
+          hintText: text,
+          hintStyle: TextStyle(
+            fontSize: 14.sp,
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.transparent),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.transparent),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class QuestionsFormField extends StatelessWidget {
+  void Function(String?)? onSaved;
+  TextEditingController? controller;
+  final String? text;
+  QuestionsFormField({
+    Key? key,
+    this.onSaved,
+    this.controller,
+    this.text,
+  }) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 10.h,
+      width: 983.w,
+      child: TextFormField(
+        controller: controller,
+        cursorHeight: 20.h,
+        style: TextStyle(fontSize: 15.sp),
+        onSaved: onSaved,
+        decoration: InputDecoration(
+          hintText: text,
+          hintStyle: TextStyle(
+            fontSize: 14.sp,
+          ),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.transparent),
           ),

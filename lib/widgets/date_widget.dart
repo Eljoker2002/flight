@@ -31,9 +31,7 @@ class _CustomDateState extends State<CustomDate> {
         child: Center(
           child: Text(
             "${selectedDate.day}    /    ${selectedDate.month}    /    ${selectedDate.year}",
-            style: TextStyle(
-              fontSize: 13.sp
-            ),
+            style: TextStyle(fontSize: 13.sp),
           ),
         ),
       ),
