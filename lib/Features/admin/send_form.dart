@@ -1,5 +1,7 @@
 import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flight/Core/app_color.dart';
+import 'package:flight/Features/admin/admin_choose.dart';
 import 'package:flight/widgets/App_button.dart';
 import 'package:flight/widgets/date_widget.dart';
 import 'package:flight/widgets/text_form.dart';
@@ -9,6 +11,8 @@ import 'package:pdf/widgets.dart' as pw;
 import 'package:path_provider/path_provider.dart';
 import 'package:printing/printing.dart';
 import 'dart:io';
+
+import '../../Core/dimentions/navigator.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -1844,6 +1848,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        elevation: 0,
+        leading: InkWell(
+          onTap: (){
+            RouteUtils.pop(context: context);
+          },
+            child: Icon(
+          Icons.arrow_back_ios,
+          size: 20.sp,
+          color: AppColor.blue29,
+        )),
+      ),
       body: Padding(
         padding: EdgeInsets.only(top: 40.h, bottom: 10.h),
         child: Center(
@@ -2116,6 +2132,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               "Question10": question10.text,
                               "Question11": question11.text,
                             });
+                                 RouteUtils.pop(context: context);
+
                           },
                         ),
                       ],

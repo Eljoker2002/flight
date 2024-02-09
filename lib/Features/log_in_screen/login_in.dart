@@ -3,13 +3,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flight/Core/app_color.dart';
 import 'package:flight/Core/dimentions/navigator.dart';
 import 'package:flight/Core/validation.dart';
-import 'package:flight/Features/choose_work/choose_work.dart';
 import 'package:flight/Features/log_in_screen/refactor_text_form.dart';
-import 'package:flight/Features/sign_up/controller.dart';
+import 'package:flight/Features/user/choose_work/choose_work.dart';
 import 'package:flight/widgets/App_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../admin/sign_up/controller.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({super.key});
