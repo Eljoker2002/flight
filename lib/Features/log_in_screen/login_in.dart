@@ -8,10 +8,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
-
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +54,7 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                       RefactorTextFormField(
-                        controller: emailController,
+                        // controller: emailController,
                       ),
                       SizedBox(
                         height: 20.h,
@@ -77,7 +73,7 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                       RefactorTextFormField(
-                        controller: passwordController,
+                        // controller: passwordController,
                       ),
                       SizedBox(
                         height: 2.h,
@@ -101,12 +97,12 @@ class LoginScreen extends StatelessWidget {
                       AppButton(
                         title: "Login",
                         onTap: () {
-                          CollectionReference collection =
-                              FirebaseFirestore.instance.collection('Users');
-                          collection.add({
-                            "Email": emailController.text,
-                            "Password": passwordController.text
-                          });
+                          // CollectionReference collection =
+                          //     FirebaseFirestore.instance.collection('Users');
+                          // collection.add({
+                          //   "Email": emailController.text,
+                          //   "Password": passwordController.text
+                          // });
                         },
                         width: 120,
                         height: 43,

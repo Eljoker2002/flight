@@ -63,7 +63,8 @@ class ChooseWork extends StatelessWidget {
                     PhosphorIcons.notePencil(PhosphorIconsStyle.light),
                     size: 120.sp,
                     color: AppColor.white,
-                  ),SizedBox(height:30.h),
+                  ),
+                  SizedBox(height: 30.h),
                   Text(
                     "Evaluation",
                     style: GoogleFonts.poppins(
@@ -100,23 +101,30 @@ class ChooseWork extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                      Icon(Icons.check,size: 70.sp,
-                        color: AppColor.white,),
-                      Text("OR", style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
+                        Icon(
+                          Icons.check,
+                          size: 70.sp,
                           color: AppColor.white,
-                          fontSize: 20.sp,
-                          fontWeight: FontWeight.w500,
                         ),
-                      ),),
-                      Icon(CupertinoIcons.xmark,size: 70.sp,
-                        color: AppColor.white,)
+                        Text(
+                          "OR",
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                              color: AppColor.white,
+                              fontSize: 20.sp,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                        Icon(
+                          CupertinoIcons.xmark,
+                          size: 70.sp,
+                          color: AppColor.white,
+                        )
                       ],
                     ),
                   ),
-
-                  SizedBox(height:40.h),
-
+                  SizedBox(height: 40.h),
                   Text(
                     "Competency",
                     style: GoogleFonts.poppins(
