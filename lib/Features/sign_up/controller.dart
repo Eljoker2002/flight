@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class SignUpController {
-  String? email, password;
+  String? id, password;
   final formKey = GlobalKey<FormState>();
 
   Future<void> signup() async {
@@ -10,10 +10,8 @@ class SignUpController {
     if (!formKey.currentState!.validate()) {
       return;
     }
-    CollectionReference collection =
-        FirebaseFirestore.instance.collection('Users');
-    collection.add({
-      "Email": email,
+    await FirebaseFirestore.instance.collection('Users').doc(id).set({
+      "ID": id,
       "Password": password,
     });
   }

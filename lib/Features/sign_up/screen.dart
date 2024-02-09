@@ -55,9 +55,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(right: 210.w),
+                          padding: EdgeInsets.only(right: 240.w),
                           child: Text(
-                            "Email:",
+                            "ID:",
                             style: GoogleFonts.inter(
                               textStyle: TextStyle(
                                 color: Colors.grey,
@@ -69,9 +69,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         RefactorTextFormField(
                           onSaved: (v) {
-                            controller.email = v;
+                            controller.id = v;
                           },
-                          validator: ValidatorUtils.email,
+                          validator: ValidatorUtils.id,
                         ),
                         SizedBox(
                           height: 20.h,

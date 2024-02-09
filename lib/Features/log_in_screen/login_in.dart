@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flight/Core/app_color.dart';
 import 'package:flight/Features/log_in_screen/refactor_text_form.dart';
 import 'package:flight/widgets/App_button.dart';
@@ -6,8 +7,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  List data = [];
+
+  getData() async {
+    QuerySnapshot querySnapshot =
+        await FirebaseFirestore.instance.collection('Users').get();
+    data.addAll(querySnapshot.docs);
+  }
+
+  @override
+  void initState() {
+    getData();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,8 +75,8 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                       RefactorTextFormField(
-                        // controller: emailController,
-                      ),
+                          // controller: emailController,
+                          ),
                       SizedBox(
                         height: 20.h,
                       ),
@@ -73,7 +94,7 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                       RefactorTextFormField(
-                        // controller: passwordController,
+                        onSaved: (p0) {},
                       ),
                       SizedBox(
                         height: 2.h,

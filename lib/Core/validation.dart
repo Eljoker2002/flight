@@ -1,12 +1,8 @@
 class ValidatorUtils {
-  static String? email(String? value) {
+  static String? id(String? value) {
     {
       if (value == null || value.trim().isEmpty) {
-        return "Email required";
-      } else if (!RegExp(
-              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-          .hasMatch(value)) {
-        return "Invalid Email";
+        return "ID required";
       }
       return null;
     }
