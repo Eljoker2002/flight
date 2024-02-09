@@ -28,7 +28,7 @@ class RefactorTextFormField extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         validator: validator,
-        onSaved: onSaved,
+        onChanged: onSaved,
         obscureText: obscureText,
         maxLines: 1,
         decoration: InputDecoration(

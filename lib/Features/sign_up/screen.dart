@@ -1,11 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flight/Core/dimentions/navigator.dart';
 import 'package:flight/Core/validation.dart';
+import 'package:flight/Features/admin/screen1.dart';
+import 'package:flight/Features/choose_work/choose_work.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../Core/app_color.dart';
 import '../../widgets/App_button.dart';
+import '../admin/screen2.dart';
 import '../log_in_screen/refactor_text_form.dart';
 import 'controller.dart';
 
@@ -17,22 +21,23 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  bool visible = true;
   SignUpController controller = SignUpController();
+  String? id, password;
+  bool visible = true;
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: controller.formKey,
-      child: Scaffold(
-        body: Stack(
-          children: [
-            Image(
-              image: AssetImage("asset/images/flight.jpg"),
-              height: double.infinity,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
-            SingleChildScrollView(
+    return Scaffold(
+      body: Stack(
+        children: [
+          Image(
+            image: AssetImage("asset/images/flight.jpg"),
+            height: double.infinity,
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
+          Form(
+            key: controller.formKey,
+            child: SingleChildScrollView(
               child: Align(
                 alignment: Alignment.center,
                 child: Padding(
@@ -68,10 +73,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ),
                         RefactorTextFormField(
-                          onSaved: (v) {
-                            controller.id = v;
-                          },
                           validator: ValidatorUtils.id,
+                          onSaved: (data) {
+                            controller.id = data;
+                          },
                         ),
                         SizedBox(
                           height: 20.h,
@@ -90,10 +95,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ),
                         RefactorTextFormField(
-                          onSaved: (v) {
-                            controller.password = v;
-                          },
                           validator: ValidatorUtils.password,
+                          onSaved: (data) {
+                            controller.password = data;
+                          },
                           obscureText: visible,
                           suffixIcon: IconButton(
                             onPressed: () {
@@ -119,7 +124,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         AppButton(
                           title: "Sign Up",
                           onTap: () {
-                            controller.signup();
+                            if (controller.signUp() == true) {
+                              RouteUtils.push(
+                                  context: context, screen: WorkScreen());
+                            }
                           },
                           width: 120,
                           height: 43,
@@ -132,7 +140,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     width: 340.w,
                     height: 350.h,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(40),
+                        borderRadius: BorderRadius.circular(35.sp),
                         color: Colors.white,
                         boxShadow: [
                           BoxShadow(
@@ -146,8 +154,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
     ;
