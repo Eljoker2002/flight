@@ -1195,8 +1195,7 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: EdgeInsets.all(9.sp),
         child: Center(
           child: CustomText(
-            text: "INFLIGHT COMPETENCY CHECK ITEMS"
-                "INFLIGHT COMPETENCY CHECK ITEMS",
+            text: "INFLIGHT COMPETENCY CHECK ITEMS",
             fontSize: 16.sp,
             fontWeight: FontWeight.bold,
           ),
