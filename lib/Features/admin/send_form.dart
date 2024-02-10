@@ -1851,14 +1851,14 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         elevation: 0,
         leading: InkWell(
-          onTap: (){
-            RouteUtils.pop(context: context);
-          },
+            onTap: () {
+              RouteUtils.pop(context: context);
+            },
             child: Icon(
-          Icons.arrow_back_ios,
-          size: 20.sp,
-          color: AppColor.blue29,
-        )),
+              Icons.arrow_back_ios,
+              size: 20.sp,
+              color: AppColor.blue29,
+            )),
       ),
       body: Padding(
         padding: EdgeInsets.only(top: 40.h, bottom: 10.h),
@@ -2132,8 +2132,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               "Question10": question10.text,
                               "Question11": question11.text,
                             });
-                                 RouteUtils.pop(context: context);
-
+                            // RouteUtils.pop(context: context);
                           },
                         ),
                       ],

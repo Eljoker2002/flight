@@ -12,20 +12,21 @@ class ValidatorUtils {
     }
   }
 
-  static String? idSignup(String? value) {
+  static String? idSignin(String? value) {
     {
       if (value == null || value.trim().isEmpty) {
         return "ID required";
-      } else
-        return "Not Found ID";
+      }
+      return "";
     }
   }
-  static String? passwordSignup(String? value) {
+
+  static String? passwordSignin(String? value) {
     {
       if (value == null || value.trim().isEmpty) {
         return "Password required";
-      } else
-        return "Wrong Password";
+      }
+      return "";
     }
   }
 

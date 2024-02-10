@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flight/Core/app_color.dart';
 import 'package:flight/Core/dimentions/navigator.dart';
 import 'package:flight/Core/validation.dart';
+import 'package:flight/Features/admin/admin_choose.dart';
 import 'package:flight/Features/log_in_screen/refactor_text_form.dart';
 import 'package:flight/Features/user/choose_work/choose_work.dart';
 import 'package:flight/widgets/App_button.dart';
@@ -22,6 +23,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   bool visible = true;
   SignUpController controller = SignUpController();
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
@@ -33,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
             fit: BoxFit.cover,
           ),
           Form(
-            key: controller.formKey,
+            key: controller.formKey2,
             child: SingleChildScrollView(
               child: Align(
                 alignment: Alignment.center,
@@ -69,14 +71,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         RefactorTextFormField(
-                          validator: ValidatorUtils.idSignup,
+                          validator: ValidatorUtils.idSignin,
                           onSaved: (data) {
                             controller.id = data;
                           },
                           // controller: emailController,
                         ),
                         SizedBox(
-                          height: 20.h,
+                          height: 14.h,
                         ),
                         Padding(
                           padding: EdgeInsets.only(right: 172.w),
@@ -92,7 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         RefactorTextFormField(
-                          validator: ValidatorUtils.passwordSignup,
+                          validator: ValidatorUtils.passwordSignin,
                           onSaved: (data) {
                             controller.password = data;
                           },
@@ -136,13 +138,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         AppButton(
                           title: "Login",
-                          onTap: () {
-                            if (controller.signIn() == true) {
-                              RouteUtils.pushAndRemoveAll(
-                                context: context,
-                                screen: ChooseWork(),
-                              );
-                            }
+                          onTap: () async {
+                            await controller.signIn();
+                            RouteUtils.push(
+                                context: context, screen: WorkScreen());
                           },
                           width: 120,
                           height: 43,
@@ -154,13 +153,16 @@ class _LoginScreenState extends State<LoginScreen> {
                           onTap: () {
                             //    Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewScreen()));
                           },
-                          child: Text(
-                            "I’am an admin",
-                            style: GoogleFonts.poppins(
-                              textStyle: TextStyle(
-                                color: AppColor.blue29,
-                                fontSize: 15.sp,
-                                fontWeight: FontWeight.w400,
+                          child: InkWell(
+                            onTap: () => RouteUtils.pushAndRemoveAll(context: context, screen: WorkScreen()),
+                            child: Text(
+                              "I’am an admin",
+                              style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                  color: AppColor.blue29,
+                                  fontSize: 15.sp,
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
                             ),
                           ),

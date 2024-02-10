@@ -6,6 +6,7 @@ import 'package:flight/Features/user/evaluation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'Features/admin/send_form.dart';
+import 'Features/admin/sign_up/screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         return child!;
       },
       debugShowCheckedModeBanner: false,
-      home: EvaluationScreen(),
+      home: LoginScreen(),
     );
   }
 }

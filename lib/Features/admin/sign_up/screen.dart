@@ -122,11 +122,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         AppButton(
                           title: "Sign Up",
-                          onTap: () {
-                            if (controller.signUp() == true) {
-                              RouteUtils.push(
-                                  context: context, screen: WorkScreen());
-                            }
+                          onTap: () async {
+                            await controller.signUp();
+                            RouteUtils.pushAndRemoveAll(
+                                context: context, screen: MyHomePage());
                           },
                           width: 120,
                           height: 43,

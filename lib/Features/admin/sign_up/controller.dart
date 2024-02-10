@@ -5,17 +5,22 @@ import 'package:flutter/material.dart';
 class SignUpController {
   String? id, password;
   final formKey = GlobalKey<FormState>();
+  final formKey2 = GlobalKey<FormState>();
 
   Future<void> signUp() async {
     formKey.currentState!.save();
     if (!formKey.currentState!.validate()) {
-      return;
+      print("object");
+    } else {
+      final credential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: id!,
+        password: password!,
+      );
+      await FirebaseFirestore.instance.collection('Users').doc(id).set({
+        "ID": id,
+      });
     }
-    final credential =
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      email: id!,
-      password: password!,
-    );
     // await FirebaseFirestore.instance.collection('Users').doc(email).set({
     //   "ID": email,
     //   "Password": password,
@@ -23,17 +28,14 @@ class SignUpController {
   }
 
   Future<void> signIn() async {
-    formKey.currentState!.save();
-    if (!formKey.currentState!.validate()) {
-      return;
+    formKey2.currentState!.save();
+    if (!formKey2.currentState!.validate()) {
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: id!,
+        password: password!,
+      );
+    } else {
+      print("object");
     }
-    final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: id!,
-      password: password!,
-    );
-    // await FirebaseFirestore.instance.collection('Users').doc(email).set({
-    //   "ID": email,
-    //   "Password": password,
-    // });
   }
 }
