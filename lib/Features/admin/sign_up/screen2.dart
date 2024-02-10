@@ -1,29 +1,31 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flight/Core/app_color.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flight/Core/dimentions/navigator.dart';
 import 'package:flight/Core/validation.dart';
-import 'package:flight/Features/admin/admin_choose.dart';
-import 'package:flight/Features/log_in_screen/refactor_text_form.dart';
-import 'package:flight/Features/user/choose_work/choose_work.dart';
-import 'package:flight/widgets/App_button.dart';
+import 'package:flight/Features/admin/send_form.dart';
+import 'package:flight/Features/log_in_screen/login_for_user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../Core/app_color.dart';
+import '../../../widgets/App_button.dart';
+import '../../log_in_screen/refactor_text_form.dart';
+import '../admin_choose.dart';
+import 'controller.dart';
 
-import '../admin/sign_up/controller.dart';
-
-class LoginScreen extends StatefulWidget {
-  LoginScreen({super.key});
+class SignUpScreen2 extends StatefulWidget {
+  SignUpScreen2({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUpScreen2> createState() => _SignUpScreen2State();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  bool visible = true;
+class _SignUpScreen2State extends State<SignUpScreen2> {
+  final formKey = GlobalKey<FormState>();
   SignUpController controller = SignUpController();
-
+  String? id, password;
+  bool visible = true;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
@@ -35,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
             fit: BoxFit.cover,
           ),
           Form(
-            key: controller.formKey2,
+            key: formKey,
             child: SingleChildScrollView(
               child: Align(
                 alignment: Alignment.center,
@@ -43,16 +45,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: EdgeInsets.only(top: 270.h),
                   child: Container(
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: EdgeInsets.symmetric(vertical: 10.h),
+                          padding: EdgeInsets.symmetric(vertical: 25.h),
                           child: Text(
-                            "Login",
+                            '''   Create Account
+        For Admin''',
                             style: GoogleFonts.inter(
                               textStyle: TextStyle(
                                 color: AppColor.blue29,
-                                fontSize: 35.sp,
-                                fontWeight: FontWeight.w500,
+                                fontSize: 25.sp,
+                                fontWeight: FontWeight.w700,
                               ),
                             ),
                           ),
@@ -63,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             "ID:",
                             style: GoogleFonts.inter(
                               textStyle: TextStyle(
-                                color: AppColor.blue29,
+                                color: Colors.grey,
                                 fontSize: 18.sp,
                                 fontWeight: FontWeight.w700,
                               ),
@@ -71,14 +75,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         RefactorTextFormField(
-                          validator: ValidatorUtils.idSignin,
+                          validator: ValidatorUtils.id,
                           onSaved: (data) {
                             controller.id = data;
                           },
-                          // controller: emailController,
                         ),
                         SizedBox(
-                          height: 14.h,
+                          height: 20.h,
                         ),
                         Padding(
                           padding: EdgeInsets.only(right: 172.w),
@@ -86,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             "Password:",
                             style: GoogleFonts.inter(
                               textStyle: TextStyle(
-                                color: AppColor.blue29,
+                                color: Colors.grey,
                                 fontSize: 18.sp,
                                 fontWeight: FontWeight.w700,
                               ),
@@ -94,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         RefactorTextFormField(
-                          validator: ValidatorUtils.passwordSignin,
+                          validator: ValidatorUtils.password,
                           onSaved: (data) {
                             controller.password = data;
                           },
@@ -118,68 +121,50 @@ class _LoginScreenState extends State<LoginScreen> {
                           isPassword: true,
                         ),
                         SizedBox(
-                          height: 5.h,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 125.w),
-                          child: Text(
-                            "Forget Password?",
-                            style: GoogleFonts.poppins(
-                              textStyle: TextStyle(
-                                color: AppColor.blue29,
-                                fontSize: 15.sp,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10.h,
+                          height: 20.h,
                         ),
                         AppButton(
-                          title: "Login",
+                          title: "Sign Up",
                           onTap: () async {
-                            await controller.signIn();
-                            RouteUtils.push(
-                                context: context, screen: ChooseWork());
+                            if (formKey.currentState!.validate()) {
+                              await FirebaseFirestore.instance
+                                  .collection('Admin')
+                                  .doc(controller.id)
+                                  .snapshots()
+                                  .forEach((element) {
+                                if (element.data()?['ID'] == controller.id) {
+                                  return showSnackBar(context,
+                                      "This id has been created before");
+                                } else {
+                                  controller.registerAdmin();
+                                  RouteUtils.pop(
+                                    context: context,
+                                  );
+                                }
+                              });
+                              // } else {}
+                            }
                           },
                           width: 120,
                           height: 43,
                         ),
                         SizedBox(
-                          height: 10.h,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            //    Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewScreen()));
-                          },
-                          child: InkWell(
-                            onTap: () => RouteUtils.pushAndRemoveAll(context: context, screen: WorkScreen()),
-                            child: Text(
-                              "I’am an admin",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  color: AppColor.blue29,
-                                  fontSize: 15.sp,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ),
-                          ),
+                          height: 15.h,
                         ),
                       ],
                     ),
                     width: 340.w,
                     height: 350.h,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(40.sp),
+                        borderRadius: BorderRadius.circular(35.sp),
                         color: Colors.white,
                         boxShadow: [
                           BoxShadow(
-                              color: AppColor.blue29,
-                              offset: Offset(0, 3),
-                              blurRadius: 10,
-                              spreadRadius: 3),
+                            color: AppColor.blue29,
+                            offset: Offset(0, 3),
+                            blurRadius: 10,
+                            spreadRadius: 3,
+                          ),
                         ]),
                   ),
                 ),
@@ -190,30 +175,13 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-}
-// List<QueryDocumentSnapshot> data = [];
-//
-// getData() async {
-//   QuerySnapshot querySnapshot =
-//       await FirebaseFirestore.instance.collection('Users').get();
-//   data.addAll(querySnapshot.docs);
-//   for (var document in data) {
-//     print(document.data());
-//   }
-//   setState(() {});}
-// final CollectionReference usersCollection =
-//     FirebaseFirestore.instance.collection('Users');
-// Future<void> fetchData() async {
-//   QuerySnapshot querySnapshot = await usersCollection.get();
-//   List<DocumentSnapshot> documents = querySnapshot.docs;
-//   //Process the retrieved documents
 
-//   if (querySnapshot.docs.isNotEmpty) {
-//     // Match found
-//     for (var doc in querySnapshot.docs) {
-//       // Access the matched document data
-//       var data = doc.data();
-//     }
-//   } else {
-//     print("No match found");
-//   }
+  void showSnackBar(BuildContext context, String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        backgroundColor: AppColor.blue29,
+        content: Text(message),
+      ),
+    );
+  }
+}

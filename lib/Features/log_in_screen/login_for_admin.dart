@@ -1,32 +1,30 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flight/Core/app_color.dart';
 import 'package:flight/Core/dimentions/navigator.dart';
 import 'package:flight/Core/validation.dart';
-import 'package:flight/Features/admin/send_form.dart';
-import 'package:flight/Features/admin/sign_up/screen2.dart';
-import 'package:flight/Features/log_in_screen/login_for_user.dart';
+import 'package:flight/Features/admin/admin_choose.dart';
+import 'package:flight/Features/log_in_screen/refactor_text_form.dart';
+import 'package:flight/Features/user/choose_work/choose_work.dart';
+import 'package:flight/widgets/App_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../Core/app_color.dart';
-import '../../../widgets/App_button.dart';
-import '../../log_in_screen/refactor_text_form.dart';
-import '../admin_choose.dart';
-import 'controller.dart';
 
-class SignUpScreen extends StatefulWidget {
-  SignUpScreen({Key? key}) : super(key: key);
+import '../admin/sign_up/controller.dart';
+
+class LoginScreenForAdmin extends StatefulWidget {
+  LoginScreenForAdmin({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<LoginScreenForAdmin> createState() => _LoginScreenForAdminState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
-  final formKey = GlobalKey<FormState>();
-  SignUpController controller = SignUpController();
-  String? id, password;
+class _LoginScreenForAdminState extends State<LoginScreenForAdmin> {
   bool visible = true;
-  @override
+  SignUpController controller = SignUpController();
+  final formKey = GlobalKey<FormState>();
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
@@ -46,17 +44,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   padding: EdgeInsets.only(top: 270.h),
                   child: Container(
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
                           padding: EdgeInsets.symmetric(vertical: 25.h),
                           child: Text(
-                            "Create Account",
+                            "Login For Admin",
                             style: GoogleFonts.inter(
                               textStyle: TextStyle(
                                 color: AppColor.blue29,
-                                fontSize: 25.sp,
-                                fontWeight: FontWeight.w700,
+                                fontSize: 30.sp,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
                           ),
@@ -67,7 +64,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             "ID:",
                             style: GoogleFonts.inter(
                               textStyle: TextStyle(
-                                color: Colors.grey,
+                                color: AppColor.blue29,
                                 fontSize: 18.sp,
                                 fontWeight: FontWeight.w700,
                               ),
@@ -75,13 +72,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ),
                         RefactorTextFormField(
-                          validator: ValidatorUtils.id,
+                          validator: ValidatorUtils.idSignin,
                           onSaved: (data) {
                             controller.id = data;
                           },
+                          // controller: emailController,
                         ),
                         SizedBox(
-                          height: 10.h,
+                          height: 14.h,
                         ),
                         Padding(
                           padding: EdgeInsets.only(right: 172.w),
@@ -89,7 +87,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             "Password:",
                             style: GoogleFonts.inter(
                               textStyle: TextStyle(
-                                color: Colors.grey,
+                                color: AppColor.blue29,
                                 fontSize: 18.sp,
                                 fontWeight: FontWeight.w700,
                               ),
@@ -97,7 +95,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ),
                         RefactorTextFormField(
-                          validator: ValidatorUtils.password,
+                          validator: ValidatorUtils.passwordSignin,
                           onSaved: (data) {
                             controller.password = data;
                           },
@@ -110,74 +108,74 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             },
                             icon: visible
                                 ? Icon(
-                                    Icons.visibility_off,
-                                    color: Colors.grey,
-                                  )
+                              Icons.visibility_off,
+                              color: Colors.grey,
+                            )
                                 : Icon(
-                                    Icons.remove_red_eye,
-                                    color: AppColor.blue29,
-                                  ),
+                              Icons.remove_red_eye,
+                              color: AppColor.blue29,
+                            ),
                           ),
                           isPassword: true,
                         ),
                         SizedBox(
-                          height: 20.h,
+                          height: 5.h,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 125.w),
+                          child: Text(
+                            "Forget Password?",
+                            style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                color: AppColor.blue29,
+                                fontSize: 15.sp,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10.h,
                         ),
                         AppButton(
-                          title: "Sign Up",
+                          title: "Login",
                           onTap: () async {
-                            if (formKey.currentState!.validate()) {
-                              await FirebaseFirestore.instance
-                                  .collection('Users')
-                                  .doc(controller.id)
-                                  .snapshots()
-                                  .forEach((element) {
-                                if (element.data()?['ID'] == controller.id) {
-                                  return showSnackBar(context,
-                                      "This id has been created before");
-                                } else {
-                                  controller.registerUser();
-                                  RouteUtils.push(
-                                      context: context, screen: LoginScreen());
-                                }
-                              });
-                              // } else {}
-                            }
+                            await FirebaseFirestore.instance
+                                .collection('Admin')
+                                .doc(controller.id)
+                                .snapshots()
+                                .forEach((element) {
+                              if (element.data()?['ID'] == controller.id &&
+                                  element.data()?['Password'] ==
+                                      controller.password) {
+                                RouteUtils.push(
+                                    context: context, screen: WorkScreen());
+                              } else {
+                                showSnackBar(context, "Invalid Account");
+                              }
+                            });
+                            // else {
+                            //  print("object3");
                           },
                           width: 120,
                           height: 43,
                         ),
                         SizedBox(
-                          height: 7.h,
-                        ),
-                        InkWell(
-                          onTap: () => RouteUtils.push(
-                              context: context, screen: SignUpScreen2()),
-                          child: Text(
-                            "Account for new admin",
-                            style: GoogleFonts.poppins(
-                              textStyle: TextStyle(
-                                color: AppColor.blue29,
-                                fontSize: 15.sp,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ),
+                          height: 10.h,
                         ),
                       ],
                     ),
                     width: 340.w,
                     height: 350.h,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(35.sp),
+                        borderRadius: BorderRadius.circular(40.sp),
                         color: Colors.white,
                         boxShadow: [
                           BoxShadow(
-                            color: AppColor.blue29,
-                            offset: Offset(0, 3),
-                            blurRadius: 10,
-                            spreadRadius: 3,
-                          ),
+                              color: AppColor.blue29,
+                              offset: Offset(0, 3),
+                              blurRadius: 10,
+                              spreadRadius: 3),
                         ]),
                   ),
                 ),
@@ -198,3 +196,29 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 }
+// List<QueryDocumentSnapshot> data = [];
+//
+// getData() async {
+//   QuerySnapshot querySnapshot =
+//       await FirebaseFirestore.instance.collection('Users').get();
+//   data.addAll(querySnapshot.docs);
+//   for (var document in data) {
+//     print(document.data());
+//   }
+//   setState(() {});}
+// final CollectionReference usersCollection =
+//     FirebaseFirestore.instance.collection('Users');
+// Future<void> fetchData() async {
+//   QuerySnapshot querySnapshot = await usersCollection.get();
+//   List<DocumentSnapshot> documents = querySnapshot.docs;
+//   //Process the retrieved documents
+
+//   if (querySnapshot.docs.isNotEmpty) {
+//     // Match found
+//     for (var doc in querySnapshot.docs) {
+//       // Access the matched document data
+//       var data = doc.data();
+//     }
+//   } else {
+//     print("No match found");
+//   }
