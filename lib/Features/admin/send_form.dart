@@ -1860,287 +1860,284 @@ class _MyHomePageState extends State<MyHomePage> {
               color: AppColor.blue29,
             )),
       ),
-      body: Padding(
-        padding: EdgeInsets.only(top: 40.h, bottom: 10.h),
-        child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Container(
-                    height: 1452.h,
-                    width: 1285.w,
-                    child: Column(
-                      children: [
-                        Table(
-                          defaultColumnWidth: FixedColumnWidth(1285.w),
-                          border: TableBorder.all(width: 1.w),
-                          children: <TableRow>[
-                            TableRow(children: [
-                              Container(
-                                width: 1285.w,
-                                height: 40.h,
-                                child: Center(
-                                  child: CustomText(
-                                    text:
-                                        "CABIN CREW INFLIGHT COMPETENCY CHECK",
-                                    fontSize: 16.sp,
-                                  ),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Container(
+                  height: 1452.h,
+                  width: 1285.w,
+                  child: Column(
+                    children: [
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(1285.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          TableRow(children: [
+                            Container(
+                              width: 1285.w,
+                              height: 40.h,
+                              child: Center(
+                                child: CustomText(
+                                  text:
+                                      "CABIN CREW INFLIGHT COMPETENCY CHECK",
+                                  fontSize: 16.sp,
                                 ),
                               ),
-                            ]),
-                          ],
-                        ),
-                        Table(
-                          defaultColumnWidth: FixedColumnWidth(643.w),
-                          border: TableBorder.all(width: 1.w),
-                          children: <TableRow>[
-                            TableRow(
-                              children: [
-                                Container(
-                                  // color: Colors.cyanAccent,
-                                  width: 321.5.w,
-                                  height: 50.h,
-                                  child: Row(
-                                    children: [
-                                      SizedBox(width: 2.w),
-                                      CustomText(
-                                        text: "Trainee Name:",
-                                        fontSize: 14.sp,
-                                      ),
-                                      CustomFormField(
-                                        controller: traineeName,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  // color: Colors.cyanAccent,
-                                  width: 321.5.w,
-                                  height: 50.h,
-                                  child: Row(
-                                    children: [
-                                      SizedBox(width: 2.w),
-                                      CustomText(
-                                        text: "Code Num:",
-                                        fontSize: 14.sp,
-                                      ),
-                                      CustomFormField(
-                                        controller: codeNum,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
                             ),
-                          ],
-                        ),
-                        Table(
-                          columnWidths: {
-                            0: FlexColumnWidth(4),
-                            1: FlexColumnWidth(1),
-                          },
-                          defaultColumnWidth: FixedColumnWidth(1285.w),
-                          border: TableBorder.all(width: 1.w),
-                          children: <TableRow>[
-                            TableRow(
-                              children: [
-                                Container(
-                                  // color: Colors.cyanAccent,
-                                  width: 500.w,
-                                  height: 30.h,
-                                  child: Row(
-                                    children: [
-                                      SizedBox(width: 2.w),
-                                      CustomText(
-                                        text: "Training Categories:",
-                                        fontSize: 14.sp,
-                                      ),
-                                      Checkbox(value: false, onChanged: (v) {}),
-                                      CustomText(
-                                        text: "Initial",
-                                        fontSize: 14.sp,
-                                      ),
-                                      Checkbox(value: false, onChanged: (v) {}),
-                                      CustomText(
-                                        text: "Transition",
-                                        fontSize: 14.sp,
-                                      ),
-                                      Checkbox(value: false, onChanged: (v) {}),
-                                      CustomText(
-                                        text: "Requalification Recurrent",
-                                        fontSize: 14.sp,
-                                      ),
-                                      Checkbox(value: false, onChanged: (v) {}),
-                                      CustomText(
-                                        text: "SEP1",
-                                        fontSize: 14.sp,
-                                      ),
-                                      Checkbox(value: false, onChanged: (v) {}),
-                                      CustomText(
-                                        text: "SEP2",
-                                        fontSize: 14.sp,
-                                      ),
-                                    ],
-                                  ),
+                          ]),
+                        ],
+                      ),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(643.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          TableRow(
+                            children: [
+                              Container(
+                                // color: Colors.cyanAccent,
+                                width: 321.5.w,
+                                height: 50.h,
+                                child: Row(
+                                  children: [
+                                    SizedBox(width: 2.w),
+                                    CustomText(
+                                      text: "Trainee Name:",
+                                      fontSize: 14.sp,
+                                    ),
+                                    CustomFormField(
+                                      controller: traineeName,
+                                    ),
+                                  ],
                                 ),
-                                Container(
-                                  // color: Colors.cyanAccent,
-                                  width: 50.w,
-                                  height: 30.h,
-                                  child: Row(
-                                    children: [
-                                      SizedBox(width: 2.w),
-                                      CustomText(
-                                        text: "Date:",
-                                        fontSize: 14.sp,
-                                      ),
-                                      SizedBox(width: 4.w),
-                                      Container(
-                                        height: 30.h,
-                                        child: Padding(
-                                          padding: EdgeInsets.only(top: 10.h),
-                                          child: CustomFormField(
-                                            controller: date,
-                                            text: "   /    /  20",
-                                          ),
+                              ),
+                              Container(
+                                // color: Colors.cyanAccent,
+                                width: 321.5.w,
+                                height: 50.h,
+                                child: Row(
+                                  children: [
+                                    SizedBox(width: 2.w),
+                                    CustomText(
+                                      text: "Code Num:",
+                                      fontSize: 14.sp,
+                                    ),
+                                    CustomFormField(
+                                      controller: codeNum,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Table(
+                        columnWidths: {
+                          0: FlexColumnWidth(4),
+                          1: FlexColumnWidth(1),
+                        },
+                        defaultColumnWidth: FixedColumnWidth(1285.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          TableRow(
+                            children: [
+                              Container(
+                                // color: Colors.cyanAccent,
+                                width: 500.w,
+                                height: 30.h,
+                                child: Row(
+                                  children: [
+                                    SizedBox(width: 2.w),
+                                    CustomText(
+                                      text: "Training Categories:",
+                                      fontSize: 14.sp,
+                                    ),
+                                    Checkbox(value: false, onChanged: (v) {}),
+                                    CustomText(
+                                      text: "Initial",
+                                      fontSize: 14.sp,
+                                    ),
+                                    Checkbox(value: false, onChanged: (v) {}),
+                                    CustomText(
+                                      text: "Transition",
+                                      fontSize: 14.sp,
+                                    ),
+                                    Checkbox(value: false, onChanged: (v) {}),
+                                    CustomText(
+                                      text: "Requalification Recurrent",
+                                      fontSize: 14.sp,
+                                    ),
+                                    Checkbox(value: false, onChanged: (v) {}),
+                                    CustomText(
+                                      text: "SEP1",
+                                      fontSize: 14.sp,
+                                    ),
+                                    Checkbox(value: false, onChanged: (v) {}),
+                                    CustomText(
+                                      text: "SEP2",
+                                      fontSize: 14.sp,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                // color: Colors.cyanAccent,
+                                width: 50.w,
+                                height: 30.h,
+                                child: Row(
+                                  children: [
+                                    SizedBox(width: 2.w),
+                                    CustomText(
+                                      text: "Date:",
+                                      fontSize: 14.sp,
+                                    ),
+                                    SizedBox(width: 4.w),
+                                    Container(
+                                      height: 30.h,
+                                      child: Padding(
+                                        padding: EdgeInsets.only(top: 10.h),
+                                        child: CustomFormField(
+                                          controller: date,
+                                          text: "   /    /  20",
                                         ),
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        Table(
-                            defaultColumnWidth: FixedColumnWidth(184.w),
-                            border: TableBorder.all(width: 1.w),
-                            children: <TableRow>[_tableColumn2]),
-                        Table(
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Table(
                           defaultColumnWidth: FixedColumnWidth(184.w),
                           border: TableBorder.all(width: 1.w),
-                          children: <TableRow>[
-                            _tableColumn3,
-                            _tableColumn31,
-                            _tableColumn32,
-                            _tableColumn33,
-                            _tableColumn34,
-                            _tableColumn35,
-                            _tableColumn36,
-                            _tableColumn37,
-                            _tableColumn38,
-                            _tableColumn39,
-                            _tableColumn310,
-                            _tableColumn311,
-                            _tableColumn312,
-                            _tableColumn313,
-                            _tableColumn314,
-                            _tableColumn315,
-                          ],
-                        ),
-                        Table(
-                          columnWidths: {
-                            0: FlexColumnWidth(15),
-                            1: FlexColumnWidth(1),
-                            2: FlexColumnWidth(1),
-                            3: FlexColumnWidth(1),
-                            4: FlexColumnWidth(1),
-                          },
-                          defaultColumnWidth: FixedColumnWidth(300.w),
-                          border: TableBorder.all(width: 1.w),
-                          children: <TableRow>[
-                            _tableColumn1,
-                            _tableColumn4,
-                            _tableColumn5,
-                            _tableColumn6,
-                            _tableColumn7,
-                            _tableColumn8,
-                            _tableColumn9,
-                            _tableColumn10,
-                            _tableColumn11,
-                            _tableColumn12,
-                            _tableColumn13,
-                            _tableColumn14,
-                          ],
-                        ),
-                        Table(
-                          defaultColumnWidth: FixedColumnWidth(214.5.w),
-                          border: TableBorder.all(width: 1.w),
-                          children: <TableRow>[
-                            _tableColumn15,
-                          ],
-                        ),
-                        Table(
-                          defaultColumnWidth: FixedColumnWidth(214.5.w),
-                          border: TableBorder.all(width: 1.w),
-                          children: <TableRow>[
-                            _tableColumn16,
-                          ],
-                        ),
-                        Table(
-                          defaultColumnWidth: FixedColumnWidth(214.5.w),
-                          border: TableBorder.all(width: 1.w),
-                          children: <TableRow>[
-                            _tableColumn17,
-                          ],
-                        ),
-                        Table(
-                          defaultColumnWidth: FixedColumnWidth(214.5.w),
-                          border: TableBorder.all(width: 1.w),
-                          children: <TableRow>[
-                            _tableColumn18,
-                          ],
-                        ),
-                        Table(
-                          defaultColumnWidth: FixedColumnWidth(643.w),
-                          border: TableBorder.all(width: 1.w),
-                          children: <TableRow>[
-                            _tableColumn19,
-                          ],
-                        ),
-                        Table(
-                          defaultColumnWidth: FixedColumnWidth(643.w),
-                          border: TableBorder.all(width: 1.w),
-                          children: <TableRow>[
-                            _tableColumn20,
-                          ],
-                        ),
-                        SizedBox(height: 24.h),
-                        AppButton(
-                          title: 'Send',
-                          width: 120,
-                          height: 43,
-                          onTap: () {
-                            CollectionReference form = FirebaseFirestore
-                                .instance
-                                .collection('Form(Data)');
-                            form.add({
-                              "Trainee Name": traineeName.text,
-                              "Code Num": codeNum.text,
-                              "Date": date.text,
-                              "Question1": question1.text,
-                              "Question2": question2.text,
-                              "Question3": question3.text,
-                              "Question4": question4.text,
-                              "Question5": question5.text,
-                              "Question6": question6.text,
-                              "Question7": question7.text,
-                              "Question8": question8.text,
-                              "Question9": question9.text,
-                              "Question10": question10.text,
-                              "Question11": question11.text,
-                            });
-                            // RouteUtils.pop(context: context);
-                          },
-                        ),
-                      ],
-                    ),
+                          children: <TableRow>[_tableColumn2]),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(184.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          _tableColumn3,
+                          _tableColumn31,
+                          _tableColumn32,
+                          _tableColumn33,
+                          _tableColumn34,
+                          _tableColumn35,
+                          _tableColumn36,
+                          _tableColumn37,
+                          _tableColumn38,
+                          _tableColumn39,
+                          _tableColumn310,
+                          _tableColumn311,
+                          _tableColumn312,
+                          _tableColumn313,
+                          _tableColumn314,
+                          _tableColumn315,
+                        ],
+                      ),
+                      Table(
+                        columnWidths: {
+                          0: FlexColumnWidth(15),
+                          1: FlexColumnWidth(1),
+                          2: FlexColumnWidth(1),
+                          3: FlexColumnWidth(1),
+                          4: FlexColumnWidth(1),
+                        },
+                        defaultColumnWidth: FixedColumnWidth(300.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          _tableColumn1,
+                          _tableColumn4,
+                          _tableColumn5,
+                          _tableColumn6,
+                          _tableColumn7,
+                          _tableColumn8,
+                          _tableColumn9,
+                          _tableColumn10,
+                          _tableColumn11,
+                          _tableColumn12,
+                          _tableColumn13,
+                          _tableColumn14,
+                        ],
+                      ),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(214.5.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          _tableColumn15,
+                        ],
+                      ),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(214.5.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          _tableColumn16,
+                        ],
+                      ),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(214.5.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          _tableColumn17,
+                        ],
+                      ),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(214.5.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          _tableColumn18,
+                        ],
+                      ),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(643.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          _tableColumn19,
+                        ],
+                      ),
+                      Table(
+                        defaultColumnWidth: FixedColumnWidth(643.w),
+                        border: TableBorder.all(width: 1.w),
+                        children: <TableRow>[
+                          _tableColumn20,
+                        ],
+                      ),
+                      SizedBox(height: 24.h),
+                      AppButton(
+                        title: 'Send',
+                        width: 120,
+                        height: 43,
+                        onTap: () {
+                          CollectionReference form = FirebaseFirestore
+                              .instance
+                              .collection('Form(Data)');
+                          form.add({
+                            "Trainee Name": traineeName.text,
+                            "Code Num": codeNum.text,
+                            "Date": date.text,
+                            "Question1": question1.text,
+                            "Question2": question2.text,
+                            "Question3": question3.text,
+                            "Question4": question4.text,
+                            "Question5": question5.text,
+                            "Question6": question6.text,
+                            "Question7": question7.text,
+                            "Question8": question8.text,
+                            "Question9": question9.text,
+                            "Question10": question10.text,
+                            "Question11": question11.text,
+                          });
+                          // RouteUtils.pop(context: context);
+                        },
+                      ),
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

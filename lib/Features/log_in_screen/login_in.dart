@@ -141,7 +141,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           onTap: () async {
                             await controller.signIn();
                             RouteUtils.push(
-                                context: context, screen: WorkScreen());
+                                context: context, screen: ChooseWork());
                           },
                           width: 120,
                           height: 43,
