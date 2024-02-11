@@ -1,5 +1,6 @@
 import 'package:flight/Core/app_color.dart';
 import 'package:flight/Core/dimentions/navigator.dart';
+import 'package:flight/Features/user/competency.dart';
 import 'package:flight/Features/user/evaluation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class ChooseWork extends StatelessWidget {
-  const ChooseWork({super.key});
+  ChooseWork({super.key, required this.id});
+  String id;
 
   @override
   Widget build(BuildContext context) {
@@ -129,62 +131,68 @@ class ChooseWork extends StatelessWidget {
                         ),
                       ),
                       Spacer(),
-                      Container(
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(top: 26.h),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.check,
-                                    size: 35.sp,
-                                    color: AppColor.white,
-                                  ),
-                                  Text(
-                                    "OR",
-                                    style: GoogleFonts.poppins(
-                                      textStyle: TextStyle(
-                                        color: AppColor.white,
-                                        fontSize: 15.sp,
-                                        fontWeight: FontWeight.w500,
+                      InkWell(
+                        onTap: () => RouteUtils.push(
+                          context: context,
+                          screen: CompetencyScreen(id: id),
+                        ),
+                        child: Container(
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(top: 26.h),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.check,
+                                      size: 35.sp,
+                                      color: AppColor.white,
+                                    ),
+                                    Text(
+                                      "OR",
+                                      style: GoogleFonts.poppins(
+                                        textStyle: TextStyle(
+                                          color: AppColor.white,
+                                          fontSize: 15.sp,
+                                          fontWeight: FontWeight.w500,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  Icon(
-                                    CupertinoIcons.xmark,
-                                    size: 35.sp,
-                                    color: AppColor.white,
-                                  )
-                                ],
-                              ),
-                            ),
-                            SizedBox(height: 40.h),
-                            Text(
-                              "Competency",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  color: AppColor.white,
-                                  fontSize: 15.sp,
-                                  fontWeight: FontWeight.w500,
+                                    Icon(
+                                      CupertinoIcons.xmark,
+                                      size: 35.sp,
+                                      color: AppColor.white,
+                                    )
+                                  ],
                                 ),
                               ),
-                            )
-                          ],
+                              SizedBox(height: 40.h),
+                              Text(
+                                "Competency",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    color: AppColor.white,
+                                    fontSize: 15.sp,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                          height: 150.h,
+                          width: 150.w,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(40),
+                              color: AppColor.blue29,
+                              boxShadow: [
+                                BoxShadow(
+                                    color: AppColor.blue29,
+                                    offset: Offset(0, 3),
+                                    blurRadius: 10,
+                                    spreadRadius: 3),
+                              ]),
                         ),
-                        height: 150.h,
-                        width: 150.w,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(40),
-                            color: AppColor.blue29,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: AppColor.blue29,
-                                  offset: Offset(0, 3),
-                                  blurRadius: 10,
-                                  spreadRadius: 3),
-                            ]),
                       ),
                       Spacer(),
                     ],

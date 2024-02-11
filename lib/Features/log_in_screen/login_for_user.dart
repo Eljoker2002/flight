@@ -12,6 +12,7 @@ import 'package:flight/widgets/App_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../admin/sign_up/controller.dart';
 
@@ -146,13 +147,15 @@ class _LoginScreenState extends State<LoginScreen> {
                                 .collection('Users')
                                 .doc(controller.id)
                                 .snapshots()
-                                .forEach((element) {
+                                .forEach((element) async {
                               if (element.data()?['ID'] == controller.id &&
                                   element.data()?['Password'] ==
                                       controller.password) {
                                 RouteUtils.push(
                                     context: context,
-                                    screen: CompetencyScreen());
+                                    screen: ChooseWork(
+                                      id: controller.id!,
+                                    ));
                               } else {
                                 showSnackBar(context, "Invalid Account");
                               }
