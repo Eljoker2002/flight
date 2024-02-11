@@ -1,25 +1,21 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flight/Features/form_screen/form_screen.dart';
-import 'package:flight/Features/log_in_screen/login_for_user.dart';
 import 'package:flight/Features/user/evaluation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'Features/admin/send_form_fromAdmin.dart';
 import 'Features/admin/sign_up/screen.dart';
-import 'Features/user/competency.dart';
+import 'Features/log_in_screen/login_for_user.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-
   // final token = await FirebaseMessaging.instance.getToken();
   // print(token);
   runApp(MyApp());
 }
-class Email {
-  String? userID;
-}
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -34,7 +30,7 @@ class MyApp extends StatelessWidget {
         return child!;
       },
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+      home: LoginScreen(),
     );
   }
 }

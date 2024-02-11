@@ -1895,7 +1895,7 @@ class _MyHomePageState extends State<MyHomePage> {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Container(
-                  height: 1680.h,
+                  height: 1780.h,
                   width: 1285.w,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -2232,43 +2232,48 @@ class _MyHomePageState extends State<MyHomePage> {
                             DocumentReference form2 = FirebaseFirestore.instance
                                 .collection('Users')
                                 .doc(instructorID1.text);
-                            form2.set({
-                              "Trainee Name": traineeName.text,
-                              "Code Num": codeNum.text,
-                              "Date": date2.text,
+                            form2.update({
+                              "Trainee Name": FieldValue.arrayUnion([traineeName.text]),
+                              "Code Num": FieldValue.arrayUnion([codeNum.text]),
+                              //"Date": date1.text,
+                              "Date": FieldValue.arrayUnion([date1.text]),
                             });
                             DocumentReference form3 = FirebaseFirestore.instance
                                 .collection('Users')
                                 .doc(instructorID2.text);
-                            form3.set({
-                              "Trainee Name": traineeName.text,
-                              "Code Num": codeNum.text,
-                              "Date": date3.text,
+                            form3.update({
+                              "Trainee Name": FieldValue.arrayUnion([traineeName.text]),
+                              "Code Num": FieldValue.arrayUnion([codeNum.text]),
+                              //"Date": date2.text,
+                              "Date": FieldValue.arrayUnion([date2.text]),
                             });
-                            DocumentReference form4 = FirebaseFirestore.instance
-                                .collection('Users')
-                                .doc(instructorID3.text);
-                            form4.set({
-                              "Trainee Name": traineeName.text,
-                              "Code Num": codeNum.text,
-                              "Date": date4.text,
-                            });
-                            DocumentReference form5 = FirebaseFirestore.instance
-                                .collection('Users')
-                                .doc(instructorID4.text);
-                            form5.set({
-                              "Trainee Name": traineeName.text,
-                              "Code Num": codeNum.text,
-                              "Date": date5.text,
-                            });
-                            DocumentReference form6 = FirebaseFirestore.instance
-                                .collection('Users')
-                                .doc(instructorID5.text);
-                            form6.set({
-                              "Trainee Name": traineeName.text,
-                              "Code Num": codeNum.text,
-                              "Date": date1.text,
-                            });
+                            // DocumentReference form4 = FirebaseFirestore.instance
+                            //     .collection('Users')
+                            //     .doc(instructorID3.text);
+                            // form4.set({
+                            //   "Trainee Name": FieldValue.arrayUnion([traineeName.text]),
+                            //   "Code Num": FieldValue.arrayUnion([codeNum.text]),
+                            //   //"Date": date2.text,
+                            //   "Date": FieldValue.arrayUnion([date3.text]),
+                            // });
+                            // DocumentReference form5 = FirebaseFirestore.instance
+                            //     .collection('Users')
+                            //     .doc(instructorID4.text);
+                            // form5.set({
+                            //   "Trainee Name": FieldValue.arrayUnion([traineeName.text]),
+                            //   "Code Num": FieldValue.arrayUnion([codeNum.text]),
+                            //   //"Date": date2.text,
+                            //   "Date": FieldValue.arrayUnion([date4.text]),
+                            // });
+                            // DocumentReference form6 = FirebaseFirestore.instance
+                            //     .collection('Users')
+                            //     .doc(instructorID5.text);
+                            // form6.set({
+                            //   "Trainee Name": FieldValue.arrayUnion([traineeName.text]),
+                            //   "Code Num": FieldValue.arrayUnion([codeNum.text]),
+                            //   //"Date": date2.text,
+                            //   "Date": FieldValue.arrayUnion([date5.text]),
+                            // });
                           },
                         ),
                       ),

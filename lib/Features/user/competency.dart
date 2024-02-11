@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flight/Core/app_color.dart';
 import 'package:flight/Core/dimentions/navigator.dart';
 import 'package:flight/Features/admin/reverse_form(User).dart';
 import 'package:flight/Features/admin/sign_up/controller.dart';
@@ -20,7 +21,7 @@ class CompetencyScreen extends StatefulWidget {
 
 class _CompetencyScreenState extends State<CompetencyScreen> {
   SignUpController signUpController = SignUpController();
-  String? traineeName;
+
   @override
   void initState() {
     getData();
@@ -42,22 +43,35 @@ class _CompetencyScreenState extends State<CompetencyScreen> {
                     context: context,
                     screen: ReverseFormFromAdmin(
                       traineeName: signUpController.traineeName[index],
-                      date: '',
+                      date: signUpController.date[index],
                     )),
-                child: Container(
-                  color: Colors.grey,
-                  width: double.infinity,
-                  height: 50.h,
-                  child: Row(
-                    children: [
-                      CustomText(
-                        fontSize: 20.sp,
-                        text: signUpController.traineeName[index],
+                child: Column(
+                  children: [
+                    CustomText(text:"Forms", fontSize: 30.sp,color: AppColor.blue29),
+                    SizedBox(height: 20.h,),
+                    Container(
+                      width: double.infinity,
+                      height: 50.h,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color:AppColor.blue29,
                       ),
-                      Spacer(),
-                      CustomText(text: '25/2/2024', fontSize: 20.sp)
-                    ],
-                  ), //"signUpController.traineeName[index]"
+                      child: Padding(
+                        padding:EdgeInsets.all(12.sp),
+                        child: Row(
+                          children: [
+                            CustomText(
+                              fontSize: 20.sp,
+                              text: signUpController.traineeName[index],
+                              color: AppColor.white,
+                            ),
+                            Spacer(),
+                            CustomText(text: signUpController.date[index], fontSize: 20.sp, color: AppColor.white,)
+                          ],
+                        ),
+                      ), //"signUpController.traineeName[index]"
+                    ),
+                  ],
                 ),
               ),
             );
@@ -73,8 +87,9 @@ class _CompetencyScreenState extends State<CompetencyScreen> {
         .doc(widget.id)
         .snapshots()
         .forEach((element) {
-      if (element.data()?['Trainee Name'] != null) {
+      if (element.data()?['Trainee Name'] != null&&element.data()?['Date'] != null) {
         signUpController.traineeName = element.data()?['Trainee Name'];
+        signUpController.date = element.data()?['Date'];
         print(signUpController.traineeName);
       }
       setState(() {});
