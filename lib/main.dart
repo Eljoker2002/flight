@@ -7,15 +7,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'Features/admin/send_form.dart';
 import 'Features/admin/sign_up/screen.dart';
+import 'Features/user/competency.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
   // final token = await FirebaseMessaging.instance.getToken();
   // print(token);
   runApp(MyApp());
 }
-
+class Email {
+  String? userID;
+}
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 

@@ -2,6 +2,7 @@ import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flight/Core/app_color.dart';
 import 'package:flight/Features/admin/admin_choose.dart';
+import 'package:flight/Features/admin/form_controller.dart';
 import 'package:flight/widgets/App_button.dart';
 import 'package:flight/widgets/date_widget.dart';
 import 'package:flight/widgets/text_form.dart';
@@ -22,22 +23,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   // late pw.TableRow _tableColumn2;
   // late pw.TableRow _tableColumn3;
-  TextEditingController traineeName = TextEditingController();
-  TextEditingController codeNum = TextEditingController();
-  TextEditingController date = TextEditingController();
-  TextEditingController question1 = TextEditingController();
-  TextEditingController question2 = TextEditingController();
-  TextEditingController question3 = TextEditingController();
-  TextEditingController question4 = TextEditingController();
-  TextEditingController question5 = TextEditingController();
-  TextEditingController question6 = TextEditingController();
-  TextEditingController question7 = TextEditingController();
-  TextEditingController question8 = TextEditingController();
-  TextEditingController question9 = TextEditingController();
-  TextEditingController question10 = TextEditingController();
-  TextEditingController question11 = TextEditingController();
 
-  @override
+  // @override
   // void initState() {
   //   _tableColumn2 = pw.TableRow(children: <pw.Widget>[
   //     pw.Center(
@@ -310,7 +297,49 @@ class _MyHomePageState extends State<MyHomePage> {
   //     name: 'example.pdf',
   //   );
   // }
+  TextEditingController instructorID1 = TextEditingController();
+  TextEditingController instructorID2 = TextEditingController();
+  TextEditingController instructorID3 = TextEditingController();
+  TextEditingController instructorID4 = TextEditingController();
+  TextEditingController instructorID5 = TextEditingController();
 
+  TextEditingController traineeName = TextEditingController();
+  TextEditingController codeNum = TextEditingController();
+  TextEditingController date = TextEditingController();
+
+  TextEditingController date1 = TextEditingController();
+  TextEditingController date2 = TextEditingController();
+  TextEditingController date3 = TextEditingController();
+  TextEditingController date4 = TextEditingController();
+  TextEditingController date5 = TextEditingController();
+  TextEditingController date6 = TextEditingController();
+  TextEditingController date7 = TextEditingController();
+  TextEditingController date8 = TextEditingController();
+  TextEditingController date9 = TextEditingController();
+  TextEditingController date10 = TextEditingController();
+  TextEditingController date11 = TextEditingController();
+  TextEditingController date12 = TextEditingController();
+  TextEditingController date13 = TextEditingController();
+  TextEditingController date14 = TextEditingController();
+  TextEditingController date15 = TextEditingController();
+  TextEditingController date16 = TextEditingController();
+
+  TextEditingController sector1 = TextEditingController();
+  TextEditingController sector2 = TextEditingController();
+  TextEditingController sector3 = TextEditingController();
+  TextEditingController sector4 = TextEditingController();
+  TextEditingController sector5 = TextEditingController();
+  TextEditingController sector6 = TextEditingController();
+  TextEditingController sector7 = TextEditingController();
+  TextEditingController sector8 = TextEditingController();
+  TextEditingController sector9 = TextEditingController();
+  TextEditingController sector10 = TextEditingController();
+  TextEditingController sector11 = TextEditingController();
+  TextEditingController sector12 = TextEditingController();
+  TextEditingController sector13 = TextEditingController();
+  TextEditingController sector14 = TextEditingController();
+  TextEditingController sector15 = TextEditingController();
+  TextEditingController sector16 = TextEditingController();
   @override
   Widget build(BuildContext context) {
     TableRow _tableColumn2 = TableRow(children: <Widget>[
@@ -418,7 +447,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -469,7 +498,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -520,7 +549,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -571,7 +600,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -622,7 +651,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -673,7 +702,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -724,7 +753,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -775,7 +804,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -826,7 +855,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -877,7 +906,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -928,7 +957,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -979,7 +1008,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -1030,7 +1059,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -1081,7 +1110,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -1132,7 +1161,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -1183,7 +1212,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -1256,9 +1285,10 @@ class _MyHomePageState extends State<MyHomePage> {
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            QuestionsFormField(
-              controller: question1,
-            ),
+            CustomText(
+                text:
+                    "Preflight emergency equipment check . location/operation",
+                fontSize: 14.sp),
           ],
         ),
       ),
@@ -1281,17 +1311,18 @@ class _MyHomePageState extends State<MyHomePage> {
     ]);
     TableRow _tableColumn5 = TableRow(children: <Widget>[
       Padding(
-        padding: EdgeInsets.all(7.sp),
+        padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
         child: Row(
           children: [
             CustomText(
               text: "2-",
-              fontSize: 13.sp,
+              fontSize: 15.sp,
             ),
             SizedBox(width: 4.w),
-            QuestionsFormField(
-              controller: question2,
-            ),
+            CustomText(
+              text: "Exit operation",
+              fontSize: 15.sp,
+            )
           ],
         ),
       ),
@@ -1314,17 +1345,17 @@ class _MyHomePageState extends State<MyHomePage> {
     ]);
     TableRow _tableColumn6 = TableRow(children: <Widget>[
       Padding(
-        padding: EdgeInsets.all(7.sp),
+        padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
         child: Row(
           children: [
             CustomText(
               text: "3-",
-              fontSize: 13.sp,
+              fontSize: 15.sp,
             ),
             SizedBox(width: 4.w),
-            QuestionsFormField(
-              controller: question3,
-            ),
+            CustomText(
+                text: "Galley. electrical equipment and Circuit breakers",
+                fontSize: 15.sp)
           ],
         ),
       ),
@@ -1347,17 +1378,18 @@ class _MyHomePageState extends State<MyHomePage> {
     ]);
     TableRow _tableColumn7 = TableRow(children: <Widget>[
       Padding(
-        padding: EdgeInsets.all(7.sp),
+        padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
         child: Row(
           children: [
             CustomText(
               text: "4-",
-              fontSize: 13.sp,
+              fontSize: 15.sp,
             ),
             SizedBox(width: 4.w),
-            QuestionsFormField(
-              controller: question4,
-            ),
+            CustomText(
+              text: "Intercommunication",
+              fontSize: 15.sp,
+            )
           ],
         ),
       ),
@@ -1380,16 +1412,17 @@ class _MyHomePageState extends State<MyHomePage> {
     ]);
     TableRow _tableColumn8 = TableRow(children: <Widget>[
       Padding(
-        padding: EdgeInsets.all(7.0.sp),
+        padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
         child: Row(
           children: [
             CustomText(
               text: "5-",
-              fontSize: 13.sp,
+              fontSize: 15.sp,
             ),
             SizedBox(width: 4.w),
-            QuestionsFormField(
-              controller: question5,
+            CustomText(
+              text: "Crew resource management & GSOP ",
+              fontSize: 15.sp,
             ),
           ],
         ),
@@ -1413,17 +1446,15 @@ class _MyHomePageState extends State<MyHomePage> {
     ]);
     TableRow _tableColumn9 = TableRow(children: <Widget>[
       Padding(
-        padding: EdgeInsets.all(7.0.sp),
+        padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
         child: Row(
           children: [
             CustomText(
               text: "6-",
-              fontSize: 13.sp,
+              fontSize: 15.sp,
             ),
             SizedBox(width: 4.w),
-            QuestionsFormField(
-              controller: question6,
-            ),
+            CustomText(text: "Control Panels", fontSize: 15.sp),
           ],
         ),
       ),
@@ -1446,7 +1477,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ]);
     TableRow _tableColumn10 = TableRow(children: <Widget>[
       Padding(
-        padding: EdgeInsets.all(7.0.sp),
+        padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
         child: Row(
           children: [
             CustomText(
@@ -1454,9 +1485,9 @@ class _MyHomePageState extends State<MyHomePage> {
               fontSize: 13.sp,
             ),
             SizedBox(width: 4.w),
-            QuestionsFormField(
-              controller: question7,
-            ),
+            CustomText(
+                text: "Passenger handling (disruptive passenger awareness)",
+                fontSize: 15.sp)
           ],
         ),
       ),
@@ -1479,17 +1510,17 @@ class _MyHomePageState extends State<MyHomePage> {
     ]);
     TableRow _tableColumn11 = TableRow(children: <Widget>[
       Padding(
-        padding: EdgeInsets.all(7.0.sp),
+        padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
         child: Row(
           children: [
             CustomText(
               text: "8-",
-              fontSize: 13.sp,
+              fontSize: 15.sp,
             ),
             SizedBox(width: 4.w),
-            QuestionsFormField(
-              controller: question8,
-            ),
+            CustomText(
+                text: "Cockpit door . window . seat operations",
+                fontSize: 15.sp)
           ],
         ),
       ),
@@ -1512,17 +1543,15 @@ class _MyHomePageState extends State<MyHomePage> {
     ]);
     TableRow _tableColumn12 = TableRow(children: <Widget>[
       Padding(
-        padding: EdgeInsets.all(7.0.sp),
+        padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
         child: Row(
           children: [
             CustomText(
               text: "9-",
-              fontSize: 13.sp,
+              fontSize: 15.sp,
             ),
             SizedBox(width: 4.w),
-            QuestionsFormField(
-              controller: question9,
-            ),
+            CustomText(text: "First aid", fontSize: 15.sp)
           ],
         ),
       ),
@@ -1545,16 +1574,15 @@ class _MyHomePageState extends State<MyHomePage> {
     ]);
     TableRow _tableColumn13 = TableRow(children: <Widget>[
       Padding(
-        padding: EdgeInsets.all(5.0.sp),
+        padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
         child: Row(
           children: [
             CustomText(
               text: "10-",
-              fontSize: 13.sp,
+              fontSize: 15.sp,
             ),
-            QuestionsFormField(
-              controller: question10,
-            ),
+            SizedBox(width: 4.w),
+            CustomText(text: "Dangerous goods awareness", fontSize: 15.sp),
           ],
         ),
       ),
@@ -1582,11 +1610,10 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             CustomText(
               text: "11-",
-              fontSize: 13.sp,
+              fontSize: 15.sp,
             ),
-            QuestionsFormField(
-              controller: question11,
-            ),
+            SizedBox(width: 4.w),
+            CustomText(text: "Drills", fontSize: 15.sp)
           ],
         ),
       ),
@@ -1699,7 +1726,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       Padding(
         padding: EdgeInsets.all(28.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.only(top: 30.h),
@@ -1788,7 +1815,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       Padding(
         padding: EdgeInsets.all(28.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.only(top: 30.h),
@@ -1840,7 +1867,7 @@ class _MyHomePageState extends State<MyHomePage> {
         Center(
           child: Padding(
             padding: EdgeInsets.all(15.sp),
-            child: CustomDate(),
+            child: CustomFormField(),
           ),
         ),
       ],
@@ -1867,10 +1894,25 @@ class _MyHomePageState extends State<MyHomePage> {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Container(
-                  height: 1452.h,
+                  height: 1670.h,
                   width: 1285.w,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      Container(
+                        height: 50.h,
+                        child: CustomFormField(
+                          controller: instructorID1,
+                          text: "Id of instructor",
+                        ),
+                      ),
+                      Container(
+                        height: 50.h,
+                        child: CustomFormField(
+                          controller: instructorID2,
+                          text: "Id of instructor",
+                        ),
+                      ),
                       Table(
                         defaultColumnWidth: FixedColumnWidth(1285.w),
                         border: TableBorder.all(width: 1.w),
@@ -1881,8 +1923,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               height: 40.h,
                               child: Center(
                                 child: CustomText(
-                                  text:
-                                      "CABIN CREW INFLIGHT COMPETENCY CHECK",
+                                  text: "CABIN CREW INFLIGHT COMPETENCY CHECK",
                                   fontSize: 16.sp,
                                 ),
                               ),
@@ -1995,16 +2036,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       fontSize: 14.sp,
                                     ),
                                     SizedBox(width: 4.w),
-                                    Container(
-                                      height: 30.h,
-                                      child: Padding(
-                                        padding: EdgeInsets.only(top: 10.h),
-                                        child: CustomFormField(
-                                          controller: date,
-                                          text: "   /    /  20",
-                                        ),
-                                      ),
-                                    ),
+                                    CustomFormField(),
                                   ],
                                 ),
                               ),
@@ -2106,32 +2138,38 @@ class _MyHomePageState extends State<MyHomePage> {
                         ],
                       ),
                       SizedBox(height: 24.h),
-                      AppButton(
-                        title: 'Send',
-                        width: 120,
-                        height: 43,
-                        onTap: () {
-                          CollectionReference form = FirebaseFirestore
-                              .instance
-                              .collection('Form(Data)');
-                          form.add({
-                            "Trainee Name": traineeName.text,
-                            "Code Num": codeNum.text,
-                            "Date": date.text,
-                            "Question1": question1.text,
-                            "Question2": question2.text,
-                            "Question3": question3.text,
-                            "Question4": question4.text,
-                            "Question5": question5.text,
-                            "Question6": question6.text,
-                            "Question7": question7.text,
-                            "Question8": question8.text,
-                            "Question9": question9.text,
-                            "Question10": question10.text,
-                            "Question11": question11.text,
-                          });
-                          // RouteUtils.pop(context: context);
-                        },
+                      Align(
+                        alignment: Alignment.center,
+                        child: AppButton(
+                          title: 'Send',
+                          width: 120,
+                          height: 43,
+                          onTap: () {
+                            DocumentReference form = FirebaseFirestore.instance
+                                .collection('Form(Data)')
+                                .doc(traineeName.text);
+                            form.set({
+                              "Trainee Name": traineeName.text,
+                              "Code Num": codeNum.text,
+                              "Date": date.text,
+                            });
+                            DocumentReference form2 = FirebaseFirestore.instance
+                                .collection('Users')
+                                .doc(instructorID1.text);
+                            form2.set({
+                              "Trainee Name": traineeName.text,
+                              "Date": date.text,
+                            });
+                            // DocumentReference form3 = FirebaseFirestore.instance
+                            //     .collection('Form(Data)')
+                            //     .doc(traineeName.text)
+                            //     .collection('Instructors')
+                            //     .doc(instructorID1.text);
+                            // form3.set({
+                            //   "Trainee Name": traineeName.text,
+                            // });
+                          },
+                        ),
                       ),
                     ],
                   ),

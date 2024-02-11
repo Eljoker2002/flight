@@ -7,6 +7,7 @@ import 'package:flight/Features/admin/admin_choose.dart';
 import 'package:flight/Features/log_in_screen/login_for_admin.dart';
 import 'package:flight/Features/log_in_screen/refactor_text_form.dart';
 import 'package:flight/Features/user/choose_work/choose_work.dart';
+import 'package:flight/Features/user/competency.dart';
 import 'package:flight/widgets/App_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -150,7 +151,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   element.data()?['Password'] ==
                                       controller.password) {
                                 RouteUtils.push(
-                                    context: context, screen: WorkScreen());
+                                    context: context,
+                                    screen: CompetencyScreen());
                               } else {
                                 showSnackBar(context, "Invalid Account");
                               }
@@ -170,7 +172,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                           child: InkWell(
                             onTap: () => RouteUtils.push(
-                                context: context, screen: LoginScreenForAdmin()),
+                                context: context,
+                                screen: LoginScreenForAdmin()),
                             child: Text(
                               "I’am an admin",
                               style: GoogleFonts.poppins(

@@ -148,7 +148,7 @@ class _EvaluationScreenState extends State<EvaluationScreen> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -199,7 +199,7 @@ class _EvaluationScreenState extends State<EvaluationScreen> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -250,7 +250,7 @@ class _EvaluationScreenState extends State<EvaluationScreen> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -301,7 +301,7 @@ class _EvaluationScreenState extends State<EvaluationScreen> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -352,7 +352,7 @@ class _EvaluationScreenState extends State<EvaluationScreen> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -403,7 +403,7 @@ class _EvaluationScreenState extends State<EvaluationScreen> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -454,7 +454,7 @@ class _EvaluationScreenState extends State<EvaluationScreen> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -505,7 +505,7 @@ class _EvaluationScreenState extends State<EvaluationScreen> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -556,7 +556,7 @@ class _EvaluationScreenState extends State<EvaluationScreen> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -607,7 +607,7 @@ class _EvaluationScreenState extends State<EvaluationScreen> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -658,7 +658,7 @@ class _EvaluationScreenState extends State<EvaluationScreen> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -709,7 +709,7 @@ class _EvaluationScreenState extends State<EvaluationScreen> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -760,7 +760,7 @@ class _EvaluationScreenState extends State<EvaluationScreen> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -811,7 +811,7 @@ class _EvaluationScreenState extends State<EvaluationScreen> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -862,7 +862,7 @@ class _EvaluationScreenState extends State<EvaluationScreen> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -913,7 +913,7 @@ class _EvaluationScreenState extends State<EvaluationScreen> {
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.all(10.sp),
@@ -1429,7 +1429,7 @@ class _EvaluationScreenState extends State<EvaluationScreen> {
       ),
       Padding(
         padding: EdgeInsets.all(28.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.only(top: 30.h),
@@ -1518,7 +1518,7 @@ class _EvaluationScreenState extends State<EvaluationScreen> {
       ),
       Padding(
         padding: EdgeInsets.all(28.sp),
-        child: CustomDate(),
+        child: CustomFormField(),
       ),
       Padding(
         padding: EdgeInsets.only(top: 30.h),
@@ -1570,7 +1570,7 @@ class _EvaluationScreenState extends State<EvaluationScreen> {
         Center(
           child: Padding(
             padding: EdgeInsets.all(15.sp),
-            child: CustomDate(),
+            child: CustomFormField(),
           ),
         ),
       ],
