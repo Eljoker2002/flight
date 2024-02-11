@@ -5,7 +5,7 @@ import 'package:flight/Features/log_in_screen/login_for_user.dart';
 import 'package:flight/Features/user/evaluation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'Features/admin/send_form.dart';
+import 'Features/admin/send_form_fromAdmin.dart';
 import 'Features/admin/sign_up/screen.dart';
 import 'Features/user/competency.dart';
 
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         return child!;
       },
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      home: MyHomePage(),
     );
   }
 }

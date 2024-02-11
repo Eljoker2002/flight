@@ -7,6 +7,7 @@ import '../../../Core/dimentions/navigator.dart';
 import '../../user/choose_work/choose_work.dart';
 
 class SignUpController {
+  List<dynamic> traineeName = [];
   String? id, password;
 
   Future<void> registerUser() async {

@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flight/Core/dimentions/navigator.dart';
 import 'package:flight/Core/validation.dart';
-import 'package:flight/Features/admin/send_form.dart';
+import 'package:flight/Features/admin/send_form_fromAdmin.dart';
 import 'package:flight/Features/log_in_screen/login_for_user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

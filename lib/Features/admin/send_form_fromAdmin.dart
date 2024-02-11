@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flight/Core/app_color.dart';
+import 'package:flight/Core/validation.dart';
 import 'package:flight/Features/admin/admin_choose.dart';
 import 'package:flight/Features/admin/form_controller.dart';
 import 'package:flight/widgets/App_button.dart';
@@ -1894,24 +1895,100 @@ class _MyHomePageState extends State<MyHomePage> {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Container(
-                  height: 1670.h,
+                  height: 1680.h,
                   width: 1285.w,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        height: 50.h,
-                        child: CustomFormField(
-                          controller: instructorID1,
-                          text: "Id of instructor",
-                        ),
+                      Row(
+                        children: [
+                          Container(
+                            height: 50.h,
+                            child: CustomFormField(
+                              controller: instructorID1,
+                              text: "Id of instructor",
+                            ),
+                          ),
+                          Container(
+                            height: 50.h,
+                            child: CustomFormField(
+                              controller: date1,
+                              text: "Date of Travel",
+                            ),
+                          ),
+                        ],
                       ),
-                      Container(
-                        height: 50.h,
-                        child: CustomFormField(
-                          controller: instructorID2,
-                          text: "Id of instructor",
-                        ),
+                      Row(
+                        children: [
+                          Container(
+                            height: 50.h,
+                            child: CustomFormField(
+                              controller: instructorID2,
+                              text: "Id of instructor",
+                            ),
+                          ),
+                          Container(
+                            height: 50.h,
+                            child: CustomFormField(
+                              controller: date2,
+                              text: "Date of Travel",
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            height: 50.h,
+                            child: CustomFormField(
+                              controller: instructorID3,
+                              text: "Id of instructor",
+                            ),
+                          ),
+                          Container(
+                            height: 50.h,
+                            child: CustomFormField(
+                              controller: date3,
+                              text: "Date of Travel",
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            height: 50.h,
+                            child: CustomFormField(
+                              controller: instructorID4,
+                              text: "Id of instructor",
+                            ),
+                          ),
+                          Container(
+                            height: 50.h,
+                            child: CustomFormField(
+                              controller: date4,
+                              text: "Date of Travel",
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            height: 50.h,
+                            child: CustomFormField(
+                              controller: instructorID5,
+                              text: "Id of instructor",
+                            ),
+                          ),
+                          Container(
+                            height: 50.h,
+                            child: CustomFormField(
+                              controller: date5,
+                              text: "Date of Travel",
+                            ),
+                          ),
+                        ],
                       ),
                       Table(
                         defaultColumnWidth: FixedColumnWidth(1285.w),
@@ -2151,23 +2228,47 @@ class _MyHomePageState extends State<MyHomePage> {
                             form.set({
                               "Trainee Name": traineeName.text,
                               "Code Num": codeNum.text,
-                              "Date": date.text,
                             });
                             DocumentReference form2 = FirebaseFirestore.instance
                                 .collection('Users')
                                 .doc(instructorID1.text);
                             form2.set({
                               "Trainee Name": traineeName.text,
-                              "Date": date.text,
+                              "Code Num": codeNum.text,
+                              "Date": date2.text,
                             });
-                            // DocumentReference form3 = FirebaseFirestore.instance
-                            //     .collection('Form(Data)')
-                            //     .doc(traineeName.text)
-                            //     .collection('Instructors')
-                            //     .doc(instructorID1.text);
-                            // form3.set({
-                            //   "Trainee Name": traineeName.text,
-                            // });
+                            DocumentReference form3 = FirebaseFirestore.instance
+                                .collection('Users')
+                                .doc(instructorID2.text);
+                            form3.set({
+                              "Trainee Name": traineeName.text,
+                              "Code Num": codeNum.text,
+                              "Date": date3.text,
+                            });
+                            DocumentReference form4 = FirebaseFirestore.instance
+                                .collection('Users')
+                                .doc(instructorID3.text);
+                            form4.set({
+                              "Trainee Name": traineeName.text,
+                              "Code Num": codeNum.text,
+                              "Date": date4.text,
+                            });
+                            DocumentReference form5 = FirebaseFirestore.instance
+                                .collection('Users')
+                                .doc(instructorID4.text);
+                            form5.set({
+                              "Trainee Name": traineeName.text,
+                              "Code Num": codeNum.text,
+                              "Date": date5.text,
+                            });
+                            DocumentReference form6 = FirebaseFirestore.instance
+                                .collection('Users')
+                                .doc(instructorID5.text);
+                            form6.set({
+                              "Trainee Name": traineeName.text,
+                              "Code Num": codeNum.text,
+                              "Date": date1.text,
+                            });
                           },
                         ),
                       ),
@@ -2187,12 +2288,14 @@ class _MyHomePageState extends State<MyHomePage> {
 class CustomFormField extends StatelessWidget {
   void Function(String?)? onSaved;
   TextEditingController? controller;
+  String? Function(String?)? validator;
   final String? text;
   CustomFormField({
     Key? key,
     this.onSaved,
     this.controller,
     this.text,
+    this.validator,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -2200,6 +2303,7 @@ class CustomFormField extends StatelessWidget {
       height: 10.h,
       width: 210.w,
       child: TextFormField(
+        validator: validator,
         controller: controller,
         cursorHeight: 20.h,
         style: TextStyle(fontSize: 15.sp),

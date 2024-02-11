@@ -1,5 +1,5 @@
 import 'package:flight/Core/app_color.dart';
-import 'package:flight/Features/admin/send_form.dart';
+import 'package:flight/Features/admin/send_form_fromAdmin.dart';
 import 'package:flight/Features/admin/sign_up/screen.dart';
 import 'package:flight/Features/log_in_screen/refactor_text_form.dart';
 import 'package:flutter/cupertino.dart';
