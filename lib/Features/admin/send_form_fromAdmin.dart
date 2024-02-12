@@ -2226,6 +2226,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                 .collection('Form(Data)')
                                 .doc(traineeName.text);
                             form.set({
+                              "Ins ID 1": instructorID1.text,
+                              "Ins ID 2": instructorID2.text,
                               "Trainee Name": traineeName.text,
                               "Code Num": codeNum.text,
                             });
@@ -2233,7 +2235,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                 .collection('Users')
                                 .doc(instructorID1.text);
                             form2.update({
-                              "Trainee Name": FieldValue.arrayUnion([traineeName.text]),
+                              "Trainee Name":
+                                  FieldValue.arrayUnion([traineeName.text]),
                               "Code Num": FieldValue.arrayUnion([codeNum.text]),
                               //"Date": date1.text,
                               "Date": FieldValue.arrayUnion([date1.text]),
@@ -2242,7 +2245,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                 .collection('Users')
                                 .doc(instructorID2.text);
                             form3.update({
-                              "Trainee Name": FieldValue.arrayUnion([traineeName.text]),
+                              "Trainee Name":
+                                  FieldValue.arrayUnion([traineeName.text]),
                               "Code Num": FieldValue.arrayUnion([codeNum.text]),
                               //"Date": date2.text,
                               "Date": FieldValue.arrayUnion([date2.text]),

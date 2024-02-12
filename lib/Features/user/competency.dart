@@ -32,7 +32,7 @@ class _CompetencyScreenState extends State<CompetencyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(top: 40.h, left: 16.w, right: 16.w),
+        padding: EdgeInsets.only(left: 16.w, right: 16.w),
         child: ListView.builder(
           itemCount: signUpController.traineeName.length,
           itemBuilder: (context, index) {
@@ -44,29 +44,68 @@ class _CompetencyScreenState extends State<CompetencyScreen> {
                     screen: ReverseFormFromAdmin(
                       traineeName: signUpController.traineeName[index],
                       date: signUpController.date[index],
+                      codeNo: signUpController.codeNo[index],
                     )),
                 child: Column(
                   children: [
-                    CustomText(text:"Forms", fontSize: 30.sp,color: AppColor.blue29),
-                    SizedBox(height: 20.h,),
+                    CustomText(
+                        text: "Forms", fontSize: 30.sp, color: AppColor.blue29),
+                    SizedBox(
+                      height: 20.h,
+                    ),
                     Container(
                       width: double.infinity,
-                      height: 50.h,
+                      height: 90.h,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color:AppColor.blue29,
+                        borderRadius: BorderRadius.circular(12.sp),
+                        color: AppColor.blue29,
                       ),
                       child: Padding(
-                        padding:EdgeInsets.all(12.sp),
-                        child: Row(
+                        padding: EdgeInsets.all(8.sp),
+                        child: Column(
                           children: [
-                            CustomText(
-                              fontSize: 20.sp,
-                              text: signUpController.traineeName[index],
-                              color: AppColor.white,
+                            Row(
+                              children: [
+                                CustomText(
+                                  text: "Trainee Name: ",
+                                  fontSize: 16.sp,
+                                  color: Colors.grey,
+                                ),
+                                CustomText(
+                                  fontSize: 20.sp,
+                                  text: signUpController.traineeName[index],
+                                  color: AppColor.white,
+                                ),
+                              ],
                             ),
-                            Spacer(),
-                            CustomText(text: signUpController.date[index], fontSize: 20.sp, color: AppColor.white,)
+                            Row(
+                              children: [
+                                CustomText(
+                                  text: "Code No.: ",
+                                  fontSize: 16.sp,
+                                  color: Colors.grey,
+                                ),
+                                CustomText(
+                                  fontSize: 20.sp,
+                                  text: signUpController.codeNo[index],
+                                  color: AppColor.white,
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                CustomText(
+                                  text: "Date: ",
+                                  fontSize: 16.sp,
+                                  color: Colors.grey,
+                                ),
+                                CustomText(
+                                  text: signUpController.date[index],
+                                  fontSize: 20.sp,
+                                  color: AppColor.white,
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ), //"signUpController.traineeName[index]"
@@ -87,10 +126,12 @@ class _CompetencyScreenState extends State<CompetencyScreen> {
         .doc(widget.id)
         .snapshots()
         .forEach((element) {
-      if (element.data()?['Trainee Name'] != null&&element.data()?['Date'] != null) {
+      if (element.data()?['Trainee Name'] != null &&
+          element.data()?['Date'] != null &&
+          element.data()?['Code Num'] != null) {
         signUpController.traineeName = element.data()?['Trainee Name'];
         signUpController.date = element.data()?['Date'];
-        print(signUpController.traineeName);
+        signUpController.codeNo = element.data()?['Code Num'];
       }
       setState(() {});
     });

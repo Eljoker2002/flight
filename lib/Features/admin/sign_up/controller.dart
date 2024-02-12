@@ -8,6 +8,7 @@ import '../../user/choose_work/choose_work.dart';
 
 class SignUpController {
   List<dynamic> traineeName = [];
+  List<dynamic> codeNo = [];
   List<dynamic> date = [];
   String? id, password;
 
