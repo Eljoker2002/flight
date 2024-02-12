@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flight/Core/app_color.dart';
 import 'package:flight/Core/dimentions/navigator.dart';
-import 'package:flight/Features/admin/every_form.dart';
 import 'package:flight/Features/admin/reverse_form(User).dart';
 import 'package:flight/Features/admin/sign_up/controller.dart';
 import 'package:flight/Features/admin/sign_up/screen.dart';
@@ -9,10 +8,11 @@ import 'package:flight/widgets/text_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../every_form/every_form.dart';
+
 class ShowAllForms extends StatefulWidget {
-  ShowAllForms({
-    Key? key,
-  }) : super(key: key);
+  ShowAllForms({Key? key, required this.adminID}) : super(key: key);
+  String adminID;
 
   @override
   State<ShowAllForms> createState() => _ShowAllFormsState();
@@ -40,8 +40,9 @@ class _ShowAllFormsState extends State<ShowAllForms> {
               child: InkWell(
                 onTap: () => RouteUtils.push(
                     context: context,
-                    screen: ShowOneFormAndPrint(
+                    screen: SeeAndPrintForm(
                       traineeName: signUpController.traineeName[index],
+                      codeNo: signUpController.codeNo[index],
                     )),
                 child: Column(
                   children: [
@@ -105,11 +106,12 @@ class _ShowAllFormsState extends State<ShowAllForms> {
 
   Future<void> getData() async {
     await FirebaseFirestore.instance
-        .collection('Form(Data)')
-        .doc('')
+        .collection('Admin')
+        .doc(widget.adminID)
         .snapshots()
         .forEach((element) {
-      if (element.data()?['Trainee Name'] != null) {
+      if (element.data()?['Trainee Name'] != null &&
+          element.data()?['Code Num'] != null) {
         print(element.data()?['Trainee Name']);
         signUpController.traineeName = element.data()?['Trainee Name'];
         signUpController.codeNo = element.data()?['Code Num'];

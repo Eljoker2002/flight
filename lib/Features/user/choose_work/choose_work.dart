@@ -183,7 +183,7 @@ class ChooseWork extends StatelessWidget {
                           height: 150.h,
                           width: 150.w,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(40),
+                              borderRadius: BorderRadius.circular(40.sp),
                               color: AppColor.blue29,
                               boxShadow: [
                                 BoxShadow(

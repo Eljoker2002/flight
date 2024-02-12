@@ -46,7 +46,7 @@ class _LoginScreenForAdminState extends State<LoginScreenForAdmin> {
                     child: Column(
                       children: [
                         Padding(
-                          padding: EdgeInsets.symmetric(vertical: 25.h),
+                          padding: EdgeInsets.symmetric(vertical: 30.h),
                           child: Text(
                             "Login For Admin",
                             style: GoogleFonts.inter(
@@ -108,18 +108,18 @@ class _LoginScreenForAdminState extends State<LoginScreenForAdmin> {
                             },
                             icon: visible
                                 ? Icon(
-                              Icons.visibility_off,
-                              color: Colors.grey,
-                            )
+                                    Icons.visibility_off,
+                                    color: Colors.grey,
+                                  )
                                 : Icon(
-                              Icons.remove_red_eye,
-                              color: AppColor.blue29,
-                            ),
+                                    Icons.remove_red_eye,
+                                    color: AppColor.blue29,
+                                  ),
                           ),
                           isPassword: true,
                         ),
                         SizedBox(
-                          height: 5.h,
+                          height: 10.h,
                         ),
                         Padding(
                           padding: EdgeInsets.only(left: 125.w),
@@ -149,7 +149,9 @@ class _LoginScreenForAdminState extends State<LoginScreenForAdmin> {
                                   element.data()?['Password'] ==
                                       controller.password) {
                                 RouteUtils.push(
-                                    context: context, screen: WorkScreen());
+                                  context: context,
+                                  screen: WorkScreen(adminID: controller.id!),
+                                );
                               } else {
                                 showSnackBar(context, "Invalid Account");
                               }
@@ -159,9 +161,6 @@ class _LoginScreenForAdminState extends State<LoginScreenForAdmin> {
                           },
                           width: 120,
                           height: 43,
-                        ),
-                        SizedBox(
-                          height: 10.h,
                         ),
                       ],
                     ),

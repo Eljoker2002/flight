@@ -3,23 +3,17 @@ import 'package:flight/Features/admin/send_form_fromAdmin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../Core/app_color.dart';
-import '../../Core/dimentions/navigator.dart';
-import '../../widgets/App_button.dart';
-import '../../widgets/text_form.dart';
+import '../../../Core/dimentions/navigator.dart';
+import '../../../widgets/App_button.dart';
+import '../../../widgets/text_form.dart';
 
-class ReverseFormFromAdmin extends StatefulWidget {
-  ReverseFormFromAdmin(
-      {Key? key,
-      required this.traineeName,
-      required this.date,
-      required this.codeNo});
+class SeeAndPrintForm extends StatefulWidget {
+  SeeAndPrintForm({Key? key, required this.traineeName, required this.codeNo});
   String traineeName;
   String codeNo;
-  String date;
 
   @override
-  State<ReverseFormFromAdmin> createState() => _ReverseFormFromAdminState();
+  State<SeeAndPrintForm> createState() => _SeeAndPrintFormState();
 }
 
 TextEditingController sector1 = TextEditingController();
@@ -90,6 +84,7 @@ TextEditingController pos14 = TextEditingController();
 TextEditingController pos15 = TextEditingController();
 TextEditingController pos16 = TextEditingController();
 
+TextEditingController date = TextEditingController();
 TextEditingController date1 = TextEditingController();
 TextEditingController date2 = TextEditingController();
 TextEditingController date3 = TextEditingController();
@@ -217,14 +212,20 @@ TextEditingController instructorCode = TextEditingController();
 TextEditingController instructorLis = TextEditingController();
 
 TextEditingController traineeSign = TextEditingController();
-TextEditingController date = TextEditingController();
+TextEditingController dateDown = TextEditingController();
 
 TextEditingController examinerName = TextEditingController();
 TextEditingController examinerSign = TextEditingController();
 TextEditingController examinerCode = TextEditingController();
 TextEditingController examinerLis = TextEditingController();
 
-class _ReverseFormFromAdminState extends State<ReverseFormFromAdmin> {
+class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
+  @override
+  void initState() {
+    getData();
+    super.initState();
+  }
+
   TableRow _tableColumn2 = TableRow(children: <Widget>[
     Center(
       child: Padding(
@@ -2348,12 +2349,12 @@ class _ReverseFormFromAdminState extends State<ReverseFormFromAdmin> {
                                         fontSize: 14.sp,
                                       ),
                                       SizedBox(width: 4.w),
-                                      widget.date == ""
+                                      date == ""
                                           ? CustomFormField(
                                               // controller: traineeName,
                                               )
                                           : CustomText(
-                                              text: widget.date,
+                                              text: date.text,
                                               fontSize: 20.sp,
                                             ),
                                     ],
@@ -2464,7 +2465,6 @@ class _ReverseFormFromAdminState extends State<ReverseFormFromAdmin> {
                             width: 120,
                             height: 43,
                             onTap: () {
-                              RouteUtils.pop(context: context);
                               DocumentReference form = FirebaseFirestore
                                   .instance
                                   .collection('Form(Data)')
@@ -2691,6 +2691,66 @@ class _ReverseFormFromAdminState extends State<ReverseFormFromAdmin> {
         ),
       ),
     );
+  }
+
+  Future<void> getData() async {
+    await FirebaseFirestore.instance
+        .collection('Form(Data)')
+        .doc(widget.traineeName)
+        .snapshots()
+        .forEach((element) {
+      if (element.data()?['Sector 6'] != null) {
+        sector1.text = element.data()?['Sector 1'];
+        sector2.text = element.data()?['Sector 2'];
+        sector3.text = element.data()?['Sector 3'];
+        sector4.text = element.data()?['Sector 4'];
+        sector5.text = element.data()?['Sector 5'];
+        sector6.text = element.data()?['Sector 6'];
+        sector7.text = element.data()?['Sector 7'];
+        sector8.text = element.data()?['Sector 8'];
+        sector9.text = element.data()?['Sector 9'];
+        sector10.text = element.data()?['Sector 10'];
+        sector11.text = element.data()?['Sector 11'];
+        sector12.text = element.data()?['Sector 12'];
+        sector13.text = element.data()?['Sector 13'];
+        sector14.text = element.data()?['Sector 14'];
+        sector15.text = element.data()?['Sector 15'];
+        sector16.text = element.data()?['Sector 16'];
+        f1.text = element.data()?['Flight No 1'];
+        f2.text = element.data()?['Flight No 2'];
+        f3.text = element.data()?['Flight No 3'];
+        f4.text = element.data()?['Flight No 4'];
+        f5.text = element.data()?['Flight No 5'];
+        f6.text = element.data()?['Flight No 6'];
+        f7.text = element.data()?['Flight No 7'];
+        f8.text = element.data()?['Flight No 8'];
+        f9.text = element.data()?['Flight No 9'];
+        f10.text = element.data()?['Flight No 10'];
+        f11.text = element.data()?['Flight No 11'];
+        f12.text = element.data()?['Flight No 12'];
+        f13.text = element.data()?['Flight No 13'];
+        f14.text = element.data()?['Flight No 14'];
+        f15.text = element.data()?['Flight No 15'];
+        f16.text = element.data()?['Flight No 16'];
+        type1.text = element.data()?['A/C Type 1'];
+        type2.text = element.data()?['A/C Type 2'];
+        type3.text = element.data()?['A/C Type 3'];
+        type4.text = element.data()?['A/C Type 4'];
+        type5.text = element.data()?['A/C Type 5'];
+        type6.text = element.data()?['A/C Type 6'];
+        type7.text = element.data()?['A/C Type 7'];
+        type8.text = element.data()?['A/C Type 8'];
+        type9.text = element.data()?['A/C Type 9'];
+        type10.text = element.data()?['A/C Type 10'];
+        type11.text = element.data()?['A/C Type 11'];
+        type12.text = element.data()?['A/C Type 12'];
+        type13.text = element.data()?['A/C Type 13'];
+        type14.text = element.data()?['A/C Type 14'];
+        type15.text = element.data()?['A/C Type 15'];
+        type16.text = element.data()?['A/C Type 16'];
+      }
+      setState(() {});
+    });
   }
 }
 // Text('${traineeName}'),

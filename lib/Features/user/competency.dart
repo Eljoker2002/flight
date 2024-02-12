@@ -4,6 +4,7 @@ import 'package:flight/Core/dimentions/navigator.dart';
 import 'package:flight/Features/admin/reverse_form(User).dart';
 import 'package:flight/Features/admin/sign_up/controller.dart';
 import 'package:flight/Features/admin/sign_up/screen.dart';
+import 'package:flight/Features/log_in_screen/login_for_user.dart';
 import 'package:flight/widgets/text_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -132,8 +133,19 @@ class _CompetencyScreenState extends State<CompetencyScreen> {
         signUpController.traineeName = element.data()?['Trainee Name'];
         signUpController.date = element.data()?['Date'];
         signUpController.codeNo = element.data()?['Code Num'];
+      } else {
+        return showSnackBar(context, "You Don't have a travels");
       }
       setState(() {});
     });
+  }
+
+  void showSnackBar(BuildContext context, String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        backgroundColor: AppColor.blue29,
+        content: Text(message),
+      ),
+    );
   }
 }

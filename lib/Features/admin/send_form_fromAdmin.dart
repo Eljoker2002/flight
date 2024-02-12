@@ -17,330 +17,95 @@ import 'dart:io';
 import '../../Core/dimentions/navigator.dart';
 
 class MyHomePage extends StatefulWidget {
+  String adminID;
+  MyHomePage({required this.adminID});
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
   // late pw.TableRow _tableColumn2;
-  // late pw.TableRow _tableColumn3;
-
-  // @override
-  // void initState() {
-  //   _tableColumn2 = pw.TableRow(children: <pw.Widget>[
-  //     pw.Center(
-  //       child: pw.Padding(
-  //         padding: pw.EdgeInsets.all(5.0),
-  //         child: pw.Text("Sectors"),
-  //       ),
-  //     ),
-  //     pw.Center(
-  //       child: pw.Padding(
-  //         padding: pw.EdgeInsets.all(5.0),
-  //         child: pw.Text("Flight No"),
-  //       ),
-  //     ),
-  //     pw.Center(
-  //       child: pw.Padding(
-  //         padding: pw.EdgeInsets.all(5.0),
-  //         child: pw.Text("A/C Type"),
-  //       ),
-  //     ),
-  //     pw.Center(
-  //       child: pw.Padding(
-  //         padding: pw.EdgeInsets.all(5.0),
-  //         child: pw.Text("Position"),
-  //       ),
-  //     ),
-  //     pw.Center(
-  //       child: pw.Padding(
-  //         padding: pw.EdgeInsets.all(5.0),
-  //         child: pw.Text("Date"),
-  //       ),
-  //     ),
-  //     pw.Center(
-  //       child: pw.Padding(
-  //         padding: pw.EdgeInsets.all(5.0),
-  //         child: pw.Text("Instructor Name"),
-  //       ),
-  //     ),
-  //     pw.Center(
-  //       child: pw.Padding(
-  //         padding: pw.EdgeInsets.all(5.0),
-  //         child: pw.Text("Code No"),
-  //       ),
-  //     ),
-  //   ]);
-  //
-  //   _tableColumn3 = pw.TableRow(children: <pw.Widget>[
-  //     pw.Padding(
-  //       padding: pw.EdgeInsets.all(5.0),
-  //       child: pw.Text("1"),
-  //     ),
-  //     pw.Align(
-  //       alignment: pw.Alignment.centerLeft,
-  //       child: pw.Padding(
-  //         padding: pw.EdgeInsets.symmetric(vertical: 5, horizontal: 3),
-  //         child: pw.Text("MS"),
-  //       ),
-  //     ),
-  //     pw.Padding(
-  //       padding: pw.EdgeInsets.all(5.0),
-  //       child: pw.Text("1"),
-  //     ),
-  //     pw.Padding(
-  //       padding: pw.EdgeInsets.all(5.0),
-  //       child: pw.Text("1"),
-  //     ),
-  //     pw.Center(
-  //       child: pw.Padding(
-  //         padding: pw.EdgeInsets.all(5.0),
-  //         child: pw.Text("1"),
-  //       ),
-  //     ),
-  //     pw.Padding(
-  //       padding: pw.EdgeInsets.all(5.0),
-  //       child: pw.Text("1"),
-  //     ),
-  //     pw.Padding(
-  //       padding: pw.EdgeInsets.all(5.0),
-  //       child: pw.Text("1"),
-  //     ),
-  //   ]);
-  //   super.initState();
-  // }
-
-  // Future<void> _saveAndPrintPdf() async {
-  //   final pdf = pw.Document();
-  //   pdf.addPage(
-  //     pw.Page(
-  //       build: (context) {
-  //         return pw.Column(
-  //           children: [
-  //             pw.Table(
-  //               defaultColumnWidth: pw.FixedColumnWidth(1285.w),
-  //               border: pw.TableBorder.all(width: 1.w),
-  //               children: <pw.TableRow>[
-  //                 pw.TableRow(children: [
-  //                   pw.Container(
-  //                     width: 1285.w,
-  //                     height: 30.h,
-  //                     child: pw.Center(
-  //                       child: pw.Text(
-  //                         "CABIN CREW INFLIGHT COMPETENCY CHECK",
-  //                         style: pw.TextStyle(
-  //                           fontSize: 16.sp,
-  //                         ),
-  //                       ),
-  //                     ),
-  //                   ),
-  //                 ]),
-  //               ],
-  //             ),
-  //             pw.Table(
-  //               defaultColumnWidth: pw.FixedColumnWidth(643.w),
-  //               border: pw.TableBorder.all(width: 1.w),
-  //               children: <pw.TableRow>[
-  //                 pw.TableRow(
-  //                   children: [
-  //                     pw.Container(
-  //                       // color: Colors.cyanAccent,
-  //                       width: 321.5.w,
-  //                       height: 30.h,
-  //                       child: pw.Row(
-  //                         children: [
-  //                           pw.SizedBox(width: 2.w),
-  //                           pw.Text(
-  //                             "Trainee Name:",
-  //                             style: pw.TextStyle(
-  //                               fontSize: 15.sp,
-  //                             ),
-  //                           ),
-  //                           pw.Text(firstNameController.text),
-  //                         ],
-  //                       ),
-  //                     ),
-  //                     pw.Container(
-  //                       // color: Colors.cyanAccent,
-  //                       width: 321.5.w,
-  //                       height: 30.h,
-  //                       child: pw.Row(
-  //                         children: [
-  //                           pw.SizedBox(width: 2.w),
-  //                           pw.Text(
-  //                             "Code Num:",
-  //                             style: pw.TextStyle(
-  //                               fontSize: 15.sp,
-  //                             ),
-  //                           ),
-  //                           // pw.CustomFormField(),
-  //                         ],
-  //                       ),
-  //                     ),
-  //                   ],
-  //                 ),
-  //               ],
-  //             ),
-  //             pw.Table(
-  //               columnWidths: {
-  //                 0: pw.FlexColumnWidth(4),
-  //                 1: pw.FlexColumnWidth(1),
-  //               },
-  //               defaultColumnWidth: pw.FixedColumnWidth(1285.w),
-  //               border: pw.TableBorder.all(width: 1.w),
-  //               children: <pw.TableRow>[
-  //                 pw.TableRow(
-  //                   children: [
-  //                     pw.Container(
-  //                       // color: Colors.cyanAccent,
-  //                       width: 500.w,
-  //                       height: 20.h,
-  //                       child: pw.Row(
-  //                         children: [
-  //                           pw.SizedBox(width: 2.w),
-  //                           pw.Text(
-  //                             "Training Categories:",
-  //                             style: pw.TextStyle(
-  //                               fontSize: 15.sp,
-  //                             ),
-  //                           ),
-  //                           pw.Checkbox(value: false, name: ''),
-  //                           pw.Text(
-  //                             "Initial",
-  //                             style: pw.TextStyle(
-  //                               fontSize: 15.sp,
-  //                             ),
-  //                           ),
-  //                           pw.Checkbox(value: false, name: ''),
-  //                           pw.Text(
-  //                             "Transition",
-  //                             style: pw.TextStyle(
-  //                               fontSize: 15.sp,
-  //                             ),
-  //                           ),
-  //                           pw.Checkbox(value: false, name: ''),
-  //                           pw.Text(
-  //                             "Requalification Recurrent",
-  //                             style: pw.TextStyle(
-  //                               fontSize: 15.sp,
-  //                             ),
-  //                           ),
-  //                           pw.Checkbox(value: false, name: ''),
-  //                           pw.Text(
-  //                             "SEP1",
-  //                             style: pw.TextStyle(
-  //                               fontSize: 15.sp,
-  //                             ),
-  //                           ),
-  //                           pw.Checkbox(value: false, name: ''),
-  //                           pw.Text(
-  //                             "SEP2",
-  //                             style: pw.TextStyle(
-  //                               fontSize: 15.sp,
-  //                             ),
-  //                           ),
-  //                         ],
-  //                       ),
-  //                     ),
-  //                     pw.Container(
-  //                       // color: Colors.cyanAccent,
-  //                       width: 50.w,
-  //                       height: 20.h,
-  //                       child: pw.Row(
-  //                         children: [
-  //                           pw.SizedBox(width: 2.w),
-  //                           pw.Text(
-  //                             "Date:",
-  //                             style: pw.TextStyle(
-  //                               fontSize: 15.sp,
-  //                             ),
-  //                           ),
-  //                           pw.SizedBox(width: 4.w),
-  //                           pw.Text(""),
-  //                         ],
-  //                       ),
-  //                     ),
-  //                   ],
-  //                 ),
-  //               ],
-  //             ),
-  //             pw.Table(
-  //                 defaultColumnWidth: pw.FixedColumnWidth(184.w),
-  //                 border: pw.TableBorder.all(width: 1.w),
-  //                 children: <pw.TableRow>[_tableColumn2]),
-  //             pw.Table(
-  //                 defaultColumnWidth: pw.FixedColumnWidth(184.w),
-  //                 border: pw.TableBorder.all(width: 1.w),
-  //                 children: <pw.TableRow>[
-  //                   _tableColumn3,
-  //                   _tableColumn3,
-  //                   _tableColumn3,
-  //                   _tableColumn3,
-  //                   _tableColumn3,
-  //                   _tableColumn3,
-  //                   _tableColumn3,
-  //                   _tableColumn3,
-  //                 ]),
-  //           ],
-  //         );
-  //       },
-  //     ),
-  //   );
-  //   final Uint8List bytes = await pdf.save();
-  //   // Save the PDF to a file
-  //   final appDocDir = await getApplicationDocumentsDirectory();
-  //   final appDocPath = appDocDir.path;
-  //   final file = File('$appDocPath/example.pdf');
-  //   await file.writeAsBytes(bytes);
-  //   // Print the PDF using the printing package
-  //   await Printing.layoutPdf(
-  //     onLayout: (format) async => bytes,
-  //     name: 'example.pdf',
-  //   );
-  // }
   TextEditingController instructorID1 = TextEditingController();
+
   TextEditingController instructorID2 = TextEditingController();
+
   TextEditingController instructorID3 = TextEditingController();
+
   TextEditingController instructorID4 = TextEditingController();
+
   TextEditingController instructorID5 = TextEditingController();
 
   TextEditingController traineeName = TextEditingController();
+
   TextEditingController codeNum = TextEditingController();
+
   TextEditingController date = TextEditingController();
 
   TextEditingController date1 = TextEditingController();
+
   TextEditingController date2 = TextEditingController();
+
   TextEditingController date3 = TextEditingController();
+
   TextEditingController date4 = TextEditingController();
+
   TextEditingController date5 = TextEditingController();
+
   TextEditingController date6 = TextEditingController();
+
   TextEditingController date7 = TextEditingController();
+
   TextEditingController date8 = TextEditingController();
+
   TextEditingController date9 = TextEditingController();
+
   TextEditingController date10 = TextEditingController();
+
   TextEditingController date11 = TextEditingController();
+
   TextEditingController date12 = TextEditingController();
+
   TextEditingController date13 = TextEditingController();
+
   TextEditingController date14 = TextEditingController();
+
   TextEditingController date15 = TextEditingController();
+
   TextEditingController date16 = TextEditingController();
 
   TextEditingController sector1 = TextEditingController();
+
   TextEditingController sector2 = TextEditingController();
+
   TextEditingController sector3 = TextEditingController();
+
   TextEditingController sector4 = TextEditingController();
+
   TextEditingController sector5 = TextEditingController();
+
   TextEditingController sector6 = TextEditingController();
+
   TextEditingController sector7 = TextEditingController();
+
   TextEditingController sector8 = TextEditingController();
+
   TextEditingController sector9 = TextEditingController();
+
   TextEditingController sector10 = TextEditingController();
+
   TextEditingController sector11 = TextEditingController();
+
   TextEditingController sector12 = TextEditingController();
+
   TextEditingController sector13 = TextEditingController();
+
   TextEditingController sector14 = TextEditingController();
+
   TextEditingController sector15 = TextEditingController();
+
   TextEditingController sector16 = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     TableRow _tableColumn2 = TableRow(children: <Widget>[
@@ -2231,6 +1996,15 @@ class _MyHomePageState extends State<MyHomePage> {
                               "Trainee Name": traineeName.text,
                               "Code Num": codeNum.text,
                             });
+                            DocumentReference f = FirebaseFirestore.instance
+                                .collection('Admin')
+                                .doc(widget.adminID);
+                            f.update({
+                              "Trainee Name":
+                                  FieldValue.arrayUnion([traineeName.text]),
+                              "Code Num": FieldValue.arrayUnion([codeNum.text]),
+                              //"Date": date1.text,
+                            });
                             DocumentReference form2 = FirebaseFirestore.instance
                                 .collection('Users')
                                 .doc(instructorID1.text);
@@ -2251,6 +2025,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               //"Date": date2.text,
                               "Date": FieldValue.arrayUnion([date2.text]),
                             });
+                            RouteUtils.pop(context: context);
                             // DocumentReference form4 = FirebaseFirestore.instance
                             //     .collection('Users')
                             //     .doc(instructorID3.text);
