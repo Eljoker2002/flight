@@ -3,10 +3,6 @@ class ValidatorUtils {
     {
       if (value == null || value.trim().isEmpty) {
         return "ID required";
-      } else if (!RegExp(
-              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-          .hasMatch(value)) {
-        return "Invalid ID";
       }
       return null;
     }
@@ -17,8 +13,8 @@ class ValidatorUtils {
       if (value == null || value.trim().isEmpty) {
         return "ID required";
       }
-      return "";
     }
+    return null;
   }
 
   static String? passwordSignin(String? value) {
@@ -26,7 +22,7 @@ class ValidatorUtils {
       if (value == null || value.trim().isEmpty) {
         return "Password required";
       }
-      return "";
+      return null;
     }
   }
 
