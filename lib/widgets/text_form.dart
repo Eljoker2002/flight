@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pdf/widgets.dart' as pw;
 
 class CustomText extends StatelessWidget {
   CustomText({
@@ -25,3 +26,4 @@ class CustomText extends StatelessWidget {
     );
   }
 }
+

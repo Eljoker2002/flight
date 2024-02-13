@@ -1,11 +1,17 @@
+import 'dart:io';
+import 'dart:typed_data';
+import 'package:path_provider/path_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flight/Features/admin/send_form_fromAdmin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pdf/pdf.dart';
 
+import 'package:printing/printing.dart';
 import '../../../Core/dimentions/navigator.dart';
 import '../../../widgets/App_button.dart';
 import '../../../widgets/text_form.dart';
+import 'package:pdf/widgets.dart' as pw;
 
 class SeeAndPrintForm extends StatefulWidget {
   SeeAndPrintForm({Key? key, required this.traineeName, required this.codeNo});
@@ -230,1668 +236,3851 @@ bool value6 = false;
 bool value7 = false;
 
 class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
+  late pw.TableRow pw_tableColumn1;
+  late pw.TableRow pw_tableColumn2;
+  late pw.TableRow pw_tableColumn3;
+  late pw.TableRow pw_tableColumn4;
+  late pw.TableRow pw_tableColumn5;
+  late pw.TableRow pw_tableColumn6;
+  late pw.TableRow pw_tableColumn7;
+  late pw.TableRow pw_tableColumn8;
+  late pw.TableRow pw_tableColumn9;
+  late pw.TableRow pw_tableColumn10;
+  late pw.TableRow pw_tableColumn11;
+  late pw.TableRow pw_tableColumn12;
+  late pw.TableRow pw_tableColumn13;
+  late pw.TableRow pw_tableColumn14;
+  late pw.TableRow pw_tableColumn15;
+  late pw.TableRow pw_tableColumn17;
+  late pw.TableRow pw_tableColumn18;
+  late pw.TableRow pw_tableColumn19;
+  late pw.TableRow pw_tableColumn20;
+  late pw.TableRow pw_tableColumn31;
+  late pw.TableRow pw_tableColumn32;
+  late pw.TableRow pw_tableColumn33;
+  late pw.TableRow pw_tableColumn34;
+  late pw.TableRow pw_tableColumn35;
+  late pw.TableRow pw_tableColumn36;
+  late pw.TableRow pw_tableColumn37;
+  late pw.TableRow pw_tableColumn38;
+  late pw.TableRow pw_tableColumn39;
+  late pw.TableRow pw_tableColumn310;
+  late pw.TableRow pw_tableColumn311;
+  late pw.TableRow pw_tableColumn312;
+  late pw.TableRow pw_tableColumn313;
+  late pw.TableRow pw_tableColumn314;
+  late pw.TableRow pw_tableColumn315;
   @override
   void initState() {
+    pw_tableColumn2 = pw.TableRow(children: <pw.Widget>[
+      pw.Center(
+        child: pw.Padding(
+          padding: pw.EdgeInsets.all(8.sp),
+          child: pw.Text(
+            "Sectors",
+          ),
+        ),
+      ),
+      pw.Center(
+        child: pw.Padding(
+          padding: pw.EdgeInsets.all(8.sp),
+          child: pw.Text(
+            "Flight No",
+          ),
+        ),
+      ),
+      pw.Center(
+        child: pw.Padding(
+          padding: pw.EdgeInsets.all(8.sp),
+          child: pw.Text(
+            "A/C Type",
+          ),
+        ),
+      ),
+      pw.Center(
+        child: pw.Padding(
+          padding: pw.EdgeInsets.all(8.sp),
+          child: pw.Text(
+            "Position",
+          ),
+        ),
+      ),
+      pw.Center(
+        child: pw.Padding(
+          padding: pw.EdgeInsets.all(8.sp),
+          child: pw.Text(
+            "Date",
+          ),
+        ),
+      ),
+      pw.Center(
+        child: pw.Padding(
+          padding: pw.EdgeInsets.all(8.sp),
+          child: pw.Text(
+            "Instructor Name",
+          ),
+        ),
+      ),
+      pw.Center(
+        child: pw.Padding(
+          padding: pw.EdgeInsets.all(8.sp),
+          child: pw.Text(
+            "Code No",
+          ),
+        ),
+      ),
+    ]);
+
+    pw_tableColumn3 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "1-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.SizedBox(
+              width: 130.w,
+              child: pw.Text("${sector1.text}"),
+            ),
+          ],
+        ),
+      ),
+      pw.Align(
+        alignment: pw.Alignment.centerLeft,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: pw.Row(
+            children: [
+              pw.Text(
+                "MS",
+              ),
+              pw.SizedBox(width: 4.w),
+              pw.SizedBox(
+                width: 130.w,
+                child: pw.Text("${f1.text}"),
+              ),
+            ],
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${type1.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${pos1.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${date1.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${inName1.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${codeNo1.text}"),
+      ),
+    ]);
+
+    pw_tableColumn31 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "2-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.SizedBox(
+              width: 130.w,
+              child: pw.Text("${sector2.text}"),
+            ),
+          ],
+        ),
+      ),
+      pw.Align(
+        alignment: pw.Alignment.centerLeft,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: pw.Row(
+            children: [
+              pw.Text(
+                "MS",
+              ),
+              pw.SizedBox(width: 4.w),
+              pw.SizedBox(
+                width: 130.w,
+                child: pw.Text("${f2.text}"),
+              ),
+            ],
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${type2.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${pos2.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${date2.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${inName2.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${codeNo2.text}"),
+      ),
+    ]);
+
+    pw_tableColumn32 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "3-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.SizedBox(
+              width: 130.w,
+              child: pw.Text("${sector3.text}"),
+            ),
+          ],
+        ),
+      ),
+      pw.Align(
+        alignment: pw.Alignment.centerLeft,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: pw.Row(
+            children: [
+              pw.Text(
+                "MS",
+              ),
+              pw.SizedBox(width: 4.w),
+              pw.SizedBox(
+                width: 130.w,
+                child: pw.Text("${f3.text}"),
+              ),
+            ],
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${type3.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${pos3.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${date3.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${inName3.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${codeNo3.text}"),
+      ),
+    ]);
+
+    pw_tableColumn33 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "4-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.SizedBox(
+              width: 130.w,
+              child: pw.Text("${sector4.text}"),
+            ),
+          ],
+        ),
+      ),
+      pw.Align(
+        alignment: pw.Alignment.centerLeft,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: pw.Row(
+            children: [
+              pw.Text(
+                "MS",
+              ),
+              pw.SizedBox(width: 4.w),
+              pw.SizedBox(
+                width: 130.w,
+                child: pw.Text("${f4.text}"),
+              ),
+            ],
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text(
+          "${type4.text}",
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${pos4.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${date4.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${inName4.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${codeNo4.text}"),
+      ),
+    ]);
+
+    pw_tableColumn34 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "5-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.SizedBox(
+              width: 130.w,
+              child: pw.Text("${sector5.text}"),
+            ),
+          ],
+        ),
+      ),
+      pw.Align(
+        alignment: pw.Alignment.centerLeft,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: pw.Row(
+            children: [
+              pw.Text(
+                "MS",
+              ),
+              pw.SizedBox(width: 4.w),
+              pw.SizedBox(
+                width: 130.w,
+                child: pw.Text("${f5.text}"),
+              ),
+            ],
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${type5.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${pos5.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${date5.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${inName5.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${codeNo5.text}"),
+      ),
+    ]);
+
+    pw_tableColumn35 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "6-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.SizedBox(
+              width: 130.w,
+              child: pw.Text("${sector6.text}"),
+            ),
+          ],
+        ),
+      ),
+      pw.Align(
+        alignment: pw.Alignment.centerLeft,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: pw.Row(
+            children: [
+              pw.Text(
+                "MS",
+              ),
+              pw.SizedBox(width: 4.w),
+              pw.SizedBox(
+                width: 130.w,
+                child: pw.Text("${f6.text}"),
+              ),
+            ],
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${type6.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${pos6.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${date6.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${inName6.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${codeNo6.text}"),
+      ),
+    ]);
+
+    pw_tableColumn36 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "7-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.SizedBox(
+              width: 130.w,
+              child: pw.Text("${sector7.text}"),
+            ),
+          ],
+        ),
+      ),
+      pw.Align(
+        alignment: pw.Alignment.centerLeft,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: pw.Row(
+            children: [
+              pw.Text(
+                "MS",
+              ),
+              pw.SizedBox(width: 4.w),
+              pw.SizedBox(
+                width: 130.w,
+                child: pw.Text("${f7.text}"),
+              ),
+            ],
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${type7.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${pos7.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${date7.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${inName7.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${codeNo7.text}"),
+      ),
+    ]);
+
+    pw_tableColumn37 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "8-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.SizedBox(
+              width: 130.w,
+              child: pw.Text("${sector8.text}"),
+            ),
+          ],
+        ),
+      ),
+      pw.Align(
+        alignment: pw.Alignment.centerLeft,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: pw.Row(
+            children: [
+              pw.Text(
+                "MS",
+              ),
+              pw.SizedBox(width: 4.w),
+              pw.SizedBox(
+                width: 130.w,
+                child: pw.Text("${f8.text}"),
+              ),
+            ],
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${type8.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${pos8.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${date8.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${inName8.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${codeNo8.text}"),
+      ),
+    ]);
+
+    pw_tableColumn38 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "9-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.SizedBox(
+              width: 130.w,
+              child: pw.Text("${sector9.text}"),
+            ),
+          ],
+        ),
+      ),
+      pw.Align(
+        alignment: pw.Alignment.centerLeft,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: pw.Row(
+            children: [
+              pw.Text(
+                "MS",
+              ),
+              pw.SizedBox(width: 4.w),
+              pw.SizedBox(
+                width: 130.w,
+                child: pw.Text("${f9.text}"),
+              ),
+            ],
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${type9.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${pos9.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${date9.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${inName9.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${codeNo9.text}"),
+      ),
+    ]);
+
+    pw_tableColumn39 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "10-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.SizedBox(
+              width: 130.w,
+              child: pw.Text("${sector10.text}"),
+            ),
+          ],
+        ),
+      ),
+      pw.Align(
+        alignment: pw.Alignment.centerLeft,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: pw.Row(
+            children: [
+              pw.Text(
+                "MS",
+              ),
+              pw.SizedBox(width: 4.w),
+              pw.SizedBox(
+                width: 130.w,
+                child: pw.Text("${f10.text}"),
+              ),
+            ],
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${type10.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${pos10.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${date10.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${inName10.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${codeNo10.text}"),
+      ),
+    ]);
+
+    pw_tableColumn310 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "11-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.SizedBox(
+              width: 130.w,
+              child: pw.Text("${sector11.text}"),
+            ),
+          ],
+        ),
+      ),
+      pw.Align(
+        alignment: pw.Alignment.centerLeft,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: pw.Row(
+            children: [
+              pw.Text(
+                "MS",
+              ),
+              pw.SizedBox(width: 4.w),
+              pw.SizedBox(
+                width: 130.w,
+                child: pw.Text("${f11.text}"),
+              ),
+            ],
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${type11.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${pos11.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${date11.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${inName11.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${codeNo11.text}"),
+      ),
+    ]);
+
+    pw_tableColumn311 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "12-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.SizedBox(
+              width: 130.w,
+              child: pw.Text("${sector12.text}"),
+            ),
+          ],
+        ),
+      ),
+      pw.Align(
+        alignment: pw.Alignment.centerLeft,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: pw.Row(
+            children: [
+              pw.Text(
+                "MS",
+              ),
+              pw.SizedBox(width: 4.w),
+              pw.SizedBox(
+                width: 130.w,
+                child: pw.Text("${f12.text}"),
+              ),
+            ],
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${type12.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${pos12.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${date12.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${inName12.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${codeNo12.text}"),
+      ),
+    ]);
+
+    pw_tableColumn312 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "13-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.SizedBox(
+              width: 130.w,
+              child: pw.Text("${sector13.text}"),
+            ),
+          ],
+        ),
+      ),
+      pw.Align(
+        alignment: pw.Alignment.centerLeft,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: pw.Row(
+            children: [
+              pw.Text(
+                "MS",
+              ),
+              pw.SizedBox(width: 4.w),
+              pw.SizedBox(
+                width: 130.w,
+                child: pw.Text("${f13.text}"),
+              ),
+            ],
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${type13.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${pos13.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${date13.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${inName13.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${codeNo13.text}"),
+      ),
+    ]);
+
+    pw_tableColumn313 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "14-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.SizedBox(
+              width: 130.w,
+              child: pw.Text("${sector14.text}"),
+            ),
+          ],
+        ),
+      ),
+      pw.Align(
+        alignment: pw.Alignment.centerLeft,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: pw.Row(
+            children: [
+              pw.Text(
+                "MS",
+              ),
+              pw.SizedBox(width: 4.w),
+              pw.SizedBox(
+                width: 130.w,
+                child: pw.Text("${f14.text}"),
+              ),
+            ],
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${type14.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${pos14.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${date14.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${inName14.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${codeNo14.text}"),
+      ),
+    ]);
+
+    pw_tableColumn314 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "15-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.SizedBox(
+              width: 130.w,
+              child: pw.Text("${sector15.text}"),
+            ),
+          ],
+        ),
+      ),
+      pw.Align(
+        alignment: pw.Alignment.centerLeft,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: pw.Row(
+            children: [
+              pw.Text(
+                "MS",
+              ),
+              pw.SizedBox(width: 4.w),
+              pw.SizedBox(
+                width: 130.w,
+                child: pw.Text("${f15.text}"),
+              ),
+            ],
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${type15.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${pos15.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${date15.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${inName15.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${codeNo15.text}"),
+      ),
+    ]);
+
+    pw_tableColumn315 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "16-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.SizedBox(
+              width: 130.w,
+              child: pw.Text("${sector16.text}"),
+            ),
+          ],
+        ),
+      ),
+      pw.Align(
+        alignment: pw.Alignment.centerLeft,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: pw.Row(
+            children: [
+              pw.Text(
+                "MS",
+              ),
+              pw.SizedBox(width: 4.w),
+              pw.SizedBox(
+                width: 130.w,
+                child: pw.Text("${f16.text}"),
+              ),
+            ],
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${type16.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${pos16.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${date16.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${inName16.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(10.sp),
+        child: pw.Text("${codeNo16.text}"),
+      ),
+    ]);
+
+    pw_tableColumn1 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.all(9.sp),
+        child: pw.Center(
+          child: pw.Text(
+            "INFLIGHT COMPETENCY CHECK ITEMS",
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(9.sp),
+        child: pw.Center(
+          child: pw.Text(
+            "US",
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(9.sp),
+        child: pw.Center(
+          child: pw.Text(
+            "S1",
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(9.sp),
+        child: pw.Center(
+          child: pw.Text(
+            "S2",
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(9.sp),
+        child: pw.Center(
+          child: pw.Text(
+            "S3",
+          ),
+        ),
+      ),
+    ]);
+
+    pw_tableColumn4 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "1-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.Text(
+              "Preflight emergency equipment check . location/operation",
+            )
+          ],
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${us1.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s11.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s21.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s31.text}"),
+      ),
+    ]);
+
+    pw_tableColumn5 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
+        child: pw.Row(
+          children: [
+            pw.Text("2-"),
+            pw.SizedBox(width: 4.w),
+            pw.Text(
+              "Exit operation",
+            )
+          ],
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${us2.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s12.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s22.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s32.text}"),
+      ),
+    ]);
+
+    pw_tableColumn6 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "3-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.Text(
+              "Galley. electrical equipment and Circuit breakers",
+            )
+          ],
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${us3.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s13.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s23.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s33.text}"),
+      ),
+    ]);
+
+    pw_tableColumn7 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "4-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.Text(
+              "Intercommunication",
+            )
+          ],
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${us4.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s14.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s24.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s34.text}"),
+      ),
+    ]);
+
+    pw_tableColumn8 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "5-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.Text(
+              "Crew resource management & GSOP ",
+            ),
+          ],
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${us5.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s15.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s25.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s35.text}"),
+      ),
+    ]);
+
+    pw_tableColumn9 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "6-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.Text("Control Panels"),
+          ],
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${us6.text}"),
+      ),
+      pw.Padding(
+          padding: pw.EdgeInsets.all(7.sp), child: pw.Text("${s16.text}")),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s26.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s36.text}"),
+      ),
+    ]);
+
+    pw_tableColumn10 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "7-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.Text(
+              "Passenger handling (disruptive passenger awareness)",
+            )
+          ],
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${us7.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s17.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s27.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s37.text}"),
+      ),
+    ]);
+
+    pw_tableColumn11 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "8-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.Text(
+                "Cockpit door . window . seat operations",
+               )
+          ],
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${us8.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s18.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child:pw.Text("${s28.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s38.text}"),
+      ),
+    ]);
+
+     pw_tableColumn12 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
+        child: pw.Row(
+          children: [
+            pw. Text(
+              "9-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.Text( "First aid")
+          ],
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text( "${us9.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s19.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s29.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text( "${s39.text}"),
+      ),
+    ]);
+
+     pw_tableColumn13 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "10-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.Text("Dangerous goods awareness"),
+          ],
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${us10.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text( "${s110.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text( "${s210.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s310.text}"),
+      ),
+    ]);
+
+     pw_tableColumn14 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.all(5.0.sp),
+        child: pw.Row(
+          children: [
+            pw.Text(
+              "11-",
+            ),
+            pw.SizedBox(width: 4.w),
+            pw.Text("Drills")
+          ],
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${us11.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s111.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(7.sp),
+        child: pw.Text("${s211.text}"),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.all(8.sp),
+        child: pw.Text( "${s311.text}"),
+      ),
+    ]);
+
+    pw_tableColumn15 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.symmetric(horizontal: 60.w, vertical: 25.h),
+        child: pw.Center(
+          child: pw.Text(
+             "First Result",
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
+        child: pw.Center(
+          child: pw.Text(
+            '''  Completion
+        date''',
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
+        child: pw.Center(
+          child: pw.Text(
+             '''   Instructor
+      Name''',
+
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
+        child: pw.Center(
+          child: pw.Text(
+            '''    Instructor
+    signature''',
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
+        child: pw.Center(
+          child: pw.Text(
+             '''    Instructor
+     Code No''',
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
+        child: pw.Center(
+          child: pw.Text(
+           '''   Instructor
+     license''',
+          ),
+        ),
+      ),
+    ]);
+
+     pw_tableColumn17 = pw.TableRow(
+      children: <pw.Widget>[
+        pw.Padding(
+          padding: pw.EdgeInsets.all(16.sp),
+          child: pw.Center(
+            child: pw.Text(
+               '''     Trainee
+    Signature''',
+            ),
+          ),
+        ),
+        pw.Padding(
+          padding: pw.EdgeInsets.all(28.sp),
+          child: pw.Center(
+            child:pw.Text(
+              "Date",
+            ),
+          ),
+        ),
+        pw.Padding(
+          padding: pw.EdgeInsets.all(16.sp),
+          child: pw.Center(
+            child:pw.Text(
+               '''  Examiner
+    Name''',
+            ),
+          ),
+        ),
+        pw.Padding(
+          padding: pw.EdgeInsets.all(16.sp),
+          child: pw.Center(
+            child: pw.Text(
+             '''  Examiner
+  Signature''',
+            ),
+          ),
+        ),
+        pw.Padding(
+          padding: pw.EdgeInsets.all(16.sp),
+          child: pw.Center(
+            child: pw.Text(
+               '''  Examiner
+   Code No''',
+            ),
+          ),
+        ),
+        pw.Padding(
+          padding: pw.EdgeInsets.all(16.sp),
+          child: pw.Center(
+            child: pw.Text(
+               '''   Examiner
+    License''',
+            ),
+          ),
+        ),
+      ],
+    );
+
+     pw_tableColumn18 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+        child: pw.Container(
+          height: 20.h,
+          child: pw.Text(
+               "${traineeSign.text}", ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+        child: pw.Container(
+          height: 20.h,
+          child: pw.Text( "${mDate.text}",),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+        child: pw.Container(
+          height: 20.h,
+          child: pw.Text(
+               "${examinerName.text}"),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+        child: pw.Container(
+          height: 20.h,
+          child: pw.Text(
+             "${examinerSign.text}"),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+        child: pw.Container(
+          height: 20.h,
+          child: pw.Text(
+               "${examinerCode.text}"),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+        child: pw.Container(
+          height: 20.h,
+          child: pw.Text(
+               "${examinerLis.text}"),
+        ),
+      ),
+    ]);
+
+     pw_tableColumn19 = pw.TableRow(
+      children: <pw.Widget>[
+        pw. Center(
+          child: pw.Padding(
+            padding: pw.EdgeInsets.all(15.sp),
+            child: pw.Text(
+               "G.M.F.T       Signature",
+            ),
+          ),
+        ),
+        pw.Center(
+          child: pw.Padding(
+            padding: pw.EdgeInsets.all(15.sp),
+            child: pw.Text(
+             "Date",
+            ),
+          ),
+        ),
+      ],
+    );
+
+     pw_tableColumn20 = pw.TableRow(
+      children: <pw.Widget>[
+        pw.Center(
+          child: pw.Padding(
+            padding: pw.EdgeInsets.all(10.sp),
+            child: pw.Container(
+              height: 20.h,
+              child: pw.Text( "${gMFT.text}"),
+            ),
+          ),
+        ),
+        pw.Center(
+          child: pw.Padding(
+            padding: pw.EdgeInsets.all(15.sp),
+            child: pw.Container(
+              height: 20.h,
+              child: pw.Text(
+                  "${lastDate.text}"),
+            ),
+          ),
+        ),
+      ],
+    );
+
     getData();
     super.initState();
   }
 
-  TableRow _tableColumn2 = TableRow(children: <Widget>[
-    Center(
-      child: Padding(
-        padding: EdgeInsets.all(8.sp),
-        child: CustomText(
-          text: "Sectors",
-          fontSize: 14.sp,
-        ),
-      ),
-    ),
-    Center(
-      child: Padding(
-        padding: EdgeInsets.all(8.sp),
-        child: CustomText(
-          text: "Flight No",
-          fontSize: 14.sp,
-        ),
-      ),
-    ),
-    Center(
-      child: Padding(
-        padding: EdgeInsets.all(8.sp),
-        child: CustomText(
-          text: "A/C Type",
-          fontSize: 14.sp,
-        ),
-      ),
-    ),
-    Center(
-      child: Padding(
-        padding: EdgeInsets.all(8.sp),
-        child: CustomText(
-          text: "Position",
-          fontSize: 14.sp,
-        ),
-      ),
-    ),
-    Center(
-      child: Padding(
-        padding: EdgeInsets.all(8.sp),
-        child: CustomText(
-          text: "Date",
-          fontSize: 14.sp,
-        ),
-      ),
-    ),
-    Center(
-      child: Padding(
-        padding: EdgeInsets.all(8.sp),
-        child: CustomText(
-          text: "Instructor Name",
-          fontSize: 14.sp,
-        ),
-      ),
-    ),
-    Center(
-      child: Padding(
-        padding: EdgeInsets.all(8.sp),
-        child: CustomText(
-          text: "Code No",
-          fontSize: 14.sp,
-        ),
-      ),
-    ),
-  ]);
-
-  TableRow _tableColumn3 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "1-",
-            fontSize: 13.sp,
-          ),
-          SizedBox(width: 4.w),
-          SizedBox(
-            width: 130.w,
-            child:
-                CustomFormField(text: "${sector1.text}", controller: sector1),
-          ),
-        ],
-      ),
-    ),
-    Align(
-      alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
-        child: Row(
+  Future<void> _printPdf() async {
+    final pdf = pw.Document();
+    pdf.addPage(pw.Page(
+      build: (context) {
+        return pw.Column(
+          crossAxisAlignment: pw.CrossAxisAlignment.start,
           children: [
-            CustomText(
-              text: "MS",
-              fontSize: 12.sp,
+            pw.Table(
+             // defaultColumnWidth: pw.FixedColumnWidth(),
+              border: pw.TableBorder.all(width: 1.w),
+              children: <pw.TableRow>[
+                pw.TableRow(children: [
+                  pw.Container(
+                    // width: 1285.w,
+                    height: 15.h,
+                    child: pw.Center(
+                      child: pw.Text(
+                        "CABIN CREW INFLIGHT COMPETENCY CHECK",
+                      ),
+                    ),
+                  ),
+                ]),
+              ],
             ),
-            SizedBox(width: 4.w),
-            SizedBox(
-              width: 130.w,
-              child: CustomFormField(text: "${f1.text}", controller: f1),
+            pw.Table(
+             // defaultColumnWidth: pw.FixedColumnWidth(643.w),
+              border: pw.TableBorder.all(width: 1.w),
+              children: <pw.TableRow>[
+                pw.TableRow(
+                  children: [
+                    pw.Container(
+                      // color: Colors.cyanAccent,
+                      width: 321.5.w,
+                      height: 20.h,
+                      child: pw.Row(
+                        children: [
+                          pw.SizedBox(width: 2.w),
+                          pw.Text(
+                            "Trainee Name:",
+                          ),
+                          pw.Text(
+                            widget.traineeName,
+                          ),
+                        ],
+                      ),
+                    ),
+                    pw.Container(
+                      // color: Colors.cyanAccent,
+                      width: 321.5.w,
+                      height: 20.h,
+                      child: pw.Row(
+                        children: [
+                          pw.SizedBox(width: 2.w),
+                          pw.Text(
+                            "Code Num:",
+                          ),
+                          pw.Text(
+                            widget.codeNo,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
+            pw.Table(
+                columnWidths: {
+                  0: pw.FlexColumnWidth(4),
+                  1: pw.FlexColumnWidth(1),
+                },
+                //defaultColumnWidth: pw.FixedColumnWidth(1285.w),
+                border: pw.TableBorder.all(width: 1.w),
+                children: <pw.TableRow>[
+                  pw.TableRow(children: [
+                    pw.Container(
+                      // color: Colors.cyanAccent,
+                      width: 500.w,
+                      height: 20.h,
+                      child: pw.Row(
+                        children: [
+                          pw.SizedBox(width: 2.w),
+                          pw.Text(
+                            "Training Categories:",
+                          ),
+                          value1 == "true"
+                              ? pw.Padding(
+                                  padding: pw.EdgeInsets.symmetric(
+                                      horizontal: 2.w),
+                                  child: pw.Container(
+                                    decoration: pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFFFFFFFF),
+                                      borderRadius:
+                                          pw.BorderRadius.circular(2.sp),
+                                    ),
+                                    width: 10.w,
+                                    height: 10.w,
+                                    child: pw.Align(
+                                      alignment: pw.Alignment.center,
+                                      child: pw.Icon(
+                                        Icons.check as pw.IconData,
+                                        size: 8.w,
+                                        color:
+                                            PdfColor.fromInt(0xFF000000),
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              : pw.Padding(
+                                  padding: pw.EdgeInsets.symmetric(
+                                      horizontal: 2.w),
+                                  child: pw.Container(
+                                    decoration: pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFF000000),
+                                      borderRadius:
+                                          pw.BorderRadius.circular(2.sp),
+                                    ),
+                                    width: 10.sp,
+                                    height: 10.sp,
+                                    child: pw.Padding(
+                                      padding: pw.EdgeInsets.all(2.sp),
+                                      child: pw.Container(
+                                        color:
+                                            PdfColor.fromInt(0xFFFFFFFF),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                          value2 == "true"
+                              ? pw.Padding(
+                                  padding: pw.EdgeInsets.symmetric(
+                                      horizontal: 2.w),
+                                  child: pw.Container(
+                                    decoration: pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFFFFFFFF),
+                                      borderRadius:
+                                          pw.BorderRadius.circular(2.sp),
+                                    ),
+                                    width: 10.w,
+                                    height: 10.w,
+                                    child: pw.Align(
+                                      alignment: pw.Alignment.center,
+                                      child: pw.Icon(
+                                        Icons.check as pw.IconData,
+                                        size: 8.w,
+                                        color:
+                                            PdfColor.fromInt(0xFF000000),
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              : pw.Padding(
+                                  padding: pw.EdgeInsets.symmetric(
+                                      horizontal: 2.w),
+                                  child: pw.Container(
+                                    decoration: pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFF000000),
+                                      borderRadius:
+                                          pw.BorderRadius.circular(2.sp),
+                                    ),
+                                    width: 10.w,
+                                    height: 10.w,
+                                    child: pw.Padding(
+                                      padding: pw.EdgeInsets.all(2.sp),
+                                      child: pw.Container(
+                                        color:
+                                            PdfColor.fromInt(0xFFFFFFFF),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                          value3 == "true"
+                              ? pw.Padding(
+                                  padding: pw.EdgeInsets.symmetric(
+                                      horizontal: 2.w),
+                                  child: pw.Container(
+                                    decoration: pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFFFFFFFF),
+                                      borderRadius:
+                                          pw.BorderRadius.circular(2.sp),
+                                    ),
+                                    width: 10.w,
+                                    height: 10.w,
+                                    child: pw.Align(
+                                      alignment: pw.Alignment.center,
+                                      child: pw.Icon(
+                                        Icons.check as pw.IconData,
+                                        size: 8.w,
+                                        color:
+                                            PdfColor.fromInt(0xFF000000),
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              : pw.Padding(
+                                  padding: pw.EdgeInsets.symmetric(
+                                      horizontal: 2.w),
+                                  child: pw.Container(
+                                    decoration: pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFF000000),
+                                      borderRadius:
+                                          pw.BorderRadius.circular(2.sp),
+                                    ),
+                                    width: 10.w,
+                                    height: 10.w,
+                                    child: pw.Padding(
+                                      padding: pw.EdgeInsets.all(2.sp),
+                                      child: pw.Container(
+                                        color:
+                                            PdfColor.fromInt(0xFFFFFFFF),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                          value4 == "true"
+                              ? pw.Padding(
+                                  padding: pw.EdgeInsets.symmetric(
+                                      horizontal: 2.w),
+                                  child: pw.Container(
+                                    decoration: pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFFFFFFFF),
+                                      borderRadius:
+                                          pw.BorderRadius.circular(2.sp),
+                                    ),
+                                    width: 10.w,
+                                    height: 10.w,
+                                    child: pw.Align(
+                                      alignment: pw.Alignment.center,
+                                      child: pw.Icon(
+                                        Icons.check as pw.IconData,
+                                        size: 8.w,
+                                        color:
+                                            PdfColor.fromInt(0xFF000000),
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              : pw.Padding(
+                                  padding: pw.EdgeInsets.symmetric(
+                                      horizontal: 2.w),
+                                  child: pw.Container(
+                                    decoration: pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFF000000),
+                                      borderRadius:
+                                          pw.BorderRadius.circular(2.sp),
+                                    ),
+                                    width: 10.w,
+                                    height: 10.w,
+                                    child: pw.Padding(
+                                      padding: pw.EdgeInsets.all(2.sp),
+                                      child: pw.Container(
+                                        color:
+                                            PdfColor.fromInt(0xFFFFFFFF),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                          value5 == "true"
+                              ? pw.Padding(
+                                  padding: pw.EdgeInsets.symmetric(
+                                      horizontal: 2.w),
+                                  child: pw.Container(
+                                    decoration: pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFFFFFFFF),
+                                      borderRadius:
+                                          pw.BorderRadius.circular(2.sp),
+                                    ),
+                                    width: 10.w,
+                                    height: 10.w,
+                                    child: pw.Align(
+                                      alignment: pw.Alignment.center,
+                                      child: pw.Icon(
+                                        Icons.check as pw.IconData,
+                                        size: 8.w,
+                                        color:
+                                            PdfColor.fromInt(0xFF000000),
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              : pw.Padding(
+                                  padding: pw.EdgeInsets.symmetric(
+                                      horizontal: 2.w),
+                                  child: pw.Container(
+                                    decoration: pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFF000000),
+                                      borderRadius:
+                                          pw.BorderRadius.circular(2.sp),
+                                    ),
+                                    width: 10.w,
+                                    height: 10.w,
+                                    child: pw.Padding(
+                                      padding: pw.EdgeInsets.all(2.sp),
+                                      child: pw.Container(
+                                        color:
+                                            PdfColor.fromInt(0xFFFFFFFF),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                          pw.Container(
+                            // color: Colors.cyanAccent,
+                            width: 50.w,
+                            height: 30.h,
+                            child: pw.Row(
+                              children: [
+                                pw.SizedBox(width: 2.w),
+                                pw.Text(
+                                  "Date:",
+                                ),
+                                pw.SizedBox(width: 4.w),
+                                pw.Text(
+                                  "${firstDate.text}",
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ])
+                ]),
+            // pw.Table(
+            //     defaultColumnWidth: pw.FixedColumnWidth(184.w),
+            //     border: pw.TableBorder.all(width: 1.w),
+            //     children: <pw.TableRow>[pw_tableColumn2]),
+            // pw.Table(
+            //   defaultColumnWidth: pw.FixedColumnWidth(184.w),
+            //   border: pw.TableBorder.all(width: 1.w),
+            //   children: <pw.TableRow>[
+            //     pw_tableColumn3,
+            //     pw_tableColumn31,
+            //     pw_tableColumn32,
+            //     pw_tableColumn33,
+            //     pw_tableColumn34,
+            //     pw_tableColumn35,
+            //     pw_tableColumn36,
+            //     pw_tableColumn37,
+            //     pw_tableColumn38,
+            //     pw_tableColumn39,
+            //     pw_tableColumn310,
+            //     pw_tableColumn311,
+            //     pw_tableColumn312,
+            //     pw_tableColumn313,
+            //     pw_tableColumn314,
+            //     pw_tableColumn315,
+            //   ],
+            // ),
+            // pw.Table(
+            //   columnWidths: {
+            //     0: pw.FlexColumnWidth(15),
+            //     1: pw.FlexColumnWidth(1),
+            //     2: pw.FlexColumnWidth(1),
+            //     3: pw.FlexColumnWidth(1),
+            //     4: pw.FlexColumnWidth(1),
+            //   },
+            //   defaultColumnWidth: pw.FixedColumnWidth(300.w),
+            //   border: pw.TableBorder.all(width: 1.w),
+            //   children: <pw.TableRow>[
+            //     pw_tableColumn1,
+            //     pw_tableColumn4,
+            //     pw_tableColumn5,
+            //     pw_tableColumn6,
+            //     pw_tableColumn7,
+            //     pw_tableColumn8,
+            //     pw_tableColumn9,
+            //     pw_tableColumn10,
+            //     pw_tableColumn11,
+            //     pw_tableColumn12,
+            //     pw_tableColumn13,
+            //     pw_tableColumn14,
+            //   ],
+            // ),
+            // pw.Table(
+            //   defaultColumnWidth: pw.FixedColumnWidth(214.5.w),
+            //   border: pw.TableBorder.all(width: 1.w),
+            //   children: <pw.TableRow>[
+            //     pw_tableColumn15,
+            //   ],
+            // ),
+            // pw.Table(
+            //   defaultColumnWidth: pw.FixedColumnWidth(214.5.w),
+            //   border: pw.TableBorder.all(width: 1.w),
+            //   children: <pw.TableRow>[
+            //     pw.TableRow(
+            //       children: <pw.Widget>[
+            //         pw.Padding(
+            //           padding: pw.EdgeInsets.symmetric(
+            //               horizontal: 10.w, vertical: 15.h),
+            //           child: pw.Row(
+            //             children: [
+            //               pw.Spacer(),
+            //               value6 == true
+            //                   ? pw.Padding(
+            //                       padding: pw.EdgeInsets.symmetric(
+            //                           horizontal: 11.w),
+            //                       child: pw.Container(
+            //                         decoration: pw.BoxDecoration(
+            //                           color: PdfColor.fromInt(0xFFFFFFFF),
+            //                           borderRadius:
+            //                               pw.BorderRadius.circular(2.sp),
+            //                         ),
+            //                         width: 17.sp,
+            //                         height: 17.sp,
+            //                         child: pw.Align(
+            //                           alignment: pw.Alignment.center,
+            //                           child: pw.Icon(
+            //                             pw.IconData(0xe90a),
+            //                             size: 16.sp,
+            //                             color:
+            //                                 PdfColor.fromInt(0xFF000000),
+            //                           ),
+            //                         ),
+            //                       ),
+            //                     )
+            //                   : pw.Padding(
+            //                       padding: pw.EdgeInsets.symmetric(
+            //                           horizontal: 12.w),
+            //                       child: pw.Container(
+            //                         decoration: pw.BoxDecoration(
+            //                           color: PdfColor.fromInt(0xFF000000),
+            //                           borderRadius:
+            //                               pw.BorderRadius.circular(2.sp),
+            //                         ),
+            //                         width: 17.sp,
+            //                         height: 17.sp,
+            //                         child: pw.Padding(
+            //                           padding: pw.EdgeInsets.all(2.sp),
+            //                           child: pw.Container(
+            //                             color:
+            //                                 PdfColor.fromInt(0xFFFFFFFF),
+            //                           ),
+            //                         ),
+            //                       ),
+            //                     ),
+            //               pw.Text(
+            //                 "S",
+            //               ),
+            //               pw.Spacer(),
+            //               value7 == true
+            //                   ? pw.Padding(
+            //                       padding: pw.EdgeInsets.symmetric(
+            //                           horizontal: 11.w),
+            //                       child: pw.Container(
+            //                         decoration: pw.BoxDecoration(
+            //                           color: PdfColor.fromInt(0xFFFFFFFF),
+            //                           borderRadius:
+            //                               pw.BorderRadius.circular(2.sp),
+            //                         ),
+            //                         width: 17.sp,
+            //                         height: 17.sp,
+            //                         child: pw.Align(
+            //                           alignment: pw.Alignment.center,
+            //                           child: pw.Icon(
+            //                            pw.IconData(0xe90a),
+            //                             size: 16.sp,
+            //                             color:
+            //                                 PdfColor.fromInt(0xFF000000),
+            //                           ),
+            //                         ),
+            //                       ),
+            //                     )
+            //                   : pw.Padding(
+            //                       padding: pw.EdgeInsets.symmetric(
+            //                           horizontal: 12.w),
+            //                       child: pw.Container(
+            //                         decoration: pw.BoxDecoration(
+            //                           color: PdfColor.fromInt(0xFF000000),
+            //                           borderRadius:
+            //                               pw.BorderRadius.circular(2.sp),
+            //                         ),
+            //                         width: 17.sp,
+            //                         height: 17.sp,
+            //                         child: pw.Padding(
+            //                           padding: pw.EdgeInsets.all(2.sp),
+            //                           child: pw.Container(
+            //                             color:
+            //                                 PdfColor.fromInt(0xFFFFFFFF),
+            //                           ),
+            //                         ),
+            //                       ),
+            //                     ),
+            //               pw.Text(
+            //                 "US",
+            //               ),
+            //               pw.Spacer(),
+            //             ],
+            //           ),
+            //         ),
+            //         pw.Padding(
+            //           padding: pw.EdgeInsets.symmetric(
+            //               vertical: 20.h, horizontal: 10.w),
+            //           child: pw.Container(
+            //             height: 20.h,
+            //             child: pw.Text(
+            //               "${comDate.text}",
+            //             ),
+            //           ),
+            //         ),
+            //         pw.Padding(
+            //           padding: pw.EdgeInsets.symmetric(
+            //               vertical: 20.h, horizontal: 10.w),
+            //           child: pw.Container(
+            //             height: 20.h,
+            //             child: pw.Text(
+            //               "${instructorName.text}",
+            //             ),
+            //           ),
+            //         ),
+            //         pw.Padding(
+            //           padding: pw.EdgeInsets.symmetric(
+            //               vertical: 20.h, horizontal: 10.w),
+            //           child: pw.Container(
+            //             height: 20.h,
+            //             child: pw.Text(
+            //               "${instructorSign.text}",
+            //             ),
+            //           ),
+            //         ),
+            //         pw.Padding(
+            //           padding: pw.EdgeInsets.symmetric(
+            //               vertical: 20.h, horizontal: 10.w),
+            //           child: pw.Container(
+            //             height: 20.h,
+            //             child: pw.Text(
+            //               "${instructorCode.text}",
+            //             ),
+            //           ),
+            //         ),
+            //         pw.Padding(
+            //           padding: pw.EdgeInsets.symmetric(
+            //               vertical: 20.h, horizontal: 10.w),
+            //           child: pw.Container(
+            //             height: 20.h,
+            //             child: pw.Text(
+            //               "${instructorLis.text}",
+            //             ),
+            //           ),
+            //         ),
+            //       ],
+            //     ),
+            //   ],
+            // ),
+            // pw.Table(
+            //   defaultColumnWidth: pw.FixedColumnWidth(214.5.w),
+            //   border: pw.TableBorder.all(width: 1.w),
+            //   children: <pw.TableRow>[
+            //     pw_tableColumn17,
+            //   ],
+            // ),
+            // pw.Table(
+            //   defaultColumnWidth: pw.FixedColumnWidth(214.5.w),
+            //   border: pw.TableBorder.all(width: 1.w),
+            //   children: <pw.TableRow>[
+            //     pw_tableColumn18,
+            //   ],
+            // ),
+            // pw.Table(
+            //   defaultColumnWidth: pw.FixedColumnWidth(643.w),
+            //   border: pw.TableBorder.all(width: 1.w),
+            //   children: <pw.TableRow>[
+            //     pw_tableColumn19,
+            //   ],
+            // ),
+            // pw.Table(
+            //   defaultColumnWidth: pw.FixedColumnWidth(643.w),
+            //   border: pw.TableBorder.all(width: 1.w),
+            //   children: <pw.TableRow>[
+            //     pw_tableColumn20,
+            //   ],
+            // ),
+            //
           ],
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${type1.text}", controller: type1),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${pos1.text}", controller: pos1),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${date1.text}", controller: date1),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${inName1.text}", controller: inName1),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${codeNo1.text}", controller: codeNo1),
-    ),
-  ]);
-
-  TableRow _tableColumn31 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "2-",
-            fontSize: 13.sp,
-          ),
-          SizedBox(width: 4.w),
-          SizedBox(
-            width: 130.w,
-            child:
-                CustomFormField(text: "${sector2.text}", controller: sector2),
-          ),
-        ],
-      ),
-    ),
-    Align(
-      alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
-        child: Row(
-          children: [
-            CustomText(
-              text: "MS",
-              fontSize: 12.sp,
-            ),
-            SizedBox(width: 4.w),
-            SizedBox(
-              width: 130.w,
-              child: CustomFormField(text: "${f2.text}", controller: f2),
-            ),
-          ],
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${type2.text}", controller: type2),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${pos2.text}", controller: pos2),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${date2.text}", controller: date2),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${inName2.text}", controller: inName2),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${codeNo2.text}", controller: codeNo2),
-    ),
-  ]);
-
-  TableRow _tableColumn32 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "3-",
-            fontSize: 13.sp,
-          ),
-          SizedBox(width: 4.w),
-          SizedBox(
-            width: 130.w,
-            child:
-                CustomFormField(text: "${sector3.text}", controller: sector3),
-          ),
-        ],
-      ),
-    ),
-    Align(
-      alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
-        child: Row(
-          children: [
-            CustomText(
-              text: "MS",
-              fontSize: 12.sp,
-            ),
-            SizedBox(width: 4.w),
-            SizedBox(
-              width: 130.w,
-              child: CustomFormField(text: "${f3.text}", controller: f3),
-            ),
-          ],
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${type3.text}", controller: type3),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${pos3.text}", controller: pos3),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${date3.text}", controller: date3),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${inName3.text}", controller: inName3),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${codeNo3.text}", controller: codeNo3),
-    ),
-  ]);
-
-  TableRow _tableColumn33 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "4-",
-            fontSize: 13.sp,
-          ),
-          SizedBox(width: 4.w),
-          SizedBox(
-            width: 130.w,
-            child:
-                CustomFormField(text: "${sector4.text}", controller: sector4),
-          ),
-        ],
-      ),
-    ),
-    Align(
-      alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
-        child: Row(
-          children: [
-            CustomText(
-              text: "MS",
-              fontSize: 12.sp,
-            ),
-            SizedBox(width: 4.w),
-            SizedBox(
-              width: 130.w,
-              child: CustomFormField(text: "${f4.text}", controller: f4),
-            ),
-          ],
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${type4.text}", controller: type4),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${pos4.text}", controller: pos4),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${date4.text}", controller: date4),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${inName4.text}", controller: inName4),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${codeNo4.text}", controller: codeNo4),
-    ),
-  ]);
-
-  TableRow _tableColumn34 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "5-",
-            fontSize: 13.sp,
-          ),
-          SizedBox(width: 4.w),
-          SizedBox(
-            width: 130.w,
-            child:
-                CustomFormField(text: "${sector5.text}", controller: sector5),
-          ),
-        ],
-      ),
-    ),
-    Align(
-      alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
-        child: Row(
-          children: [
-            CustomText(
-              text: "MS",
-              fontSize: 12.sp,
-            ),
-            SizedBox(width: 4.w),
-            SizedBox(
-              width: 130.w,
-              child: CustomFormField(text: "${f5.text}", controller: f5),
-            ),
-          ],
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${type5.text}", controller: type5),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${pos5.text}", controller: pos5),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${date5.text}", controller: date5),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${inName5.text}", controller: inName5),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${codeNo5.text}", controller: codeNo5),
-    ),
-  ]);
-
-  TableRow _tableColumn35 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "6-",
-            fontSize: 13.sp,
-          ),
-          SizedBox(width: 4.w),
-          SizedBox(
-            width: 130.w,
-            child:
-                CustomFormField(text: "${sector6.text}", controller: sector6),
-          ),
-        ],
-      ),
-    ),
-    Align(
-      alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
-        child: Row(
-          children: [
-            CustomText(
-              text: "MS",
-              fontSize: 12.sp,
-            ),
-            SizedBox(width: 4.w),
-            SizedBox(
-              width: 130.w,
-              child: CustomFormField(text: "${f6.text}", controller: f6),
-            ),
-          ],
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${type6.text}", controller: type6),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${pos6.text}", controller: pos6),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${date6.text}", controller: date6),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${inName6.text}", controller: inName6),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${codeNo6.text}", controller: codeNo6),
-    ),
-  ]);
-
-  TableRow _tableColumn36 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "7-",
-            fontSize: 13.sp,
-          ),
-          SizedBox(width: 4.w),
-          SizedBox(
-            width: 130.w,
-            child:
-                CustomFormField(text: "${sector7.text}", controller: sector7),
-          ),
-        ],
-      ),
-    ),
-    Align(
-      alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
-        child: Row(
-          children: [
-            CustomText(
-              text: "MS",
-              fontSize: 12.sp,
-            ),
-            SizedBox(width: 4.w),
-            SizedBox(
-              width: 130.w,
-              child: CustomFormField(text: "${f7.text}", controller: f7),
-            ),
-          ],
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${type7.text}", controller: type7),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${pos7.text}", controller: pos7),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${date7.text}", controller: date7),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${inName7.text}", controller: inName7),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${codeNo7.text}", controller: codeNo7),
-    ),
-  ]);
-
-  TableRow _tableColumn37 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "8-",
-            fontSize: 13.sp,
-          ),
-          SizedBox(width: 4.w),
-          SizedBox(
-            width: 130.w,
-            child:
-                CustomFormField(text: "${sector8.text}", controller: sector8),
-          ),
-        ],
-      ),
-    ),
-    Align(
-      alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
-        child: Row(
-          children: [
-            CustomText(
-              text: "MS",
-              fontSize: 12.sp,
-            ),
-            SizedBox(width: 4.w),
-            SizedBox(
-              width: 130.w,
-              child: CustomFormField(text: "${f8.text}", controller: f8),
-            ),
-          ],
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${type8.text}", controller: type8),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${pos8.text}", controller: pos8),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${date8.text}", controller: date8),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${inName8.text}", controller: inName8),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${codeNo8.text}", controller: codeNo8),
-    ),
-  ]);
-
-  TableRow _tableColumn38 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "9-",
-            fontSize: 13.sp,
-          ),
-          SizedBox(width: 4.w),
-          SizedBox(
-            width: 130.w,
-            child:
-                CustomFormField(text: "${sector9.text}", controller: sector9),
-          ),
-        ],
-      ),
-    ),
-    Align(
-      alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
-        child: Row(
-          children: [
-            CustomText(
-              text: "MS",
-              fontSize: 12.sp,
-            ),
-            SizedBox(width: 4.w),
-            SizedBox(
-              width: 130.w,
-              child: CustomFormField(text: "${f9.text}", controller: f9),
-            ),
-          ],
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${type9.text}", controller: type9),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${pos9.text}", controller: pos9),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${date9.text}", controller: date9),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${inName9.text}", controller: inName9),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${codeNo9.text}", controller: codeNo9),
-    ),
-  ]);
-
-  TableRow _tableColumn39 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "10-",
-            fontSize: 13.sp,
-          ),
-          SizedBox(width: 4.w),
-          SizedBox(
-            width: 130.w,
-            child:
-                CustomFormField(text: "${sector10.text}", controller: sector10),
-          ),
-        ],
-      ),
-    ),
-    Align(
-      alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
-        child: Row(
-          children: [
-            CustomText(
-              text: "MS",
-              fontSize: 12.sp,
-            ),
-            SizedBox(width: 4.w),
-            SizedBox(
-              width: 130.w,
-              child: CustomFormField(text: "${f10.text}", controller: f10),
-            ),
-          ],
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${type10.text}", controller: type10),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${pos10.text}", controller: pos10),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${date10.text}", controller: date10),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${inName10.text}", controller: inName10),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${codeNo10.text}", controller: codeNo10),
-    ),
-  ]);
-
-  TableRow _tableColumn310 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "11-",
-            fontSize: 13.sp,
-          ),
-          SizedBox(width: 4.w),
-          SizedBox(
-            width: 130.w,
-            child:
-                CustomFormField(text: "${sector11.text}", controller: sector11),
-          ),
-        ],
-      ),
-    ),
-    Align(
-      alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
-        child: Row(
-          children: [
-            CustomText(
-              text: "MS",
-              fontSize: 12.sp,
-            ),
-            SizedBox(width: 4.w),
-            SizedBox(
-              width: 130.w,
-              child: CustomFormField(text: "${f11.text}", controller: f11),
-            ),
-          ],
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${type11.text}", controller: type11),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${pos11.text}", controller: pos11),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${date11.text}", controller: date11),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${inName11.text}", controller: inName11),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${codeNo11.text}", controller: codeNo11),
-    ),
-  ]);
-
-  TableRow _tableColumn311 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "12-",
-            fontSize: 13.sp,
-          ),
-          SizedBox(width: 4.w),
-          SizedBox(
-            width: 130.w,
-            child:
-                CustomFormField(text: "${sector12.text}", controller: sector12),
-          ),
-        ],
-      ),
-    ),
-    Align(
-      alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
-        child: Row(
-          children: [
-            CustomText(
-              text: "MS",
-              fontSize: 12.sp,
-            ),
-            SizedBox(width: 4.w),
-            SizedBox(
-              width: 130.w,
-              child: CustomFormField(text: "${f12.text}", controller: f12),
-            ),
-          ],
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${type12.text}", controller: type12),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${pos12.text}", controller: pos12),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${date12.text}", controller: date12),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${inName12.text}", controller: inName12),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${codeNo12.text}", controller: codeNo12),
-    ),
-  ]);
-
-  TableRow _tableColumn312 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "13-",
-            fontSize: 13.sp,
-          ),
-          SizedBox(width: 4.w),
-          SizedBox(
-            width: 130.w,
-            child:
-                CustomFormField(text: "${sector13.text}", controller: sector13),
-          ),
-        ],
-      ),
-    ),
-    Align(
-      alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
-        child: Row(
-          children: [
-            CustomText(
-              text: "MS",
-              fontSize: 12.sp,
-            ),
-            SizedBox(width: 4.w),
-            SizedBox(
-              width: 130.w,
-              child: CustomFormField(text: "${f13.text}", controller: f13),
-            ),
-          ],
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${type13.text}", controller: type13),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${pos13.text}", controller: pos13),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${date13.text}", controller: date13),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${inName13.text}", controller: inName13),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${codeNo13.text}", controller: codeNo13),
-    ),
-  ]);
-
-  TableRow _tableColumn313 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "14-",
-            fontSize: 13.sp,
-          ),
-          SizedBox(width: 4.w),
-          SizedBox(
-            width: 130.w,
-            child:
-                CustomFormField(text: "${sector14.text}", controller: sector14),
-          ),
-        ],
-      ),
-    ),
-    Align(
-      alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
-        child: Row(
-          children: [
-            CustomText(
-              text: "MS",
-              fontSize: 12.sp,
-            ),
-            SizedBox(width: 4.w),
-            SizedBox(
-              width: 130.w,
-              child: CustomFormField(text: "${f14.text}", controller: f14),
-            ),
-          ],
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${type14.text}", controller: type14),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${pos14.text}", controller: pos14),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${date14.text}", controller: date14),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${inName14.text}", controller: inName14),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${codeNo14.text}", controller: codeNo14),
-    ),
-  ]);
-
-  TableRow _tableColumn314 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "15-",
-            fontSize: 13.sp,
-          ),
-          SizedBox(width: 4.w),
-          SizedBox(
-            width: 130.w,
-            child:
-                CustomFormField(text: "${sector15.text}", controller: sector15),
-          ),
-        ],
-      ),
-    ),
-    Align(
-      alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
-        child: Row(
-          children: [
-            CustomText(
-              text: "MS",
-              fontSize: 12.sp,
-            ),
-            SizedBox(width: 4.w),
-            SizedBox(
-              width: 130.w,
-              child: CustomFormField(text: "${f15.text}", controller: f15),
-            ),
-          ],
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${type15.text}", controller: type15),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${pos15.text}", controller: pos15),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${date15.text}", controller: date15),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${inName15.text}", controller: inName15),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${codeNo15.text}", controller: codeNo15),
-    ),
-  ]);
-
-  TableRow _tableColumn315 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "16-",
-            fontSize: 13.sp,
-          ),
-          SizedBox(width: 4.w),
-          SizedBox(
-            width: 130.w,
-            child:
-                CustomFormField(text: "${sector16.text}", controller: sector16),
-          ),
-        ],
-      ),
-    ),
-    Align(
-      alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
-        child: Row(
-          children: [
-            CustomText(
-              text: "MS",
-              fontSize: 12.sp,
-            ),
-            SizedBox(width: 4.w),
-            SizedBox(
-              width: 130.w,
-              child: CustomFormField(text: "${f16.text}", controller: f16),
-            ),
-          ],
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${type16.text}", controller: type16),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${pos16.text}", controller: pos16),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${date16.text}", controller: date16),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${inName16.text}", controller: inName16),
-    ),
-    Padding(
-      padding: EdgeInsets.all(10.sp),
-      child: CustomFormField(text: "${codeNo16.text}", controller: codeNo16),
-    ),
-  ]);
-
-  TableRow _tableColumn1 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.all(9.sp),
-      child: Center(
-        child: CustomText(
-          text: "INFLIGHT COMPETENCY CHECK ITEMS",
-          fontSize: 16.sp,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(9.sp),
-      child: Center(
-        child: CustomText(
-          text: "US",
-          fontSize: 16.sp,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(9.sp),
-      child: Center(
-        child: CustomText(
-          text: "S1",
-          fontSize: 16.sp,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(9.sp),
-      child: Center(
-        child: CustomText(
-          text: "S2",
-          fontSize: 16.sp,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(9.sp),
-      child: Center(
-        child: CustomText(
-          text: "S3",
-          fontSize: 16.sp,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    ),
-  ]);
-
-  TableRow _tableColumn4 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "1-",
-            fontSize: 13.sp,
-          ),
-          SizedBox(width: 4.w),
-          CustomText(
-              text: "Preflight emergency equipment check . location/operation",
-              fontSize: 14.sp),
-        ],
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${us1.text}", controller: us1),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s11.text}", controller: s11),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s21.text}", controller: s21),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s31.text}", controller: s31),
-    ),
-  ]);
-
-  TableRow _tableColumn5 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "2-",
-            fontSize: 15.sp,
-          ),
-          SizedBox(width: 4.w),
-          CustomText(
-            text: "Exit operation",
-            fontSize: 15.sp,
-          )
-        ],
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${us2.text}", controller: us2),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s12.text}", controller: s12),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s22.text}", controller: s22),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s32.text}", controller: s32),
-    ),
-  ]);
-
-  TableRow _tableColumn6 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "3-",
-            fontSize: 15.sp,
-          ),
-          SizedBox(width: 4.w),
-          CustomText(
-              text: "Galley. electrical equipment and Circuit breakers",
-              fontSize: 15.sp)
-        ],
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${us3.text}", controller: us3),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s13.text}", controller: s13),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s23.text}", controller: s23),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s33.text}", controller: s33),
-    ),
-  ]);
-
-  TableRow _tableColumn7 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "4-",
-            fontSize: 15.sp,
-          ),
-          SizedBox(width: 4.w),
-          CustomText(
-            text: "Intercommunication",
-            fontSize: 15.sp,
-          )
-        ],
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${us4.text}", controller: us4),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s14.text}", controller: s14),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s24.text}", controller: s24),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s34.text}", controller: s34),
-    ),
-  ]);
-
-  TableRow _tableColumn8 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "5-",
-            fontSize: 15.sp,
-          ),
-          SizedBox(width: 4.w),
-          CustomText(
-            text: "Crew resource management & GSOP ",
-            fontSize: 15.sp,
-          ),
-        ],
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${us5.text}", controller: us5),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s15.text}", controller: s15),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s25.text}", controller: s25),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s35.text}", controller: s35),
-    ),
-  ]);
-
-  TableRow _tableColumn9 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "6-",
-            fontSize: 15.sp,
-          ),
-          SizedBox(width: 4.w),
-          CustomText(text: "Control Panels", fontSize: 15.sp),
-        ],
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${us6.text}", controller: us6),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s16.text}", controller: s16),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s26.text}", controller: s26),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s36.text}", controller: s36),
-    ),
-  ]);
-
-  TableRow _tableColumn10 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "7-",
-            fontSize: 13.sp,
-          ),
-          SizedBox(width: 4.w),
-          CustomText(
-              text: "Passenger handling (disruptive passenger awareness)",
-              fontSize: 15.sp)
-        ],
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${us7.text}", controller: us7),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s17.text}", controller: s17),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s27.text}", controller: s27),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s37.text}", controller: s37),
-    ),
-  ]);
-
-  TableRow _tableColumn11 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "8-",
-            fontSize: 15.sp,
-          ),
-          SizedBox(width: 4.w),
-          CustomText(
-              text: "Cockpit door . window . seat operations", fontSize: 15.sp)
-        ],
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${us8.text}", controller: us8),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s18.text}", controller: s18),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s28.text}", controller: s28),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s38.text}", controller: s38),
-    ),
-  ]);
-
-  TableRow _tableColumn12 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "9-",
-            fontSize: 15.sp,
-          ),
-          SizedBox(width: 4.w),
-          CustomText(text: "First aid", fontSize: 15.sp)
-        ],
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${us9.text}", controller: us9),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s19.text}", controller: s19),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s29.text}", controller: s29),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s39.text}", controller: s39),
-    ),
-  ]);
-
-  TableRow _tableColumn13 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "10-",
-            fontSize: 15.sp,
-          ),
-          SizedBox(width: 4.w),
-          CustomText(text: "Dangerous goods awareness", fontSize: 15.sp),
-        ],
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${us10.text}", controller: us10),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s110.text}", controller: s110),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s210.text}", controller: s210),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s310.text}", controller: s310),
-    ),
-  ]);
-
-  TableRow _tableColumn14 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.all(5.0.sp),
-      child: Row(
-        children: [
-          CustomText(
-            text: "11-",
-            fontSize: 15.sp,
-          ),
-          SizedBox(width: 4.w),
-          CustomText(text: "Drills", fontSize: 15.sp)
-        ],
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${us11.text}", controller: us11),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s111.text}", controller: s111),
-    ),
-    Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: CustomFormField(text: "${s211.text}", controller: s211),
-    ),
-    Padding(
-      padding: EdgeInsets.all(8.sp),
-      child: CustomFormField(text: "${s311.text}", controller: s311),
-    ),
-  ]);
-
-  TableRow _tableColumn15 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 25.h),
-      child: Center(
-        child: CustomText(
-          text: "First Result",
-          fontSize: 14.sp,
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
-      child: Center(
-        child: CustomText(
-          text: '''  Completion 
-        date''',
-          fontSize: 14.sp,
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
-      child: Center(
-        child: CustomText(
-          text: '''   Instructor 
-      Name''',
-          fontSize: 14.sp,
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
-      child: Center(
-        child: CustomText(
-          text: '''    Instructor      
-    signature''',
-          fontSize: 14.sp,
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
-      child: Center(
-        child: CustomText(
-          text: '''    Instructor   
-     Code No''',
-          fontSize: 14.sp,
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
-      child: Center(
-        child: CustomText(
-          text: '''   Instructor 
-     license''',
-          fontSize: 14.sp,
-        ),
-      ),
-    ),
-  ]);
-
-  TableRow _tableColumn17 = TableRow(
-    children: <Widget>[
-      Padding(
-        padding: EdgeInsets.all(16.sp),
-        child: Center(
-          child: CustomText(
-            text: '''     Trainee
-    Signature''',
-            fontSize: 14.sp,
-          ),
-        ),
-      ),
-      Padding(
-        padding: EdgeInsets.all(28.sp),
-        child: Center(
-          child: CustomText(
-            text: "Date",
-            fontSize: 14.sp,
-          ),
-        ),
-      ),
-      Padding(
-        padding: EdgeInsets.all(16.sp),
-        child: Center(
-          child: CustomText(
-            text: '''  Examiner
-    Name''',
-            fontSize: 14.sp,
-          ),
-        ),
-      ),
-      Padding(
-        padding: EdgeInsets.all(16.sp),
-        child: Center(
-          child: CustomText(
-            text: '''  Examiner
-  Signature''',
-            fontSize: 14.sp,
-          ),
-        ),
-      ),
-      Padding(
-        padding: EdgeInsets.all(16.sp),
-        child: Center(
-          child: CustomText(
-            text: '''  Examiner
-   Code No''',
-            fontSize: 14.sp,
-          ),
-        ),
-      ),
-      Padding(
-        padding: EdgeInsets.all(16.sp),
-        child: Center(
-          child: CustomText(
-            text: '''   Examiner
-    License''',
-            fontSize: 14.sp,
-          ),
-        ),
-      ),
-    ],
-  );
-
-  TableRow _tableColumn18 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
-      child: Container(
-        height: 20.h,
-        child: CustomFormField(
-            text: "${traineeSign.text}", controller: traineeSign),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
-      child: Container(
-        height: 20.h,
-        child: CustomFormField(text: "${mDate.text}", controller: mDate),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
-      child: Container(
-        height: 20.h,
-        child: CustomFormField(
-            text: "${examinerName.text}", controller: examinerName),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
-      child: Container(
-        height: 20.h,
-        child: CustomFormField(
-            text: "${examinerSign.text}", controller: examinerSign),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
-      child: Container(
-        height: 20.h,
-        child: CustomFormField(
-            text: "${examinerCode.text}", controller: examinerCode),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
-      child: Container(
-        height: 20.h,
-        child: CustomFormField(
-            text: "${examinerLis.text}", controller: examinerLis),
-      ),
-    ),
-  ]);
-
-  TableRow _tableColumn19 = TableRow(
-    children: <Widget>[
-      Center(
-        child: Padding(
-          padding: EdgeInsets.all(15.sp),
-          child: CustomText(
-            text: "G.M.F.T       Signature",
-            fontSize: 14.sp,
-          ),
-        ),
-      ),
-      Center(
-        child: Padding(
-          padding: EdgeInsets.all(15.sp),
-          child: CustomText(
-            text: "Date",
-            fontSize: 14.sp,
-          ),
-        ),
-      ),
-    ],
-  );
-
-  TableRow _tableColumn20 = TableRow(
-    children: <Widget>[
-      Center(
-        child: Padding(
-          padding: EdgeInsets.all(10.sp),
-          child: Container(
-            height: 20.h,
-            child: CustomFormField(text: "${gMFT.text}", controller: gMFT),
-          ),
-        ),
-      ),
-      Center(
-        child: Padding(
-          padding: EdgeInsets.all(15.sp),
-          child: Container(
-            height: 20.h,
-            child:
-                CustomFormField(text: "${lastDate.text}", controller: lastDate),
-          ),
-        ),
-      ),
-    ],
-  );
+        );
+      },
+    ));
+    final Uint8List bytes = await pdf.save();
+    // Save the PDF to a file
+    final appDocDir = await getApplicationDocumentsDirectory();
+    final appDocPath = appDocDir.path;
+    final file = File('$appDocPath/example.pdf');
+    await file.writeAsBytes(await pdf.save());
+    // Print the PDF using the printing package
+    await Printing.layoutPdf(
+        onLayout: (format) async => bytes, name: 'example.pdf');
+  }
 
   @override
   Widget build(BuildContext context) {
+    TableRow _tableColumn2 = TableRow(children: <Widget>[
+      Center(
+        child: Padding(
+          padding: EdgeInsets.all(8.sp),
+          child: CustomText(
+            text: "Sectors",
+            fontSize: 14.sp,
+          ),
+        ),
+      ),
+      Center(
+        child: Padding(
+          padding: EdgeInsets.all(8.sp),
+          child: CustomText(
+            text: "Flight No",
+            fontSize: 14.sp,
+          ),
+        ),
+      ),
+      Center(
+        child: Padding(
+          padding: EdgeInsets.all(8.sp),
+          child: CustomText(
+            text: "A/C Type",
+            fontSize: 14.sp,
+          ),
+        ),
+      ),
+      Center(
+        child: Padding(
+          padding: EdgeInsets.all(8.sp),
+          child: CustomText(
+            text: "Position",
+            fontSize: 14.sp,
+          ),
+        ),
+      ),
+      Center(
+        child: Padding(
+          padding: EdgeInsets.all(8.sp),
+          child: CustomText(
+            text: "Date",
+            fontSize: 14.sp,
+          ),
+        ),
+      ),
+      Center(
+        child: Padding(
+          padding: EdgeInsets.all(8.sp),
+          child: CustomText(
+            text: "Instructor Name",
+            fontSize: 14.sp,
+          ),
+        ),
+      ),
+      Center(
+        child: Padding(
+          padding: EdgeInsets.all(8.sp),
+          child: CustomText(
+            text: "Code No",
+            fontSize: 14.sp,
+          ),
+        ),
+      ),
+    ]);
+
+    TableRow _tableColumn3 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "1-",
+              fontSize: 13.sp,
+            ),
+            SizedBox(width: 4.w),
+            SizedBox(
+              width: 130.w,
+              child:
+                  CustomFormField(text: "${sector1.text}", controller: sector1),
+            ),
+          ],
+        ),
+      ),
+      Align(
+        alignment: Alignment.centerLeft,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: Row(
+            children: [
+              CustomText(
+                text: "MS",
+                fontSize: 12.sp,
+              ),
+              SizedBox(width: 4.w),
+              SizedBox(
+                width: 130.w,
+                child: CustomFormField(text: "${f1.text}", controller: f1),
+              ),
+            ],
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${type1.text}", controller: type1),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${pos1.text}", controller: pos1),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${date1.text}", controller: date1),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${inName1.text}", controller: inName1),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${codeNo1.text}", controller: codeNo1),
+      ),
+    ]);
+
+    TableRow _tableColumn31 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "2-",
+              fontSize: 13.sp,
+            ),
+            SizedBox(width: 4.w),
+            SizedBox(
+              width: 130.w,
+              child:
+                  CustomFormField(text: "${sector2.text}", controller: sector2),
+            ),
+          ],
+        ),
+      ),
+      Align(
+        alignment: Alignment.centerLeft,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: Row(
+            children: [
+              CustomText(
+                text: "MS",
+                fontSize: 12.sp,
+              ),
+              SizedBox(width: 4.w),
+              SizedBox(
+                width: 130.w,
+                child: CustomFormField(text: "${f2.text}", controller: f2),
+              ),
+            ],
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${type2.text}", controller: type2),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${pos2.text}", controller: pos2),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${date2.text}", controller: date2),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${inName2.text}", controller: inName2),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${codeNo2.text}", controller: codeNo2),
+      ),
+    ]);
+
+    TableRow _tableColumn32 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "3-",
+              fontSize: 13.sp,
+            ),
+            SizedBox(width: 4.w),
+            SizedBox(
+              width: 130.w,
+              child:
+                  CustomFormField(text: "${sector3.text}", controller: sector3),
+            ),
+          ],
+        ),
+      ),
+      Align(
+        alignment: Alignment.centerLeft,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: Row(
+            children: [
+              CustomText(
+                text: "MS",
+                fontSize: 12.sp,
+              ),
+              SizedBox(width: 4.w),
+              SizedBox(
+                width: 130.w,
+                child: CustomFormField(text: "${f3.text}", controller: f3),
+              ),
+            ],
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${type3.text}", controller: type3),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${pos3.text}", controller: pos3),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${date3.text}", controller: date3),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${inName3.text}", controller: inName3),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${codeNo3.text}", controller: codeNo3),
+      ),
+    ]);
+
+    TableRow _tableColumn33 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "4-",
+              fontSize: 13.sp,
+            ),
+            SizedBox(width: 4.w),
+            SizedBox(
+              width: 130.w,
+              child:
+                  CustomFormField(text: "${sector4.text}", controller: sector4),
+            ),
+          ],
+        ),
+      ),
+      Align(
+        alignment: Alignment.centerLeft,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: Row(
+            children: [
+              CustomText(
+                text: "MS",
+                fontSize: 12.sp,
+              ),
+              SizedBox(width: 4.w),
+              SizedBox(
+                width: 130.w,
+                child: CustomFormField(text: "${f4.text}", controller: f4),
+              ),
+            ],
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${type4.text}", controller: type4),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${pos4.text}", controller: pos4),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${date4.text}", controller: date4),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${inName4.text}", controller: inName4),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${codeNo4.text}", controller: codeNo4),
+      ),
+    ]);
+
+    TableRow _tableColumn34 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "5-",
+              fontSize: 13.sp,
+            ),
+            SizedBox(width: 4.w),
+            SizedBox(
+              width: 130.w,
+              child:
+                  CustomFormField(text: "${sector5.text}", controller: sector5),
+            ),
+          ],
+        ),
+      ),
+      Align(
+        alignment: Alignment.centerLeft,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: Row(
+            children: [
+              CustomText(
+                text: "MS",
+                fontSize: 12.sp,
+              ),
+              SizedBox(width: 4.w),
+              SizedBox(
+                width: 130.w,
+                child: CustomFormField(text: "${f5.text}", controller: f5),
+              ),
+            ],
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${type5.text}", controller: type5),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${pos5.text}", controller: pos5),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${date5.text}", controller: date5),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${inName5.text}", controller: inName5),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${codeNo5.text}", controller: codeNo5),
+      ),
+    ]);
+
+    TableRow _tableColumn35 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "6-",
+              fontSize: 13.sp,
+            ),
+            SizedBox(width: 4.w),
+            SizedBox(
+              width: 130.w,
+              child:
+                  CustomFormField(text: "${sector6.text}", controller: sector6),
+            ),
+          ],
+        ),
+      ),
+      Align(
+        alignment: Alignment.centerLeft,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: Row(
+            children: [
+              CustomText(
+                text: "MS",
+                fontSize: 12.sp,
+              ),
+              SizedBox(width: 4.w),
+              SizedBox(
+                width: 130.w,
+                child: CustomFormField(text: "${f6.text}", controller: f6),
+              ),
+            ],
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${type6.text}", controller: type6),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${pos6.text}", controller: pos6),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${date6.text}", controller: date6),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${inName6.text}", controller: inName6),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${codeNo6.text}", controller: codeNo6),
+      ),
+    ]);
+
+    TableRow _tableColumn36 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "7-",
+              fontSize: 13.sp,
+            ),
+            SizedBox(width: 4.w),
+            SizedBox(
+              width: 130.w,
+              child:
+                  CustomFormField(text: "${sector7.text}", controller: sector7),
+            ),
+          ],
+        ),
+      ),
+      Align(
+        alignment: Alignment.centerLeft,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: Row(
+            children: [
+              CustomText(
+                text: "MS",
+                fontSize: 12.sp,
+              ),
+              SizedBox(width: 4.w),
+              SizedBox(
+                width: 130.w,
+                child: CustomFormField(text: "${f7.text}", controller: f7),
+              ),
+            ],
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${type7.text}", controller: type7),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${pos7.text}", controller: pos7),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${date7.text}", controller: date7),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${inName7.text}", controller: inName7),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${codeNo7.text}", controller: codeNo7),
+      ),
+    ]);
+
+    TableRow _tableColumn37 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "8-",
+              fontSize: 13.sp,
+            ),
+            SizedBox(width: 4.w),
+            SizedBox(
+              width: 130.w,
+              child:
+                  CustomFormField(text: "${sector8.text}", controller: sector8),
+            ),
+          ],
+        ),
+      ),
+      Align(
+        alignment: Alignment.centerLeft,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: Row(
+            children: [
+              CustomText(
+                text: "MS",
+                fontSize: 12.sp,
+              ),
+              SizedBox(width: 4.w),
+              SizedBox(
+                width: 130.w,
+                child: CustomFormField(text: "${f8.text}", controller: f8),
+              ),
+            ],
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${type8.text}", controller: type8),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${pos8.text}", controller: pos8),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${date8.text}", controller: date8),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${inName8.text}", controller: inName8),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${codeNo8.text}", controller: codeNo8),
+      ),
+    ]);
+
+    TableRow _tableColumn38 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "9-",
+              fontSize: 13.sp,
+            ),
+            SizedBox(width: 4.w),
+            SizedBox(
+              width: 130.w,
+              child:
+                  CustomFormField(text: "${sector9.text}", controller: sector9),
+            ),
+          ],
+        ),
+      ),
+      Align(
+        alignment: Alignment.centerLeft,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: Row(
+            children: [
+              CustomText(
+                text: "MS",
+                fontSize: 12.sp,
+              ),
+              SizedBox(width: 4.w),
+              SizedBox(
+                width: 130.w,
+                child: CustomFormField(text: "${f9.text}", controller: f9),
+              ),
+            ],
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${type9.text}", controller: type9),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${pos9.text}", controller: pos9),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${date9.text}", controller: date9),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${inName9.text}", controller: inName9),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${codeNo9.text}", controller: codeNo9),
+      ),
+    ]);
+
+    TableRow _tableColumn39 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "10-",
+              fontSize: 13.sp,
+            ),
+            SizedBox(width: 4.w),
+            SizedBox(
+              width: 130.w,
+              child: CustomFormField(
+                  text: "${sector10.text}", controller: sector10),
+            ),
+          ],
+        ),
+      ),
+      Align(
+        alignment: Alignment.centerLeft,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: Row(
+            children: [
+              CustomText(
+                text: "MS",
+                fontSize: 12.sp,
+              ),
+              SizedBox(width: 4.w),
+              SizedBox(
+                width: 130.w,
+                child: CustomFormField(text: "${f10.text}", controller: f10),
+              ),
+            ],
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${type10.text}", controller: type10),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${pos10.text}", controller: pos10),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${date10.text}", controller: date10),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${inName10.text}", controller: inName10),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${codeNo10.text}", controller: codeNo10),
+      ),
+    ]);
+
+    TableRow _tableColumn310 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "11-",
+              fontSize: 13.sp,
+            ),
+            SizedBox(width: 4.w),
+            SizedBox(
+              width: 130.w,
+              child: CustomFormField(
+                  text: "${sector11.text}", controller: sector11),
+            ),
+          ],
+        ),
+      ),
+      Align(
+        alignment: Alignment.centerLeft,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: Row(
+            children: [
+              CustomText(
+                text: "MS",
+                fontSize: 12.sp,
+              ),
+              SizedBox(width: 4.w),
+              SizedBox(
+                width: 130.w,
+                child: CustomFormField(text: "${f11.text}", controller: f11),
+              ),
+            ],
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${type11.text}", controller: type11),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${pos11.text}", controller: pos11),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${date11.text}", controller: date11),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${inName11.text}", controller: inName11),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${codeNo11.text}", controller: codeNo11),
+      ),
+    ]);
+
+    TableRow _tableColumn311 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "12-",
+              fontSize: 13.sp,
+            ),
+            SizedBox(width: 4.w),
+            SizedBox(
+              width: 130.w,
+              child: CustomFormField(
+                  text: "${sector12.text}", controller: sector12),
+            ),
+          ],
+        ),
+      ),
+      Align(
+        alignment: Alignment.centerLeft,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: Row(
+            children: [
+              CustomText(
+                text: "MS",
+                fontSize: 12.sp,
+              ),
+              SizedBox(width: 4.w),
+              SizedBox(
+                width: 130.w,
+                child: CustomFormField(text: "${f12.text}", controller: f12),
+              ),
+            ],
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${type12.text}", controller: type12),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${pos12.text}", controller: pos12),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${date12.text}", controller: date12),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${inName12.text}", controller: inName12),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${codeNo12.text}", controller: codeNo12),
+      ),
+    ]);
+
+    TableRow _tableColumn312 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "13-",
+              fontSize: 13.sp,
+            ),
+            SizedBox(width: 4.w),
+            SizedBox(
+              width: 130.w,
+              child: CustomFormField(
+                  text: "${sector13.text}", controller: sector13),
+            ),
+          ],
+        ),
+      ),
+      Align(
+        alignment: Alignment.centerLeft,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: Row(
+            children: [
+              CustomText(
+                text: "MS",
+                fontSize: 12.sp,
+              ),
+              SizedBox(width: 4.w),
+              SizedBox(
+                width: 130.w,
+                child: CustomFormField(text: "${f13.text}", controller: f13),
+              ),
+            ],
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${type13.text}", controller: type13),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${pos13.text}", controller: pos13),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${date13.text}", controller: date13),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${inName13.text}", controller: inName13),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${codeNo13.text}", controller: codeNo13),
+      ),
+    ]);
+
+    TableRow _tableColumn313 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "14-",
+              fontSize: 13.sp,
+            ),
+            SizedBox(width: 4.w),
+            SizedBox(
+              width: 130.w,
+              child: CustomFormField(
+                  text: "${sector14.text}", controller: sector14),
+            ),
+          ],
+        ),
+      ),
+      Align(
+        alignment: Alignment.centerLeft,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: Row(
+            children: [
+              CustomText(
+                text: "MS",
+                fontSize: 12.sp,
+              ),
+              SizedBox(width: 4.w),
+              SizedBox(
+                width: 130.w,
+                child: CustomFormField(text: "${f14.text}", controller: f14),
+              ),
+            ],
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${type14.text}", controller: type14),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${pos14.text}", controller: pos14),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${date14.text}", controller: date14),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${inName14.text}", controller: inName14),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${codeNo14.text}", controller: codeNo14),
+      ),
+    ]);
+
+    TableRow _tableColumn314 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "15-",
+              fontSize: 13.sp,
+            ),
+            SizedBox(width: 4.w),
+            SizedBox(
+              width: 130.w,
+              child: CustomFormField(
+                  text: "${sector15.text}", controller: sector15),
+            ),
+          ],
+        ),
+      ),
+      Align(
+        alignment: Alignment.centerLeft,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: Row(
+            children: [
+              CustomText(
+                text: "MS",
+                fontSize: 12.sp,
+              ),
+              SizedBox(width: 4.w),
+              SizedBox(
+                width: 130.w,
+                child: CustomFormField(text: "${f15.text}", controller: f15),
+              ),
+            ],
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${type15.text}", controller: type15),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${pos15.text}", controller: pos15),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${date15.text}", controller: date15),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${inName15.text}", controller: inName15),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${codeNo15.text}", controller: codeNo15),
+      ),
+    ]);
+
+    TableRow _tableColumn315 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "16-",
+              fontSize: 13.sp,
+            ),
+            SizedBox(width: 4.w),
+            SizedBox(
+              width: 130.w,
+              child: CustomFormField(
+                  text: "${sector16.text}", controller: sector16),
+            ),
+          ],
+        ),
+      ),
+      Align(
+        alignment: Alignment.centerLeft,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+          child: Row(
+            children: [
+              CustomText(
+                text: "MS",
+                fontSize: 12.sp,
+              ),
+              SizedBox(width: 4.w),
+              SizedBox(
+                width: 130.w,
+                child: CustomFormField(text: "${f16.text}", controller: f16),
+              ),
+            ],
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${type16.text}", controller: type16),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${pos16.text}", controller: pos16),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${date16.text}", controller: date16),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${inName16.text}", controller: inName16),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.sp),
+        child: CustomFormField(text: "${codeNo16.text}", controller: codeNo16),
+      ),
+    ]);
+
+    TableRow _tableColumn1 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(9.sp),
+        child: Center(
+          child: CustomText(
+            text: "INFLIGHT COMPETENCY CHECK ITEMS",
+            fontSize: 16.sp,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(9.sp),
+        child: Center(
+          child: CustomText(
+            text: "US",
+            fontSize: 16.sp,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(9.sp),
+        child: Center(
+          child: CustomText(
+            text: "S1",
+            fontSize: 16.sp,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(9.sp),
+        child: Center(
+          child: CustomText(
+            text: "S2",
+            fontSize: 16.sp,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(9.sp),
+        child: Center(
+          child: CustomText(
+            text: "S3",
+            fontSize: 16.sp,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    ]);
+
+    TableRow _tableColumn4 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "1-",
+              fontSize: 13.sp,
+            ),
+            SizedBox(width: 4.w),
+            CustomText(
+                text:
+                    "Preflight emergency equipment check . location/operation",
+                fontSize: 14.sp),
+          ],
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${us1.text}", controller: us1),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s11.text}", controller: s11),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s21.text}", controller: s21),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s31.text}", controller: s31),
+      ),
+    ]);
+
+    TableRow _tableColumn5 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "2-",
+              fontSize: 15.sp,
+            ),
+            SizedBox(width: 4.w),
+            CustomText(
+              text: "Exit operation",
+              fontSize: 15.sp,
+            )
+          ],
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${us2.text}", controller: us2),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s12.text}", controller: s12),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s22.text}", controller: s22),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s32.text}", controller: s32),
+      ),
+    ]);
+
+    TableRow _tableColumn6 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "3-",
+              fontSize: 15.sp,
+            ),
+            SizedBox(width: 4.w),
+            CustomText(
+                text: "Galley. electrical equipment and Circuit breakers",
+                fontSize: 15.sp)
+          ],
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${us3.text}", controller: us3),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s13.text}", controller: s13),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s23.text}", controller: s23),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s33.text}", controller: s33),
+      ),
+    ]);
+
+    TableRow _tableColumn7 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "4-",
+              fontSize: 15.sp,
+            ),
+            SizedBox(width: 4.w),
+            CustomText(
+              text: "Intercommunication",
+              fontSize: 15.sp,
+            )
+          ],
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${us4.text}", controller: us4),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s14.text}", controller: s14),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s24.text}", controller: s24),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s34.text}", controller: s34),
+      ),
+    ]);
+
+    TableRow _tableColumn8 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "5-",
+              fontSize: 15.sp,
+            ),
+            SizedBox(width: 4.w),
+            CustomText(
+              text: "Crew resource management & GSOP ",
+              fontSize: 15.sp,
+            ),
+          ],
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${us5.text}", controller: us5),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s15.text}", controller: s15),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s25.text}", controller: s25),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s35.text}", controller: s35),
+      ),
+    ]);
+
+    TableRow _tableColumn9 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "6-",
+              fontSize: 15.sp,
+            ),
+            SizedBox(width: 4.w),
+            CustomText(text: "Control Panels", fontSize: 15.sp),
+          ],
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${us6.text}", controller: us6),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s16.text}", controller: s16),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s26.text}", controller: s26),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s36.text}", controller: s36),
+      ),
+    ]);
+
+    TableRow _tableColumn10 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "7-",
+              fontSize: 13.sp,
+            ),
+            SizedBox(width: 4.w),
+            CustomText(
+                text: "Passenger handling (disruptive passenger awareness)",
+                fontSize: 15.sp)
+          ],
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${us7.text}", controller: us7),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s17.text}", controller: s17),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s27.text}", controller: s27),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s37.text}", controller: s37),
+      ),
+    ]);
+
+    TableRow _tableColumn11 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "8-",
+              fontSize: 15.sp,
+            ),
+            SizedBox(width: 4.w),
+            CustomText(
+                text: "Cockpit door . window . seat operations",
+                fontSize: 15.sp)
+          ],
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${us8.text}", controller: us8),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s18.text}", controller: s18),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s28.text}", controller: s28),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s38.text}", controller: s38),
+      ),
+    ]);
+
+    TableRow _tableColumn12 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "9-",
+              fontSize: 15.sp,
+            ),
+            SizedBox(width: 4.w),
+            CustomText(text: "First aid", fontSize: 15.sp)
+          ],
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${us9.text}", controller: us9),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s19.text}", controller: s19),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s29.text}", controller: s29),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s39.text}", controller: s39),
+      ),
+    ]);
+
+    TableRow _tableColumn13 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "10-",
+              fontSize: 15.sp,
+            ),
+            SizedBox(width: 4.w),
+            CustomText(text: "Dangerous goods awareness", fontSize: 15.sp),
+          ],
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${us10.text}", controller: us10),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s110.text}", controller: s110),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s210.text}", controller: s210),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s310.text}", controller: s310),
+      ),
+    ]);
+
+    TableRow _tableColumn14 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(5.0.sp),
+        child: Row(
+          children: [
+            CustomText(
+              text: "11-",
+              fontSize: 15.sp,
+            ),
+            SizedBox(width: 4.w),
+            CustomText(text: "Drills", fontSize: 15.sp)
+          ],
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${us11.text}", controller: us11),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s111.text}", controller: s111),
+      ),
+      Padding(
+        padding: EdgeInsets.all(7.sp),
+        child: CustomFormField(text: "${s211.text}", controller: s211),
+      ),
+      Padding(
+        padding: EdgeInsets.all(8.sp),
+        child: CustomFormField(text: "${s311.text}", controller: s311),
+      ),
+    ]);
+
+    TableRow _tableColumn15 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 25.h),
+        child: Center(
+          child: CustomText(
+            text: "First Result",
+            fontSize: 14.sp,
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
+        child: Center(
+          child: CustomText(
+            text: '''  Completion 
+        date''',
+            fontSize: 14.sp,
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
+        child: Center(
+          child: CustomText(
+            text: '''   Instructor 
+      Name''',
+            fontSize: 14.sp,
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
+        child: Center(
+          child: CustomText(
+            text: '''    Instructor      
+    signature''',
+            fontSize: 14.sp,
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
+        child: Center(
+          child: CustomText(
+            text: '''    Instructor   
+     Code No''',
+            fontSize: 14.sp,
+          ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
+        child: Center(
+          child: CustomText(
+            text: '''   Instructor 
+     license''',
+            fontSize: 14.sp,
+          ),
+        ),
+      ),
+    ]);
+
+    TableRow _tableColumn17 = TableRow(
+      children: <Widget>[
+        Padding(
+          padding: EdgeInsets.all(16.sp),
+          child: Center(
+            child: CustomText(
+              text: '''     Trainee
+    Signature''',
+              fontSize: 14.sp,
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(28.sp),
+          child: Center(
+            child: CustomText(
+              text: "Date",
+              fontSize: 14.sp,
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(16.sp),
+          child: Center(
+            child: CustomText(
+              text: '''  Examiner
+    Name''',
+              fontSize: 14.sp,
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(16.sp),
+          child: Center(
+            child: CustomText(
+              text: '''  Examiner
+  Signature''',
+              fontSize: 14.sp,
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(16.sp),
+          child: Center(
+            child: CustomText(
+              text: '''  Examiner
+   Code No''',
+              fontSize: 14.sp,
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(16.sp),
+          child: Center(
+            child: CustomText(
+              text: '''   Examiner
+    License''',
+              fontSize: 14.sp,
+            ),
+          ),
+        ),
+      ],
+    );
+
+    TableRow _tableColumn18 = TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+        child: Container(
+          height: 20.h,
+          child: CustomFormField(
+              text: "${traineeSign.text}", controller: traineeSign),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+        child: Container(
+          height: 20.h,
+          child: CustomFormField(text: "${mDate.text}", controller: mDate),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+        child: Container(
+          height: 20.h,
+          child: CustomFormField(
+              text: "${examinerName.text}", controller: examinerName),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+        child: Container(
+          height: 20.h,
+          child: CustomFormField(
+              text: "${examinerSign.text}", controller: examinerSign),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+        child: Container(
+          height: 20.h,
+          child: CustomFormField(
+              text: "${examinerCode.text}", controller: examinerCode),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+        child: Container(
+          height: 20.h,
+          child: CustomFormField(
+              text: "${examinerLis.text}", controller: examinerLis),
+        ),
+      ),
+    ]);
+
+    TableRow _tableColumn19 = TableRow(
+      children: <Widget>[
+        Center(
+          child: Padding(
+            padding: EdgeInsets.all(15.sp),
+            child: CustomText(
+              text: "G.M.F.T       Signature",
+              fontSize: 14.sp,
+            ),
+          ),
+        ),
+        Center(
+          child: Padding(
+            padding: EdgeInsets.all(15.sp),
+            child: CustomText(
+              text: "Date",
+              fontSize: 14.sp,
+            ),
+          ),
+        ),
+      ],
+    );
+
+    TableRow _tableColumn20 = TableRow(
+      children: <Widget>[
+        Center(
+          child: Padding(
+            padding: EdgeInsets.all(10.sp),
+            child: Container(
+              height: 20.h,
+              child: CustomFormField(text: "${gMFT.text}", controller: gMFT),
+            ),
+          ),
+        ),
+        Center(
+          child: Padding(
+            padding: EdgeInsets.all(15.sp),
+            child: Container(
+              height: 20.h,
+              child: CustomFormField(
+                  text: "${lastDate.text}", controller: lastDate),
+            ),
+          ),
+        ),
+      ],
+    );
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -2488,6 +4677,7 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
                                 "Value 6": value6,
                                 "Value 7": value7,
                               });
+                              _printPdf();
                             },
                           ),
                         ),
