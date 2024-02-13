@@ -2101,6 +2101,7 @@ class CustomFormField extends StatelessWidget {
         decoration: InputDecoration(
           hintText: text,
           hintStyle: TextStyle(
+            height: 2.sp,
             fontSize: 14.sp,
           ),
           enabledBorder: OutlineInputBorder(
