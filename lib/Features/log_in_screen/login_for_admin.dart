@@ -148,7 +148,7 @@ class _LoginScreenForAdminState extends State<LoginScreenForAdmin> {
                               if (element.data()?['ID'] == controller.id &&
                                   element.data()?['Password'] ==
                                       controller.password) {
-                                RouteUtils.push(
+                                RouteUtils.pushAndRemoveAll(
                                   context: context,
                                   screen: WorkScreen(adminID: controller.id!),
                                 );

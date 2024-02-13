@@ -221,6 +221,14 @@ TextEditingController lastDate = TextEditingController();
 TextEditingController firstDate = TextEditingController();
 TextEditingController mDate = TextEditingController();
 
+bool value1 = false;
+bool value2 = false;
+bool value3 = false;
+bool value4 = false;
+bool value5 = false;
+bool value6 = false;
+bool value7 = false;
+
 class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
   @override
   void initState() {
@@ -306,9 +314,8 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
           SizedBox(width: 4.w),
           SizedBox(
             width: 130.w,
-            child: sector1.text == ""
-                ? CustomFormField(controller: sector1)
-                : CustomText(text: sector1.text, fontSize: 15.sp),
+            child:
+                CustomFormField(text: "${sector1.text}", controller: sector1),
           ),
         ],
       ),
@@ -326,9 +333,7 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
             SizedBox(width: 4.w),
             SizedBox(
               width: 130.w,
-              child: f1.text == ""
-                  ? CustomFormField(controller: f1)
-                  : CustomText(text: f1.text, fontSize: 15.sp),
+              child: CustomFormField(text: "${f1.text}", controller: f1),
             ),
           ],
         ),
@@ -336,33 +341,23 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: type1.text == ""
-          ? CustomFormField(controller: type1)
-          : CustomText(text: type1.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${type1.text}", controller: type1),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: pos1.text == ""
-          ? CustomFormField(controller: pos1)
-          : CustomText(text: pos1.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${pos1.text}", controller: pos1),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: date1.text == ""
-          ? CustomFormField(controller: date1)
-          : CustomText(text: date1.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${date1.text}", controller: date1),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: inName1.text == ""
-          ? CustomFormField(controller: inName1)
-          : CustomText(text: inName1.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${inName1.text}", controller: inName1),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: codeNo1.text == ""
-          ? CustomFormField(controller: codeNo1)
-          : CustomText(text: codeNo1.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${codeNo1.text}", controller: codeNo1),
     ),
   ]);
 
@@ -378,9 +373,8 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
           SizedBox(width: 4.w),
           SizedBox(
             width: 130.w,
-            child: sector2.text == ""
-                ? CustomFormField(controller: sector2)
-                : CustomText(text: sector2.text, fontSize: 15.sp),
+            child:
+                CustomFormField(text: "${sector2.text}", controller: sector2),
           ),
         ],
       ),
@@ -398,9 +392,7 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
             SizedBox(width: 4.w),
             SizedBox(
               width: 130.w,
-              child: f2.text == ""
-                  ? CustomFormField(controller: f2)
-                  : CustomText(text: f2.text, fontSize: 15.sp),
+              child: CustomFormField(text: "${f2.text}", controller: f2),
             ),
           ],
         ),
@@ -408,33 +400,23 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: type2.text == ""
-          ? CustomFormField(controller: type2)
-          : CustomText(text: type2.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${type2.text}", controller: type2),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: pos2.text == ""
-          ? CustomFormField(controller: pos2)
-          : CustomText(text: pos2.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${pos2.text}", controller: pos2),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: date2.text == ""
-          ? CustomFormField(controller: date2)
-          : CustomText(text: date2.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${date2.text}", controller: date2),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: inName2.text == ""
-          ? CustomFormField(controller: inName2)
-          : CustomText(text: inName2.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${inName2.text}", controller: inName2),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: codeNo2.text == ""
-          ? CustomFormField(controller: codeNo2)
-          : CustomText(text: codeNo2.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${codeNo2.text}", controller: codeNo2),
     ),
   ]);
 
@@ -450,9 +432,8 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
           SizedBox(width: 4.w),
           SizedBox(
             width: 130.w,
-            child: sector3.text == ""
-                ? CustomFormField(controller: sector3)
-                : CustomText(text: sector3.text, fontSize: 15.sp),
+            child:
+                CustomFormField(text: "${sector3.text}", controller: sector3),
           ),
         ],
       ),
@@ -470,9 +451,7 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
             SizedBox(width: 4.w),
             SizedBox(
               width: 130.w,
-              child: f3.text == ""
-                  ? CustomFormField(controller: f3)
-                  : CustomText(text: f3.text, fontSize: 15.sp),
+              child: CustomFormField(text: "${f3.text}", controller: f3),
             ),
           ],
         ),
@@ -480,33 +459,23 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: type3.text == ""
-          ? CustomFormField(controller: type3)
-          : CustomText(text: type3.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${type3.text}", controller: type3),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: pos3.text == ""
-          ? CustomFormField(controller: pos3)
-          : CustomText(text: pos3.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${pos3.text}", controller: pos3),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: date3.text == ""
-          ? CustomFormField(controller: date3)
-          : CustomText(text: date3.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${date3.text}", controller: date3),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: inName3.text == ""
-          ? CustomFormField(controller: inName3)
-          : CustomText(text: inName3.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${inName3.text}", controller: inName3),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: codeNo3.text == ""
-          ? CustomFormField(controller: codeNo3)
-          : CustomText(text: codeNo3.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${codeNo3.text}", controller: codeNo3),
     ),
   ]);
 
@@ -522,9 +491,8 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
           SizedBox(width: 4.w),
           SizedBox(
             width: 130.w,
-            child: sector4.text == ""
-                ? CustomFormField(controller: sector4)
-                : CustomText(text: sector4.text, fontSize: 15.sp),
+            child:
+                CustomFormField(text: "${sector4.text}", controller: sector4),
           ),
         ],
       ),
@@ -542,9 +510,7 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
             SizedBox(width: 4.w),
             SizedBox(
               width: 130.w,
-              child: f4.text == ""
-                  ? CustomFormField(controller: f4)
-                  : CustomText(text: f4.text, fontSize: 15.sp),
+              child: CustomFormField(text: "${f4.text}", controller: f4),
             ),
           ],
         ),
@@ -552,33 +518,23 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: type4.text == ""
-          ? CustomFormField(controller: type4)
-          : CustomText(text: type4.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${type4.text}", controller: type4),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: pos4.text == ""
-          ? CustomFormField(controller: pos4)
-          : CustomText(text: pos4.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${pos4.text}", controller: pos4),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: date4.text == ""
-          ? CustomFormField(controller: date4)
-          : CustomText(text: date4.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${date4.text}", controller: date4),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: inName4.text == ""
-          ? CustomFormField(controller: inName4)
-          : CustomText(text: inName4.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${inName4.text}", controller: inName4),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: codeNo4.text == ""
-          ? CustomFormField(controller: codeNo4)
-          : CustomText(text: codeNo4.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${codeNo4.text}", controller: codeNo4),
     ),
   ]);
 
@@ -594,9 +550,8 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
           SizedBox(width: 4.w),
           SizedBox(
             width: 130.w,
-            child: sector5.text == ""
-                ? CustomFormField(controller: sector5)
-                : CustomText(text: sector5.text, fontSize: 15.sp),
+            child:
+                CustomFormField(text: "${sector5.text}", controller: sector5),
           ),
         ],
       ),
@@ -614,9 +569,7 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
             SizedBox(width: 4.w),
             SizedBox(
               width: 130.w,
-              child: f5.text == ""
-                  ? CustomFormField(controller: f5)
-                  : CustomText(text: f5.text, fontSize: 15.sp),
+              child: CustomFormField(text: "${f5.text}", controller: f5),
             ),
           ],
         ),
@@ -624,33 +577,23 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: type5.text == ""
-          ? CustomFormField(controller: type5)
-          : CustomText(text: type5.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${type5.text}", controller: type5),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: pos5.text == ""
-          ? CustomFormField(controller: pos5)
-          : CustomText(text: pos5.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${pos5.text}", controller: pos5),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: date5.text == ""
-          ? CustomFormField(controller: date5)
-          : CustomText(text: date5.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${date5.text}", controller: date5),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: inName5.text == ""
-          ? CustomFormField(controller: inName5)
-          : CustomText(text: inName5.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${inName5.text}", controller: inName5),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: codeNo5.text == ""
-          ? CustomFormField(controller: codeNo5)
-          : CustomText(text: codeNo5.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${codeNo5.text}", controller: codeNo5),
     ),
   ]);
 
@@ -666,9 +609,8 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
           SizedBox(width: 4.w),
           SizedBox(
             width: 130.w,
-            child: sector6.text == ""
-                ? CustomFormField(controller: sector6)
-                : CustomText(text: sector6.text, fontSize: 15.sp),
+            child:
+                CustomFormField(text: "${sector6.text}", controller: sector6),
           ),
         ],
       ),
@@ -686,9 +628,7 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
             SizedBox(width: 4.w),
             SizedBox(
               width: 130.w,
-              child: f6.text == ""
-                  ? CustomFormField(controller: f6)
-                  : CustomText(text: f6.text, fontSize: 15.sp),
+              child: CustomFormField(text: "${f6.text}", controller: f6),
             ),
           ],
         ),
@@ -696,33 +636,23 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: type6.text == ""
-          ? CustomFormField(controller: type6)
-          : CustomText(text: type6.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${type6.text}", controller: type6),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: pos6.text == ""
-          ? CustomFormField(controller: pos6)
-          : CustomText(text: pos6.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${pos6.text}", controller: pos6),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: date6.text == ""
-          ? CustomFormField(controller: date6)
-          : CustomText(text: date6.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${date6.text}", controller: date6),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: inName6.text == ""
-          ? CustomFormField(controller: inName6)
-          : CustomText(text: inName6.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${inName6.text}", controller: inName6),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: codeNo6.text == ""
-          ? CustomFormField(controller: codeNo6)
-          : CustomText(text: codeNo6.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${codeNo6.text}", controller: codeNo6),
     ),
   ]);
 
@@ -738,9 +668,8 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
           SizedBox(width: 4.w),
           SizedBox(
             width: 130.w,
-            child: sector7.text == ""
-                ? CustomFormField(controller: sector7)
-                : CustomText(text: sector7.text, fontSize: 15.sp),
+            child:
+                CustomFormField(text: "${sector7.text}", controller: sector7),
           ),
         ],
       ),
@@ -758,9 +687,7 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
             SizedBox(width: 4.w),
             SizedBox(
               width: 130.w,
-              child: f7.text == ""
-                  ? CustomFormField(controller: f7)
-                  : CustomText(text: f7.text, fontSize: 15.sp),
+              child: CustomFormField(text: "${f7.text}", controller: f7),
             ),
           ],
         ),
@@ -768,33 +695,23 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: type7.text == ""
-          ? CustomFormField(controller: type7)
-          : CustomText(text: type7.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${type7.text}", controller: type7),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: pos7.text == ""
-          ? CustomFormField(controller: pos7)
-          : CustomText(text: pos7.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${pos7.text}", controller: pos7),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: date7.text == ""
-          ? CustomFormField(controller: date7)
-          : CustomText(text: date7.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${date7.text}", controller: date7),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: inName7.text == ""
-          ? CustomFormField(controller: inName7)
-          : CustomText(text: inName7.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${inName7.text}", controller: inName7),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: codeNo7.text == ""
-          ? CustomFormField(controller: codeNo7)
-          : CustomText(text: codeNo7.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${codeNo7.text}", controller: codeNo7),
     ),
   ]);
 
@@ -810,9 +727,8 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
           SizedBox(width: 4.w),
           SizedBox(
             width: 130.w,
-            child: sector8.text == ""
-                ? CustomFormField(controller: sector8)
-                : CustomText(text: sector8.text, fontSize: 15.sp),
+            child:
+                CustomFormField(text: "${sector8.text}", controller: sector8),
           ),
         ],
       ),
@@ -830,9 +746,7 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
             SizedBox(width: 4.w),
             SizedBox(
               width: 130.w,
-              child: f8.text == ""
-                  ? CustomFormField(controller: f8)
-                  : CustomText(text: f8.text, fontSize: 15.sp),
+              child: CustomFormField(text: "${f8.text}", controller: f8),
             ),
           ],
         ),
@@ -840,33 +754,23 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: type8.text == ""
-          ? CustomFormField(controller: type8)
-          : CustomText(text: type8.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${type8.text}", controller: type8),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: pos8.text == ""
-          ? CustomFormField(controller: pos8)
-          : CustomText(text: pos8.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${pos8.text}", controller: pos8),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: date8.text == ""
-          ? CustomFormField(controller: date8)
-          : CustomText(text: date8.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${date8.text}", controller: date8),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: inName8.text == ""
-          ? CustomFormField(controller: inName8)
-          : CustomText(text: inName8.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${inName8.text}", controller: inName8),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: codeNo8.text == ""
-          ? CustomFormField(controller: codeNo8)
-          : CustomText(text: codeNo8.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${codeNo8.text}", controller: codeNo8),
     ),
   ]);
 
@@ -882,9 +786,8 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
           SizedBox(width: 4.w),
           SizedBox(
             width: 130.w,
-            child: sector9.text == ""
-                ? CustomFormField(controller: sector9)
-                : CustomText(text: sector9.text, fontSize: 15.sp),
+            child:
+                CustomFormField(text: "${sector9.text}", controller: sector9),
           ),
         ],
       ),
@@ -902,9 +805,7 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
             SizedBox(width: 4.w),
             SizedBox(
               width: 130.w,
-              child: f9.text == ""
-                  ? CustomFormField(controller: f9)
-                  : CustomText(text: f9.text, fontSize: 15.sp),
+              child: CustomFormField(text: "${f9.text}", controller: f9),
             ),
           ],
         ),
@@ -912,33 +813,23 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: type9.text == ""
-          ? CustomFormField(controller: type9)
-          : CustomText(text: type9.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${type9.text}", controller: type9),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: pos9.text == ""
-          ? CustomFormField(controller: pos9)
-          : CustomText(text: pos9.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${pos9.text}", controller: pos9),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: date9.text == ""
-          ? CustomFormField(controller: date9)
-          : CustomText(text: date9.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${date9.text}", controller: date9),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: inName9.text == ""
-          ? CustomFormField(controller: inName9)
-          : CustomText(text: inName9.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${inName9.text}", controller: inName9),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: codeNo9.text == ""
-          ? CustomFormField(controller: codeNo9)
-          : CustomText(text: codeNo9.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${codeNo9.text}", controller: codeNo9),
     ),
   ]);
 
@@ -954,9 +845,8 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
           SizedBox(width: 4.w),
           SizedBox(
             width: 130.w,
-            child: sector10.text == ""
-                ? CustomFormField(controller: sector10)
-                : CustomText(text: sector10.text, fontSize: 15.sp),
+            child:
+                CustomFormField(text: "${sector10.text}", controller: sector10),
           ),
         ],
       ),
@@ -974,9 +864,7 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
             SizedBox(width: 4.w),
             SizedBox(
               width: 130.w,
-              child: f10.text == ""
-                  ? CustomFormField(controller: f10)
-                  : CustomText(text: f10.text, fontSize: 15.sp),
+              child: CustomFormField(text: "${f10.text}", controller: f10),
             ),
           ],
         ),
@@ -984,33 +872,23 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: type10.text == ""
-          ? CustomFormField(controller: type10)
-          : CustomText(text: type10.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${type10.text}", controller: type10),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: pos10.text == ""
-          ? CustomFormField(controller: pos10)
-          : CustomText(text: pos10.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${pos10.text}", controller: pos10),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: date10.text == ""
-          ? CustomFormField(controller: date10)
-          : CustomText(text: date10.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${date10.text}", controller: date10),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: inName10.text == ""
-          ? CustomFormField(controller: inName10)
-          : CustomText(text: inName10.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${inName10.text}", controller: inName10),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: codeNo10.text == ""
-          ? CustomFormField(controller: codeNo10)
-          : CustomText(text: codeNo10.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${codeNo10.text}", controller: codeNo10),
     ),
   ]);
 
@@ -1026,9 +904,8 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
           SizedBox(width: 4.w),
           SizedBox(
             width: 130.w,
-            child: sector11.text == ""
-                ? CustomFormField(controller: sector11)
-                : CustomText(text: sector11.text, fontSize: 15.sp),
+            child:
+                CustomFormField(text: "${sector11.text}", controller: sector11),
           ),
         ],
       ),
@@ -1046,9 +923,7 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
             SizedBox(width: 4.w),
             SizedBox(
               width: 130.w,
-              child: f11.text == ""
-                  ? CustomFormField(controller: f11)
-                  : CustomText(text: f11.text, fontSize: 15.sp),
+              child: CustomFormField(text: "${f11.text}", controller: f11),
             ),
           ],
         ),
@@ -1056,33 +931,23 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: type11.text == ""
-          ? CustomFormField(controller: type11)
-          : CustomText(text: type11.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${type11.text}", controller: type11),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: pos11.text == ""
-          ? CustomFormField(controller: pos11)
-          : CustomText(text: pos11.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${pos11.text}", controller: pos11),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: date11.text == ""
-          ? CustomFormField(controller: date11)
-          : CustomText(text: date11.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${date11.text}", controller: date11),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: inName11.text == ""
-          ? CustomFormField(controller: inName11)
-          : CustomText(text: inName11.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${inName11.text}", controller: inName11),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: codeNo11.text == ""
-          ? CustomFormField(controller: codeNo11)
-          : CustomText(text: codeNo11.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${codeNo11.text}", controller: codeNo11),
     ),
   ]);
 
@@ -1098,9 +963,8 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
           SizedBox(width: 4.w),
           SizedBox(
             width: 130.w,
-            child: sector12.text == ""
-                ? CustomFormField(controller: sector12)
-                : CustomText(text: sector12.text, fontSize: 15.sp),
+            child:
+                CustomFormField(text: "${sector12.text}", controller: sector12),
           ),
         ],
       ),
@@ -1118,9 +982,7 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
             SizedBox(width: 4.w),
             SizedBox(
               width: 130.w,
-              child: f12.text == ""
-                  ? CustomFormField(controller: f12)
-                  : CustomText(text: f12.text, fontSize: 15.sp),
+              child: CustomFormField(text: "${f12.text}", controller: f12),
             ),
           ],
         ),
@@ -1128,33 +990,23 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: type12.text == ""
-          ? CustomFormField(controller: type12)
-          : CustomText(text: type12.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${type12.text}", controller: type12),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: pos12.text == ""
-          ? CustomFormField(controller: pos12)
-          : CustomText(text: pos12.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${pos12.text}", controller: pos12),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: date12.text == ""
-          ? CustomFormField(controller: date12)
-          : CustomText(text: date12.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${date12.text}", controller: date12),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: inName12.text == ""
-          ? CustomFormField(controller: inName12)
-          : CustomText(text: inName12.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${inName12.text}", controller: inName12),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: codeNo12.text == ""
-          ? CustomFormField(controller: codeNo12)
-          : CustomText(text: codeNo12.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${codeNo12.text}", controller: codeNo12),
     ),
   ]);
 
@@ -1170,9 +1022,8 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
           SizedBox(width: 4.w),
           SizedBox(
             width: 130.w,
-            child: sector13.text == ""
-                ? CustomFormField(controller: sector13)
-                : CustomText(text: sector13.text, fontSize: 15.sp),
+            child:
+                CustomFormField(text: "${sector13.text}", controller: sector13),
           ),
         ],
       ),
@@ -1190,9 +1041,7 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
             SizedBox(width: 4.w),
             SizedBox(
               width: 130.w,
-              child: f13.text == ""
-                  ? CustomFormField(controller: f13)
-                  : CustomText(text: f13.text, fontSize: 15.sp),
+              child: CustomFormField(text: "${f13.text}", controller: f13),
             ),
           ],
         ),
@@ -1200,33 +1049,23 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: type13.text == ""
-          ? CustomFormField(controller: type13)
-          : CustomText(text: type13.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${type13.text}", controller: type13),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: pos13.text == ""
-          ? CustomFormField(controller: pos13)
-          : CustomText(text: pos13.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${pos13.text}", controller: pos13),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: date13.text == ""
-          ? CustomFormField(controller: date13)
-          : CustomText(text: date13.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${date13.text}", controller: date13),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: inName13.text == ""
-          ? CustomFormField(controller: inName13)
-          : CustomText(text: inName13.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${inName13.text}", controller: inName13),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: codeNo13.text == ""
-          ? CustomFormField(controller: codeNo13)
-          : CustomText(text: codeNo13.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${codeNo13.text}", controller: codeNo13),
     ),
   ]);
 
@@ -1242,9 +1081,8 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
           SizedBox(width: 4.w),
           SizedBox(
             width: 130.w,
-            child: sector14.text == ""
-                ? CustomFormField(controller: sector14)
-                : CustomText(text: sector14.text, fontSize: 15.sp),
+            child:
+                CustomFormField(text: "${sector14.text}", controller: sector14),
           ),
         ],
       ),
@@ -1262,9 +1100,7 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
             SizedBox(width: 4.w),
             SizedBox(
               width: 130.w,
-              child: f14.text == ""
-                  ? CustomFormField(controller: f14)
-                  : CustomText(text: f14.text, fontSize: 15.sp),
+              child: CustomFormField(text: "${f14.text}", controller: f14),
             ),
           ],
         ),
@@ -1272,33 +1108,23 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: type14.text == ""
-          ? CustomFormField(controller: type14)
-          : CustomText(text: type14.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${type14.text}", controller: type14),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: pos14.text == ""
-          ? CustomFormField(controller: pos14)
-          : CustomText(text: pos14.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${pos14.text}", controller: pos14),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: date14.text == ""
-          ? CustomFormField(controller: date14)
-          : CustomText(text: date14.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${date14.text}", controller: date14),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: inName14.text == ""
-          ? CustomFormField(controller: inName14)
-          : CustomText(text: inName14.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${inName14.text}", controller: inName14),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: codeNo14.text == ""
-          ? CustomFormField(controller: codeNo14)
-          : CustomText(text: codeNo14.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${codeNo14.text}", controller: codeNo14),
     ),
   ]);
 
@@ -1314,9 +1140,8 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
           SizedBox(width: 4.w),
           SizedBox(
             width: 130.w,
-            child: sector15.text == ""
-                ? CustomFormField(controller: sector15)
-                : CustomText(text: sector15.text, fontSize: 15.sp),
+            child:
+                CustomFormField(text: "${sector15.text}", controller: sector15),
           ),
         ],
       ),
@@ -1334,9 +1159,7 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
             SizedBox(width: 4.w),
             SizedBox(
               width: 130.w,
-              child: f15.text == ""
-                  ? CustomFormField(controller: f15)
-                  : CustomText(text: f15.text, fontSize: 15.sp),
+              child: CustomFormField(text: "${f15.text}", controller: f15),
             ),
           ],
         ),
@@ -1344,33 +1167,23 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: type15.text == ""
-          ? CustomFormField(controller: type15)
-          : CustomText(text: type15.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${type15.text}", controller: type15),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: pos15.text == ""
-          ? CustomFormField(controller: pos15)
-          : CustomText(text: pos15.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${pos15.text}", controller: pos15),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: date15.text == ""
-          ? CustomFormField(controller: date15)
-          : CustomText(text: date15.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${date15.text}", controller: date15),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: inName15.text == ""
-          ? CustomFormField(controller: inName15)
-          : CustomText(text: inName15.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${inName15.text}", controller: inName15),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: codeNo15.text == ""
-          ? CustomFormField(controller: codeNo15)
-          : CustomText(text: codeNo15.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${codeNo15.text}", controller: codeNo15),
     ),
   ]);
 
@@ -1386,9 +1199,8 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
           SizedBox(width: 4.w),
           SizedBox(
             width: 130.w,
-            child: sector16.text == ""
-                ? CustomFormField(controller: sector16)
-                : CustomText(text: sector16.text, fontSize: 15.sp),
+            child:
+                CustomFormField(text: "${sector16.text}", controller: sector16),
           ),
         ],
       ),
@@ -1406,9 +1218,7 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
             SizedBox(width: 4.w),
             SizedBox(
               width: 130.w,
-              child: f16.text == ""
-                  ? CustomFormField(controller: f16)
-                  : CustomText(text: f16.text, fontSize: 15.sp),
+              child: CustomFormField(text: "${f16.text}", controller: f16),
             ),
           ],
         ),
@@ -1416,33 +1226,23 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: type16.text == ""
-          ? CustomFormField(controller: type16)
-          : CustomText(text: type16.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${type16.text}", controller: type16),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: pos16.text == ""
-          ? CustomFormField(controller: pos16)
-          : CustomText(text: pos16.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${pos16.text}", controller: pos16),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: date16.text == ""
-          ? CustomFormField(controller: date16)
-          : CustomText(text: date16.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${date16.text}", controller: date16),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: inName16.text == ""
-          ? CustomFormField(controller: inName16)
-          : CustomText(text: inName16.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${inName16.text}", controller: inName16),
     ),
     Padding(
       padding: EdgeInsets.all(10.sp),
-      child: codeNo16.text == ""
-          ? CustomFormField(controller: codeNo16)
-          : CustomText(text: codeNo16.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${codeNo16.text}", controller: codeNo16),
     ),
   ]);
 
@@ -1517,27 +1317,19 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: us1.text == ""
-          ? CustomFormField(controller: us1)
-          : CustomText(text: us1.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${us1.text}", controller: us1),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s11.text == ""
-          ? CustomFormField(controller: s11)
-          : CustomText(text: s11.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s11.text}", controller: s11),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s21.text == ""
-          ? CustomFormField(controller: s21)
-          : CustomText(text: s21.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s21.text}", controller: s21),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s31.text == ""
-          ? CustomFormField(controller: s31)
-          : CustomText(text: s31.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s31.text}", controller: s31),
     ),
   ]);
 
@@ -1560,27 +1352,19 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: us2.text == ""
-          ? CustomFormField(controller: us2)
-          : CustomText(text: us2.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${us2.text}", controller: us2),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s12.text == ""
-          ? CustomFormField(controller: s12)
-          : CustomText(text: s12.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s12.text}", controller: s12),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s22.text == ""
-          ? CustomFormField(controller: s22)
-          : CustomText(text: s22.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s22.text}", controller: s22),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s32.text == ""
-          ? CustomFormField(controller: s32)
-          : CustomText(text: s32.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s32.text}", controller: s32),
     ),
   ]);
 
@@ -1602,27 +1386,19 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: us3.text == ""
-          ? CustomFormField(controller: us3)
-          : CustomText(text: us3.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${us3.text}", controller: us3),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s13.text == ""
-          ? CustomFormField(controller: s13)
-          : CustomText(text: s13.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s13.text}", controller: s13),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s23.text == ""
-          ? CustomFormField(controller: s23)
-          : CustomText(text: s23.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s23.text}", controller: s23),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s33.text == ""
-          ? CustomFormField(controller: s33)
-          : CustomText(text: s33.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s33.text}", controller: s33),
     ),
   ]);
 
@@ -1645,27 +1421,19 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: us4.text == ""
-          ? CustomFormField(controller: us4)
-          : CustomText(text: us4.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${us4.text}", controller: us4),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s14.text == ""
-          ? CustomFormField(controller: s14)
-          : CustomText(text: s14.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s14.text}", controller: s14),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s24.text == ""
-          ? CustomFormField(controller: s24)
-          : CustomText(text: s24.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s24.text}", controller: s24),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s34.text == ""
-          ? CustomFormField(controller: s34)
-          : CustomText(text: s34.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s34.text}", controller: s34),
     ),
   ]);
 
@@ -1688,27 +1456,19 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: us5.text == ""
-          ? CustomFormField(controller: us5)
-          : CustomText(text: us5.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${us5.text}", controller: us5),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s15.text == ""
-          ? CustomFormField(controller: s15)
-          : CustomText(text: s15.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s15.text}", controller: s15),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s25.text == ""
-          ? CustomFormField(controller: s25)
-          : CustomText(text: s25.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s25.text}", controller: s25),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s35.text == ""
-          ? CustomFormField(controller: s35)
-          : CustomText(text: s35.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s35.text}", controller: s35),
     ),
   ]);
 
@@ -1728,27 +1488,19 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: us6.text == ""
-          ? CustomFormField(controller: us6)
-          : CustomText(text: us6.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${us6.text}", controller: us6),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s16.text == ""
-          ? CustomFormField(controller: s16)
-          : CustomText(text: s16.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s16.text}", controller: s16),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s26.text == ""
-          ? CustomFormField(controller: s26)
-          : CustomText(text: s26.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s26.text}", controller: s26),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s36.text == ""
-          ? CustomFormField(controller: s36)
-          : CustomText(text: s36.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s36.text}", controller: s36),
     ),
   ]);
 
@@ -1770,27 +1522,19 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: us7.text == ""
-          ? CustomFormField(controller: us7)
-          : CustomText(text: us7.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${us7.text}", controller: us7),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s17.text == ""
-          ? CustomFormField(controller: s17)
-          : CustomText(text: s17.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s17.text}", controller: s17),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s27.text == ""
-          ? CustomFormField(controller: s27)
-          : CustomText(text: s27.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s27.text}", controller: s27),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s37.text == ""
-          ? CustomFormField(controller: s37)
-          : CustomText(text: s37.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s37.text}", controller: s37),
     ),
   ]);
 
@@ -1811,27 +1555,19 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: us8.text == ""
-          ? CustomFormField(controller: us8)
-          : CustomText(text: us8.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${us8.text}", controller: us8),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s18.text == ""
-          ? CustomFormField(controller: s18)
-          : CustomText(text: s18.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s18.text}", controller: s18),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s28.text == ""
-          ? CustomFormField(controller: s28)
-          : CustomText(text: s28.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s28.text}", controller: s28),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s38.text == ""
-          ? CustomFormField(controller: s38)
-          : CustomText(text: s38.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s38.text}", controller: s38),
     ),
   ]);
 
@@ -1851,27 +1587,19 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: us9.text == ""
-          ? CustomFormField(controller: us9)
-          : CustomText(text: us9.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${us9.text}", controller: us9),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s19.text == ""
-          ? CustomFormField(controller: s19)
-          : CustomText(text: s19.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s19.text}", controller: s19),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s29.text == ""
-          ? CustomFormField(controller: s29)
-          : CustomText(text: s29.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s29.text}", controller: s29),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s39.text == ""
-          ? CustomFormField(controller: s39)
-          : CustomText(text: s39.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s39.text}", controller: s39),
     ),
   ]);
 
@@ -1891,27 +1619,19 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: us10.text == ""
-          ? CustomFormField(controller: us10)
-          : CustomText(text: us10.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${us10.text}", controller: us10),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s110.text == ""
-          ? CustomFormField(controller: s110)
-          : CustomText(text: s110.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s110.text}", controller: s110),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s210.text == ""
-          ? CustomFormField(controller: s210)
-          : CustomText(text: s210.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s210.text}", controller: s210),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s310.text == ""
-          ? CustomFormField(controller: s310)
-          : CustomText(text: s310.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s310.text}", controller: s310),
     ),
   ]);
 
@@ -1931,27 +1651,19 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: us11.text == ""
-          ? CustomFormField(controller: us11)
-          : CustomText(text: us11.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${us11.text}", controller: us11),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s111.text == ""
-          ? CustomFormField(controller: s111)
-          : CustomText(text: s111.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s111.text}", controller: s111),
     ),
     Padding(
       padding: EdgeInsets.all(7.sp),
-      child: s211.text == ""
-          ? CustomFormField(controller: s211)
-          : CustomText(text: s211.text, fontSize: 15.sp),
+      child: CustomFormField(text: "${s211.text}", controller: s211),
     ),
     Padding(
-      padding: EdgeInsets.all(7.sp),
-      child: s311.text == ""
-          ? CustomFormField(controller: s311)
-          : CustomText(text: s311.text, fontSize: 15.sp),
+      padding: EdgeInsets.all(8.sp),
+      child: CustomFormField(text: "${s311.text}", controller: s311),
     ),
   ]);
 
@@ -2013,82 +1725,6 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
      license''',
           fontSize: 14.sp,
         ),
-      ),
-    ),
-  ]);
-
-  TableRow _tableColumn16 = TableRow(children: <Widget>[
-    Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 15.h),
-      child: Row(
-        children: [
-          Spacer(),
-          Checkbox(
-            value: false,
-            onChanged: (bool? value) {},
-          ),
-          CustomText(
-            text: "S",
-            fontWeight: FontWeight.bold,
-            fontSize: 20.sp,
-          ),
-          Spacer(),
-          Checkbox(
-            value: false,
-            onChanged: (bool? value) {},
-          ),
-          CustomText(
-            text: "US",
-            fontWeight: FontWeight.bold,
-            fontSize: 20.sp,
-          ),
-          Spacer(),
-        ],
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
-      child: Container(
-        height: 20.h,
-        child: comDate.text == ""
-            ? CustomFormField(controller: comDate)
-            : CustomText(text: comDate.text, fontSize: 15.sp),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
-      child: Container(
-        height: 20.h,
-        child: instructorName.text == ""
-            ? CustomFormField(controller: instructorName)
-            : CustomText(text: instructorName.text, fontSize: 15.sp),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
-      child: Container(
-        height: 20.h,
-        child: instructorSign.text == ""
-            ? CustomFormField(controller: instructorSign)
-            : CustomText(text: instructorSign.text, fontSize: 15.sp),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
-      child: Container(
-        height: 20.h,
-        child: instructorCode.text == ""
-            ? CustomFormField(controller: instructorCode)
-            : CustomText(text: instructorCode.text, fontSize: 15.sp),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
-      child: Container(
-        height: 20.h,
-        child: instructorLis.text == ""
-            ? CustomFormField(controller: instructorLis)
-            : CustomText(text: instructorLis.text, fontSize: 15.sp),
       ),
     ),
   ]);
@@ -2162,54 +1798,47 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
       padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
       child: Container(
         height: 20.h,
-        child: traineeSign.text == ""
-            ? CustomFormField(controller: traineeSign)
-            : CustomText(text: traineeSign.text, fontSize: 15.sp),
+        child: CustomFormField(
+            text: "${traineeSign.text}", controller: traineeSign),
       ),
     ),
     Padding(
       padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
       child: Container(
         height: 20.h,
-        child: mDate.text == ""
-            ? CustomFormField(controller: mDate)
-            : CustomText(text: mDate.text, fontSize: 15.sp),
+        child: CustomFormField(text: "${mDate.text}", controller: mDate),
       ),
     ),
     Padding(
       padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
       child: Container(
         height: 20.h,
-        child: examinerName.text == ""
-            ? CustomFormField(controller: examinerName)
-            : CustomText(text: examinerName.text, fontSize: 15.sp),
+        child: CustomFormField(
+            text: "${examinerName.text}", controller: examinerName),
       ),
     ),
     Padding(
       padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
       child: Container(
         height: 20.h,
-        child: examinerSign.text == ""
-            ? CustomFormField(controller: examinerSign)
-            : CustomText(text: examinerSign.text, fontSize: 15.sp),
+        child: CustomFormField(
+            text: "${examinerSign.text}", controller: examinerSign),
       ),
     ),
     Padding(
       padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
       child: Container(
         height: 20.h,
-        child: examinerCode.text == ""
-            ? CustomFormField(controller: examinerCode)
-            : CustomText(text: examinerCode.text, fontSize: 15.sp),
+        child: CustomFormField(
+            text: "${examinerCode.text}", controller: examinerCode),
       ),
     ),
     Padding(
       padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
       child: Container(
         height: 20.h,
-        child: examinerLis.text == ""
-            ? CustomFormField(controller: examinerLis)
-            : CustomText(text: examinerLis.text, fontSize: 15.sp),
+        child: CustomFormField(
+            text: "${examinerLis.text}", controller: examinerLis),
       ),
     ),
   ]);
@@ -2244,9 +1873,7 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
           padding: EdgeInsets.all(10.sp),
           child: Container(
             height: 20.h,
-            child: gMFT.text == ""
-                ? CustomFormField(controller: gMFT)
-                : CustomText(text: gMFT.text, fontSize: 15.sp),
+            child: CustomFormField(text: "${gMFT.text}", controller: gMFT),
           ),
         ),
       ),
@@ -2255,9 +1882,8 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
           padding: EdgeInsets.all(15.sp),
           child: Container(
             height: 20.h,
-            child: lastDate.text == ""
-                ? CustomFormField(controller: lastDate)
-                : CustomText(text: lastDate.text, fontSize: 15.sp),
+            child:
+                CustomFormField(text: "${lastDate.text}", controller: lastDate),
           ),
         ),
       ),
@@ -2368,27 +1994,97 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
                                         text: "Training Categories:",
                                         fontSize: 14.sp,
                                       ),
-                                      Checkbox(value: false, onChanged: (v) {}),
+                                      value1 == "true"
+                                          ? Checkbox(
+                                              value: true,
+                                              onChanged: (v) {
+                                                setState(() {
+                                                  value1 = !value1;
+                                                });
+                                              })
+                                          : Checkbox(
+                                              value: value1,
+                                              onChanged: (v) {
+                                                setState(() {
+                                                  value1 = !value1;
+                                                });
+                                              }),
                                       CustomText(
                                         text: "Initial",
                                         fontSize: 14.sp,
                                       ),
-                                      Checkbox(value: false, onChanged: (v) {}),
+                                      value2 == "true"
+                                          ? Checkbox(
+                                              value: true,
+                                              onChanged: (v) {
+                                                setState(() {
+                                                  value2 = !value2;
+                                                });
+                                              })
+                                          : Checkbox(
+                                              value: value2,
+                                              onChanged: (v) {
+                                                setState(() {
+                                                  value2 = !value2;
+                                                });
+                                              }),
                                       CustomText(
                                         text: "Transition",
                                         fontSize: 14.sp,
                                       ),
-                                      Checkbox(value: false, onChanged: (v) {}),
+                                      value3 == "true"
+                                          ? Checkbox(
+                                              value: true,
+                                              onChanged: (v) {
+                                                setState(() {
+                                                  value3 = !value3;
+                                                });
+                                              })
+                                          : Checkbox(
+                                              value: value3,
+                                              onChanged: (v) {
+                                                setState(() {
+                                                  value3 = !value3;
+                                                });
+                                              }),
                                       CustomText(
                                         text: "Requalification Recurrent",
                                         fontSize: 14.sp,
                                       ),
-                                      Checkbox(value: false, onChanged: (v) {}),
+                                      value4 == "true"
+                                          ? Checkbox(
+                                              value: true,
+                                              onChanged: (v) {
+                                                setState(() {
+                                                  value4 = !value4;
+                                                });
+                                              })
+                                          : Checkbox(
+                                              value: value4,
+                                              onChanged: (v) {
+                                                setState(() {
+                                                  value4 = !value4;
+                                                });
+                                              }),
                                       CustomText(
                                         text: "SEP1",
                                         fontSize: 14.sp,
                                       ),
-                                      Checkbox(value: false, onChanged: (v) {}),
+                                      value5 == "true"
+                                          ? Checkbox(
+                                              value: true,
+                                              onChanged: (v) {
+                                                setState(() {
+                                                  value5 = !value5;
+                                                });
+                                              })
+                                          : Checkbox(
+                                              value: value5,
+                                              onChanged: (v) {
+                                                setState(() {
+                                                  value5 = !value5;
+                                                });
+                                              }),
                                       CustomText(
                                         text: "SEP2",
                                         fontSize: 14.sp,
@@ -2408,14 +2104,9 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
                                         fontSize: 14.sp,
                                       ),
                                       SizedBox(width: 4.w),
-                                      firstDate == ""
-                                          ? CustomFormField(
-                                              controller: firstDate,
-                                            )
-                                          : CustomText(
-                                              text: firstDate.text,
-                                              fontSize: 20.sp,
-                                            ),
+                                      CustomFormField(
+                                          text: "${firstDate.text}",
+                                          controller: firstDate),
                                     ],
                                   ),
                                 ),
@@ -2485,7 +2176,97 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
                           defaultColumnWidth: FixedColumnWidth(214.5.w),
                           border: TableBorder.all(width: 1.w),
                           children: <TableRow>[
-                            _tableColumn16,
+                            TableRow(
+                              children: <Widget>[
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 10.w, vertical: 15.h),
+                                  child: Row(
+                                    children: [
+                                      Spacer(),
+                                      Checkbox(
+                                        value: value6,
+                                        onChanged: (v) {
+                                          setState(() {
+                                            value6 = !value6;
+                                          });
+                                        },
+                                      ),
+                                      CustomText(
+                                        text: "S",
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20.sp,
+                                      ),
+                                      Spacer(),
+                                      Checkbox(
+                                        value: value7,
+                                        onChanged: (v) {
+                                          setState(() {
+                                            value7 = !value7;
+                                          });
+                                        },
+                                      ),
+                                      CustomText(
+                                        text: "US",
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20.sp,
+                                      ),
+                                      Spacer(),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 20.h, horizontal: 10.w),
+                                  child: Container(
+                                    height: 20.h,
+                                    child: CustomFormField(
+                                        text: "${comDate.text}",
+                                        controller: comDate),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 20.h, horizontal: 10.w),
+                                  child: Container(
+                                    height: 20.h,
+                                    child: CustomFormField(
+                                        text: "${instructorName.text}",
+                                        controller: instructorName),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 20.h, horizontal: 10.w),
+                                  child: Container(
+                                    height: 20.h,
+                                    child: CustomFormField(
+                                        text: "${instructorSign.text}",
+                                        controller: instructorSign),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 20.h, horizontal: 10.w),
+                                  child: Container(
+                                    height: 20.h,
+                                    child: CustomFormField(
+                                        text: "${instructorCode.text}",
+                                        controller: instructorCode),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 20.h, horizontal: 10.w),
+                                  child: Container(
+                                    height: 20.h,
+                                    child: CustomFormField(
+                                        text: "${instructorLis.text}",
+                                        controller: instructorLis),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                         Table(
@@ -2699,6 +2480,13 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
                                 "M Date": mDate.text,
                                 "Last Date": lastDate.text,
                                 "G.M.F.T": gMFT.text,
+                                "Value 1": value1,
+                                "Value 2": value2,
+                                "Value 3": value3,
+                                "Value 4": value4,
+                                "Value 5": value5,
+                                "Value 6": value6,
+                                "Value 7": value7,
                               });
                             },
                           ),
@@ -2892,6 +2680,13 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
         mDate.text = element.data()?['M Date'];
         lastDate.text = element.data()?['Last Date'];
         gMFT.text = element.data()?['G.M.F.T'];
+        value1 = element.data()?['Value 1'];
+        value2 = element.data()?['Value 2'];
+        value3 = element.data()?['Value 3'];
+        value4 = element.data()?['Value 4'];
+        value5 = element.data()?['Value 5'];
+        value6 = element.data()?['Value 6'];
+        value7 = element.data()?['Value 7'];
       }
       setState(() {});
     });

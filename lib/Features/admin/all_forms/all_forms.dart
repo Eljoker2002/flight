@@ -53,7 +53,7 @@ class _ShowAllFormsState extends State<ShowAllForms> {
                     ),
                     Container(
                       width: double.infinity,
-                      height: 90.h,
+                      height: 65.h,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12.sp),
                         color: AppColor.blue29,
