@@ -205,19 +205,21 @@ TextEditingController s315 = TextEditingController();
 TextEditingController s316 = TextEditingController();
 
 TextEditingController comDate = TextEditingController();
-
 TextEditingController instructorName = TextEditingController();
 TextEditingController instructorSign = TextEditingController();
 TextEditingController instructorCode = TextEditingController();
 TextEditingController instructorLis = TextEditingController();
 
 TextEditingController traineeSign = TextEditingController();
-TextEditingController dateDown = TextEditingController();
-
 TextEditingController examinerName = TextEditingController();
 TextEditingController examinerSign = TextEditingController();
 TextEditingController examinerCode = TextEditingController();
 TextEditingController examinerLis = TextEditingController();
+
+TextEditingController gMFT = TextEditingController();
+TextEditingController lastDate = TextEditingController();
+TextEditingController firstDate = TextEditingController();
+TextEditingController mDate = TextEditingController();
 
 class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
   @override
@@ -2045,24 +2047,49 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
       ),
     ),
     Padding(
-      padding: EdgeInsets.all(28.sp),
-      child: CustomFormField(),
+      padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
+      child: Container(
+        height: 20.h,
+        child: comDate.text == ""
+            ? CustomFormField(controller: comDate)
+            : CustomText(text: comDate.text, fontSize: 15.sp),
+      ),
     ),
     Padding(
-      padding: EdgeInsets.only(top: 30.h),
-      child: CustomFormField(),
+      padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
+      child: Container(
+        height: 20.h,
+        child: instructorName.text == ""
+            ? CustomFormField(controller: instructorName)
+            : CustomText(text: instructorName.text, fontSize: 15.sp),
+      ),
     ),
     Padding(
-      padding: EdgeInsets.only(top: 30.h),
-      child: CustomFormField(),
+      padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
+      child: Container(
+        height: 20.h,
+        child: instructorSign.text == ""
+            ? CustomFormField(controller: instructorSign)
+            : CustomText(text: instructorSign.text, fontSize: 15.sp),
+      ),
     ),
     Padding(
-      padding: EdgeInsets.only(top: 30.h),
-      child: CustomFormField(),
+      padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
+      child: Container(
+        height: 20.h,
+        child: instructorCode.text == ""
+            ? CustomFormField(controller: instructorCode)
+            : CustomText(text: instructorCode.text, fontSize: 15.sp),
+      ),
     ),
     Padding(
-      padding: EdgeInsets.only(top: 30.h),
-      child: CustomFormField(),
+      padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
+      child: Container(
+        height: 20.h,
+        child: instructorLis.text == ""
+            ? CustomFormField(controller: instructorLis)
+            : CustomText(text: instructorLis.text, fontSize: 15.sp),
+      ),
     ),
   ]);
 
@@ -2132,28 +2159,58 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
 
   TableRow _tableColumn18 = TableRow(children: <Widget>[
     Padding(
-      padding: EdgeInsets.only(top: 30.h),
-      child: CustomFormField(),
+      padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+      child: Container(
+        height: 20.h,
+        child: traineeSign.text == ""
+            ? CustomFormField(controller: traineeSign)
+            : CustomText(text: traineeSign.text, fontSize: 15.sp),
+      ),
     ),
     Padding(
-      padding: EdgeInsets.all(28.sp),
-      child: CustomFormField(),
+      padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+      child: Container(
+        height: 20.h,
+        child: mDate.text == ""
+            ? CustomFormField(controller: mDate)
+            : CustomText(text: mDate.text, fontSize: 15.sp),
+      ),
     ),
     Padding(
-      padding: EdgeInsets.only(top: 30.h),
-      child: CustomFormField(),
+      padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+      child: Container(
+        height: 20.h,
+        child: examinerName.text == ""
+            ? CustomFormField(controller: examinerName)
+            : CustomText(text: examinerName.text, fontSize: 15.sp),
+      ),
     ),
     Padding(
-      padding: EdgeInsets.only(top: 30.h),
-      child: CustomFormField(),
+      padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+      child: Container(
+        height: 20.h,
+        child: examinerSign.text == ""
+            ? CustomFormField(controller: examinerSign)
+            : CustomText(text: examinerSign.text, fontSize: 15.sp),
+      ),
     ),
     Padding(
-      padding: EdgeInsets.only(top: 30.h),
-      child: CustomFormField(),
+      padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+      child: Container(
+        height: 20.h,
+        child: examinerCode.text == ""
+            ? CustomFormField(controller: examinerCode)
+            : CustomText(text: examinerCode.text, fontSize: 15.sp),
+      ),
     ),
     Padding(
-      padding: EdgeInsets.only(top: 30.h),
-      child: CustomFormField(),
+      padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+      child: Container(
+        height: 20.h,
+        child: examinerLis.text == ""
+            ? CustomFormField(controller: examinerLis)
+            : CustomText(text: examinerLis.text, fontSize: 15.sp),
+      ),
     ),
   ]);
 
@@ -2185,13 +2242,23 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
       Center(
         child: Padding(
           padding: EdgeInsets.all(10.sp),
-          child: CustomFormField(),
+          child: Container(
+            height: 20.h,
+            child: gMFT.text == ""
+                ? CustomFormField(controller: gMFT)
+                : CustomText(text: gMFT.text, fontSize: 15.sp),
+          ),
         ),
       ),
       Center(
         child: Padding(
           padding: EdgeInsets.all(15.sp),
-          child: CustomFormField(),
+          child: Container(
+            height: 20.h,
+            child: lastDate.text == ""
+                ? CustomFormField(controller: lastDate)
+                : CustomText(text: lastDate.text, fontSize: 15.sp),
+          ),
         ),
       ),
     ],
@@ -2251,14 +2318,10 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
                                         text: "Trainee Name:",
                                         fontSize: 14.sp,
                                       ),
-                                      widget.traineeName == ""
-                                          ? CustomFormField(
-                                              // controller: traineeName,
-                                              )
-                                          : CustomText(
-                                              text: widget.traineeName,
-                                              fontSize: 20.sp,
-                                            ),
+                                      CustomText(
+                                        text: widget.traineeName,
+                                        fontSize: 20.sp,
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -2273,14 +2336,10 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
                                         text: "Code Num:",
                                         fontSize: 14.sp,
                                       ),
-                                      widget.codeNo == ""
-                                          ? CustomFormField(
-                                              // controller: traineeName,
-                                              )
-                                          : CustomText(
-                                              text: widget.codeNo,
-                                              fontSize: 20.sp,
-                                            ),
+                                      CustomText(
+                                        text: widget.codeNo,
+                                        fontSize: 20.sp,
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -2349,12 +2408,12 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
                                         fontSize: 14.sp,
                                       ),
                                       SizedBox(width: 4.w),
-                                      date == ""
+                                      firstDate == ""
                                           ? CustomFormField(
-                                              // controller: traineeName,
-                                              )
+                                              controller: firstDate,
+                                            )
                                           : CustomText(
-                                              text: date.text,
+                                              text: firstDate.text,
                                               fontSize: 20.sp,
                                             ),
                                     ],
@@ -2626,58 +2685,21 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
                                 "S 39": s39.text,
                                 "S 310": s310.text,
                                 "S 311": s311.text,
+                                "Completion date": comDate.text,
+                                "Instructor Name": instructorName.text,
+                                "Instructor Signature": instructorSign.text,
+                                "Instructor CodeNo": instructorCode.text,
+                                "Instructor License": instructorLis.text,
+                                "Trainee Signature": traineeSign.text,
+                                "First Date": firstDate.text,
+                                "Examiner Name": examinerName.text,
+                                "Examiner Signature": examinerSign.text,
+                                "Examiner CodeNo": examinerCode.text,
+                                "Examiner License": examinerLis.text,
+                                "M Date": mDate.text,
+                                "Last Date": lastDate.text,
+                                "G.M.F.T": gMFT.text,
                               });
-                              // DocumentReference form2 = FirebaseFirestore
-                              //     .instance
-                              //     .collection('Users')
-                              //     .doc(instructorID1.text);
-                              // form2.update({
-                              //   "Trainee Name":
-                              //       FieldValue.arrayUnion([traineeName.text]),
-                              //   "Code Num":
-                              //       FieldValue.arrayUnion([codeNum.text]),
-                              //   //"Date": date1.text,
-                              //   "Date": FieldValue.arrayUnion([date1.text]),
-                              // });
-                              // DocumentReference form3 = FirebaseFirestore
-                              //     .instance
-                              //     .collection('Users')
-                              //     .doc(instructorID2.text);
-                              // form3.update({
-                              //   "Trainee Name":
-                              //       FieldValue.arrayUnion([traineeName.text]),
-                              //   "Code Num":
-                              //       FieldValue.arrayUnion([codeNum.text]),
-                              //   //"Date": date2.text,
-                              //   "Date": FieldValue.arrayUnion([date2.text]),
-                              // });
-                              // DocumentReference form4 = FirebaseFirestore.instance
-                              //     .collection('Users')
-                              //     .doc(instructorID3.text);
-                              // form4.set({
-                              //   "Trainee Name": FieldValue.arrayUnion([traineeName.text]),
-                              //   "Code Num": FieldValue.arrayUnion([codeNum.text]),
-                              //   //"Date": date2.text,
-                              //   "Date": FieldValue.arrayUnion([date3.text]),
-                              // });
-                              // DocumentReference form5 = FirebaseFirestore.instance
-                              //     .collection('Users')
-                              //     .doc(instructorID4.text);
-                              // form5.set({
-                              //   "Trainee Name": FieldValue.arrayUnion([traineeName.text]),
-                              //   "Code Num": FieldValue.arrayUnion([codeNum.text]),
-                              //   //"Date": date2.text,
-                              //   "Date": FieldValue.arrayUnion([date4.text]),
-                              // });
-                              // DocumentReference form6 = FirebaseFirestore.instance
-                              //     .collection('Users')
-                              //     .doc(instructorID5.text);
-                              // form6.set({
-                              //   "Trainee Name": FieldValue.arrayUnion([traineeName.text]),
-                              //   "Code Num": FieldValue.arrayUnion([codeNum.text]),
-                              //   //"Date": date2.text,
-                              //   "Date": FieldValue.arrayUnion([date5.text]),
-                              // });
                             },
                           ),
                         ),
@@ -2748,6 +2770,128 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
         type14.text = element.data()?['A/C Type 14'];
         type15.text = element.data()?['A/C Type 15'];
         type16.text = element.data()?['A/C Type 16'];
+        pos1.text = element.data()?['Position 1'];
+        pos2.text = element.data()?['Position 2'];
+        pos3.text = element.data()?['Position 3'];
+        pos4.text = element.data()?['Position 4'];
+        pos5.text = element.data()?['Position 5'];
+        pos6.text = element.data()?['Position 6'];
+        pos7.text = element.data()?['Position 7'];
+        pos8.text = element.data()?['Position 8'];
+        pos9.text = element.data()?['Position 9'];
+        pos10.text = element.data()?['Position 10'];
+        pos11.text = element.data()?['Position 11'];
+        pos12.text = element.data()?['Position 12'];
+        pos13.text = element.data()?['Position 13'];
+        pos14.text = element.data()?['Position 14'];
+        pos15.text = element.data()?['Position 15'];
+        pos16.text = element.data()?['Position 16'];
+        date1.text = element.data()?['Date 1'];
+        date.text = element.data()?['Date 2'];
+        date3.text = element.data()?['Date 3'];
+        date4.text = element.data()?['Date 4'];
+        date5.text = element.data()?['Date 5'];
+        date6.text = element.data()?['Date 6'];
+        date7.text = element.data()?['Date 7'];
+        date8.text = element.data()?['Date 8'];
+        date9.text = element.data()?['Date 9'];
+        date10.text = element.data()?['Date 10'];
+        date11.text = element.data()?['Date 11'];
+        date12.text = element.data()?['Date 12'];
+        date13.text = element.data()?['Date 13'];
+        date14.text = element.data()?['Date 14'];
+        date15.text = element.data()?['Date 15'];
+        date16.text = element.data()?['Date 16'];
+        inName1.text = element.data()?['Instructor Name 1'];
+        inName2.text = element.data()?['Instructor Name 2'];
+        inName3.text = element.data()?['Instructor Name 3'];
+        inName4.text = element.data()?['Instructor Name 4'];
+        inName5.text = element.data()?['Instructor Name 5'];
+        inName6.text = element.data()?['Instructor Name 6'];
+        inName7.text = element.data()?['Instructor Name 7'];
+        inName8.text = element.data()?['Instructor Name 8'];
+        inName9.text = element.data()?['Instructor Name 9'];
+        inName10.text = element.data()?['Instructor Name 10'];
+        inName11.text = element.data()?['Instructor Name 11'];
+        inName12.text = element.data()?['Instructor Name 12'];
+        inName13.text = element.data()?['Instructor Name 13'];
+        inName14.text = element.data()?['Instructor Name 14'];
+        inName15.text = element.data()?['Instructor Name 15'];
+        inName16.text = element.data()?['Instructor Name 16'];
+        codeNo1.text = element.data()?['Code No 1'];
+        codeNo2.text = element.data()?['Code No 2'];
+        codeNo3.text = element.data()?['Code No 3'];
+        codeNo4.text = element.data()?['Code No 4'];
+        codeNo5.text = element.data()?['Code No 5'];
+        codeNo6.text = element.data()?['Code No 6'];
+        codeNo7.text = element.data()?['Code No 7'];
+        codeNo8.text = element.data()?['Code No 8'];
+        codeNo9.text = element.data()?['Code No 9'];
+        codeNo10.text = element.data()?['Code No 10'];
+        codeNo11.text = element.data()?['Code No 11'];
+        codeNo12.text = element.data()?['Code No 12'];
+        codeNo13.text = element.data()?['Code No 13'];
+        codeNo14.text = element.data()?['Code No 14'];
+        codeNo15.text = element.data()?['Code No 15'];
+        codeNo16.text = element.data()?['Code No 16'];
+        us1.text = element.data()?['Us 1'];
+        us2.text = element.data()?['Us 2'];
+        us3.text = element.data()?['Us 3'];
+        us4.text = element.data()?['Us 4'];
+        us5.text = element.data()?['Us 5'];
+        us6.text = element.data()?['Us 6'];
+        us7.text = element.data()?['Us 7'];
+        us8.text = element.data()?['Us 8'];
+        us9.text = element.data()?['Us 9'];
+        us10.text = element.data()?['Us 10'];
+        us11.text = element.data()?['Us 11'];
+        s11.text = element.data()?['S 11'];
+        s12.text = element.data()?['S 12'];
+        s13.text = element.data()?['S 13'];
+        s14.text = element.data()?['S 14'];
+        s15.text = element.data()?['S 15'];
+        s16.text = element.data()?['S 16'];
+        s17.text = element.data()?['S 17'];
+        s18.text = element.data()?['S 18'];
+        s19.text = element.data()?['S 19'];
+        s110.text = element.data()?['S 110'];
+        s111.text = element.data()?['S 111'];
+        s21.text = element.data()?['S 21'];
+        s22.text = element.data()?['S 22'];
+        s23.text = element.data()?['S 23'];
+        s24.text = element.data()?['S 24'];
+        s25.text = element.data()?['S 25'];
+        s26.text = element.data()?['S 26'];
+        s27.text = element.data()?['S 27'];
+        s28.text = element.data()?['S 28'];
+        s29.text = element.data()?['S 29'];
+        s210.text = element.data()?['S 210'];
+        s211.text = element.data()?['S 211'];
+        s31.text = element.data()?['S 31'];
+        s32.text = element.data()?['S 32'];
+        s33.text = element.data()?['S 33'];
+        s34.text = element.data()?['S 34'];
+        s35.text = element.data()?['S 35'];
+        s36.text = element.data()?['S 36'];
+        s37.text = element.data()?['S 37'];
+        s38.text = element.data()?['S 38'];
+        s39.text = element.data()?['S 39'];
+        s310.text = element.data()?['S 310'];
+        s311.text = element.data()?['S 311'];
+        comDate.text = element.data()?['Completion date'];
+        instructorName.text = element.data()?['Instructor Name'];
+        instructorSign.text = element.data()?['Instructor Signature'];
+        instructorCode.text = element.data()?['Instructor CodeNo'];
+        instructorLis.text = element.data()?['Instructor License'];
+        traineeSign.text = element.data()?['Trainee Signature'];
+        firstDate.text = element.data()?['First Date'];
+        examinerName.text = element.data()?['Examiner Name'];
+        examinerSign.text = element.data()?['Examiner Signature'];
+        examinerCode.text = element.data()?['Examiner CodeNo'];
+        examinerLis.text = element.data()?['Examiner License'];
+        mDate.text = element.data()?['M Date'];
+        lastDate.text = element.data()?['Last Date'];
+        gMFT.text = element.data()?['G.M.F.T'];
       }
       setState(() {});
     });

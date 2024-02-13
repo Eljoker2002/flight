@@ -1993,6 +1993,9 @@ class _MyHomePageState extends State<MyHomePage> {
                             form.set({
                               "Ins ID 1": instructorID1.text,
                               "Ins ID 2": instructorID2.text,
+                              "Ins ID 3": instructorID3.text,
+                              "Ins ID 4": instructorID4.text,
+                              "Ins ID 5": instructorID5.text,
                               "Trainee Name": traineeName.text,
                               "Code Num": codeNum.text,
                             });
@@ -2025,34 +2028,37 @@ class _MyHomePageState extends State<MyHomePage> {
                               //"Date": date2.text,
                               "Date": FieldValue.arrayUnion([date2.text]),
                             });
+                            DocumentReference form4 = FirebaseFirestore.instance
+                                .collection('Users')
+                                .doc(instructorID3.text);
+                            form4.update({
+                              "Trainee Name":
+                                  FieldValue.arrayUnion([traineeName.text]),
+                              "Code Num": FieldValue.arrayUnion([codeNum.text]),
+                              //"Date": date2.text,
+                              "Date": FieldValue.arrayUnion([date3.text]),
+                            });
+                            DocumentReference form5 = FirebaseFirestore.instance
+                                .collection('Users')
+                                .doc(instructorID4.text);
+                            form5.update({
+                              "Trainee Name":
+                                  FieldValue.arrayUnion([traineeName.text]),
+                              "Code Num": FieldValue.arrayUnion([codeNum.text]),
+                              //"Date": date2.text,
+                              "Date": FieldValue.arrayUnion([date4.text]),
+                            });
+                            DocumentReference form6 = FirebaseFirestore.instance
+                                .collection('Users')
+                                .doc(instructorID5.text);
+                            form6.update({
+                              "Trainee Name":
+                                  FieldValue.arrayUnion([traineeName.text]),
+                              "Code Num": FieldValue.arrayUnion([codeNum.text]),
+                              //"Date": date2.text,
+                              "Date": FieldValue.arrayUnion([date5.text]),
+                            });
                             RouteUtils.pop(context: context);
-                            // DocumentReference form4 = FirebaseFirestore.instance
-                            //     .collection('Users')
-                            //     .doc(instructorID3.text);
-                            // form4.set({
-                            //   "Trainee Name": FieldValue.arrayUnion([traineeName.text]),
-                            //   "Code Num": FieldValue.arrayUnion([codeNum.text]),
-                            //   //"Date": date2.text,
-                            //   "Date": FieldValue.arrayUnion([date3.text]),
-                            // });
-                            // DocumentReference form5 = FirebaseFirestore.instance
-                            //     .collection('Users')
-                            //     .doc(instructorID4.text);
-                            // form5.set({
-                            //   "Trainee Name": FieldValue.arrayUnion([traineeName.text]),
-                            //   "Code Num": FieldValue.arrayUnion([codeNum.text]),
-                            //   //"Date": date2.text,
-                            //   "Date": FieldValue.arrayUnion([date4.text]),
-                            // });
-                            // DocumentReference form6 = FirebaseFirestore.instance
-                            //     .collection('Users')
-                            //     .doc(instructorID5.text);
-                            // form6.set({
-                            //   "Trainee Name": FieldValue.arrayUnion([traineeName.text]),
-                            //   "Code Num": FieldValue.arrayUnion([codeNum.text]),
-                            //   //"Date": date2.text,
-                            //   "Date": FieldValue.arrayUnion([date5.text]),
-                            // });
                           },
                         ),
                       ),

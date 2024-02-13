@@ -12,6 +12,7 @@ class SignUpController {
   List<dynamic> date = [];
   String? id, password;
 
+
   Future<void> registerUser() async {
     final user =
         await FirebaseFirestore.instance.collection('Users').doc(id).set({

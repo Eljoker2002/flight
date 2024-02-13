@@ -90,6 +90,8 @@ TextEditingController pos14 = TextEditingController();
 TextEditingController pos15 = TextEditingController();
 TextEditingController pos16 = TextEditingController();
 
+TextEditingController firstDate = TextEditingController();
+TextEditingController mDate = TextEditingController();
 TextEditingController date1 = TextEditingController();
 TextEditingController date2 = TextEditingController();
 TextEditingController date3 = TextEditingController();
@@ -210,19 +212,19 @@ TextEditingController s315 = TextEditingController();
 TextEditingController s316 = TextEditingController();
 
 TextEditingController comDate = TextEditingController();
-
 TextEditingController instructorName = TextEditingController();
 TextEditingController instructorSign = TextEditingController();
 TextEditingController instructorCode = TextEditingController();
 TextEditingController instructorLis = TextEditingController();
 
 TextEditingController traineeSign = TextEditingController();
-TextEditingController date = TextEditingController();
-
 TextEditingController examinerName = TextEditingController();
 TextEditingController examinerSign = TextEditingController();
 TextEditingController examinerCode = TextEditingController();
 TextEditingController examinerLis = TextEditingController();
+
+TextEditingController gMFT = TextEditingController();
+TextEditingController lastDate = TextEditingController();
 
 class _ReverseFormFromAdminState extends State<ReverseFormFromAdmin> {
   TableRow _tableColumn2 = TableRow(children: <Widget>[
@@ -2022,7 +2024,7 @@ class _ReverseFormFromAdminState extends State<ReverseFormFromAdmin> {
           Spacer(),
           Checkbox(
             value: false,
-            onChanged: (bool? value) {},
+            onChanged: (v) {},
           ),
           CustomText(
             text: "S",
@@ -2032,7 +2034,7 @@ class _ReverseFormFromAdminState extends State<ReverseFormFromAdmin> {
           Spacer(),
           Checkbox(
             value: false,
-            onChanged: (bool? value) {},
+            onChanged: (v) {},
           ),
           CustomText(
             text: "US",
@@ -2044,24 +2046,49 @@ class _ReverseFormFromAdminState extends State<ReverseFormFromAdmin> {
       ),
     ),
     Padding(
-      padding: EdgeInsets.all(28.sp),
-      child: CustomFormField(),
+      padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
+      child: Container(
+        height: 20.h,
+        child: comDate.text == ""
+            ? CustomFormField(controller: comDate)
+            : CustomText(text: comDate.text, fontSize: 15.sp),
+      ),
     ),
     Padding(
-      padding: EdgeInsets.only(top: 30.h),
-      child: CustomFormField(),
+      padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
+      child: Container(
+        height: 20.h,
+        child: instructorName.text == ""
+            ? CustomFormField(controller: instructorName)
+            : CustomText(text: instructorName.text, fontSize: 15.sp),
+      ),
     ),
     Padding(
-      padding: EdgeInsets.only(top: 30.h),
-      child: CustomFormField(),
+      padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
+      child: Container(
+        height: 20.h,
+        child: instructorSign.text == ""
+            ? CustomFormField(controller: instructorSign)
+            : CustomText(text: instructorSign.text, fontSize: 15.sp),
+      ),
     ),
     Padding(
-      padding: EdgeInsets.only(top: 30.h),
-      child: CustomFormField(),
+      padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
+      child: Container(
+        height: 20.h,
+        child: instructorCode.text == ""
+            ? CustomFormField(controller: instructorCode)
+            : CustomText(text: instructorCode.text, fontSize: 15.sp),
+      ),
     ),
     Padding(
-      padding: EdgeInsets.only(top: 30.h),
-      child: CustomFormField(),
+      padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
+      child: Container(
+        height: 20.h,
+        child: instructorLis.text == ""
+            ? CustomFormField(controller: instructorLis)
+            : CustomText(text: instructorLis.text, fontSize: 15.sp),
+      ),
     ),
   ]);
 
@@ -2131,28 +2158,58 @@ class _ReverseFormFromAdminState extends State<ReverseFormFromAdmin> {
 
   TableRow _tableColumn18 = TableRow(children: <Widget>[
     Padding(
-      padding: EdgeInsets.only(top: 30.h),
-      child: CustomFormField(),
+      padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+      child: Container(
+        height: 20.h,
+        child: traineeSign.text == ""
+            ? CustomFormField(controller: traineeSign)
+            : CustomText(text: traineeSign.text, fontSize: 15.sp),
+      ),
     ),
     Padding(
-      padding: EdgeInsets.all(28.sp),
-      child: CustomFormField(),
+      padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+      child: Container(
+        height: 20.h,
+        child: mDate.text == ""
+            ? CustomFormField(controller: mDate)
+            : CustomText(text: mDate.text, fontSize: 15.sp),
+      ),
     ),
     Padding(
-      padding: EdgeInsets.only(top: 30.h),
-      child: CustomFormField(),
+      padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+      child: Container(
+        height: 20.h,
+        child: examinerName.text == ""
+            ? CustomFormField(controller: examinerName)
+            : CustomText(text: examinerName.text, fontSize: 15.sp),
+      ),
     ),
     Padding(
-      padding: EdgeInsets.only(top: 30.h),
-      child: CustomFormField(),
+      padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+      child: Container(
+        height: 20.h,
+        child: examinerSign.text == ""
+            ? CustomFormField(controller: examinerSign)
+            : CustomText(text: examinerSign.text, fontSize: 15.sp),
+      ),
     ),
     Padding(
-      padding: EdgeInsets.only(top: 30.h),
-      child: CustomFormField(),
+      padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+      child: Container(
+        height: 20.h,
+        child: examinerCode.text == ""
+            ? CustomFormField(controller: examinerCode)
+            : CustomText(text: examinerCode.text, fontSize: 15.sp),
+      ),
     ),
     Padding(
-      padding: EdgeInsets.only(top: 30.h),
-      child: CustomFormField(),
+      padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+      child: Container(
+        height: 20.h,
+        child: examinerLis.text == ""
+            ? CustomFormField(controller: examinerLis)
+            : CustomText(text: examinerLis.text, fontSize: 15.sp),
+      ),
     ),
   ]);
 
@@ -2184,18 +2241,33 @@ class _ReverseFormFromAdminState extends State<ReverseFormFromAdmin> {
       Center(
         child: Padding(
           padding: EdgeInsets.all(10.sp),
-          child: CustomFormField(),
+          child: Container(
+            height: 20.h,
+            child: gMFT.text == ""
+                ? CustomFormField(controller: gMFT)
+                : CustomText(text: gMFT.text, fontSize: 15.sp),
+          ),
         ),
       ),
       Center(
         child: Padding(
           padding: EdgeInsets.all(15.sp),
-          child: CustomFormField(),
+          child: Container(
+            height: 20.h,
+            child: lastDate.text == ""
+                ? CustomFormField(controller: lastDate)
+                : CustomText(text: lastDate.text, fontSize: 15.sp),
+          ),
         ),
       ),
     ],
   );
-
+  bool value1 = false;
+  bool value2 = false;
+  bool value3 = false;
+  bool value4 = false;
+  bool value5 = false;
+  bool value6 = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -2308,27 +2380,172 @@ class _ReverseFormFromAdminState extends State<ReverseFormFromAdmin> {
                                         text: "Training Categories:",
                                         fontSize: 14.sp,
                                       ),
-                                      Checkbox(value: false, onChanged: (v) {}),
+                                      value1.toString() == "true"
+                                          ? Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 9.w),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Colors.deepPurple,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          2.sp),
+                                                ),
+                                                width: 17.sp,
+                                                height: 17.sp,
+                                                child: Align(
+                                                  alignment: Alignment.center,
+                                                  child: Icon(
+                                                    Icons.check,
+                                                    size: 16.sp,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            )
+                                          : Checkbox(
+                                              value: value1,
+                                              onChanged: (v) {
+                                                setState(() {
+                                                  value1 = !value1;
+                                                });
+                                              }),
                                       CustomText(
                                         text: "Initial",
                                         fontSize: 14.sp,
                                       ),
-                                      Checkbox(value: false, onChanged: (v) {}),
+                                      value2 == "true"
+                                          ? Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 11.w),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Colors.deepPurple,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          2.sp),
+                                                ),
+                                                width: 17.sp,
+                                                height: 17.sp,
+                                                child: Align(
+                                                  alignment: Alignment.center,
+                                                  child: Icon(
+                                                    Icons.check,
+                                                    size: 16.sp,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            )
+                                          : Checkbox(
+                                              value: value2,
+                                              onChanged: (v) {
+                                                setState(() {
+                                                  value2 = !value2;
+                                                });
+                                              }),
                                       CustomText(
                                         text: "Transition",
                                         fontSize: 14.sp,
                                       ),
-                                      Checkbox(value: false, onChanged: (v) {}),
+                                      value3 == "true"
+                                          ? Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 11.w),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Colors.deepPurple,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          2.sp),
+                                                ),
+                                                width: 17.sp,
+                                                height: 17.sp,
+                                                child: Align(
+                                                  alignment: Alignment.center,
+                                                  child: Icon(
+                                                    Icons.check,
+                                                    size: 16.sp,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            )
+                                          : Checkbox(
+                                              value: value3,
+                                              onChanged: (v) {
+                                                setState(() {
+                                                  value3 = !value3;
+                                                });
+                                              }),
                                       CustomText(
                                         text: "Requalification Recurrent",
                                         fontSize: 14.sp,
                                       ),
-                                      Checkbox(value: false, onChanged: (v) {}),
+                                      value4 == "true"
+                                          ? Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 11.w),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Colors.deepPurple,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          2.sp),
+                                                ),
+                                                width: 17.sp,
+                                                height: 17.sp,
+                                                child: Align(
+                                                  alignment: Alignment.center,
+                                                  child: Icon(
+                                                    Icons.check,
+                                                    size: 16.sp,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            )
+                                          : Checkbox(
+                                              value: value4,
+                                              onChanged: (v) {
+                                                setState(() {
+                                                  value4 = !value4;
+                                                });
+                                              }),
                                       CustomText(
                                         text: "SEP1",
                                         fontSize: 14.sp,
                                       ),
-                                      Checkbox(value: false, onChanged: (v) {}),
+                                      value5 == "true"
+                                          ? Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 11.w),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Colors.deepPurple,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          2.sp),
+                                                ),
+                                                width: 17.sp,
+                                                height: 17.sp,
+                                                child: Align(
+                                                  alignment: Alignment.center,
+                                                  child: Icon(
+                                                    Icons.check,
+                                                    size: 16.sp,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            )
+                                          : Checkbox(
+                                              value: value5,
+                                              onChanged: (v) {
+                                                setState(() {
+                                                  value5 = !value5;
+                                                });
+                                              }),
                                       CustomText(
                                         text: "SEP2",
                                         fontSize: 14.sp,
@@ -2348,12 +2565,12 @@ class _ReverseFormFromAdminState extends State<ReverseFormFromAdmin> {
                                         fontSize: 14.sp,
                                       ),
                                       SizedBox(width: 4.w),
-                                      widget.date == ""
+                                      firstDate.text == ""
                                           ? CustomFormField(
-                                              // controller: traineeName,
-                                              )
+                                              controller: firstDate,
+                                            )
                                           : CustomText(
-                                              text: widget.date,
+                                              text: firstDate.text,
                                               fontSize: 20.sp,
                                             ),
                                     ],
@@ -2422,12 +2639,107 @@ class _ReverseFormFromAdminState extends State<ReverseFormFromAdmin> {
                           ],
                         ),
                         Table(
-                          defaultColumnWidth: FixedColumnWidth(214.5.w),
-                          border: TableBorder.all(width: 1.w),
-                          children: <TableRow>[
-                            _tableColumn16,
-                          ],
-                        ),
+                            defaultColumnWidth: FixedColumnWidth(214.5.w),
+                            border: TableBorder.all(width: 1.w),
+                            children: <TableRow>[
+                              TableRow(
+                                children: <Widget>[
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 10.w, vertical: 15.h),
+                                    child: Row(
+                                      children: [
+                                        Spacer(),
+                                        Checkbox(
+                                          value: false,
+                                          onChanged: (v) {},
+                                        ),
+                                        CustomText(
+                                          text: "S",
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20.sp,
+                                        ),
+                                        Spacer(),
+                                        Checkbox(
+                                          value: false,
+                                          onChanged: (v) {},
+                                        ),
+                                        CustomText(
+                                          text: "US",
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20.sp,
+                                        ),
+                                        Spacer(),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 20.h, horizontal: 10.w),
+                                    child: Container(
+                                      height: 20.h,
+                                      child: comDate.text == ""
+                                          ? CustomFormField(controller: comDate)
+                                          : CustomText(
+                                              text: comDate.text,
+                                              fontSize: 15.sp),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 20.h, horizontal: 10.w),
+                                    child: Container(
+                                      height: 20.h,
+                                      child: instructorName.text == ""
+                                          ? CustomFormField(
+                                              controller: instructorName)
+                                          : CustomText(
+                                              text: instructorName.text,
+                                              fontSize: 15.sp),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 20.h, horizontal: 10.w),
+                                    child: Container(
+                                      height: 20.h,
+                                      child: instructorSign.text == ""
+                                          ? CustomFormField(
+                                              controller: instructorSign)
+                                          : CustomText(
+                                              text: instructorSign.text,
+                                              fontSize: 15.sp),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 20.h, horizontal: 10.w),
+                                    child: Container(
+                                      height: 20.h,
+                                      child: instructorCode.text == ""
+                                          ? CustomFormField(
+                                              controller: instructorCode)
+                                          : CustomText(
+                                              text: instructorCode.text,
+                                              fontSize: 15.sp),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 20.h, horizontal: 10.w),
+                                    child: Container(
+                                      height: 20.h,
+                                      child: instructorLis.text == ""
+                                          ? CustomFormField(
+                                              controller: instructorLis)
+                                          : CustomText(
+                                              text: instructorLis.text,
+                                              fontSize: 15.sp),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ]),
                         Table(
                           defaultColumnWidth: FixedColumnWidth(214.5.w),
                           border: TableBorder.all(width: 1.w),
@@ -2626,6 +2938,25 @@ class _ReverseFormFromAdminState extends State<ReverseFormFromAdmin> {
                                 "S 39": s39.text,
                                 "S 310": s310.text,
                                 "S 311": s311.text,
+                                "Completion date": comDate.text,
+                                "Instructor Name": instructorName.text,
+                                "Instructor Signature": instructorSign.text,
+                                "Instructor CodeNo": instructorCode.text,
+                                "Instructor License": instructorLis.text,
+                                "Trainee Signature": traineeSign.text,
+                                "First Date": firstDate.text,
+                                "Examiner Name": examinerName.text,
+                                "Examiner Signature": examinerSign.text,
+                                "Examiner CodeNo": examinerCode.text,
+                                "Examiner License": examinerLis.text,
+                                "M Date": mDate.text,
+                                "Last Date": lastDate.text,
+                                "G.M.F.T": gMFT.text,
+                                "Value 1": value1.toString(),
+                                "Value 2": value2.toString(),
+                                "Value 3": value3.toString(),
+                                "Value 4": value4.toString(),
+                                "Value 5": value5.toString(),
                               });
                               // DocumentReference form2 = FirebaseFirestore
                               //     .instance
