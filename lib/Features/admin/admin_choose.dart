@@ -197,11 +197,11 @@ class WorkScreen extends StatelessWidget {
                               },
                               child: Container(
                                 child: Padding(
-                                  padding: EdgeInsets.only(top: 25.h),
+                                  padding: EdgeInsets.only(top: 12.h),
                                   child: Column(
                                     children: [
                                       Icon(
-                                        Icons.person_pin,
+                                        CupertinoIcons.printer,
                                         size: 70.sp,
                                         color: AppColor.white,
                                       ),
@@ -219,8 +219,8 @@ class WorkScreen extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                height: 150.h,
-                                width: 150.w,
+                                height: 110.h,
+                                width: 310.w,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(40),
                                     color: AppColor.blue29,

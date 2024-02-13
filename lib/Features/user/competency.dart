@@ -8,6 +8,7 @@ import 'package:flight/Features/log_in_screen/login_for_user.dart';
 import 'package:flight/widgets/text_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class CompetencyScreen extends StatefulWidget {
   CompetencyScreen({
@@ -32,6 +33,17 @@ class _CompetencyScreenState extends State<CompetencyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: AppColor.blue29,
+        title: CustomText(
+            text: "Travels", fontSize: 30.sp, color: AppColor.white),
+        leading: Icon(
+          PhosphorIconsBold.airplaneInFlight,
+          color: AppColor.white,
+          size: 30.sp,
+        ),
+      ),
       body: Padding(
         padding: EdgeInsets.only(left: 16.w, right: 16.w),
         child: ListView.builder(
@@ -49,8 +61,7 @@ class _CompetencyScreenState extends State<CompetencyScreen> {
                     )),
                 child: Column(
                   children: [
-                    CustomText(
-                        text: "Forms", fontSize: 30.sp, color: AppColor.blue29),
+
                     SizedBox(
                       height: 20.h,
                     ),
@@ -58,8 +69,16 @@ class _CompetencyScreenState extends State<CompetencyScreen> {
                       width: double.infinity,
                       height: 90.h,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12.sp),
+                        borderRadius: BorderRadius.circular(8.sp),
                         color: AppColor.blue29,
+                          boxShadow: [
+                      BoxShadow(
+                          color: AppColor.blue29,
+                          offset: Offset(5, 3),
+                          blurRadius: 8,
+                          spreadRadius: 4,
+                      ),
+                    ]
                       ),
                       child: Padding(
                         padding: EdgeInsets.all(8.sp),
