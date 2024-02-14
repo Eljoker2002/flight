@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:typed_data';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -7,9 +6,7 @@ import 'package:flight/Features/admin/send_form_fromAdmin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pdf/pdf.dart';
-import 'package:image/image.dart' as img;
 import 'package:printing/printing.dart';
-import '../../../Core/dimentions/navigator.dart';
 import '../../../widgets/App_button.dart';
 import '../../../widgets/text_form.dart';
 import 'package:pdf/widgets.dart' as pw;
