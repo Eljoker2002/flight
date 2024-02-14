@@ -132,13 +132,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   .doc(controller.id)
                                   .snapshots()
                                   .forEach((element) {
-                                if (element.data()?['ID'] == controller.id) {
+                                if (element.data()?['ID'] != controller.id) {
+                                  controller.registerUser();
+                                  RouteUtils.pop(
+                                    context: context,
+                                  );
+                                } else {
                                   return showSnackBar(context,
                                       "This id has been created before");
-                                } else {
-                                  controller.registerUser();
-                                  RouteUtils.push(
-                                      context: context, screen: LoginScreen());
                                 }
                               });
                               // } else {}

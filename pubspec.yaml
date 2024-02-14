@@ -47,6 +47,7 @@ dependencies:
   pdf: ^3.10.7
   open_file: ^3.3.2
   shared_preferences: ^2.2.2
+  image: ^4.1.7
 
 dev_dependencies:
   flutter_test:

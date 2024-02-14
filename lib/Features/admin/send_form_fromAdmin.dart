@@ -1999,15 +1999,17 @@ class _MyHomePageState extends State<MyHomePage> {
                               "Trainee Name": traineeName.text,
                               "Code Num": codeNum.text,
                             });
-                            DocumentReference f = FirebaseFirestore.instance
-                                .collection('Admin')
-                                .doc(widget.adminID);
-                            f.update({
-                              "Trainee Name":
-                                  FieldValue.arrayUnion([traineeName.text]),
-                              "Code Num": FieldValue.arrayUnion([codeNum.text]),
-                              //"Date": date1.text,
-                            });
+                            RouteUtils.pop(context: context);
+                            updateAllDocumentsInCollection();
+                            // DocumentReference f = FirebaseFirestore.instance
+                            //     .collection('Admin')
+                            //     .doc(widget.adminID);
+                            // f.update({
+                            //   "Trainee Name":
+                            //       FieldValue.arrayUnion([traineeName.text]),
+                            //   "Code Num": FieldValue.arrayUnion([codeNum.text]),
+                            //   //"Date": date1.text,
+                            // });
                             DocumentReference form2 = FirebaseFirestore.instance
                                 .collection('Users')
                                 .doc(instructorID1.text);
@@ -2058,7 +2060,6 @@ class _MyHomePageState extends State<MyHomePage> {
                               //"Date": date2.text,
                               "Date": FieldValue.arrayUnion([date5.text]),
                             });
-                            RouteUtils.pop(context: context);
                           },
                         ),
                       ),
@@ -2071,6 +2072,38 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
+  }
+
+  void updateAllDocumentsInCollection() async {
+    // Replace 'Admin' with the actual name of your Firestore collection
+    final CollectionReference collectionReference =
+        FirebaseFirestore.instance.collection('Admin');
+
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+
+    try {
+      // Fetch all documents in the collection
+      QuerySnapshot querySnapshot = await collectionReference.get();
+
+      // Iterate through each document and update data
+      querySnapshot.docs.forEach((DocumentSnapshot document) {
+        // Update the data in each document as needed
+        // For example, let's assume there's a field called 'field' in each document
+        Map<String, dynamic> updatedData = {
+          "Trainee Name": FieldValue.arrayUnion([traineeName.text]),
+          "Code Num": FieldValue.arrayUnion([codeNum.text]),
+        };
+
+        // Set the updated data in the batch for each document
+        batch.update(document.reference, updatedData);
+      });
+
+      // Commit the batch to update all documents
+      await batch.commit();
+      print('Data updated successfully in all documents');
+    } catch (e) {
+      print('Error updating data: $e');
+    }
   }
 }
 

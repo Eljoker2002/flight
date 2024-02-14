@@ -90,7 +90,7 @@ class ChooseWork extends StatelessWidget {
                       Spacer(),
                       InkWell(
                         onTap: () => RouteUtils.push(
-                            context: context, screen: EvaluationScreen()),
+                            context: context, screen: EvaluationScreen(id: id)),
                         child: Container(
                           child: Padding(
                             padding: EdgeInsets.only(top: 20.h),

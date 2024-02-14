@@ -140,6 +140,9 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                                   RouteUtils.pop(
                                     context: context,
                                   );
+                                  RouteUtils.pop(
+                                    context: context,
+                                  );
                                 }
                               });
                               // } else {}

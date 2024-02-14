@@ -22,6 +22,7 @@ class ReverseFormFromAdmin extends StatefulWidget {
   State<ReverseFormFromAdmin> createState() => _ReverseFormFromAdminState();
 }
 
+TextEditingController remarks = TextEditingController();
 TextEditingController sector1 = TextEditingController();
 TextEditingController sector2 = TextEditingController();
 TextEditingController sector3 = TextEditingController();
@@ -2212,7 +2213,7 @@ class _ReverseFormFromAdminState extends State<ReverseFormFromAdmin> {
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Container(
-                    height: 1480.h,
+                    height: 1600.h,
                     width: 1285.w,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -2591,6 +2592,24 @@ class _ReverseFormFromAdminState extends State<ReverseFormFromAdmin> {
                           ],
                         ),
                         SizedBox(height: 24.h),
+                        TextFormField(
+                          controller: remarks,
+                          maxLines: 3,
+                          // controller: controller,
+                          cursorHeight: 20.h,
+                          style:
+                              TextStyle(fontSize: 15.sp, color: Colors.black),
+                          decoration: InputDecoration(
+                            hintText: remarks.text,
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.black),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.black),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 10.h),
                         Align(
                           alignment: Alignment.center,
                           child: AppButton(
@@ -2604,6 +2623,7 @@ class _ReverseFormFromAdminState extends State<ReverseFormFromAdmin> {
                                   .collection('Form(Data)')
                                   .doc(widget.traineeName);
                               form.set({
+                                "Remarks": remarks.text,
                                 "Sector 1": sector1.text,
                                 "Sector 2": sector2.text,
                                 "Sector 3": sector3.text,
