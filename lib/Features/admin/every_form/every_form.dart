@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:typed_data';
+import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flight/Features/admin/send_form_fromAdmin.dart';
@@ -272,60 +273,82 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
   late pw.TableRow pw_tableColumn315;
   @override
   void initState() {
+    getData();
     pw_tableColumn2 = pw.TableRow(children: <pw.Widget>[
-      pw.Center(
-        child: pw.Padding(
-          padding: pw.EdgeInsets.all(8.sp),
-          child: pw.Text(
-            "Sectors",
+      pw.Container(
+        height: 20.h,
+        child: pw.Center(
+          child: pw.Padding(
+            padding: pw.EdgeInsets.all(5.sp),
+            child: pw.Text(
+              "Sectors",
+            ),
           ),
         ),
       ),
-      pw.Center(
-        child: pw.Padding(
-          padding: pw.EdgeInsets.all(8.sp),
-          child: pw.Text(
-            "Flight No",
+      pw.Container(
+        height: 20.h,
+        child: pw.Center(
+          child: pw.Padding(
+            padding: pw.EdgeInsets.all(5.sp),
+            child: pw.Text(
+              "Flight No",
+            ),
           ),
         ),
       ),
-      pw.Center(
-        child: pw.Padding(
-          padding: pw.EdgeInsets.all(8.sp),
-          child: pw.Text(
-            "A/C Type",
+      pw.Container(
+        height: 20.h,
+        child: pw.Center(
+          child: pw.Padding(
+            padding: pw.EdgeInsets.all(5.sp),
+            child: pw.Text(
+              "A/C Type",
+            ),
           ),
         ),
       ),
-      pw.Center(
-        child: pw.Padding(
-          padding: pw.EdgeInsets.all(8.sp),
-          child: pw.Text(
-            "Position",
+      pw.Container(
+        height: 20.h,
+        child: pw.Center(
+          child: pw.Padding(
+            padding: pw.EdgeInsets.all(5.sp),
+            child: pw.Text(
+              "Position",
+            ),
           ),
         ),
       ),
-      pw.Center(
-        child: pw.Padding(
-          padding: pw.EdgeInsets.all(8.sp),
-          child: pw.Text(
-            "Date",
+      pw.Container(
+        height: 20.h,
+        child: pw.Center(
+          child: pw.Padding(
+            padding: pw.EdgeInsets.all(5.sp),
+            child: pw.Text(
+              "Date",
+            ),
           ),
         ),
       ),
-      pw.Center(
-        child: pw.Padding(
-          padding: pw.EdgeInsets.all(8.sp),
-          child: pw.Text(
-            "Instructor Name",
+      pw.Container(
+        height: 20.h,
+        child: pw.Center(
+          child: pw.Padding(
+            padding: pw.EdgeInsets.all(5.sp),
+            child: pw.Text(
+              "Instructor Name",
+            ),
           ),
         ),
       ),
-      pw.Center(
-        child: pw.Padding(
-          padding: pw.EdgeInsets.all(8.sp),
-          child: pw.Text(
-            "Code No",
+      pw.Container(
+        height: 20.h,
+        child: pw.Center(
+          child: pw.Padding(
+            padding: pw.EdgeInsets.all(5.sp),
+            child: pw.Text(
+              "Code No",
+            ),
           ),
         ),
       ),
@@ -339,11 +362,7 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
             pw.Text(
               "1-",
             ),
-            pw.SizedBox(width: 4.w),
-            pw.SizedBox(
-              width: 130.w,
-              child: pw.Text("${sector1.text}"),
-            ),
+            pw.Text("${sector1.text}", style: pw.TextStyle(fontSize: 8.sp)),
           ],
         ),
       ),
@@ -1230,43 +1249,49 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
     ]);
 
     pw_tableColumn1 = pw.TableRow(children: <pw.Widget>[
-      pw.Padding(
-        padding: pw.EdgeInsets.all(9.sp),
-        child: pw.Center(
-          child: pw.Text(
-            "INFLIGHT COMPETENCY CHECK ITEMS",
+      pw.Container(
+        height: 15.h,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.all(4.sp),
+          child: pw.Center(
+            child: pw.Text("INFLIGHT COMPETENCY CHECK ITEMS",
+                style: pw.TextStyle(fontSize: 10.sp)),
           ),
         ),
       ),
-      pw.Padding(
-        padding: pw.EdgeInsets.all(9.sp),
-        child: pw.Center(
-          child: pw.Text(
-            "US",
+      pw.Container(
+        height: 15.h,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.all(4.sp),
+          child: pw.Center(
+            child: pw.Text("US", style: pw.TextStyle(fontSize: 8.sp)),
           ),
         ),
       ),
-      pw.Padding(
-        padding: pw.EdgeInsets.all(9.sp),
-        child: pw.Center(
-          child: pw.Text(
-            "S1",
+      pw.Container(
+        height: 15.h,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.all(4.sp),
+          child: pw.Center(
+            child: pw.Text("S1", style: pw.TextStyle(fontSize: 8.sp)),
           ),
         ),
       ),
-      pw.Padding(
-        padding: pw.EdgeInsets.all(9.sp),
-        child: pw.Center(
-          child: pw.Text(
-            "S2",
+      pw.Container(
+        height: 15.h,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.all(4.sp),
+          child: pw.Center(
+            child: pw.Text("S2", style: pw.TextStyle(fontSize: 8.sp)),
           ),
         ),
       ),
-      pw.Padding(
-        padding: pw.EdgeInsets.all(9.sp),
-        child: pw.Center(
-          child: pw.Text(
-            "S3",
+      pw.Container(
+        height: 15.h,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.all(4.sp),
+          child: pw.Center(
+            child: pw.Text("S3", style: pw.TextStyle(fontSize: 8.sp)),
           ),
         ),
       ),
@@ -1281,9 +1306,8 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
               "1-",
             ),
             pw.SizedBox(width: 4.w),
-            pw.Text(
-              "Preflight emergency equipment check . location/operation",
-            )
+            pw.Text("Preflight emergency equipment check . location/operation",
+                style: pw.TextStyle(fontSize: 5.sp))
           ],
         ),
       ),
@@ -1412,7 +1436,7 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
             ),
             pw.SizedBox(width: 4.w),
             pw.Text(
-              "Crew resource management & GSOP ",
+              "Crew resource management & GSOP",
             ),
           ],
         ),
@@ -1507,8 +1531,8 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
             ),
             pw.SizedBox(width: 4.w),
             pw.Text(
-                "Cockpit door . window . seat operations",
-               )
+              "Cockpit door . window . seat operations",
+            )
           ],
         ),
       ),
@@ -1522,7 +1546,7 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
       ),
       pw.Padding(
         padding: pw.EdgeInsets.all(7.sp),
-        child:pw.Text("${s28.text}"),
+        child: pw.Text("${s28.text}"),
       ),
       pw.Padding(
         padding: pw.EdgeInsets.all(7.sp),
@@ -1530,22 +1554,22 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
       ),
     ]);
 
-     pw_tableColumn12 = pw.TableRow(children: <pw.Widget>[
+    pw_tableColumn12 = pw.TableRow(children: <pw.Widget>[
       pw.Padding(
         padding: pw.EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
         child: pw.Row(
           children: [
-            pw. Text(
+            pw.Text(
               "9-",
             ),
             pw.SizedBox(width: 4.w),
-            pw.Text( "First aid")
+            pw.Text("First aid")
           ],
         ),
       ),
       pw.Padding(
         padding: pw.EdgeInsets.all(7.sp),
-        child: pw.Text( "${us9.text}"),
+        child: pw.Text("${us9.text}"),
       ),
       pw.Padding(
         padding: pw.EdgeInsets.all(7.sp),
@@ -1557,11 +1581,11 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
       ),
       pw.Padding(
         padding: pw.EdgeInsets.all(7.sp),
-        child: pw.Text( "${s39.text}"),
+        child: pw.Text("${s39.text}"),
       ),
     ]);
 
-     pw_tableColumn13 = pw.TableRow(children: <pw.Widget>[
+    pw_tableColumn13 = pw.TableRow(children: <pw.Widget>[
       pw.Padding(
         padding: pw.EdgeInsets.only(left: 5.0.sp, bottom: 5.sp, top: 5.sp),
         child: pw.Row(
@@ -1580,11 +1604,11 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
       ),
       pw.Padding(
         padding: pw.EdgeInsets.all(7.sp),
-        child: pw.Text( "${s110.text}"),
+        child: pw.Text("${s110.text}"),
       ),
       pw.Padding(
         padding: pw.EdgeInsets.all(7.sp),
-        child: pw.Text( "${s210.text}"),
+        child: pw.Text("${s210.text}"),
       ),
       pw.Padding(
         padding: pw.EdgeInsets.all(7.sp),
@@ -1592,7 +1616,7 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
       ),
     ]);
 
-     pw_tableColumn14 = pw.TableRow(children: <pw.Widget>[
+    pw_tableColumn14 = pw.TableRow(children: <pw.Widget>[
       pw.Padding(
         padding: pw.EdgeInsets.all(5.0.sp),
         child: pw.Row(
@@ -1619,233 +1643,294 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
       ),
       pw.Padding(
         padding: pw.EdgeInsets.all(8.sp),
-        child: pw.Text( "${s311.text}"),
+        child: pw.Text("${s311.text}"),
       ),
     ]);
 
     pw_tableColumn15 = pw.TableRow(children: <pw.Widget>[
-      pw.Padding(
-        padding: pw.EdgeInsets.symmetric(horizontal: 60.w, vertical: 25.h),
-        child: pw.Center(
-          child: pw.Text(
-             "First Result",
+      pw.Container(
+        height: 25.h,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.symmetric(horizontal: 4.w, vertical: 22.h),
+          child: pw.Center(
+            child: pw.Text(
+              "First Result",
+              style: pw.TextStyle(fontSize: 9.sp),
+            ),
           ),
         ),
       ),
-      pw.Padding(
-        padding: pw.EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
-        child: pw.Center(
-          child: pw.Text(
-            '''  Completion
-        date''',
+      pw.Container(
+        height: 25.h,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.symmetric(horizontal: 3.w, vertical: 22.h),
+          child: pw.Center(
+            child: pw.Text(
+              '''Completion
+     date''',
+              style: pw.TextStyle(fontSize: 9.sp),
+            ),
           ),
         ),
       ),
-      pw.Padding(
-        padding: pw.EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
-        child: pw.Center(
-          child: pw.Text(
-             '''   Instructor
-      Name''',
-
+      pw.Container(
+        height: 25.h,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.symmetric(horizontal: 3.w, vertical: 22.h),
+          child: pw.Center(
+            child: pw.Text(
+              ''' Instructor
+   Name''',
+              style: pw.TextStyle(fontSize: 9.sp),
+            ),
           ),
         ),
       ),
-      pw.Padding(
-        padding: pw.EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
-        child: pw.Center(
-          child: pw.Text(
-            '''    Instructor
-    signature''',
+      pw.Container(
+        height: 25.h,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.symmetric(horizontal: 3.w, vertical: 22.h),
+          child: pw.Center(
+            child: pw.Text(
+              ''' Instructor
+ signature''',
+              style: pw.TextStyle(fontSize: 9.sp),
+            ),
           ),
         ),
       ),
-      pw.Padding(
-        padding: pw.EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
-        child: pw.Center(
-          child: pw.Text(
-             '''    Instructor
-     Code No''',
+      pw.Container(
+        height: 25.h,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.symmetric(horizontal: 3.w, vertical: 22.h),
+          child: pw.Center(
+            child: pw.Text(
+              ''' Instructor
+ Code No''',
+              style: pw.TextStyle(fontSize: 9.sp),
+            ),
           ),
         ),
       ),
-      pw.Padding(
-        padding: pw.EdgeInsets.symmetric(horizontal: 60.w, vertical: 15.h),
-        child: pw.Center(
-          child: pw.Text(
-           '''   Instructor
-     license''',
+      pw.Container(
+        height: 25.h,
+        child: pw.Padding(
+          padding: pw.EdgeInsets.symmetric(horizontal: 3.w, vertical: 22.h),
+          child: pw.Center(
+            child: pw.Text(
+              ''' Instructor
+   license''',
+              style: pw.TextStyle(fontSize: 9.sp),
+            ),
           ),
         ),
       ),
     ]);
 
-     pw_tableColumn17 = pw.TableRow(
+    pw_tableColumn17 = pw.TableRow(
       children: <pw.Widget>[
-        pw.Padding(
-          padding: pw.EdgeInsets.all(16.sp),
-          child: pw.Center(
-            child: pw.Text(
-               '''     Trainee
-    Signature''',
-            ),
-          ),
-        ),
-        pw.Padding(
-          padding: pw.EdgeInsets.all(28.sp),
-          child: pw.Center(
-            child:pw.Text(
-              "Date",
-            ),
-          ),
-        ),
-        pw.Padding(
-          padding: pw.EdgeInsets.all(16.sp),
-          child: pw.Center(
-            child:pw.Text(
-               '''  Examiner
-    Name''',
-            ),
-          ),
-        ),
-        pw.Padding(
-          padding: pw.EdgeInsets.all(16.sp),
-          child: pw.Center(
-            child: pw.Text(
-             '''  Examiner
-  Signature''',
-            ),
-          ),
-        ),
-        pw.Padding(
-          padding: pw.EdgeInsets.all(16.sp),
-          child: pw.Center(
-            child: pw.Text(
-               '''  Examiner
-   Code No''',
-            ),
-          ),
-        ),
-        pw.Padding(
-          padding: pw.EdgeInsets.all(16.sp),
-          child: pw.Center(
-            child: pw.Text(
-               '''   Examiner
-    License''',
-            ),
-          ),
-        ),
-      ],
-    );
-
-     pw_tableColumn18 = pw.TableRow(children: <pw.Widget>[
-      pw.Padding(
-        padding: pw.EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
-        child: pw.Container(
-          height: 20.h,
-          child: pw.Text(
-               "${traineeSign.text}", ),
-        ),
-      ),
-      pw.Padding(
-        padding: pw.EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
-        child: pw.Container(
-          height: 20.h,
-          child: pw.Text( "${mDate.text}",),
-        ),
-      ),
-      pw.Padding(
-        padding: pw.EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
-        child: pw.Container(
-          height: 20.h,
-          child: pw.Text(
-               "${examinerName.text}"),
-        ),
-      ),
-      pw.Padding(
-        padding: pw.EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
-        child: pw.Container(
-          height: 20.h,
-          child: pw.Text(
-             "${examinerSign.text}"),
-        ),
-      ),
-      pw.Padding(
-        padding: pw.EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
-        child: pw.Container(
-          height: 20.h,
-          child: pw.Text(
-               "${examinerCode.text}"),
-        ),
-      ),
-      pw.Padding(
-        padding: pw.EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
-        child: pw.Container(
-          height: 20.h,
-          child: pw.Text(
-               "${examinerLis.text}"),
-        ),
-      ),
-    ]);
-
-     pw_tableColumn19 = pw.TableRow(
-      children: <pw.Widget>[
-        pw. Center(
+        pw.Container(
+          height: 25.h,
           child: pw.Padding(
-            padding: pw.EdgeInsets.all(15.sp),
-            child: pw.Text(
-               "G.M.F.T       Signature",
-            ),
-          ),
-        ),
-        pw.Center(
-          child: pw.Padding(
-            padding: pw.EdgeInsets.all(15.sp),
-            child: pw.Text(
-             "Date",
-            ),
-          ),
-        ),
-      ],
-    );
-
-     pw_tableColumn20 = pw.TableRow(
-      children: <pw.Widget>[
-        pw.Center(
-          child: pw.Padding(
-            padding: pw.EdgeInsets.all(10.sp),
-            child: pw.Container(
-              height: 20.h,
-              child: pw.Text( "${gMFT.text}"),
-            ),
-          ),
-        ),
-        pw.Center(
-          child: pw.Padding(
-            padding: pw.EdgeInsets.all(15.sp),
-            child: pw.Container(
-              height: 20.h,
+            padding: pw.EdgeInsets.symmetric(horizontal: 3.w, vertical: 3.h),
+            child: pw.Center(
               child: pw.Text(
-                  "${lastDate.text}"),
+                '''  Trainee
+ Signature''',
+                style: pw.TextStyle(fontSize: 9.sp),
+              ),
+            ),
+          ),
+        ),
+        pw.Container(
+          height: 25.h,
+          child: pw.Padding(
+            padding: pw.EdgeInsets.symmetric(horizontal: 3.w, vertical: 3.h),
+            child: pw.Center(
+              child: pw.Text(
+                "Date",
+                style: pw.TextStyle(fontSize: 9.sp),
+              ),
+            ),
+          ),
+        ),
+        pw.Container(
+          height: 25.h,
+          child: pw.Padding(
+            padding: pw.EdgeInsets.symmetric(horizontal: 3.w, vertical: 3.h),
+            child: pw.Center(
+              child: pw.Text(
+                ''' Examiner
+   Name''',
+                style: pw.TextStyle(fontSize: 9.sp),
+              ),
+            ),
+          ),
+        ),
+        pw.Container(
+          height: 25.h,
+          child: pw.Padding(
+            padding: pw.EdgeInsets.symmetric(horizontal: 3.w, vertical: 3.h),
+            child: pw.Center(
+              child: pw.Text(
+                ''' Examiner
+ Signature''',
+                style: pw.TextStyle(fontSize: 9.sp),
+              ),
+            ),
+          ),
+        ),
+        pw.Container(
+          height: 25.h,
+          child: pw.Padding(
+            padding: pw.EdgeInsets.symmetric(horizontal: 3.w, vertical: 3.h),
+            child: pw.Center(
+              child: pw.Text(
+                ''' Examiner
+ Code No''',
+                style: pw.TextStyle(fontSize: 9.sp),
+              ),
+            ),
+          ),
+        ),
+        pw.Container(
+          height: 25.h,
+          child: pw.Padding(
+            padding: pw.EdgeInsets.symmetric(horizontal: 3.w, vertical: 3.h),
+            child: pw.Center(
+              child: pw.Text(
+                ''' Examiner
+  License''',
+                style: pw.TextStyle(fontSize: 9.sp),
+              ),
             ),
           ),
         ),
       ],
     );
 
-    getData();
+    pw_tableColumn18 = pw.TableRow(children: <pw.Widget>[
+      pw.Padding(
+        padding: pw.EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+        child: pw.Container(
+          height: 20.h,
+          child: pw.Text(
+            "${traineeSign.text}",
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+        child: pw.Container(
+          height: 20.h,
+          child: pw.Text(
+            "${mDate.text}",
+          ),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+        child: pw.Container(
+          height: 20.h,
+          child: pw.Text("${examinerName.text}"),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+        child: pw.Container(
+          height: 20.h,
+          child: pw.Text("${examinerSign.text}"),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+        child: pw.Container(
+          height: 20.h,
+          child: pw.Text("${examinerCode.text}"),
+        ),
+      ),
+      pw.Padding(
+        padding: pw.EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+        child: pw.Container(
+          height: 20.h,
+          child: pw.Text("${examinerLis.text}"),
+        ),
+      ),
+    ]);
+
+    pw_tableColumn19 = pw.TableRow(
+      children: <pw.Widget>[
+        pw.Container(
+          height: 20.h,
+          child: pw.Center(
+            child: pw.Padding(
+              padding: pw.EdgeInsets.symmetric(horizontal: 3.w, vertical: 3.h),
+              child: pw.Text(
+                "G.M.F.T       Signature",
+              ),
+            ),
+          ),
+        ),
+        pw.Container(
+          height: 20.h,
+          child: pw.Center(
+            child: pw.Padding(
+              padding: pw.EdgeInsets.symmetric(horizontal: 3.w, vertical: 3.h),
+              child: pw.Text(
+                "Date",
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+
+    pw_tableColumn20 = pw.TableRow(
+      children: <pw.Widget>[
+        pw.Center(
+          child: pw.Padding(
+            padding: pw.EdgeInsets.symmetric(horizontal: 3.w, vertical: 3.h),
+            child: pw.Container(
+              child: pw.Container(
+                height: 20.h,
+                child: pw.Text("${gMFT.text}",
+                    style: pw.TextStyle(fontSize: 9.sp)),
+              ),
+            ),
+          ),
+        ),
+        pw.Center(
+          child: pw.Padding(
+            padding: pw.EdgeInsets.symmetric(vertical: 22.h, horizontal: 10.w),
+            child: pw.Container(
+              height: 20.h,
+              child: pw.Text("${lastDate.text}",
+                  style: pw.TextStyle(fontSize: 9.sp)),
+            ),
+          ),
+        ),
+      ],
+    );
     super.initState();
   }
 
   Future<void> _printPdf() async {
     final pdf = pw.Document();
+
     pdf.addPage(pw.Page(
       build: (context) {
         return pw.Column(
           crossAxisAlignment: pw.CrossAxisAlignment.start,
           children: [
+            pw.Row(
+              children: [
+                pw.Column(
+                  children: [],
+                ),
+              ],
+            ),
             pw.Table(
-             // defaultColumnWidth: pw.FixedColumnWidth(),
+              // defaultColumnWidth: pw.FixedColumnWidth(),
               border: pw.TableBorder.all(width: 1.w),
               children: <pw.TableRow>[
                 pw.TableRow(children: [
@@ -1862,7 +1947,7 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
               ],
             ),
             pw.Table(
-             // defaultColumnWidth: pw.FixedColumnWidth(643.w),
+              // defaultColumnWidth: pw.FixedColumnWidth(643.w),
               border: pw.TableBorder.all(width: 1.w),
               children: <pw.TableRow>[
                 pw.TableRow(
@@ -1913,502 +1998,2751 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
                 children: <pw.TableRow>[
                   pw.TableRow(children: [
                     pw.Container(
-                      // color: Colors.cyanAccent,
-                      width: 500.w,
-                      height: 20.h,
+                      height: 15.h,
                       child: pw.Row(
                         children: [
                           pw.SizedBox(width: 2.w),
                           pw.Text(
                             "Training Categories:",
+                            style: pw.TextStyle(fontSize: 6.sp),
                           ),
-                          value1 == "true"
+                          value1.toString() == "true"
                               ? pw.Padding(
-                                  padding: pw.EdgeInsets.symmetric(
-                                      horizontal: 2.w),
-                                  child: pw.Container(
-                                    decoration: pw.BoxDecoration(
-                                      color: PdfColor.fromInt(0xFFFFFFFF),
-                                      borderRadius:
-                                          pw.BorderRadius.circular(2.sp),
-                                    ),
-                                    width: 10.w,
-                                    height: 10.w,
-                                    child: pw.Align(
-                                      alignment: pw.Alignment.center,
-                                      child: pw.Icon(
-                                        Icons.check as pw.IconData,
-                                        size: 8.w,
-                                        color:
-                                            PdfColor.fromInt(0xFF000000),
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              : pw.Padding(
-                                  padding: pw.EdgeInsets.symmetric(
-                                      horizontal: 2.w),
+                                  padding:
+                                      pw.EdgeInsets.symmetric(horizontal: 2.w),
                                   child: pw.Container(
                                     decoration: pw.BoxDecoration(
                                       color: PdfColor.fromInt(0xFF000000),
                                       borderRadius:
                                           pw.BorderRadius.circular(2.sp),
                                     ),
-                                    width: 10.sp,
-                                    height: 10.sp,
+                                    width: 9.w,
+                                    height: 9.w,
                                     child: pw.Padding(
-                                      padding: pw.EdgeInsets.all(2.sp),
+                                      padding: pw.EdgeInsets.all(1.sp),
                                       child: pw.Container(
-                                        color:
-                                            PdfColor.fromInt(0xFFFFFFFF),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                          value2 == "true"
-                              ? pw.Padding(
-                                  padding: pw.EdgeInsets.symmetric(
-                                      horizontal: 2.w),
-                                  child: pw.Container(
-                                    decoration: pw.BoxDecoration(
-                                      color: PdfColor.fromInt(0xFFFFFFFF),
-                                      borderRadius:
-                                          pw.BorderRadius.circular(2.sp),
-                                    ),
-                                    width: 10.w,
-                                    height: 10.w,
-                                    child: pw.Align(
-                                      alignment: pw.Alignment.center,
-                                      child: pw.Icon(
-                                        Icons.check as pw.IconData,
-                                        size: 8.w,
-                                        color:
-                                            PdfColor.fromInt(0xFF000000),
-                                      ),
+                                          color: PdfColor.fromInt(0xFFFFFFFF),
+                                          width: 8.w,
+                                          height: 8.w,
+                                          child: pw.Padding(
+                                            padding: pw.EdgeInsets.all(1.sp),
+                                            child: pw.Container(
+                                              width: 6.w,
+                                              height: 6.w,
+                                              color:
+                                                  PdfColor.fromInt(0xFF000000),
+                                            ),
+                                          )),
                                     ),
                                   ),
                                 )
                               : pw.Padding(
-                                  padding: pw.EdgeInsets.symmetric(
-                                      horizontal: 2.w),
+                                  padding:
+                                      pw.EdgeInsets.symmetric(horizontal: 2.w),
                                   child: pw.Container(
                                     decoration: pw.BoxDecoration(
                                       color: PdfColor.fromInt(0xFF000000),
                                       borderRadius:
                                           pw.BorderRadius.circular(2.sp),
                                     ),
-                                    width: 10.w,
-                                    height: 10.w,
+                                    width: 9.sp,
+                                    height: 9.sp,
                                     child: pw.Padding(
-                                      padding: pw.EdgeInsets.all(2.sp),
+                                      padding: pw.EdgeInsets.all(1.sp),
                                       child: pw.Container(
-                                        color:
-                                            PdfColor.fromInt(0xFFFFFFFF),
+                                        color: PdfColor.fromInt(0xFFFFFFFF),
                                       ),
                                     ),
                                   ),
                                 ),
-                          value3 == "true"
+                          pw.Text(
+                            "Initial",
+                            style: pw.TextStyle(fontSize: 6.sp),
+                          ),
+                          value2.toString() == "true"
                               ? pw.Padding(
-                                  padding: pw.EdgeInsets.symmetric(
-                                      horizontal: 2.w),
-                                  child: pw.Container(
-                                    decoration: pw.BoxDecoration(
-                                      color: PdfColor.fromInt(0xFFFFFFFF),
-                                      borderRadius:
-                                          pw.BorderRadius.circular(2.sp),
-                                    ),
-                                    width: 10.w,
-                                    height: 10.w,
-                                    child: pw.Align(
-                                      alignment: pw.Alignment.center,
-                                      child: pw.Icon(
-                                        Icons.check as pw.IconData,
-                                        size: 8.w,
-                                        color:
-                                            PdfColor.fromInt(0xFF000000),
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              : pw.Padding(
-                                  padding: pw.EdgeInsets.symmetric(
-                                      horizontal: 2.w),
+                                  padding:
+                                      pw.EdgeInsets.symmetric(horizontal: 2.w),
                                   child: pw.Container(
                                     decoration: pw.BoxDecoration(
                                       color: PdfColor.fromInt(0xFF000000),
                                       borderRadius:
                                           pw.BorderRadius.circular(2.sp),
                                     ),
-                                    width: 10.w,
-                                    height: 10.w,
+                                    width: 9.w,
+                                    height: 9.w,
                                     child: pw.Padding(
-                                      padding: pw.EdgeInsets.all(2.sp),
+                                      padding: pw.EdgeInsets.all(1.sp),
                                       child: pw.Container(
-                                        color:
-                                            PdfColor.fromInt(0xFFFFFFFF),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                          value4 == "true"
-                              ? pw.Padding(
-                                  padding: pw.EdgeInsets.symmetric(
-                                      horizontal: 2.w),
-                                  child: pw.Container(
-                                    decoration: pw.BoxDecoration(
-                                      color: PdfColor.fromInt(0xFFFFFFFF),
-                                      borderRadius:
-                                          pw.BorderRadius.circular(2.sp),
-                                    ),
-                                    width: 10.w,
-                                    height: 10.w,
-                                    child: pw.Align(
-                                      alignment: pw.Alignment.center,
-                                      child: pw.Icon(
-                                        Icons.check as pw.IconData,
-                                        size: 8.w,
-                                        color:
-                                            PdfColor.fromInt(0xFF000000),
-                                      ),
+                                          color: PdfColor.fromInt(0xFFFFFFFF),
+                                          width: 8.w,
+                                          height: 8.w,
+                                          child: pw.Padding(
+                                            padding: pw.EdgeInsets.all(1.sp),
+                                            child: pw.Container(
+                                              width: 6.w,
+                                              height: 6.w,
+                                              color:
+                                                  PdfColor.fromInt(0xFF000000),
+                                            ),
+                                          )),
                                     ),
                                   ),
                                 )
                               : pw.Padding(
-                                  padding: pw.EdgeInsets.symmetric(
-                                      horizontal: 2.w),
+                                  padding:
+                                      pw.EdgeInsets.symmetric(horizontal: 2.w),
                                   child: pw.Container(
                                     decoration: pw.BoxDecoration(
                                       color: PdfColor.fromInt(0xFF000000),
                                       borderRadius:
                                           pw.BorderRadius.circular(2.sp),
                                     ),
-                                    width: 10.w,
-                                    height: 10.w,
+                                    width: 9.w,
+                                    height: 9.w,
                                     child: pw.Padding(
-                                      padding: pw.EdgeInsets.all(2.sp),
+                                      padding: pw.EdgeInsets.all(1.sp),
                                       child: pw.Container(
-                                        color:
-                                            PdfColor.fromInt(0xFFFFFFFF),
+                                        color: PdfColor.fromInt(0xFFFFFFFF),
                                       ),
                                     ),
                                   ),
                                 ),
-                          value5 == "true"
+                          pw.Text(
+                            "Transition",
+                            style: pw.TextStyle(fontSize: 7.sp),
+                          ),
+                          value3.toString() == "true"
                               ? pw.Padding(
-                                  padding: pw.EdgeInsets.symmetric(
-                                      horizontal: 2.w),
-                                  child: pw.Container(
-                                    decoration: pw.BoxDecoration(
-                                      color: PdfColor.fromInt(0xFFFFFFFF),
-                                      borderRadius:
-                                          pw.BorderRadius.circular(2.sp),
-                                    ),
-                                    width: 10.w,
-                                    height: 10.w,
-                                    child: pw.Align(
-                                      alignment: pw.Alignment.center,
-                                      child: pw.Icon(
-                                        Icons.check as pw.IconData,
-                                        size: 8.w,
-                                        color:
-                                            PdfColor.fromInt(0xFF000000),
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              : pw.Padding(
-                                  padding: pw.EdgeInsets.symmetric(
-                                      horizontal: 2.w),
+                                  padding:
+                                      pw.EdgeInsets.symmetric(horizontal: 2.w),
                                   child: pw.Container(
                                     decoration: pw.BoxDecoration(
                                       color: PdfColor.fromInt(0xFF000000),
                                       borderRadius:
                                           pw.BorderRadius.circular(2.sp),
                                     ),
-                                    width: 10.w,
-                                    height: 10.w,
+                                    width: 9.w,
+                                    height: 9.w,
                                     child: pw.Padding(
-                                      padding: pw.EdgeInsets.all(2.sp),
+                                      padding: pw.EdgeInsets.all(1.sp),
                                       child: pw.Container(
-                                        color:
-                                            PdfColor.fromInt(0xFFFFFFFF),
+                                          color: PdfColor.fromInt(0xFFFFFFFF),
+                                          width: 8.w,
+                                          height: 8.w,
+                                          child: pw.Padding(
+                                            padding: pw.EdgeInsets.all(1.sp),
+                                            child: pw.Container(
+                                              width: 6.w,
+                                              height: 6.w,
+                                              color:
+                                                  PdfColor.fromInt(0xFF000000),
+                                            ),
+                                          )),
+                                    ),
+                                  ),
+                                )
+                              : pw.Padding(
+                                  padding:
+                                      pw.EdgeInsets.symmetric(horizontal: 2.w),
+                                  child: pw.Container(
+                                    decoration: pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFF000000),
+                                      borderRadius:
+                                          pw.BorderRadius.circular(2.sp),
+                                    ),
+                                    width: 9.w,
+                                    height: 9.w,
+                                    child: pw.Padding(
+                                      padding: pw.EdgeInsets.all(1.sp),
+                                      child: pw.Container(
+                                        color: PdfColor.fromInt(0xFFFFFFFF),
                                       ),
                                     ),
                                   ),
                                 ),
-                          pw.Container(
-                            // color: Colors.cyanAccent,
-                            width: 50.w,
-                            height: 30.h,
-                            child: pw.Row(
-                              children: [
-                                pw.SizedBox(width: 2.w),
-                                pw.Text(
-                                  "Date:",
+                          pw.Text(
+                            "Requalification Recurrent",
+                            style: pw.TextStyle(fontSize: 7.sp),
+                          ),
+                          value4.toString() == "true"
+                              ? pw.Padding(
+                                  padding:
+                                      pw.EdgeInsets.symmetric(horizontal: 2.w),
+                                  child: pw.Container(
+                                    decoration: pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFF000000),
+                                      borderRadius:
+                                          pw.BorderRadius.circular(2.sp),
+                                    ),
+                                    width: 9.w,
+                                    height: 9.w,
+                                    child: pw.Padding(
+                                      padding: pw.EdgeInsets.all(1.sp),
+                                      child: pw.Container(
+                                          color: PdfColor.fromInt(0xFFFFFFFF),
+                                          width: 8.w,
+                                          height: 8.w,
+                                          child: pw.Padding(
+                                            padding: pw.EdgeInsets.all(1.sp),
+                                            child: pw.Container(
+                                              width: 6.w,
+                                              height: 6.w,
+                                              color:
+                                                  PdfColor.fromInt(0xFF000000),
+                                            ),
+                                          )),
+                                    ),
+                                  ),
+                                )
+                              : pw.Padding(
+                                  padding:
+                                      pw.EdgeInsets.symmetric(horizontal: 2.w),
+                                  child: pw.Container(
+                                    decoration: pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFF000000),
+                                      borderRadius:
+                                          pw.BorderRadius.circular(2.sp),
+                                    ),
+                                    width: 9.w,
+                                    height: 9.w,
+                                    child: pw.Padding(
+                                      padding: pw.EdgeInsets.all(1.sp),
+                                      child: pw.Container(
+                                        color: PdfColor.fromInt(0xFFFFFFFF),
+                                      ),
+                                    ),
+                                  ),
                                 ),
-                                pw.SizedBox(width: 4.w),
-                                pw.Text(
-                                  "${firstDate.text}",
+                          pw.Text(
+                            "SEP1",
+                            style: pw.TextStyle(fontSize: 7.sp),
+                          ),
+                          value5.toString() == "true"
+                              ? pw.Padding(
+                                  padding:
+                                      pw.EdgeInsets.symmetric(horizontal: 2.w),
+                                  child: pw.Container(
+                                    decoration: pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFF000000),
+                                      borderRadius:
+                                          pw.BorderRadius.circular(2.sp),
+                                    ),
+                                    width: 9.w,
+                                    height: 9.w,
+                                    child: pw.Padding(
+                                      padding: pw.EdgeInsets.all(1.sp),
+                                      child: pw.Container(
+                                          color: PdfColor.fromInt(0xFFFFFFFF),
+                                          width: 8.w,
+                                          height: 8.w,
+                                          child: pw.Padding(
+                                            padding: pw.EdgeInsets.all(1.sp),
+                                            child: pw.Container(
+                                              width: 6.w,
+                                              height: 6.w,
+                                              color:
+                                                  PdfColor.fromInt(0xFF000000),
+                                            ),
+                                          )),
+                                    ),
+                                  ),
+                                )
+                              : pw.Padding(
+                                  padding:
+                                      pw.EdgeInsets.symmetric(horizontal: 2.w),
+                                  child: pw.Container(
+                                    decoration: pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFF000000),
+                                      borderRadius:
+                                          pw.BorderRadius.circular(2.sp),
+                                    ),
+                                    width: 9.w,
+                                    height: 9.w,
+                                    child: pw.Padding(
+                                      padding: pw.EdgeInsets.all(1.sp),
+                                      child: pw.Container(
+                                        color: PdfColor.fromInt(0xFFFFFFFF),
+                                      ),
+                                    ),
+                                  ),
                                 ),
-                              ],
-                            ),
+                          pw.Text(
+                            "SEP 2",
+                            style: pw.TextStyle(fontSize: 7.sp),
+                          ),
+                        ],
+                      ),
+                    ),
+                    pw.Container(
+                      height: 15.h,
+                      child: pw.Row(
+                        children: [
+                          pw.SizedBox(width: 2.w),
+                          pw.Text("Date:", style: pw.TextStyle(fontSize: 7.sp)),
+                          pw.SizedBox(width: 4.w),
+                          pw.Text(
+                            "${firstDate.text}",
                           ),
                         ],
                       ),
                     )
                   ])
                 ]),
-            // pw.Table(
-            //     defaultColumnWidth: pw.FixedColumnWidth(184.w),
-            //     border: pw.TableBorder.all(width: 1.w),
-            //     children: <pw.TableRow>[pw_tableColumn2]),
-            // pw.Table(
-            //   defaultColumnWidth: pw.FixedColumnWidth(184.w),
-            //   border: pw.TableBorder.all(width: 1.w),
-            //   children: <pw.TableRow>[
-            //     pw_tableColumn3,
-            //     pw_tableColumn31,
-            //     pw_tableColumn32,
-            //     pw_tableColumn33,
-            //     pw_tableColumn34,
-            //     pw_tableColumn35,
-            //     pw_tableColumn36,
-            //     pw_tableColumn37,
-            //     pw_tableColumn38,
-            //     pw_tableColumn39,
-            //     pw_tableColumn310,
-            //     pw_tableColumn311,
-            //     pw_tableColumn312,
-            //     pw_tableColumn313,
-            //     pw_tableColumn314,
-            //     pw_tableColumn315,
-            //   ],
-            // ),
-            // pw.Table(
-            //   columnWidths: {
-            //     0: pw.FlexColumnWidth(15),
-            //     1: pw.FlexColumnWidth(1),
-            //     2: pw.FlexColumnWidth(1),
-            //     3: pw.FlexColumnWidth(1),
-            //     4: pw.FlexColumnWidth(1),
-            //   },
-            //   defaultColumnWidth: pw.FixedColumnWidth(300.w),
-            //   border: pw.TableBorder.all(width: 1.w),
-            //   children: <pw.TableRow>[
-            //     pw_tableColumn1,
-            //     pw_tableColumn4,
-            //     pw_tableColumn5,
-            //     pw_tableColumn6,
-            //     pw_tableColumn7,
-            //     pw_tableColumn8,
-            //     pw_tableColumn9,
-            //     pw_tableColumn10,
-            //     pw_tableColumn11,
-            //     pw_tableColumn12,
-            //     pw_tableColumn13,
-            //     pw_tableColumn14,
-            //   ],
-            // ),
-            // pw.Table(
-            //   defaultColumnWidth: pw.FixedColumnWidth(214.5.w),
-            //   border: pw.TableBorder.all(width: 1.w),
-            //   children: <pw.TableRow>[
-            //     pw_tableColumn15,
-            //   ],
-            // ),
-            // pw.Table(
-            //   defaultColumnWidth: pw.FixedColumnWidth(214.5.w),
-            //   border: pw.TableBorder.all(width: 1.w),
-            //   children: <pw.TableRow>[
-            //     pw.TableRow(
-            //       children: <pw.Widget>[
-            //         pw.Padding(
-            //           padding: pw.EdgeInsets.symmetric(
-            //               horizontal: 10.w, vertical: 15.h),
-            //           child: pw.Row(
-            //             children: [
-            //               pw.Spacer(),
-            //               value6 == true
-            //                   ? pw.Padding(
-            //                       padding: pw.EdgeInsets.symmetric(
-            //                           horizontal: 11.w),
-            //                       child: pw.Container(
-            //                         decoration: pw.BoxDecoration(
-            //                           color: PdfColor.fromInt(0xFFFFFFFF),
-            //                           borderRadius:
-            //                               pw.BorderRadius.circular(2.sp),
-            //                         ),
-            //                         width: 17.sp,
-            //                         height: 17.sp,
-            //                         child: pw.Align(
-            //                           alignment: pw.Alignment.center,
-            //                           child: pw.Icon(
-            //                             pw.IconData(0xe90a),
-            //                             size: 16.sp,
-            //                             color:
-            //                                 PdfColor.fromInt(0xFF000000),
-            //                           ),
-            //                         ),
-            //                       ),
-            //                     )
-            //                   : pw.Padding(
-            //                       padding: pw.EdgeInsets.symmetric(
-            //                           horizontal: 12.w),
-            //                       child: pw.Container(
-            //                         decoration: pw.BoxDecoration(
-            //                           color: PdfColor.fromInt(0xFF000000),
-            //                           borderRadius:
-            //                               pw.BorderRadius.circular(2.sp),
-            //                         ),
-            //                         width: 17.sp,
-            //                         height: 17.sp,
-            //                         child: pw.Padding(
-            //                           padding: pw.EdgeInsets.all(2.sp),
-            //                           child: pw.Container(
-            //                             color:
-            //                                 PdfColor.fromInt(0xFFFFFFFF),
-            //                           ),
-            //                         ),
-            //                       ),
-            //                     ),
-            //               pw.Text(
-            //                 "S",
-            //               ),
-            //               pw.Spacer(),
-            //               value7 == true
-            //                   ? pw.Padding(
-            //                       padding: pw.EdgeInsets.symmetric(
-            //                           horizontal: 11.w),
-            //                       child: pw.Container(
-            //                         decoration: pw.BoxDecoration(
-            //                           color: PdfColor.fromInt(0xFFFFFFFF),
-            //                           borderRadius:
-            //                               pw.BorderRadius.circular(2.sp),
-            //                         ),
-            //                         width: 17.sp,
-            //                         height: 17.sp,
-            //                         child: pw.Align(
-            //                           alignment: pw.Alignment.center,
-            //                           child: pw.Icon(
-            //                            pw.IconData(0xe90a),
-            //                             size: 16.sp,
-            //                             color:
-            //                                 PdfColor.fromInt(0xFF000000),
-            //                           ),
-            //                         ),
-            //                       ),
-            //                     )
-            //                   : pw.Padding(
-            //                       padding: pw.EdgeInsets.symmetric(
-            //                           horizontal: 12.w),
-            //                       child: pw.Container(
-            //                         decoration: pw.BoxDecoration(
-            //                           color: PdfColor.fromInt(0xFF000000),
-            //                           borderRadius:
-            //                               pw.BorderRadius.circular(2.sp),
-            //                         ),
-            //                         width: 17.sp,
-            //                         height: 17.sp,
-            //                         child: pw.Padding(
-            //                           padding: pw.EdgeInsets.all(2.sp),
-            //                           child: pw.Container(
-            //                             color:
-            //                                 PdfColor.fromInt(0xFFFFFFFF),
-            //                           ),
-            //                         ),
-            //                       ),
-            //                     ),
-            //               pw.Text(
-            //                 "US",
-            //               ),
-            //               pw.Spacer(),
-            //             ],
-            //           ),
-            //         ),
-            //         pw.Padding(
-            //           padding: pw.EdgeInsets.symmetric(
-            //               vertical: 20.h, horizontal: 10.w),
-            //           child: pw.Container(
-            //             height: 20.h,
-            //             child: pw.Text(
-            //               "${comDate.text}",
-            //             ),
-            //           ),
-            //         ),
-            //         pw.Padding(
-            //           padding: pw.EdgeInsets.symmetric(
-            //               vertical: 20.h, horizontal: 10.w),
-            //           child: pw.Container(
-            //             height: 20.h,
-            //             child: pw.Text(
-            //               "${instructorName.text}",
-            //             ),
-            //           ),
-            //         ),
-            //         pw.Padding(
-            //           padding: pw.EdgeInsets.symmetric(
-            //               vertical: 20.h, horizontal: 10.w),
-            //           child: pw.Container(
-            //             height: 20.h,
-            //             child: pw.Text(
-            //               "${instructorSign.text}",
-            //             ),
-            //           ),
-            //         ),
-            //         pw.Padding(
-            //           padding: pw.EdgeInsets.symmetric(
-            //               vertical: 20.h, horizontal: 10.w),
-            //           child: pw.Container(
-            //             height: 20.h,
-            //             child: pw.Text(
-            //               "${instructorCode.text}",
-            //             ),
-            //           ),
-            //         ),
-            //         pw.Padding(
-            //           padding: pw.EdgeInsets.symmetric(
-            //               vertical: 20.h, horizontal: 10.w),
-            //           child: pw.Container(
-            //             height: 20.h,
-            //             child: pw.Text(
-            //               "${instructorLis.text}",
-            //             ),
-            //           ),
-            //         ),
-            //       ],
-            //     ),
-            //   ],
-            // ),
-            // pw.Table(
-            //   defaultColumnWidth: pw.FixedColumnWidth(214.5.w),
-            //   border: pw.TableBorder.all(width: 1.w),
-            //   children: <pw.TableRow>[
-            //     pw_tableColumn17,
-            //   ],
-            // ),
-            // pw.Table(
-            //   defaultColumnWidth: pw.FixedColumnWidth(214.5.w),
-            //   border: pw.TableBorder.all(width: 1.w),
-            //   children: <pw.TableRow>[
-            //     pw_tableColumn18,
-            //   ],
-            // ),
-            // pw.Table(
-            //   defaultColumnWidth: pw.FixedColumnWidth(643.w),
-            //   border: pw.TableBorder.all(width: 1.w),
-            //   children: <pw.TableRow>[
-            //     pw_tableColumn19,
-            //   ],
-            // ),
-            // pw.Table(
-            //   defaultColumnWidth: pw.FixedColumnWidth(643.w),
-            //   border: pw.TableBorder.all(width: 1.w),
-            //   children: <pw.TableRow>[
-            //     pw_tableColumn20,
-            //   ],
-            // ),
-            //
+            pw.Table(
+                columnWidths: {
+                  0: pw.FlexColumnWidth(1),
+                  1: pw.FlexColumnWidth(1),
+                  2: pw.FlexColumnWidth(1),
+                  3: pw.FlexColumnWidth(1),
+                  4: pw.FlexColumnWidth(1),
+                  5: pw.FlexColumnWidth(1.5),
+                  6: pw.FlexColumnWidth(1),
+                },
+                border: pw.TableBorder.all(width: 1.w),
+                children: <pw.TableRow>[
+                  pw_tableColumn2,
+                ]),
+            pw.Table(
+              columnWidths: {
+                0: pw.FlexColumnWidth(1),
+                1: pw.FlexColumnWidth(1),
+                2: pw.FlexColumnWidth(1),
+                3: pw.FlexColumnWidth(1),
+                4: pw.FlexColumnWidth(1),
+                5: pw.FlexColumnWidth(1.5),
+                6: pw.FlexColumnWidth(1),
+              },
+              border: pw.TableBorder.all(width: 1.w),
+              children: <pw.TableRow>[
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            style: pw.TextStyle(fontSize: 8.sp),
+                            "1-",
+                          ),
+                          pw.Text("${sector1.text}",
+                              style: pw.TextStyle(fontSize: 8.sp)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Align(
+                      alignment: pw.Alignment.centerLeft,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 8.h, horizontal: 3.w),
+                        child: pw.Row(
+                          children: [
+                            pw.Text(
+                              "MS",
+                              style: pw.TextStyle(fontSize: 8.sp),
+                            ),
+                            pw.SizedBox(width: 4.w),
+                            pw.Text("${f1.text}",
+                                style: pw.TextStyle(fontSize: 8.sp)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${type1.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${pos1.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${date1.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${inName1.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${codeNo1.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            style: pw.TextStyle(fontSize: 8.sp),
+                            "2-",
+                          ),
+                          pw.Text("${sector2.text}",
+                              style: pw.TextStyle(fontSize: 8.sp)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Align(
+                      alignment: pw.Alignment.centerLeft,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 8.h, horizontal: 3.w),
+                        child: pw.Row(
+                          children: [
+                            pw.Text(
+                              "MS",
+                              style: pw.TextStyle(fontSize: 8.sp),
+                            ),
+                            pw.SizedBox(width: 4.w),
+                            pw.Text("${f2.text}",
+                                style: pw.TextStyle(fontSize: 8.sp)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${type2.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${pos2.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${date2.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${inName2.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${codeNo2.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            style: pw.TextStyle(fontSize: 8.sp),
+                            "3-",
+                          ),
+                          pw.Text("${sector3.text}",
+                              style: pw.TextStyle(fontSize: 8.sp)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Align(
+                      alignment: pw.Alignment.centerLeft,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 8.h, horizontal: 3.w),
+                        child: pw.Row(
+                          children: [
+                            pw.Text(
+                              "MS",
+                              style: pw.TextStyle(fontSize: 8.sp),
+                            ),
+                            pw.SizedBox(width: 4.w),
+                            pw.Text("${f3.text}",
+                                style: pw.TextStyle(fontSize: 8.sp)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${type3.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${pos3.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${date3.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${inName3.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${codeNo3.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            style: pw.TextStyle(fontSize: 8.sp),
+                            "4-",
+                          ),
+                          pw.Text("${sector4.text}",
+                              style: pw.TextStyle(fontSize: 8.sp)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Align(
+                      alignment: pw.Alignment.centerLeft,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 8.h, horizontal: 3.w),
+                        child: pw.Row(
+                          children: [
+                            pw.Text(
+                              "MS",
+                              style: pw.TextStyle(fontSize: 8.sp),
+                            ),
+                            pw.SizedBox(width: 4.w),
+                            pw.Text("${f4.text}",
+                                style: pw.TextStyle(fontSize: 8.sp)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${type4.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${pos4.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${date4.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${inName4.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${codeNo4.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            style: pw.TextStyle(fontSize: 8.sp),
+                            "5-",
+                          ),
+                          pw.Text("${sector5.text}",
+                              style: pw.TextStyle(fontSize: 8.sp)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Align(
+                      alignment: pw.Alignment.centerLeft,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 8.h, horizontal: 3.w),
+                        child: pw.Row(
+                          children: [
+                            pw.Text(
+                              "MS",
+                              style: pw.TextStyle(fontSize: 8.sp),
+                            ),
+                            pw.SizedBox(width: 4.w),
+                            pw.Text("${f5.text}",
+                                style: pw.TextStyle(fontSize: 8.sp)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${type5.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${pos5.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${date5.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${inName5.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${codeNo5.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            style: pw.TextStyle(fontSize: 8.sp),
+                            "6-",
+                          ),
+                          pw.Text("${sector6.text}",
+                              style: pw.TextStyle(fontSize: 8.sp)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Align(
+                      alignment: pw.Alignment.centerLeft,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 8.h, horizontal: 3.w),
+                        child: pw.Row(
+                          children: [
+                            pw.Text(
+                              "MS",
+                              style: pw.TextStyle(fontSize: 8.sp),
+                            ),
+                            pw.SizedBox(width: 4.w),
+                            pw.Text("${f6.text}",
+                                style: pw.TextStyle(fontSize: 8.sp)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${type6.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${pos6.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${date6.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${inName6.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${codeNo6.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            style: pw.TextStyle(fontSize: 8.sp),
+                            "7-",
+                          ),
+                          pw.Text("${sector7.text}",
+                              style: pw.TextStyle(fontSize: 8.sp)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Align(
+                      alignment: pw.Alignment.centerLeft,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 8.h, horizontal: 3.w),
+                        child: pw.Row(
+                          children: [
+                            pw.Text(
+                              "MS",
+                              style: pw.TextStyle(fontSize: 8.sp),
+                            ),
+                            pw.SizedBox(width: 4.w),
+                            pw.Text("${f7.text}",
+                                style: pw.TextStyle(fontSize: 8.sp)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${type7.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${pos7.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${date7.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${inName7.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${codeNo7.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            style: pw.TextStyle(fontSize: 8.sp),
+                            "8-",
+                          ),
+                          pw.Text("${sector8.text}",
+                              style: pw.TextStyle(fontSize: 8.sp)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Align(
+                      alignment: pw.Alignment.centerLeft,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 8.h, horizontal: 3.w),
+                        child: pw.Row(
+                          children: [
+                            pw.Text(
+                              "MS",
+                              style: pw.TextStyle(fontSize: 8.sp),
+                            ),
+                            pw.SizedBox(width: 4.w),
+                            pw.Text("${f8.text}",
+                                style: pw.TextStyle(fontSize: 8.sp)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${type8.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${pos8.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${date8.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${inName8.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${codeNo8.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            style: pw.TextStyle(fontSize: 8.sp),
+                            "9-",
+                          ),
+                          pw.Text("${sector9.text}",
+                              style: pw.TextStyle(fontSize: 8.sp)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Align(
+                      alignment: pw.Alignment.centerLeft,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 8.h, horizontal: 3.w),
+                        child: pw.Row(
+                          children: [
+                            pw.Text(
+                              "MS",
+                              style: pw.TextStyle(fontSize: 8.sp),
+                            ),
+                            pw.SizedBox(width: 4.w),
+                            pw.Text("${f9.text}",
+                                style: pw.TextStyle(fontSize: 8.sp)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${type9.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${pos9.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${date9.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${inName9.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${codeNo9.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            style: pw.TextStyle(fontSize: 8.sp),
+                            "10-",
+                          ),
+                          pw.Text("${sector10.text}",
+                              style: pw.TextStyle(fontSize: 8.sp)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Align(
+                      alignment: pw.Alignment.centerLeft,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 8.h, horizontal: 3.w),
+                        child: pw.Row(
+                          children: [
+                            pw.Text(
+                              "MS",
+                              style: pw.TextStyle(fontSize: 8.sp),
+                            ),
+                            pw.SizedBox(width: 4.w),
+                            pw.Text("${f10.text}",
+                                style: pw.TextStyle(fontSize: 8.sp)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${type10.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${pos10.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${date10.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${inName10.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${codeNo10.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            style: pw.TextStyle(fontSize: 8.sp),
+                            "11-",
+                          ),
+                          pw.Text("${sector11.text}",
+                              style: pw.TextStyle(fontSize: 8.sp)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Align(
+                      alignment: pw.Alignment.centerLeft,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 8.h, horizontal: 3.w),
+                        child: pw.Row(
+                          children: [
+                            pw.Text(
+                              "MS",
+                              style: pw.TextStyle(fontSize: 8.sp),
+                            ),
+                            pw.SizedBox(width: 4.w),
+                            pw.Text("${f11.text}",
+                                style: pw.TextStyle(fontSize: 8.sp)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${type11.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${pos11.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${date11.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${inName11.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${codeNo11.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            style: pw.TextStyle(fontSize: 8.sp),
+                            "12-",
+                          ),
+                          pw.Text("${sector12.text}",
+                              style: pw.TextStyle(fontSize: 8.sp)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Align(
+                      alignment: pw.Alignment.centerLeft,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 8.h, horizontal: 3.w),
+                        child: pw.Row(
+                          children: [
+                            pw.Text(
+                              "MS",
+                              style: pw.TextStyle(fontSize: 8.sp),
+                            ),
+                            pw.SizedBox(width: 4.w),
+                            pw.Text("${f12.text}",
+                                style: pw.TextStyle(fontSize: 8.sp)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${type12.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${pos12.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${date12.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${inName12.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${codeNo12.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            style: pw.TextStyle(fontSize: 8.sp),
+                            "13-",
+                          ),
+                          pw.Text("${sector13.text}",
+                              style: pw.TextStyle(fontSize: 8.sp)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Align(
+                      alignment: pw.Alignment.centerLeft,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 8.h, horizontal: 3.w),
+                        child: pw.Row(
+                          children: [
+                            pw.Text(
+                              "MS",
+                              style: pw.TextStyle(fontSize: 8.sp),
+                            ),
+                            pw.SizedBox(width: 4.w),
+                            pw.Text("${f13.text}",
+                                style: pw.TextStyle(fontSize: 8.sp)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${type13.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${pos13.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${date13.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${inName13.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${codeNo13.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            style: pw.TextStyle(fontSize: 8.sp),
+                            "14-",
+                          ),
+                          pw.Text("${sector14.text}",
+                              style: pw.TextStyle(fontSize: 8.sp)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Align(
+                      alignment: pw.Alignment.centerLeft,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 8.h, horizontal: 3.w),
+                        child: pw.Row(
+                          children: [
+                            pw.Text(
+                              "MS",
+                              style: pw.TextStyle(fontSize: 8.sp),
+                            ),
+                            pw.SizedBox(width: 4.w),
+                            pw.Text("${f14.text}",
+                                style: pw.TextStyle(fontSize: 8.sp)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${type14.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${pos14.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${date14.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${inName14.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${codeNo14.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            style: pw.TextStyle(fontSize: 8.sp),
+                            "15-",
+                          ),
+                          pw.Text("${sector15.text}",
+                              style: pw.TextStyle(fontSize: 8.sp)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Align(
+                      alignment: pw.Alignment.centerLeft,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 8.h, horizontal: 3.w),
+                        child: pw.Row(
+                          children: [
+                            pw.Text(
+                              "MS",
+                              style: pw.TextStyle(fontSize: 8.sp),
+                            ),
+                            pw.SizedBox(width: 4.w),
+                            pw.Text("${f15.text}",
+                                style: pw.TextStyle(fontSize: 8.sp)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${type15.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${pos15.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${date15.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${inName15.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${codeNo15.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            style: pw.TextStyle(fontSize: 8.sp),
+                            "16-",
+                          ),
+                          pw.Text("${sector16.text}",
+                              style: pw.TextStyle(fontSize: 8.sp)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Align(
+                      alignment: pw.Alignment.centerLeft,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 8.h, horizontal: 3.w),
+                        child: pw.Row(
+                          children: [
+                            pw.Text(
+                              "MS",
+                              style: pw.TextStyle(fontSize: 8.sp),
+                            ),
+                            pw.SizedBox(width: 4.w),
+                            pw.Text("${f16.text}",
+                                style: pw.TextStyle(fontSize: 8.sp)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${type16.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${pos16.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${date16.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${inName16.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 8.h, horizontal: 3.w),
+                      child: pw.Text("${codeNo16.text}",
+                          style: pw.TextStyle(fontSize: 8.sp)),
+                    ),
+                  ),
+                ]),
+              ],
+            ),
+            pw.Table(
+              columnWidths: {
+                0: pw.FlexColumnWidth(14),
+                1: pw.FlexColumnWidth(2),
+                2: pw.FlexColumnWidth(2),
+                3: pw.FlexColumnWidth(2),
+                4: pw.FlexColumnWidth(2),
+              },
+              border: pw.TableBorder.all(width: 1.w),
+              children: <pw.TableRow>[
+                pw_tableColumn1,
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 1.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            "1-",
+                            style: pw.TextStyle(fontSize: 8.sp),
+                          ),
+                          pw.SizedBox(width: 4.w),
+                          pw.Text(
+                              "Preflight emergency equipment check . location/operation",
+                              style: pw.TextStyle(fontSize: 8.sp))
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${us1.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${s11.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${s21.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text(
+                          "${s31.text}",
+                          style: pw.TextStyle(fontSize: 8.sp),
+                        ),
+                      ),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 1.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            "2-",
+                            style: pw.TextStyle(fontSize: 8.sp),
+                          ),
+                          pw.SizedBox(width: 4.w),
+                          pw.Text("Exit operation",
+                              style: pw.TextStyle(fontSize: 8.sp))
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${us2.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${s12.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${s22.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text(
+                          "${s32.text}",
+                          style: pw.TextStyle(fontSize: 8.sp),
+                        ),
+                      ),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 1.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            "3-",
+                            style: pw.TextStyle(fontSize: 8.sp),
+                          ),
+                          pw.SizedBox(width: 4.w),
+                          pw.Text(
+                              "Galley. electrical equipment and Circuit breakers",
+                              style: pw.TextStyle(fontSize: 8.sp))
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${us3.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${s13.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${s23.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text(
+                          "${s33.text}",
+                          style: pw.TextStyle(fontSize: 8.sp),
+                        ),
+                      ),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 1.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            "4-",
+                            style: pw.TextStyle(fontSize: 8.sp),
+                          ),
+                          pw.SizedBox(width: 4.w),
+                          pw.Text("Intercommunication",
+                              style: pw.TextStyle(fontSize: 8.sp))
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${us4.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${s14.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${s24.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text(
+                          "${s34.text}",
+                          style: pw.TextStyle(fontSize: 8.sp),
+                        ),
+                      ),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 1.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            "5-",
+                            style: pw.TextStyle(fontSize: 8.sp),
+                          ),
+                          pw.SizedBox(width: 4.w),
+                          pw.Text("Crew resource management & GSOP",
+                              style: pw.TextStyle(fontSize: 8.sp))
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${us5.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${s15.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${s25.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text(
+                          "${s35.text}",
+                          style: pw.TextStyle(fontSize: 8.sp),
+                        ),
+                      ),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 1.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            "6-",
+                            style: pw.TextStyle(fontSize: 8.sp),
+                          ),
+                          pw.SizedBox(width: 4.w),
+                          pw.Text("Control Panels",
+                              style: pw.TextStyle(fontSize: 8.sp))
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${us6.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${s16.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${s26.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text(
+                          "${s36.text}",
+                          style: pw.TextStyle(fontSize: 8.sp),
+                        ),
+                      ),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 1.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            "7-",
+                            style: pw.TextStyle(fontSize: 8.sp),
+                          ),
+                          pw.SizedBox(width: 4.w),
+                          pw.Text(
+                              "Passenger handling (disruptive passenger awareness)",
+                              style: pw.TextStyle(fontSize: 8.sp))
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${us7.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${s17.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${s27.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text(
+                          "${s37.text}",
+                          style: pw.TextStyle(fontSize: 8.sp),
+                        ),
+                      ),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 1.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            "8-",
+                            style: pw.TextStyle(fontSize: 8.sp),
+                          ),
+                          pw.SizedBox(width: 4.w),
+                          pw.Text("Cockpit door . window . seat operations",
+                              style: pw.TextStyle(fontSize: 8.sp))
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${us8.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${s18.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${s28.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text(
+                          "${s38.text}",
+                          style: pw.TextStyle(fontSize: 8.sp),
+                        ),
+                      ),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 1.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            "9-",
+                            style: pw.TextStyle(fontSize: 8.sp),
+                          ),
+                          pw.SizedBox(width: 4.w),
+                          pw.Text("First aid",
+                              style: pw.TextStyle(fontSize: 8.sp))
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${us9.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${s19.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${s29.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text(
+                          "${s39.text}",
+                          style: pw.TextStyle(fontSize: 8.sp),
+                        ),
+                      ),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 1.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            "10-",
+                            style: pw.TextStyle(fontSize: 8.sp),
+                          ),
+                          pw.SizedBox(width: 4.w),
+                          pw.Text("Dangerous goods awareness",
+                              style: pw.TextStyle(fontSize: 8.sp))
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${us10.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${s110.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${s210.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text(
+                          "${s310.text}",
+                          style: pw.TextStyle(fontSize: 8.sp),
+                        ),
+                      ),
+                    ),
+                  ),
+                ]),
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Container(
+                    height: 10.h,
+                    child: pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 1.h, horizontal: 3.w),
+                      child: pw.Row(
+                        children: [
+                          pw.Text(
+                            "11-",
+                            style: pw.TextStyle(fontSize: 8.sp),
+                          ),
+                          pw.SizedBox(width: 4.w),
+                          pw.Text("Drills", style: pw.TextStyle(fontSize: 8.sp))
+                        ],
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${us11.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${s111.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text("${s211.text}",
+                            style: pw.TextStyle(fontSize: 8.sp)),
+                      ),
+                    ),
+                  ),
+                  pw.Center(
+                    child: pw.Container(
+                      height: 10.h,
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        child: pw.Text(
+                          "${s311.text}",
+                          style: pw.TextStyle(fontSize: 8.sp),
+                        ),
+                      ),
+                    ),
+                  ),
+                ]),
+              ],
+            ),
+            pw.Table(
+              columnWidths: {
+                0: pw.FlexColumnWidth(1),
+                1: pw.FlexColumnWidth(1),
+                2: pw.FlexColumnWidth(1),
+                3: pw.FlexColumnWidth(1),
+                4: pw.FlexColumnWidth(1),
+                5: pw.FlexColumnWidth(1),
+              },
+              border: pw.TableBorder.all(width: 1.w),
+              children: <pw.TableRow>[
+                pw_tableColumn15,
+              ],
+            ),
+            pw.Table(
+              columnWidths: {
+                0: pw.FlexColumnWidth(1),
+                1: pw.FlexColumnWidth(1),
+                2: pw.FlexColumnWidth(1),
+                3: pw.FlexColumnWidth(1),
+                4: pw.FlexColumnWidth(1),
+                5: pw.FlexColumnWidth(1),
+              },
+              border: pw.TableBorder.all(width: 1.w),
+              children: <pw.TableRow>[
+                pw.TableRow(
+                  children: <pw.Widget>[
+                    pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          horizontal: 4.w, vertical: 4.h),
+                      child: pw.SizedBox(
+                        height: 20.h,
+                        child: pw.Row(
+                          children: [
+                            pw.Spacer(),
+                            value6.toString() == "true"
+                                ? pw.Padding(
+                                    padding: pw.EdgeInsets.symmetric(
+                                        horizontal: 2.w),
+                                    child: pw.Container(
+                                      decoration: pw.BoxDecoration(
+                                        color: PdfColor.fromInt(0xFF000000),
+                                        borderRadius:
+                                            pw.BorderRadius.circular(2.sp),
+                                      ),
+                                      width: 9.w,
+                                      height: 9.w,
+                                      child: pw.Padding(
+                                        padding: pw.EdgeInsets.all(1.sp),
+                                        child: pw.Container(
+                                            color: PdfColor.fromInt(0xFFFFFFFF),
+                                            width: 8.w,
+                                            height: 8.w,
+                                            child: pw.Padding(
+                                              padding: pw.EdgeInsets.all(1.sp),
+                                              child: pw.Container(
+                                                width: 6.w,
+                                                height: 6.w,
+                                                color: PdfColor.fromInt(
+                                                    0xFF000000),
+                                              ),
+                                            )),
+                                      ),
+                                    ),
+                                  )
+                                : pw.Padding(
+                                    padding: pw.EdgeInsets.symmetric(
+                                        horizontal: 2.w),
+                                    child: pw.Container(
+                                      decoration: pw.BoxDecoration(
+                                        color: PdfColor.fromInt(0xFF000000),
+                                        borderRadius:
+                                            pw.BorderRadius.circular(2.sp),
+                                      ),
+                                      width: 9.w,
+                                      height: 9.w,
+                                      child: pw.Padding(
+                                        padding: pw.EdgeInsets.all(1.sp),
+                                        child: pw.Container(
+                                          color: PdfColor.fromInt(0xFFFFFFFF),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                            pw.Text(
+                              "S",
+                            ),
+                            pw.Spacer(),
+                            value7 == true
+                                ? pw.Padding(
+                                    padding: pw.EdgeInsets.symmetric(
+                                        horizontal: 2.w),
+                                    child: pw.Container(
+                                      decoration: pw.BoxDecoration(
+                                        color: PdfColor.fromInt(0xFF000000),
+                                        borderRadius:
+                                            pw.BorderRadius.circular(2.sp),
+                                      ),
+                                      width: 9.w,
+                                      height: 9.w,
+                                      child: pw.Padding(
+                                        padding: pw.EdgeInsets.all(1.sp),
+                                        child: pw.Container(
+                                            color: PdfColor.fromInt(0xFFFFFFFF),
+                                            width: 8.w,
+                                            height: 8.w,
+                                            child: pw.Padding(
+                                              padding: pw.EdgeInsets.all(1.sp),
+                                              child: pw.Container(
+                                                width: 6.w,
+                                                height: 6.w,
+                                                color: PdfColor.fromInt(
+                                                    0xFF000000),
+                                              ),
+                                            )),
+                                      ),
+                                    ),
+                                  )
+                                : pw.Padding(
+                                    padding: pw.EdgeInsets.symmetric(
+                                        horizontal: 2.w),
+                                    child: pw.Container(
+                                      decoration: pw.BoxDecoration(
+                                        color: PdfColor.fromInt(0xFF000000),
+                                        borderRadius:
+                                            pw.BorderRadius.circular(2.sp),
+                                      ),
+                                      width: 9.w,
+                                      height: 9.w,
+                                      child: pw.Padding(
+                                        padding: pw.EdgeInsets.all(1.sp),
+                                        child: pw.Container(
+                                          color: PdfColor.fromInt(0xFFFFFFFF),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                            pw.Text(
+                              "US",
+                            ),
+                            pw.Spacer(),
+                          ],
+                        ),
+                      ),
+                    ),
+                    pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 4.h, horizontal: 10.w),
+                      child: pw.Container(
+                        height: 20.h,
+                        child: pw.Text("${comDate.text}",
+                            style: pw.TextStyle(fontSize: 9.sp)),
+                      ),
+                    ),
+                    pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 4.h, horizontal: 10.w),
+                      child: pw.Container(
+                        height: 20.h,
+                        child: pw.Text("${instructorName.text}",
+                            style: pw.TextStyle(fontSize: 9.sp)),
+                      ),
+                    ),
+                    pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 4.h, horizontal: 10.w),
+                      child: pw.Container(
+                        height: 20.h,
+                        child: pw.Text("${instructorSign.text}",
+                            style: pw.TextStyle(fontSize: 9.sp)),
+                      ),
+                    ),
+                    pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 4.h, horizontal: 10.w),
+                      child: pw.Container(
+                        height: 20.h,
+                        child: pw.Text(
+                          "${instructorCode.text}",
+                          style: pw.TextStyle(fontSize: 9.sp),
+                        ),
+                      ),
+                    ),
+                    pw.Padding(
+                      padding: pw.EdgeInsets.symmetric(
+                          vertical: 4.h, horizontal: 10.w),
+                      child: pw.Container(
+                        height: 20.h,
+                        child: pw.Text("${instructorLis.text}",
+                            style: pw.TextStyle(fontSize: 9.sp)),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            pw.Table(
+              columnWidths: {
+                0: pw.FlexColumnWidth(1),
+                1: pw.FlexColumnWidth(1),
+                2: pw.FlexColumnWidth(1),
+                3: pw.FlexColumnWidth(1),
+                4: pw.FlexColumnWidth(1),
+                5: pw.FlexColumnWidth(1),
+              },
+              border: pw.TableBorder.all(width: 1.w),
+              children: <pw.TableRow>[
+                pw_tableColumn17,
+              ],
+            ),
+            pw.Table(
+              columnWidths: {
+                0: pw.FlexColumnWidth(1),
+                1: pw.FlexColumnWidth(1),
+                2: pw.FlexColumnWidth(1),
+                3: pw.FlexColumnWidth(1),
+                4: pw.FlexColumnWidth(1),
+                5: pw.FlexColumnWidth(1),
+              },
+              border: pw.TableBorder.all(width: 1.w),
+              children: <pw.TableRow>[
+                pw.TableRow(children: <pw.Widget>[
+                  pw.Padding(
+                    padding: pw.EdgeInsets.symmetric(
+                        vertical: 4.h, horizontal: 10.w),
+                    child: pw.Container(
+                      height: 20.h,
+                      child: pw.Text(
+                        "${traineeSign.text}",
+                        style: pw.TextStyle(fontSize: 9.sp),
+                      ),
+                    ),
+                  ),
+                  pw.Padding(
+                    padding: pw.EdgeInsets.symmetric(
+                        vertical: 4.h, horizontal: 10.w),
+                    child: pw.Container(
+                      height: 20.h,
+                      child: pw.Text("${mDate.text}",
+                          style: pw.TextStyle(fontSize: 9.sp)),
+                    ),
+                  ),
+                  pw.Padding(
+                    padding: pw.EdgeInsets.symmetric(
+                        vertical: 4.h, horizontal: 10.w),
+                    child: pw.Container(
+                      height: 20.h,
+                      child: pw.Text("${examinerName.text}",
+                          style: pw.TextStyle(fontSize: 9.sp)),
+                    ),
+                  ),
+                  pw.Padding(
+                    padding: pw.EdgeInsets.symmetric(
+                        vertical: 4.h, horizontal: 10.w),
+                    child: pw.Container(
+                      height: 20.h,
+                      child: pw.Text("${examinerSign.text}",
+                          style: pw.TextStyle(fontSize: 9.sp)),
+                    ),
+                  ),
+                  pw.Padding(
+                    padding: pw.EdgeInsets.symmetric(
+                        vertical: 4.h, horizontal: 10.w),
+                    child: pw.Container(
+                      height: 20.h,
+                      child: pw.Text("${examinerCode.text}",
+                          style: pw.TextStyle(fontSize: 9.sp)),
+                    ),
+                  ),
+                  pw.Padding(
+                    padding: pw.EdgeInsets.symmetric(
+                        vertical: 4.h, horizontal: 10.w),
+                    child: pw.Container(
+                      height: 20.h,
+                      child: pw.Text("${examinerLis.text}",
+                          style: pw.TextStyle(fontSize: 9.sp)),
+                    ),
+                  ),
+                ]),
+              ],
+            ),
+            pw.Table(
+              columnWidths: {
+                0: pw.FlexColumnWidth(1),
+                1: pw.FlexColumnWidth(1),
+              },
+              border: pw.TableBorder.all(width: 1.w),
+              children: <pw.TableRow>[
+                pw_tableColumn19,
+              ],
+            ),
+            pw.Table(
+              defaultColumnWidth: pw.FixedColumnWidth(643.w),
+              border: pw.TableBorder.all(width: 1.w),
+              children: <pw.TableRow>[
+                pw.TableRow(
+                  children: <pw.Widget>[
+                    pw.Center(
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            horizontal: 3.w, vertical: 8.h),
+                        child: pw.Container(
+                          child: pw.Container(
+                            height: 10.h,
+                            child: pw.Text("${gMFT.text}",
+                                style: pw.TextStyle(fontSize: 9.sp)),
+                          ),
+                        ),
+                      ),
+                    ),
+                    pw.Center(
+                      child: pw.Padding(
+                        padding: pw.EdgeInsets.symmetric(
+                            vertical: 8.h, horizontal: 3.w),
+                        child: pw.Container(
+                          height: 10.h,
+                          child: pw.Text("${lastDate.text}",
+                              style: pw.TextStyle(fontSize: 9.sp)),
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ],
         );
       },
@@ -4062,18 +6396,18 @@ class _SeeAndPrintFormState extends State<SeeAndPrintForm> {
       children: <Widget>[
         Center(
           child: Padding(
-            padding: EdgeInsets.all(10.sp),
+            padding: EdgeInsets.only(top: 15.sp),
             child: Container(
-              height: 20.h,
+              height: 30.h,
               child: CustomFormField(text: "${gMFT.text}", controller: gMFT),
             ),
           ),
         ),
         Center(
           child: Padding(
-            padding: EdgeInsets.all(15.sp),
+            padding: EdgeInsets.only(top: 15.sp),
             child: Container(
-              height: 20.h,
+              height: 30.h,
               child: CustomFormField(
                   text: "${lastDate.text}", controller: lastDate),
             ),
